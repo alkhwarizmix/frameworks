@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<flexLibProperties includeAllClasses="false" useMultiPlatformConfig="false" version="3">
+  <includeClasses>
+    <classEntry path="dz.alkhwarizmix.framework.flex.controller.AlKhwarizmixBlazeDSGetDataCommand"/>
+    <classEntry path="dz.alkhwarizmix.framework.flex.controller.AlKhwarizmixMacroCommand"/>
+    <classEntry path="dz.alkhwarizmix.framework.flex.controller.AlKhwarizmixSimpleCommand"/>
+    <classEntry path="dz.alkhwarizmix.framework.flex.controller.AlKhwarizmixWebGetDataCommand"/>
+    <classEntry path="dz.alkhwarizmix.framework.flex.errors.AlKhwarizmixError"/>
+    <classEntry path="dz.alkhwarizmix.framework.flex.errors.AlKhwarizmixMissingImplError"/>
+    <classEntry path="dz.alkhwarizmix.framework.flex.errors.AlKhwarizmixTypeError"/>
+    <classEntry path="dz.alkhwarizmix.framework.flex.facade.AlKhwarizmixFacade"/>
+    <classEntry path="dz.alkhwarizmix.framework.flex.interfaces.IAlKhwarizmixCommand"/>
+    <classEntry path="dz.alkhwarizmix.framework.flex.interfaces.IAlKhwarizmixMediator"/>
+    <classEntry path="dz.alkhwarizmix.framework.flex.interfaces.IAlKhwarizmixModule"/>
+    <classEntry path="dz.alkhwarizmix.framework.flex.interfaces.IAlKhwarizmixProxy"/>
+    <classEntry path="dz.alkhwarizmix.framework.flex.logging.AlKhwarizmixLog"/>
+    <classEntry path="dz.alkhwarizmix.framework.flex.logging.AlKhwarizmixLogger"/>
+    <classEntry path="dz.alkhwarizmix.framework.flex.logging.IAlKhwarizmixLogger"/>
+    <classEntry path="dz.alkhwarizmix.framework.flex.messaging.AlKhwarizmixConsumer"/>
+    <classEntry path="dz.alkhwarizmix.framework.flex.messaging.AlKhwarizmixProducer"/>
+    <classEntry path="dz.alkhwarizmix.framework.flex.model.AlKhwarizmixProxy"/>
+    <classEntry path="dz.alkhwarizmix.framework.flex.model.AlKhwarizmixSuperProxy"/>
+    <classEntry path="dz.alkhwarizmix.framework.flex.model.vo.AlKhwarizmixVO"/>
+    <classEntry path="dz.alkhwarizmix.framework.flex.modules.AlKhwarizmixModule"/>
+    <classEntry path="dz.alkhwarizmix.framework.flex.rpc.remoting.AlKhwarizmixRemoteObject"/>
+    <classEntry path="dz.alkhwarizmix.framework.flex.utils.ForEachAsync"/>
+    <classEntry path="dz.alkhwarizmix.framework.flex.view.AlKhwarizmixMediator"/>
+    <classEntry path="dz.alkhwarizmix.framework.flex.view.AlkhwarizmixDataListMediator"/>
+    <classEntry path="dz.alkhwarizmix.framework.flex.view.ModuleJunctionMediator"/>
+    <classEntry path="dz.alkhwarizmix.framework.flex.view.components.AlKhwarizmixDataListCanvas"/>
+    <classEntry path="dz.alkhwarizmix.framework.flex.view.containers.AlKhwarizmixCanvas"/>
+    <classEntry path="dz.alkhwarizmix.framework.flex.view.containers.AlKhwarizmixMDICanvas"/>
+    <classEntry path="dz.alkhwarizmix.framework.flex.view.containers.AlKhwarizmixMDIWindow"/>
+    <classEntry path="dz.alkhwarizmix.framework.flex.view.containers.AlKhwarizmixVBox"/>
+    <classEntry path="dz.alkhwarizmix.framework.flex.view.controls.AlKhwarizmixButton"/>
+    <classEntry path="dz.alkhwarizmix.framework.flex.view.controls.AlKhwarizmixCheckBox"/>
+    <classEntry path="dz.alkhwarizmix.framework.flex.view.controls.AlKhwarizmixDataGrid"/>
+    <classEntry path="dz.alkhwarizmix.framework.flex.view.controls.AlKhwarizmixLabel"/>
+    <classEntry path="dz.alkhwarizmix.framework.flex.view.controls.AlKhwarizmixTextInput"/>
+  </includeClasses>
+  <includeResources/>
+  <namespaceManifests/>
+</flexLibProperties>

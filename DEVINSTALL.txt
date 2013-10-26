@@ -1,0 +1,72 @@
+01234567890123456789012345678901234567890123456789012345678901234567890123456789
+----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- --
+----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- --
+----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- --
+
+----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- --
+INSTALL
+----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- --
+-----
+install eclipse
+http://www.eclipse.org/downloads/
+-----
+Install GitHub
+https://github.com
+-----
+Install Maven 3.0.5
+mvn --version
+Apache Maven 3.0.5
+-----
+Install Flash Player Projector
+http://www.adobe.com/support/flashplayer/downloads.html
+-----
+Install Tomcat 7
+http://tomcat.apache.org/download-70.cgi
+-----
+Install JMeter
+http://jmeter.apache.org/download_jmeter.cgi
+-----
+
+
+----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- --
+SETUP
+----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- --
+-----
+Terminal 120 Blue
+-----
+
+
+----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- --
+MVN BUILD
+----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- --
+-----
+cd ~/Developer/git/alkhwarizmix/frameworks/source/
+mvn -f alkhwarizmix-common.pom.xml clean install
+-----
+cd ~/Developer/git/alkhwarizmix/frameworks/source/
+mvn -f install-PureMVC_AS3_MultiCore_Framework.pom.xml antrun:run install:install-file -DgroupId=org.puremvc -DartifactId=PureMVC_AS3_MultiCore_Framework -Dversion=1.0.5 -Dpackaging=swc -Dfile=target/download/PureMVC_AS3_MultiCore_1_0_5.swc
+-----
+cd ~/Developer/git/alkhwarizmix/frameworks/source/alkhwarizmixFlexFramework
+mvn clean install -Dflex.flashPlayer.command="/Users/faresbelhaouas/Developer/tools/Flash Player.app/Contents/MacOS/Flash Player"
+-----
+cd ~/Developer/git/alkhwarizmix/moqawalati/source
+mvn clean install -Dflex.flashPlayer.command="/Users/faresbelhaouas/Developer/tools/Flash Player.app/Contents/MacOS/Flash Player"
+-----
+
+
+----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- --
+RUN APP
+----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- --
+Startup Tomcat:
+~/Developer/tools/tomcat/bin/startup.sh
+tail -f ~/Developer/tools/tomcat/logs/catalina.out
+TEST: http://localhost:8080
+cp ~/.m2/repository/dz/alkhwarizmix/moqawalati/moqawalatiWeb/1.0.0-SNAPSHOT/moqawalatiWeb-1.0.0-SNAPSHOT.war ~/tools/apache-tomcat-7.0.42/webapps/
+TEST: http://localhost:8080/moqawalatiWeb-1.0.0-SNAPSHOT/management/business/client/list
+
+~/Developer/tools/tomcat/bin/shutdown.sh
+
+----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- --
+----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- --
+----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- --
+01234567890123456789012345678901234567890123456789012345678901234567890123456789

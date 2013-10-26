@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+////////////////////////////////////////////////////////////////////////////////
+//  بسم الله الرحمن الرحيم
+//
+//  حقوق التأليف والنشر ١٤٣٤ هجري، فارس بلحواس (Copyright 2013 Fares Belhaouas)  
+//  كافة الحقوق محفوظة (All Rights Reserved)
+//
+//  NOTICE: Fares Belhaouas permits you to use, modify, and distribute this file
+//  in accordance with the terms of the license agreement accompanying it.
+//
+////////////////////////////////////////////////////////////////////////////////
+--><!---
+/**
+ *  <p>
+ *  TODO: ASDOC
+ *  </p>
+ * 
+ *  @author فارس بلحواس (Fares Belhaouas)
+ *  @since  ١٦ شوال ١٤٣٤ (August 22, 2013)
+ *  @since  ٢٠ ذو الحجة ١٤٣٤ (October 25, 2013)
+ */
+-->
+
+<mx:Canvas xmlns:mx="library://ns.adobe.com/flex/mx"
+	xmlns:fx="http://ns.adobe.com/mxml/2009"
+	xmlns:s="library://ns.adobe.com/flex/spark" 
+	xmlns:local="*"
+	added="this_addedHandler(event)"
+	creationComplete="this_creationCompleteHandler(event)"
+	removed="this_removedHandler(event)"
+	>
+	
+	<fx:Declarations>
+		<!-- Placer ici les éléments non visuels (services et objets de valeur, par exemple). -->
+	</fx:Declarations>
+	
+	<fx:Script>
+	<![CDATA[
+		import dz.alkhwarizmix.framework.flex.logging.AlKhwarizmixLog;
+		import dz.alkhwarizmix.framework.flex.logging.IAlKhwarizmixLogger;
+		
+		import mx.events.FlexEvent;
+		
+		// include "./core/Version.as";
+		
+		//--------------------------------------------------------------------------
+		//
+		//  Constants
+		//
+		//--------------------------------------------------------------------------
+		
+		/**
+		 * The Logger
+		 */
+		private static const LOG:IAlKhwarizmixLogger = AlKhwarizmixLog.getLogger(AlKhwarizmixComponent);
+		
+		//--------------------------------------------------------------------------
+		//
+		//  Event handlers
+		//
+		//--------------------------------------------------------------------------
+		
+		/**
+		 * @private
+		 */
+		private function button1_clickHandler(event:MouseEvent):void
+		{
+			// TODO Auto-generated method stub
+		}
+		
+		/**
+		 * @private
+		 */
+		private function this_addedHandler(event:Event):void
+		{
+			// TODO Auto-generated method stub
+		}
+		
+		/**
+		 * @private
+		 */
+		private function this_creationCompleteHandler(event:FlexEvent):void
+		{
+			// TODO Auto-generated method stub
+		}
+		
+		/**
+		 * @private
+		 */
+		private function this_removedHandler(event:Event):void
+		{
+			// TODO Auto-generated method stub
+		}
+		
+	]]>
+	</fx:Script>
+	
+	<mx:Button
+		id="button1"
+		click="button1_clickHandler(event)"/>
+</mx:Canvas>

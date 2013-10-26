@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+////////////////////////////////////////////////////////////////////////////////
+//  بسم الله الرحمن الرحيم
+//
+//  حقوق التأليف والنشر ١٤٣٤ هجري، فارس بلحواس (Copyright 2013 Fares Belhaouas)  
+//  كافة الحقوق محفوظة (All Rights Reserved)
+//
+//  NOTICE: Fares Belhaouas permits you to use, modify, and distribute this file
+//  in accordance with the terms of the license agreement accompanying it.
+//
+////////////////////////////////////////////////////////////////////////////////
+--><!---
+/**
+ *  <p>
+ *  TODO:
+ *  </p>
+ * 
+ *  @author فارس بلحواس (Fares Belhaouas)
+ *  @since ٠٢ ذو القعدة ١٤٣٤ (September 08, 2013)
+ */
+-->
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>dz.alkhwarizmix</groupId>
+		<artifactId>alkhwarizmix-common</artifactId>
+		<version>1.0.0.1</version>
+	</parent>
+
+	<groupId>dz.alkhwarizmix.framework</groupId>
+	<artifactId>AlkhwarizmixFlexFramework</artifactId>
+	<version>1.0.0.1</version>
+	<packaging>swc</packaging>
+	<name>AlkhwarizmixFlexFramework Flex Maven</name>
+
+	<build>
+		<sourceDirectory>src/main/flex</sourceDirectory>
+		<testSourceDirectory>src/test/flex</testSourceDirectory>
+
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-resources-plugin</artifactId>
+				<version>2.4.3</version>
+				<configuration>
+					<encoding>UTF-8</encoding>
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>org.sonatype.flexmojos</groupId>
+				<artifactId>flexmojos-maven-plugin</artifactId>
+
+				<configuration>
+					<includeClasses>
+						<scan>
+							<includes>
+								<include>**.*</include>
+							</includes>
+							<excludes>
+								<exclude>dz.alkhwarizmix.framework.flex.core.Version</exclude>
+								<exclude>dz.alkhwarizmix.templates.flex.*</exclude>
+							</excludes>
+						</scan>
+					</includeClasses>
+
+					<includeTestFiles>
+						<includeTestFile>*TestCase.as</includeTestFile>
+					</includeTestFiles>
+
+					<excludeTestFiles>
+						<exclude>dz/alkhwarizmix/framework/flex/testutils/*</exclude>
+						<exclude>dz/alkhwarizmix/framework/flex/view/containers/AlKhwarizmixMDIWindowTestCase.as</exclude>
+					</excludeTestFiles>
+
+					<coverageExclusions>
+						<coverageExclusion>**/dz/alkhwarizmix/framework/flex/core/Version.as</coverageExclusion>
+					</coverageExclusions>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.puremvc</groupId>
+			<artifactId>PureMVC_AS3_MultiCore_Framework</artifactId>
+			<version>1.0.5</version>
+			<type>swc</type>
+			<scope>merged</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>com.google.code.flexlib</groupId>
+			<artifactId>flexlib</artifactId>
+			<version>2.6-M2</version>
+			<type>swc</type>
+			<scope>merged</scope>
+		</dependency>
+	</dependencies>
+</project>

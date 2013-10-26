@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+////////////////////////////////////////////////////////////////////////////////
+//  بسم الله الرحمن الرحيم
+//
+//  حقوق التأليف والنشر ١٤٣٤ هجري، فارس بلحواس (Copyright 2013 Fares Belhaouas)  
+//  كافة الحقوق محفوظة (All Rights Reserved)
+//
+//  NOTICE: Fares Belhaouas permits you to use, modify, and distribute this file
+//  in accordance with the terms of the license agreement accompanying it.
+//
+////////////////////////////////////////////////////////////////////////////////
+--><!---
+/**
+ *  <p>
+ *  TODO:
+ *  </p>
+ * 
+ *  @author فارس بلحواس (Fares Belhaouas)
+ *  @since  ٢٠ ذو الحجة ١٤٣٤ (October 25, 2013)
+ */
+-->
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<prerequisites>
+		<maven>3.0.3</maven>
+	</prerequisites>
+
+	<groupId>dz.alkhwarizmix</groupId>
+	<artifactId>alkhwarizmix-common</artifactId>
+	<version>1.0.0.1</version>
+	<packaging>pom</packaging>
+
+	<name>Alkhwarizmix Maven</name>
+	<description></description>
+
+	<organization>
+		<name>Alkhwarizmix Inc.</name>
+		<url>dz.alkhwarizmix.com</url>
+	</organization>
+
+	<developers>
+		<developer>
+			<id>fares.belhaouas</id>
+			<name>fares.belhaouas</name>
+			<roles>
+				<role>Owner</role>
+			</roles>
+		</developer>
+	</developers>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<flexmojos.version>4.2-beta</flexmojos.version>
+		<flex.version>4.5.1.21328</flex.version>
+		<flexunit.version>4.0-rc-1</flexunit.version>
+	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>com.adobe.flex.framework</groupId>
+			<artifactId>flex-framework</artifactId>
+			<version>${flex.version}</version>
+			<type>pom</type>
+		</dependency>
+
+		<dependency>
+			<groupId>com.adobe.flexunit</groupId>
+			<artifactId>flexunit</artifactId>
+			<version>${flexunit.version}</version>
+			<type>swc</type>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<groupId>org.sonatype.flexmojos</groupId>
+					<artifactId>flexmojos-maven-plugin</artifactId>
+					<version>${flexmojos.version}</version>
+					<extensions>true</extensions>
+
+					<configuration>
+						<storepass />
+						<optimize>true</optimize>
+						<headlessServer>true</headlessServer>
+						<verboseStacktraces>true</verboseStacktraces>
+						<linkReportAttach>true</linkReportAttach>
+						<debug>true</debug>
+
+						<compilerWarnings>
+							<warn-no-constructor>false</warn-no-constructor>
+						</compilerWarnings>
+
+						<themes>
+							<theme>${settings.localRepository}/com/adobe/flex/framework/framework/${flex.version}/configs_zip/themes/Spark/spark.css</theme>
+						</themes>
+
+						<coverage>true</coverage>
+						<coverageProvider>cobertura</coverageProvider>
+						<coverageReportFormat>
+							<param>xml</param>
+						</coverageReportFormat>
+					</configuration>
+
+					<dependencies>
+						<dependency>
+							<groupId>com.adobe.flex</groupId>
+							<artifactId>compiler</artifactId>
+							<version>${flex.version}</version>
+							<type>pom</type>
+						</dependency>
+					</dependencies>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+	</build>
+
+	<!-- Ideally this would go into your ~/.m2/settings.xml file -->
+	<repositories>
+		<repository>
+			<id>flex-mojos-repository</id>
+			<url>http://repository.sonatype.org/content/groups/flexgroup</url>
+		</repository>
+	</repositories>
+
+	<pluginRepositories>
+		<pluginRepository>
+			<id>flex-mojos-plugin-repository</id>
+			<url>http://repository.sonatype.org/content/groups/flexgroup</url>
+		</pluginRepository>
+	</pluginRepositories>
+</project>

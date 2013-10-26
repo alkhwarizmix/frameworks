@@ -1,0 +1,5 @@
+**/*.swc
+**/target/**
+source/alkhwarizmixFlexFramework/bin/**
+source/alkhwarizmixFlexFramework/target/**
+source/target/**

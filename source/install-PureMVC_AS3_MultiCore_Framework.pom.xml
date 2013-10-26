@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+////////////////////////////////////////////////////////////////////////////////
+//  بسم الله الرحمن الرحيم
+//
+//  حقوق التأليف والنشر ١٤٣٤ هجري، فارس بلحواس (Copyright 2013 Fares Belhaouas)  
+//  كافة الحقوق محفوظة (All Rights Reserved)
+//
+//  NOTICE: Fares Belhaouas permits you to use, modify, and distribute this file
+//  in accordance with the terms of the license agreement accompanying it.
+//
+////////////////////////////////////////////////////////////////////////////////
+--><!---
+/**
+ *  <p>
+ *  TODO: ASDOC
+ *  </p>
+ * 
+ *  @author فارس بلحواس (Fares Belhaouas)
+ *  @since  ١٢ ذو القعدة ١٤٣٤ (September 17, 2013)
+ */
+-->
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>dz.alkhwarizmix</groupId>
+		<artifactId>alkhwarizmix-common</artifactId>
+		<version>1.0.0.1</version>
+	</parent>
+
+	<groupId>dz.alkhwarizmix</groupId>
+	<artifactId>Install-PureMVC_AS3_MultiCore_Framework</artifactId>
+	<version>1.0.0.1</version>
+	<name>Install-PureMVC_AS3_MultiCore_Framework Maven</name>
+
+	<build>
+		<plugins>
+			<plugin>
+				<artifactId>maven-antrun-plugin</artifactId>
+				<version>1.7</version>
+				<executions>
+					<execution>
+						<id>default-cli</id>
+						<configuration>
+							<target>
+								<!-- download file -->
+								<copy todir="${project.build.directory}/download/" flatten="true">
+									<resources>
+										<url
+											url="https://github.com/PureMVC/puremvc-as3-multicore-framework/raw/master/bin/PureMVC_AS3_MultiCore_1_0_5.swc" />
+									</resources>
+								</copy>
+							</target>
+						</configuration>
+						<goals>
+							<goal>run</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+</project>

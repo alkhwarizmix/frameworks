@@ -1,0 +1,104 @@
+بسم الله الرحمن الرحيم
+==========
+
+========== ==========
+١٨ ذو الحجة ١٤٣٤ (October 24, 2013)
+========== ==========
+
+cd Developer/git/alkhwarizmix/moqawalati/source
+
+========== ==========
+١٨ ذو الحجة ١٤٣٤ (October 23, 2013)
+========== ==========
+
+mvn clean install -Dflex.flashPlayer.command="/Users/faresbelhaouas/Developer/tools/Flash Player.app/Contents/MacOS/Flash Player"
+Developer/tools/tomcat/bin/shutdown.sh
+Developer/tools/tomcat/bin/startup.sh
+cd Developer/git/alkhwarizmix/moqawalati/source/
+-----
+mm.cfg
+ErrorReportingEnable=1
+TraceOutputFileEnable=1
+-----
+tail -f Library/Preferences/Macromedia/Flash\ Player/Logs/flashlog.txt
+
+========== ==========
+٠٤ ذو الحجة ١٤٣٤ (October 08, 2013)
+========== ==========
+
+mvn clean install -Dflex.flashPlayer.command="/Users/faresbelhaouas/Developer/tools/Flash Player.app/Contents/MacOS/Flash Player"
+
+========== ==========
+٠٢ ذو الحجة ١٤٣٤ (October 06, 2013)
+========== ==========
+
+~/Developer/git
+
+postgres:
+-# show data_directory;
+-# \l[+]   [PATTERN]      list databases
+-# \c[onnect] [DBNAME|- USER|- HOST|- PORT|-]
+-# \dp     [PATTERN]      list table, view, and sequence access privileges
+-# \dt[S+] [PATTERN]      list tables
+
+CREATE USER moqawalati_user WITH PASSWORD 'reverse';
+CREATE DATABASE moqawalati_db OWNER moqawalati_user ENCODING='UTF8';
+
+========== ==========
+٢٦ ذو القعدة ١٤٣٤ (October 01, 2013)
+========== ==========
+
+-----
+HOW DO I REMOVE ALL VERSION HISTORY FOR A GIT GITHUB REPOSITORY
+http://stackoverflow.com/questions/9683279/how-do-i-remove-all-version-history-for-a-git-github-repository
+-----
+
+Step 1: remove all history
+rm -rf .git
+
+Step 2: reconstruct the Git repo with only the current content
+git init
+git add .
+git commit -m "Initial commit"
+
+Step 3: push to GitHub.
+git remote add origin https://github.com/alkhwarizmix/moqawalati
+git push -u --force origin master
+
+-----
+HOW DO I LIST ALL DATABASES AND TABLES USING PSQL
+http://dba.stackexchange.com/questions/1285/how-do-i-list-all-databases-and-tables-using-psql
+-----
+\list lists all databases
+\dt lists all tables in the current database
+
+========== ==========
+٢٥ ذو القعدة ١٤٣٤ (September 30, 2013)
+========== ==========
+
+mvn eclipse:clean eclipse:eclipse -Dwtpversion=2.0
+edit /Users/faresbelhaouas/Developer/git/alkhwarizmix/moqawalati/source/moqawalatiWeb/.settings/org.eclipse.wst.common.project.facet.core.xml
+<?xml version="1.0" encoding="UTF-8"?>
+<faceted-project>
+  <fixed facet="jst.java"/>
+  <fixed facet="jst.web"/>
+  <installed facet="jst.web" version="2.4"/>
+  <installed facet="jst.java" version="1.6"/>
+</faceted-project>
+
+========== ==========
+٢٤ ذو القعدة ١٤٣٤ (September 29, 2013)
+========== ==========
+
+sudo cp /var/lib/jenkins/.m2/repository/dz/alkhwarizmix/moqawalati/moqawalatiWeb/1.0.0-SNAPSHOT/moqawalatiWeb-1.0.0-SNAPSHOT.war /var/lib/tomcat7/webapps/
+
+========== ==========
+٢٢ ذو القعدة ١٤٣٤ (September 27, 2013)
+========== ==========
+
+Jenkins setup
+==========
+* frameworks-flex
+* https://github.com/alkhwarizmix/frameworks.git
+* antrun:run install:install-file -DgroupId=org.puremvc -DartifactId=PureMVC_AS3_MultiCore_Framework -Dversion=1.0.5 -Dpackaging=swc -Dfile=target/download/PureMVC_AS3_MultiCore_1_0_5.swc
+* source/alkhwarizmixFlexFramework/pom.xml

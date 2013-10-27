@@ -72,7 +72,7 @@ public class AlKhwarizmixWebGetDataCommand extends AlKhwarizmixSimpleCommand
 	 */
 	public function get destination():String
 	{
-		throw new AlKhwarizmixMissingImplError();
+		return null;
 	}
 	
 	//--------------------------------------------------------------------------

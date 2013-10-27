@@ -6,6 +6,7 @@
 ========== ==========
 
 cd Developer/git/alkhwarizmix/moqawalati/source
+mvn clean install -Dflex.flashPlayer.command="/Users/faresbelhaouas/Developer/tools/Flash-Player-Debugger.app/Contents/MacOS/Flash-Player-Debugger"
 
 ========== ==========
 ١٨ ذو الحجة ١٤٣٤ (October 23, 2013)
@@ -62,7 +63,7 @@ git add .
 git commit -m "Initial commit"
 
 Step 3: push to GitHub.
-git remote add origin https://github.com/alkhwarizmix/moqawalati
+git remote add origin https://github.com/alkhwarizmix/frameworks (moqawalati)
 git push -u --force origin master
 
 -----

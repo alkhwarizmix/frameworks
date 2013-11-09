@@ -110,6 +110,18 @@ package dz.alkhwarizmix.framework.flex.controller
 		}
 		
 		//----------------------------------
+		//  operationName
+		//----------------------------------
+		
+		/**
+		 * TODO: ASDOC Definition of operationName
+		 */
+		public function get operationName():String
+		{
+			throw new AlKhwarizmixMissingImplError();		
+		}
+		
+		//----------------------------------
 		//  proxy
 		//----------------------------------
 		
@@ -163,7 +175,7 @@ package dz.alkhwarizmix.framework.flex.controller
 		{
 			super.execute_try(notif);
 			
-			var operation:AbstractOperation = ro.getOperation("getClientList");
+			var operation:AbstractOperation = ro.getOperation(operationName);
 			operation.send(null);
 		}
 		

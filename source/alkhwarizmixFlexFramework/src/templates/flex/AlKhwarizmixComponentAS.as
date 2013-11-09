@@ -26,7 +26,7 @@ import mx.core.UIComponent;
  * 
  *  @author فارس بلحواس (Fares Belhaouas)
  *  @since  ١٦ شوال ١٤٣٤ (August 22, 2013)
- *  @since  ٢٠ ذو الحجة ١٤٣٤ (October 25, 2013)
+ *  @since  ٢٢ ذو الحجة ١٤٣٤ (October 27, 2013)
  */
 public class AlKhwarizmixComponentAS extends UIComponent
 	implements IAlKhwarizmixInterface

@@ -176,7 +176,7 @@ package dz.alkhwarizmix.framework.flex.controller
 			super.execute_try(notif);
 			
 			var operation:AbstractOperation = ro.getOperation(operationName);
-			operation.send(null);
+			operation.send(null, 0, 50);
 		}
 		
 		//--------------------------------------------------------------------------

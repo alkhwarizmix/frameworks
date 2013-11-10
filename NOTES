@@ -2,6 +2,18 @@
 ==========
 
 ========== ==========
+٠٦ محرم ١٤٣٥ (November 10, 2013)
+========== ==========
+
+Mac OSX Setup
+
+* export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.7.0_45.jdk/Contents/Home
+* export M2_HOME=~/Developer/tools/maven
+* export M2=$M2_HOME/bin
+* export PATH=$M2:$PATH
+* export CATALINA_HOME=~/Developer/tools/tomcat
+
+========== ==========
 ١٨ ذو الحجة ١٤٣٤ (October 24, 2013)
 ========== ==========
 

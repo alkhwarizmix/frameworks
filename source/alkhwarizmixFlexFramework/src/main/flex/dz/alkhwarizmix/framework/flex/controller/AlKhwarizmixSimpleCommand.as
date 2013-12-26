@@ -63,7 +63,7 @@ public class AlKhwarizmixSimpleCommand extends SimpleCommand
 	 * Returns the specific class log, by default returns a generic log,
 	 * should be overrided by inheriting classes
 	 */
-	protected function get log():IAlKhwarizmixLogger { return LOG; }
+	protected function get logger():IAlKhwarizmixLogger { return LOG; }
 	
 	//----------------------------------
 	//  executeLaterDelay
@@ -102,7 +102,7 @@ public class AlKhwarizmixSimpleCommand extends SimpleCommand
 	{
 		if (AlKhwarizmixLog.isLogLevelAll)
 		{
-			log.debug("execute: {1} noteName={0}", notif.getName(),
+			logger.debug("execute: {1} noteName={0}", notif.getName(),
 				isExecuteDelayed ? "delayed" : "");
 		}
 		
@@ -111,7 +111,7 @@ public class AlKhwarizmixSimpleCommand extends SimpleCommand
 			if (executeLaterDelay > 1)
 			{
 				if (AlKhwarizmixLog.isLogLevelAll)
-					log.debug("execute: Call later using timer");
+					logger.debug("execute: Call later using timer");
 				
 				var callLaterTimer:Timer = new Timer(executeLaterDelay, 1);
 				callLaterTimer.addEventListener(TimerEvent.TIMER,
@@ -124,7 +124,7 @@ public class AlKhwarizmixSimpleCommand extends SimpleCommand
 			else
 			{
 				if (AlKhwarizmixLog.isLogLevelAll)
-					log.debug("execute: Call later using callLater");
+					logger.debug("execute: Call later using callLater");
 				
 				FlexGlobals.topLevelApplication.callLater(execute_laterCall, [notif]);
 			}
@@ -147,7 +147,7 @@ public class AlKhwarizmixSimpleCommand extends SimpleCommand
 	protected function execute_catch_error(
 		notif:INotification, error:Error):void
 	{
-		log.error("execute_catch_error: error={0}, Stack trace={1}",
+		logger.error("execute_catch_error: error={0}, Stack trace={1}",
 			error.message, error.getStackTrace());
 	}
 	
@@ -181,37 +181,37 @@ public class AlKhwarizmixSimpleCommand extends SimpleCommand
 	private function execute_now(notif:INotification):void
 	{
 		if (AlKhwarizmixLog.isLogLevelAll)
-			log.debug("execute_now: noteName={0}", notif.getName());
+			logger.debug("execute_now: noteName={0}", notif.getName());
 		
 		try
 		{
 			if (AlKhwarizmixLog.isLogLevelAll)
-				log.debug("CALL execute_try");
+				logger.debug("CALL execute_try");
 			
 			execute_try(notif);
 			
 			if (AlKhwarizmixLog.isLogLevelAll)
-				log.debug("AFTER execute_try");
+				logger.debug("AFTER execute_try");
 		}
 		catch (error:Error)
 		{
 			if (AlKhwarizmixLog.isLogLevelAll)
-				log.debug("CALL execute_catch_error");
+				logger.debug("CALL execute_catch_error");
 			
 			execute_catch_error(notif, error);
 			
 			if (AlKhwarizmixLog.isLogLevelAll)
-				log.debug("AFTER execute_catch_error");
+				logger.debug("AFTER execute_catch_error");
 		}
 		finally
 		{
 			if (AlKhwarizmixLog.isLogLevelAll)
-				log.debug("CALL execute_finally");
+				logger.debug("CALL execute_finally");
 			
 			execute_finally(notif);
 			
 			if (AlKhwarizmixLog.isLogLevelAll)
-				log.debug("AFTER execute_finally");
+				logger.debug("AFTER execute_finally");
 		}
 	}
 	

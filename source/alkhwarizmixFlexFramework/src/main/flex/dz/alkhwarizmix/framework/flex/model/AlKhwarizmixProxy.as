@@ -74,7 +74,7 @@ public class AlKhwarizmixProxy extends Proxy
 	 * Returns the specific class log, by default returns a generic log,
 	 * should be overrided by inheriting classes
 	 */
-	protected function get log():IAlKhwarizmixLogger
+	protected function get logger():IAlKhwarizmixLogger
 	{
 		return LOG;
 	}

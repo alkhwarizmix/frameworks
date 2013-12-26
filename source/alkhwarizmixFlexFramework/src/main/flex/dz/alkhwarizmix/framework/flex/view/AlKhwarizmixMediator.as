@@ -79,7 +79,7 @@ public class AlKhwarizmixMediator extends Mediator
 	 * Returns the specific class log, by default returns a generic log,
 	 * should be overrided by inheriting classes
 	 */
-	protected function get log():IAlKhwarizmixLogger
+	protected function get logger():IAlKhwarizmixLogger
 	{
 		return LOG;
 	}
@@ -121,39 +121,39 @@ public class AlKhwarizmixMediator extends Mediator
 	{
 		if (AlKhwarizmixLog.isLogLevelAll)
 		{
-			log.debug("handleNotification_now: noteName={0}",
+			logger.debug("handleNotification_now: noteName={0}",
 				notif.getName()); // trace
 		}
 		
 		try
 		{
 			if (AlKhwarizmixLog.isLogLevelAll)
-				log.debug("CALL handleNotification_try"); // trace
+				logger.debug("CALL handleNotification_try"); // trace
 			
 			handleNotification_try(notif);
 			
 			if (AlKhwarizmixLog.isLogLevelAll)
-				log.debug("AFTER handleNotification_try"); // trace
+				logger.debug("AFTER handleNotification_try"); // trace
 		}
 		catch (error:Error)
 		{
 			if (AlKhwarizmixLog.isLogLevelAll)
-				log.debug("CALL handleNotification_catch_error"); // trace
+				logger.debug("CALL handleNotification_catch_error"); // trace
 			
 			handleNotification_catch_error(notif, error);
 			
 			if (AlKhwarizmixLog.isLogLevelAll)
-				log.debug("AFTER handleNotification_catch_error"); // trace
+				logger.debug("AFTER handleNotification_catch_error"); // trace
 		}
 		finally
 		{
 			if (AlKhwarizmixLog.isLogLevelAll)
-				log.debug("CALL handleNotification_finally"); // trace
+				logger.debug("CALL handleNotification_finally"); // trace
 			
 			handleNotification_finally(notif);
 			
 			if (AlKhwarizmixLog.isLogLevelAll)
-				log.debug("AFTER handleNotification_finally"); // trace
+				logger.debug("AFTER handleNotification_finally"); // trace
 		}
 	}
 	
@@ -169,7 +169,7 @@ public class AlKhwarizmixMediator extends Mediator
 	protected function handleNotification_catch_error(notif:INotification,
 		error:Error):void
 	{
-		log.error("handleNotification_catch_error: " + 
+		logger.error("handleNotification_catch_error: " + 
 			"error={0}, Stack trace={1}", error.message,
 			error.getStackTrace());
 	}

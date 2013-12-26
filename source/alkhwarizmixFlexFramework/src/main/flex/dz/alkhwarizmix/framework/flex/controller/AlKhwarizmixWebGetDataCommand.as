@@ -12,7 +12,6 @@
 package dz.alkhwarizmix.framework.flex.controller
 {
 
-import dz.alkhwarizmix.framework.flex.errors.AlKhwarizmixMissingImplError;
 import dz.alkhwarizmix.framework.flex.interfaces.IAlKhwarizmixCommand;
 import dz.alkhwarizmix.framework.flex.logging.AlKhwarizmixLog;
 import dz.alkhwarizmix.framework.flex.logging.IAlKhwarizmixLogger;
@@ -41,7 +40,7 @@ public class AlKhwarizmixWebGetDataCommand extends AlKhwarizmixSimpleCommand
 	private static const LOG:IAlKhwarizmixLogger = AlKhwarizmixLog.
 		getLogger(AlKhwarizmixWebGetDataCommand);
 	
-	override protected function get log():IAlKhwarizmixLogger { return LOG; }
+	override protected function get logger():IAlKhwarizmixLogger { return LOG; }
 	
 	//--------------------------------------------------------------------------
 	//

@@ -54,7 +54,7 @@ public class AlKhwarizmixDataListCanvas extends AlKhwarizmixCanvas
 	private static const LOG:IAlKhwarizmixLogger = AlKhwarizmixLog.
 		getLogger(AlKhwarizmixDataListCanvas);
 	
-	override protected function get log():IAlKhwarizmixLogger { return LOG; }
+	override protected function get logger():IAlKhwarizmixLogger { return LOG; }
 	
 	//--------------------------------------------------------------------------
 	//

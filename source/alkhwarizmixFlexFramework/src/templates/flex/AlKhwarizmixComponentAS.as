@@ -1,7 +1,7 @@
 ////////////////////////////////////////////////////////////////////////////////
 //  بسم الله الرحمن الرحيم
 //
-//  حقوق التأليف والنشر ١٤٣٤ هجري، فارس بلحواس (Copyright 2013 Fares Belhaouas)  
+//  حقوق التأليف والنشر ١٤٣٥ هجري، فارس بلحواس (Copyright 2013 Fares Belhaouas)  
 //  كافة الحقوق محفوظة (All Rights Reserved)
 //
 //  NOTICE: Fares Belhaouas permits you to use, modify, and distribute this file
@@ -133,7 +133,7 @@ public class AlKhwarizmixComponentAS extends UIComponent
 	 * Returns the specific class log, by default returns a generic log,
 	 * should be overrided by inheriting classes
 	 */
-	protected function get log():IAlKhwarizmixLogger
+	protected function get logger():IAlKhwarizmixLogger
 	{
 		return LOG;
 	}

@@ -12,6 +12,8 @@
 package dz.alkhwarizmix.framework.flex.view.containers
 {
 
+import flash.events.Event;
+
 import dz.alkhwarizmix.framework.flex.logging.AlKhwarizmixLog;
 import dz.alkhwarizmix.framework.flex.logging.IAlKhwarizmixLogger;
 
@@ -65,7 +67,7 @@ public class AlKhwarizmixMDIWindow extends MDIWindow
 	 * Returns the specific class log, by default returns a generic log,
 	 * should be overrided by inheriting classes
 	 */
-	protected function get log():IAlKhwarizmixLogger
+	protected function get logger():IAlKhwarizmixLogger
 	{
 		return LOG;
 	}
@@ -79,7 +81,8 @@ public class AlKhwarizmixMDIWindow extends MDIWindow
 	/**
 	 * 
 	 */
-	override protected function getStyleByPriority(selectorList:Array, style:String):Object
+	override protected function getStyleByPriority(
+		selectorList:Array, style:String):Object
 	{
 		var result:Object = null;
 		try
@@ -88,9 +91,24 @@ public class AlKhwarizmixMDIWindow extends MDIWindow
 		}
 		catch (error:Error)
 		{
-			log.error("getStyleByPriority: {0}", error.getStackTrace());
+			logger.error("getStyleByPriority: {0}", error.getStackTrace());
 		}
 		return result;
+	}
+	
+	//--------------------------------------------------------------------------
+	//
+	//  Methods
+	//
+	//--------------------------------------------------------------------------
+	
+	/**
+	 * 
+	 */
+	protected final function sendEvent(
+		eventType:String, bubbles:Boolean = true):void
+	{
+		dispatchEvent(new Event(eventType, bubbles));
 	}
 	
 } // Class

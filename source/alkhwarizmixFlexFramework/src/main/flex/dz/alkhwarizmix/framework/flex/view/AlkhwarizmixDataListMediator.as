@@ -60,7 +60,7 @@ public class AlkhwarizmixDataListMediator extends AlKhwarizmixMediator
 	private static const LOG:IAlKhwarizmixLogger = AlKhwarizmixLog.
 		getLogger(AlkhwarizmixDataListMediator);
 	
-	override protected function get log():IAlKhwarizmixLogger { return LOG; }
+	override protected function get logger():IAlKhwarizmixLogger { return LOG; }
 	
 	//--------------------------------------------------------------------------
 	//

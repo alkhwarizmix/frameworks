@@ -1,7 +1,7 @@
 ////////////////////////////////////////////////////////////////////////////////
 //  بسم الله الرحمن الرحيم
 //
-//  حقوق التأليف والنشر ١٤٣٤ هجري، فارس بلحواس (Copyright 2013 Fares Belhaouas)  
+//  حقوق التأليف والنشر ١٤٣٥ هجري، فارس بلحواس (Copyright 2013 Fares Belhaouas)  
 //  كافة الحقوق محفوظة (All Rights Reserved)
 //
 //  NOTICE: Fares Belhaouas permits you to use, modify, and distribute this file
@@ -9,10 +9,12 @@
 //
 ////////////////////////////////////////////////////////////////////////////////
 
-package dz.alkhwarizmix.framework.flex.messaging
+package dz.alkhwarizmix.framework.flex.view.containers
 {
 
-import mx.messaging.Consumer;
+import flash.events.Event;
+
+import spark.components.HGroup;
 
 import dz.alkhwarizmix.framework.flex.logging.AlKhwarizmixLog;
 import dz.alkhwarizmix.framework.flex.logging.IAlKhwarizmixLogger;
@@ -23,11 +25,11 @@ import dz.alkhwarizmix.framework.flex.logging.IAlKhwarizmixLogger;
  *  </p>
  * 
  *  @author فارس بلحواس (Fares Belhaouas)
- *  @since  ٢٤ شوال ١٤٣٤ (August 30, 2013)
+ *  @since  ٢٩ محرم ١٤٣٥ (December 03, 2013)
  */
-public class AlKhwarizmixConsumer extends Consumer
+public class AlKhwarizmixHBox extends HGroup
 {
-	include "../../../../../../../templates/flex/core/Version.as";
+	include "../../../../../../../../templates/flex/core/Version.as";
 	
 	//--------------------------------------------------------------------------
 	//
@@ -39,7 +41,7 @@ public class AlKhwarizmixConsumer extends Consumer
 	 * The Logger
 	 */
 	private static const LOG:IAlKhwarizmixLogger = AlKhwarizmixLog.
-		getLogger(AlKhwarizmixConsumer);
+		getLogger(AlKhwarizmixHBox);
 	
 	//--------------------------------------------------------------------------
 	//
@@ -50,7 +52,7 @@ public class AlKhwarizmixConsumer extends Consumer
 	/**
 	 *  Constructor.
 	 */
-	public function AlKhwarizmixConsumer()
+	public function AlKhwarizmixHBox()
 	{
 		super();
 	}
@@ -70,5 +72,20 @@ public class AlKhwarizmixConsumer extends Consumer
 		return LOG;
 	}
 	
-} // class
-} // package
+	//--------------------------------------------------------------------------
+	//
+	//  Methods
+	//
+	//--------------------------------------------------------------------------
+	
+	/**
+	 * 
+	 */
+	protected final function sendEvent(
+		eventType:String, bubbles:Boolean = true):void
+	{
+		dispatchEvent(new Event(eventType, bubbles));
+	}
+	
+} // Class
+} // Package

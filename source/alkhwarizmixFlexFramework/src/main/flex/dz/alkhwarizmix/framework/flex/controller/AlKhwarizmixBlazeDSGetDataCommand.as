@@ -53,10 +53,18 @@ package dz.alkhwarizmix.framework.flex.controller
 		{
 			super();
 			
-			ro = new AlKhwarizmixRemoteObject(destination);
+			ro = newRemoteObject();
 			ro.channelSet = getChannelSet();
 			ro.addEventListener(ResultEvent.RESULT, ro_resultHandler);
 			ro.addEventListener(FaultEvent.FAULT, ro_faultHandler);
+		}
+		
+		/**
+		 * @private
+		 */
+		protected function newRemoteObject():AlKhwarizmixRemoteObject
+		{
+			return new AlKhwarizmixRemoteObject(destination);
 		}
 		
 		/**
@@ -78,7 +86,7 @@ package dz.alkhwarizmix.framework.flex.controller
 		private static const LOG:IAlKhwarizmixLogger = AlKhwarizmixLog.
 			getLogger(AlKhwarizmixBlazeDSGetDataCommand);
 		
-		override protected function get log():IAlKhwarizmixLogger { return LOG; }
+		override protected function get logger():IAlKhwarizmixLogger { return LOG; }
 		
 		//--------------------------------------------------------------------------
 		//
@@ -176,7 +184,7 @@ package dz.alkhwarizmix.framework.flex.controller
 			super.execute_try(notif);
 			
 			var operation:AbstractOperation = ro.getOperation(operationName);
-			operation.send(null, 0, 50);
+			operation.send.apply(operation, notif.getBody().operationParams);
 		}
 		
 		//--------------------------------------------------------------------------
@@ -190,7 +198,7 @@ package dz.alkhwarizmix.framework.flex.controller
 		 */
 		private function ro_faultHandler(event:FaultEvent):void
 		{
-			log.error("ro_faultHandler: {0}", event.fault.faultString);
+			logger.error("ro_faultHandler: {0}", event.fault.faultString);
 		}
 		
 		/**
@@ -198,7 +206,7 @@ package dz.alkhwarizmix.framework.flex.controller
 		 */
 		private function ro_resultHandler(event:ResultEvent):void
 		{
-			log.debug("ro_resultHandler");
+			logger.debug("ro_resultHandler");
 			
 			proxy.setData(event.result);
 		}

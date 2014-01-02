@@ -58,7 +58,7 @@ public class AlKhwarizmixSuperProxy extends AlKhwarizmixProxy
 	private static const LOG:IAlKhwarizmixLogger = AlKhwarizmixLog.
 		getLogger(AlKhwarizmixSuperProxy);
 	
-	override protected function get log():IAlKhwarizmixLogger { return LOG; }
+	override protected function get logger():IAlKhwarizmixLogger { return LOG; }
 	
 	//--------------------------------------------------------------------------
 	//
@@ -71,7 +71,7 @@ public class AlKhwarizmixSuperProxy extends AlKhwarizmixProxy
 	 */
 	private function refreshTimer_timerHandler(event:TimerEvent):void
 	{
-		log.debug("refreshTimer_timerHandler");
+		logger.debug("refreshTimer_timerHandler");
 		
 		try
 		{
@@ -79,7 +79,7 @@ public class AlKhwarizmixSuperProxy extends AlKhwarizmixProxy
 		}
 		catch (error:Error)
 		{
-			log.error("refreshTimer_timerHandler: {0}={1}",
+			logger.error("refreshTimer_timerHandler: {0}={1}",
 				"handleRefresh error", error.getStackTrace());
 		}
 	}
@@ -89,7 +89,7 @@ public class AlKhwarizmixSuperProxy extends AlKhwarizmixProxy
 	 */
 	private function timeOutTimer_timeOutHandler(event:Event):void
 	{
-		log.debug("timeOutTimer_timeOutHandler");
+		logger.debug("timeOutTimer_timeOutHandler");
 		
 		try
 		{
@@ -97,7 +97,7 @@ public class AlKhwarizmixSuperProxy extends AlKhwarizmixProxy
 		}
 		catch (error:Error)
 		{
-			log.error("timeOutTimer_timeOutHandler: {0}={1}",
+			logger.error("timeOutTimer_timeOutHandler: {0}={1}",
 				"handleTimeOut error", error.getStackTrace());
 		}
 	}

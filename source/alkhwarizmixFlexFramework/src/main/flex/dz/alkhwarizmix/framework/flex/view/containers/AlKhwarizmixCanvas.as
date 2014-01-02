@@ -12,6 +12,8 @@
 package dz.alkhwarizmix.framework.flex.view.containers
 {
 
+import flash.events.Event;
+
 import spark.components.Group;
 
 import dz.alkhwarizmix.framework.flex.logging.AlKhwarizmixLog;
@@ -65,9 +67,24 @@ public class AlKhwarizmixCanvas extends Group
 	 * Returns the specific class log, by default returns a generic log,
 	 * should be overrided by inheriting classes
 	 */
-	protected function get log():IAlKhwarizmixLogger
+	protected function get logger():IAlKhwarizmixLogger
 	{
 		return LOG;
+	}
+	
+	//--------------------------------------------------------------------------
+	//
+	//  Methods
+	//
+	//--------------------------------------------------------------------------
+	
+	/**
+	 * 
+	 */
+	protected final function sendEvent(
+		eventType:String, bubbles:Boolean = true):void
+	{
+		dispatchEvent(new Event(eventType, bubbles));
 	}
 	
 } // Class

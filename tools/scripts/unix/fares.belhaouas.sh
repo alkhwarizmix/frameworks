@@ -7,25 +7,49 @@
 #     if [ -f "$HOME/.bashrc" ]; then
 #         . "$HOME/.bashrc"
 #     fi
-#     # FBEL: DD MMM 2013
+#     # FBEL: DD MMM 2014
 #     source ./fares.belhaouas.sh
 # fi
 # ----- ----- ----- ----- ----- ----- ----- ----- ----- -----
 
 # ----- ----- ----- ----- ----- ----- ----- ----- ----- -----
+
+function fbel-help
+{
 echo
 echo "----- ----- ----- ----- ----- ----- ----- ----- ----- -----"
 echo
 echo "Fares Belhaouas functions"
-echo "Version 06 OCT 2013, 17:42"
+echo "Version 01 MAR 2014, 12:48"
 echo
-# ----- ----- ----- ----- ----- ----- ----- ----- ----- -----
+echo "Type fbel-help                             to print all functions"
+echo
+echo "Type fbel-apache2-restart                  to restart apache server"
+echo "Type fbel-backup(-sudo) file               to backup the file with current date and time"
+echo "Type fbel-netstat                          to print used TCP/IP ports"
+echo "Type fbel-tail-apache2-sslaccess-log       to tail Apache2 sslaccess log"
+echo 
+echo "Type fbel-install-101-basic                to install Ubuntu basic tools"
+echo "Type fbel-install-apache2                  to install Apache2"
+echo "Type fbel-install-jenkins                  to install Jenkins"
+echo "Type fbel-install-MySQL                    to install MySQL"
+echo "Type fbel-install-pgadmin3                 to install pgadmin3"
+echo "Type fbel-install-phpmyadmin               to install phpmyadmin"
+echo "Type fbel-install-phppgadmin               to install phppgadmin"
+echo "Type fbel-install-postgresql               to install PostgreSQL"
+echo "Type fbel-install-subversion               to install Subversion"
+echo "Type fbel-install-tomcat7                  to install Tomcat7"
+echo
+echo "----- ----- ----- ----- ----- ----- ----- ----- ----- -----"
+echo
+};
+fbel-help
+
 
 # ----- ----- ----- ----- ----- ----- ----- ----- ----- -----
 # ALIASES
 # ----- ----- ----- ----- ----- ----- ----- ----- ----- -----
 
-echo "Type fbel-apache2-restart                  to restart apache server"
 alias fbel-apache2-restart='sudo service apache2 restart'
 
 
@@ -33,7 +57,6 @@ alias fbel-apache2-restart='sudo service apache2 restart'
 # FUNCTIONS
 # ----- ----- ----- ----- ----- ----- ----- ----- ----- -----
 
-echo "Type fbel-backup(-sudo) file               to backup the file with current date and time"
 function fbel-backup
 {
   zip -r $1_`eval date +%Y-%m-%d_%H.%M.%S`.zip $1
@@ -45,9 +68,10 @@ function fbel-backup-sudo
 
 # ----- ----- ----- ----- ----- ----- ----- ----- ----- -----
 
-echo "Type fbel-install-basic                    to install Ubuntu basic tools"
-function fbel-install-basic
+function fbel-install-101-basic
 {
+  sudo apt-get update
+  sudo apt-get upgrade
   sudo apt-get install console-data
   sudo apt-get install zip
   
@@ -59,7 +83,6 @@ function fbel-install-basic
 
 # ----- ----- ----- ----- ----- ----- ----- ----- ----- -----
 
-echo "Type fbel-install-apache2                  to install Apache2"
 function fbel-install-apache2
 {
   sudo apt-get upgrade
@@ -85,7 +108,6 @@ function fbel-install-apache2
 
 # ----- ----- ----- ----- ----- ----- ----- ----- ----- -----
 
-echo "Type fbel-tail-apache2-sslaccess-log       to tail Apache2 sslaccess log"
 function fbel-tail-apache2-sslaccess-log
 {
   tail -f -n 200 /var/log/apache2/ssl_access.log 
@@ -93,17 +115,16 @@ function fbel-tail-apache2-sslaccess-log
 
 # ----- ----- ----- ----- ----- ----- ----- ----- ----- -----
 
-echo "Type fbel-install-tomcat7                  to install Apache2"
 function fbel-install-tomcat7
 {
   sudo apt-get upgrade
   
   sudo apt-get install tomcat7
+  sudo apt-get install tomcat7-admin
 }
 
 # ----- ----- ----- ----- ----- ----- ----- ----- ----- -----
 
-echo "Type fbel-install-subversion               to install Subversion"
 function fbel-install-subversion
 {
    echo "Installing Subversion"
@@ -155,7 +176,6 @@ function fbel-install-subversion
 
 # ----- ----- ----- ----- ----- ----- ----- ----- ----- -----
 
-echo "Type fbel-install-jenkins                  to install Jenkins"
 function fbel-install-jenkins
 {
    echo "Installing Jenkins"
@@ -186,6 +206,7 @@ function fbel-install-jenkins
    echo "sudo vigr -s"
    echo "SET shadow:*::jenkins"
    echo
+   sudo mkdir /var/lib/jenkins/.vnc
    echo "sudo vncpasswd /var/lib/jenkins/.vnc/passwd"
    echo "sudo chown -R jenkins:adm /var/lib/jenkins/.vnc"
    echo
@@ -194,7 +215,6 @@ function fbel-install-jenkins
 
 # ----- ----- ----- ----- ----- ----- ----- ----- ----- -----
 
-echo "Type fbel-install-MySQL                    to install MySQL"
 function fbel-install-MySQL
 {
    echo "Installing MySQL"
@@ -213,7 +233,6 @@ function fbel-install-MySQL
 
 # ----- ----- ----- ----- ----- ----- ----- ----- ----- -----
 
-echo "Type fbel-install-phpmyadmin               to install phpmyadmin"
 function fbel-install-phpmyadmin
 {
    echo "Installing phppgadmin"
@@ -228,7 +247,6 @@ function fbel-install-phpmyadmin
 
 # ----- ----- ----- ----- ----- ----- ----- ----- ----- -----
 
-echo "Type fbel-install-postgresql               to install PostgreSQL"
 function fbel-install-postgresql
 {
    echo "Installing PostgreSQL"
@@ -250,7 +268,6 @@ function fbel-install-postgresql
 
 # ----- ----- ----- ----- ----- ----- ----- ----- ----- -----
 
-echo "Type fbel-install-phppgadmin               to install phppgadmin"
 function fbel-install-phppgadmin
 {
    echo "Installing phppgadmin"
@@ -271,7 +288,6 @@ function fbel-install-phppgadmin
 
 # ----- ----- ----- ----- ----- ----- ----- ----- ----- -----
 
-echo "Type fbel-install-pgadmin3                 to install phppgadmin"
 function fbel-install-pgadmin3
 {
    echo "Installing pgadmin3"
@@ -281,7 +297,23 @@ function fbel-install-pgadmin3
 };
 
 # ----- ----- ----- ----- ----- ----- ----- ----- ----- -----
-echo
-echo "----- ----- ----- ----- ----- ----- ----- ----- ----- -----"
-echo
+
+function fbel-add-fares
+{
+   groupadd developers
+   grep developers /etc/group
+   useradd -g developers -d /home/fares -m fares -s /bin/bash
+   id fares
+   passwd fares
+   adduser fares sudo
+   # userdel fares
+};
+
+# ----- ----- ----- ----- ----- ----- ----- ----- ----- -----
+
+function fbel-netstat
+{
+   netstat -an | egrep 'Proto|LISTEN'
+};
+
 # ----- ----- ----- ----- ----- ----- ----- ----- ----- -----

@@ -29,12 +29,12 @@
 	<parent>
 		<groupId>dz.alkhwarizmix</groupId>
 		<artifactId>alkhwarizmix-common</artifactId>
-		<version>1.0.1.2</version>
+		<version>1.0.2.3</version>
 	</parent>
 
 	<groupId>dz.alkhwarizmix.framework</groupId>
 	<artifactId>AlkhwarizmixFlexFramework</artifactId>
-	<version>1.0.1.2</version>
+	<version>1.0.2.3</version>
 	<packaging>swc</packaging>
 	<name>AlkhwarizmixFlexFramework Flex Maven</name>
 

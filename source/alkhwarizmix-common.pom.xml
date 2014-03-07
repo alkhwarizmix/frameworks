@@ -31,7 +31,7 @@
 
 	<groupId>dz.alkhwarizmix</groupId>
 	<artifactId>alkhwarizmix-common</artifactId>
-	<version>1.0.2.3</version>
+	<version>1.0.3.4</version>
 	<packaging>pom</packaging>
 
 	<name>Alkhwarizmix Maven</name>
@@ -55,15 +55,18 @@
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<flexmojos.version>4.2-beta</flexmojos.version>
-		<flex.version>4.5.1.21328</flex.version>
+		<flex.sdk.version>4.5.1.21328</flex.sdk.version>
 		<flexunit.version>4.0-rc-1</flexunit.version>
+
+		<flex.tlf.version>2.0.0.232</flex.tlf.version>
+		<flex.osmf.version>1.0.0.16316</flex.osmf.version>
 	</properties>
 
 	<dependencies>
 		<dependency>
 			<groupId>com.adobe.flex.framework</groupId>
 			<artifactId>flex-framework</artifactId>
-			<version>${flex.version}</version>
+			<version>${flex.sdk.version}</version>
 			<type>pom</type>
 		</dependency>
 
@@ -89,7 +92,7 @@
 						<argLine>-Xms768m -Xmx1024m</argLine>
 					</configuration>
 				</plugin>
-			
+
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-resources-plugin</artifactId>
@@ -118,7 +121,7 @@
 						</compilerWarnings>
 
 						<themes>
-							<theme>${settings.localRepository}/com/adobe/flex/framework/framework/${flex.version}/configs_zip/themes/Spark/spark.css</theme>
+							<theme>${settings.localRepository}/com/adobe/flex/framework/framework/${flex.sdk.version}/configs_zip/themes/Spark/spark.css</theme>
 						</themes>
 
 						<coverage>true</coverage>
@@ -132,7 +135,7 @@
 						<dependency>
 							<groupId>com.adobe.flex</groupId>
 							<artifactId>compiler</artifactId>
-							<version>${flex.version}</version>
+							<version>${flex.sdk.version}</version>
 							<type>pom</type>
 						</dependency>
 					</dependencies>
@@ -146,6 +149,12 @@
 		<repository>
 			<id>flex-mojos-repository</id>
 			<url>http://repository.sonatype.org/content/groups/flexgroup</url>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
 		</repository>
 	</repositories>
 
@@ -153,6 +162,12 @@
 		<pluginRepository>
 			<id>flex-mojos-plugin-repository</id>
 			<url>http://repository.sonatype.org/content/groups/flexgroup</url>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
 		</pluginRepository>
 	</pluginRepositories>
 </project>

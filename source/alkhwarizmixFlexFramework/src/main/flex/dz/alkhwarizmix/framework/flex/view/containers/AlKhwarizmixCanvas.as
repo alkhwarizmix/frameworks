@@ -12,10 +12,9 @@
 package dz.alkhwarizmix.framework.flex.view.containers
 {
 
-import flash.events.Event;
-
 import spark.components.Group;
 
+import dz.alkhwarizmix.framework.flex.event.AlKhwarizmixEvent;
 import dz.alkhwarizmix.framework.flex.logging.AlKhwarizmixLog;
 import dz.alkhwarizmix.framework.flex.logging.IAlKhwarizmixLogger;
 
@@ -84,7 +83,7 @@ public class AlKhwarizmixCanvas extends Group
 	protected final function sendEvent(
 		eventType:String, bubbles:Boolean = true):void
 	{
-		dispatchEvent(new Event(eventType, bubbles));
+		dispatchEvent(new AlKhwarizmixEvent(eventType, bubbles));
 	}
 	
 } // Class

@@ -15,6 +15,7 @@ package dz.alkhwarizmix.framework.flex.view.containers
 import dz.alkhwarizmix.framework.flex.event.AlKhwarizmixEvent;
 import dz.alkhwarizmix.framework.flex.logging.AlKhwarizmixLog;
 import dz.alkhwarizmix.framework.flex.logging.IAlKhwarizmixLogger;
+import dz.alkhwarizmix.framework.flex.utils.EventUtil;
 
 import flexlib.mdi.containers.MDIWindow;
 
@@ -105,9 +106,9 @@ public class AlKhwarizmixMDIWindow extends MDIWindow
 	 * 
 	 */
 	protected final function sendEvent(
-		eventType:String, bubbles:Boolean = true):void
+		eventType:String, eventClass:Class = null, bubbles:Boolean = true):void
 	{
-		dispatchEvent(new AlKhwarizmixEvent(eventType, bubbles));
+		new EventUtil().sendEvent(this, eventType, eventClass, bubbles);
 	}
 	
 } // Class

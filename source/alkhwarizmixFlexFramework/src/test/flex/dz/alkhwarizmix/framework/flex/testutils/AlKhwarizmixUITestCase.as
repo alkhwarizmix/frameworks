@@ -30,28 +30,23 @@ import org.fluint.uiImpersonation.UIImpersonator;
  *  @author فارس بلحواس (Fares Belhaouas)
  *  @since  ٢٤ شوال ١٤٣٤ (August 31, 2013)
  */
-public class AlkhwarizmixUITestCase
+public class AlKhwarizmixUITestCase extends AlKhwarizmixTestCase
 {
-	//--------------------------------------------------------------------------
-	//
-	//  Constants
-	//
-	//--------------------------------------------------------------------------
-	
-	protected static const THREE_SECONDS:Number = 3000;
-	
 	//--------------------------------------------------------------------------
 	//
 	//  SETUP & TEARDOWN
 	//
 	//--------------------------------------------------------------------------
 	
-	private var displayObjectUnderTest:DisplayObject = null;
+	private function get displayObjectUnderTest():DisplayObject
+	{
+		return classInstanceUnderTest as DisplayObject;
+	}
 	
 	[Before(async, ui)]
-	public function setUp():void
+	override public function setUp():void
 	{
-		displayObjectUnderTest = getDisplayObjectUnderTest();
+		super.setUp();
 		
 		if (displayObjectUnderTest)
 		{
@@ -61,19 +56,16 @@ public class AlkhwarizmixUITestCase
 		}
 		else
 		{
-			assertTrue("Could not getDisplayObjectUnderTest", false);
+			assertTrue("Could not instanciate displayObjectUnderTest", false);
 		}
 	}
 	
-	protected function getDisplayObjectUnderTest():DisplayObject
-	{
-		return null;
-	}
-	
 	[After(ui)]
-	public function tearDown():void
+	override public function tearDown():void
 	{
 		UIImpersonator.removeChild(displayObjectUnderTest);
+		
+		super.tearDown();
 	}
 	
 	//--------------------------------------------------------------------------

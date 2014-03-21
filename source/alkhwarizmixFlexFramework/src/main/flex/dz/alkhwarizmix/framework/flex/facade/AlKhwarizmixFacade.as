@@ -12,7 +12,11 @@
 package dz.alkhwarizmix.framework.flex.facade
 {
 
+import flash.utils.Dictionary;
+
+import dz.alkhwarizmix.framework.flex.errors.AlKhwarizmixMissingImplError;
 import dz.alkhwarizmix.framework.flex.errors.AlKhwarizmixTypeError;
+import dz.alkhwarizmix.framework.flex.interfaces.IAlKhwarizmixCommand;
 import dz.alkhwarizmix.framework.flex.logging.AlKhwarizmixLog;
 import dz.alkhwarizmix.framework.flex.logging.IAlKhwarizmixLogger;
 
@@ -71,6 +75,22 @@ public class AlKhwarizmixFacade extends Facade
 		return LOG;
 	}
 	
+	//----------------------------------
+	//  commandsToRegister
+	//----------------------------------
+	
+	private var _commandsToRegister:Dictionary = null;
+	private final function get commandsToRegister():Dictionary
+	{
+		if (!_commandsToRegister)
+		{
+			_commandsToRegister = new Dictionary(true);
+			initCommandsToRegister();
+		}
+		
+		return _commandsToRegister;
+	}
+	
 	//--------------------------------------------------------------------------
 	//
 	//  Overriden methods
@@ -78,15 +98,75 @@ public class AlKhwarizmixFacade extends Facade
 	//--------------------------------------------------------------------------
 	
 	/**
+	 * Register Commands with the Controller 
+	 */
+	override protected function initializeController():void 
+	{
+		super.initializeController();
+		
+		unregisterCommands();
+		registerCommands();
+	}
+	
+	/**
 	 * @inheritDoc
+	 * 
+	 * Make sure the command implements IAlKhwarizmixCommand
 	 */
 	override public function registerCommand(
 		notificationName:String, commandClassRef:Class):void
 	{
-		if (true) // (commandClassRef is IAlKhwarizmixCommand)
+		if (new commandClassRef() is IAlKhwarizmixCommand)
 			super.registerCommand(notificationName, commandClassRef);
 		else
 			throw new AlKhwarizmixTypeError();
+	}
+	
+	//--------------------------------------------------------------------------
+	//
+	//  Methods
+	//
+	//--------------------------------------------------------------------------
+	
+	/**
+	 * Should be overrided to add commands to register
+	 */
+	protected function initCommandsToRegister():void
+	{
+		throw new AlKhwarizmixMissingImplError();
+	}
+	
+	/**
+	 * Used in overrided initCommandsToRegister to add commands to register 
+	 */
+	protected final function addCommandToRegister(
+		commandName:String, commandClass:Class):void
+	{
+		_commandsToRegister[commandName] = commandClass;
+	}
+	
+	/**
+	 * @private
+	 */
+	private function registerCommands():void
+	{
+		logger.debug("registerCommands");
+		
+		for (var key:String in commandsToRegister)
+		{
+			registerCommand(key, commandsToRegister[key]);
+		}
+	}
+	
+	/**
+	 * @private
+	 */
+	private function unregisterCommands():void
+	{
+		for (var key:String in commandsToRegister)
+		{
+			removeCommand(key);
+		}
 	}
 	
 } // class

@@ -96,7 +96,7 @@ public class AlKhwarizmixBlazeDSGetDataCommand extends AlKhwarizmixWebGetDataCom
 	
 	private function get ro():AlKhwarizmixRemoteObject
 	{
-		if (!ro)
+		if (!_ro)
 		{
 			_ro = newRemoteObject();
 			_ro.channelSet = getChannelSet();

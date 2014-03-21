@@ -129,6 +129,14 @@ public class AlKhwarizmixFacade extends Facade
 	//--------------------------------------------------------------------------
 	
 	/**
+	 * Useful for tests to validate that command is registered with the right Class
+	 */
+	public final function getCommandClassWithKey(key:String):Class
+	{
+		return commandsToRegister[key];
+	}
+	
+	/**
 	 * Should be overrided to add commands to register
 	 */
 	protected function initCommandsToRegister():void
@@ -154,7 +162,7 @@ public class AlKhwarizmixFacade extends Facade
 		
 		for (var key:String in commandsToRegister)
 		{
-			registerCommand(key, commandsToRegister[key]);
+			registerCommand(key, getCommandClassWithKey(key));
 		}
 	}
 	

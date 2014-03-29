@@ -1,7 +1,7 @@
 ////////////////////////////////////////////////////////////////////////////////
 //  بسم الله الرحمن الرحيم
 //
-//  حقوق التأليف والنشر ١٤٣٤ هجري، فارس بلحواس (Copyright 2013 Fares Belhaouas)  
+//  حقوق التأليف والنشر ١٤٣٥ هجري، فارس بلحواس (Copyright 2014 Fares Belhaouas)  
 //  كافة الحقوق محفوظة (All Rights Reserved)
 //
 //  NOTICE: Fares Belhaouas permits you to use, modify, and distribute this file
@@ -12,14 +12,10 @@
 package dz.alkhwarizmix.framework.flex.testutils
 {
 
-import flash.display.DisplayObject;
-
-import mx.core.UIComponent;
-import mx.events.FlexEvent;
+import dz.alkhwarizmix.framework.flex.errors.AlKhwarizmixMissingImplError;
 
 import org.flexunit.asserts.assertTrue;
-import org.flexunit.async.Async;
-import org.fluint.uiImpersonation.UIImpersonator;
+import org.puremvc.as3.multicore.patterns.facade.Facade;
 
 /**
  *  <p>
@@ -27,9 +23,9 @@ import org.fluint.uiImpersonation.UIImpersonator;
  *  </p>
  * 
  *  @author فارس بلحواس (Fares Belhaouas)
- *  @since  ٢٤ شوال ١٤٣٤ (August 31, 2013)
+ *  @since  ٢٠ جمادى الأول ١٤٣٥ (March 20, 2014)
  */
-public class AlkhwarizmixUITestCase
+public class AlKhwarizmixTestCase
 {
 	//--------------------------------------------------------------------------
 	//
@@ -45,34 +41,31 @@ public class AlkhwarizmixUITestCase
 	//
 	//--------------------------------------------------------------------------
 	
-	private var displayObjectUnderTest:DisplayObject = null;
+	protected var classInstanceUnderTest:* = null;
 	
-	[Before(async, ui)]
+	[Before]
 	public function setUp():void
 	{
-		displayObjectUnderTest = getDisplayObjectUnderTest();
-		
-		if (displayObjectUnderTest)
-		{
-			Async.proceedOnEvent(this, displayObjectUnderTest,
-				FlexEvent.CREATION_COMPLETE, THREE_SECONDS);
-			addDisplayObjectToUI(displayObjectUnderTest);
-		}
+		if (classUnderTestConstructorArg1)
+			classInstanceUnderTest = new classUnderTest(classUnderTestConstructorArg1);
 		else
-		{
-			assertTrue("Could not getDisplayObjectUnderTest", false);
-		}
+			classInstanceUnderTest = new classUnderTest();
 	}
 	
-	protected function getDisplayObjectUnderTest():DisplayObject
+	protected function get classUnderTest():Class
+	{
+		throw new AlKhwarizmixMissingImplError();
+	}
+	
+	protected function get classUnderTestConstructorArg1():*
 	{
 		return null;
 	}
 	
-	[After(ui)]
+	[After]
 	public function tearDown():void
 	{
-		UIImpersonator.removeChild(displayObjectUnderTest);
+		classInstanceUnderTest = null;
 	}
 	
 	//--------------------------------------------------------------------------
@@ -84,18 +77,36 @@ public class AlkhwarizmixUITestCase
 	/**
 	 * @private
 	 */
-	protected final function addDisplayObjectToUI(displayObject:DisplayObject):void
+	protected final function removeFacadeCore(key:String):void
 	{
-		UIImpersonator.addChild(displayObject);
+		Facade.removeCore(key);
 	}
 	
 	/**
 	 * @private
+	 * 
+	 * Example of use:
+	 *  classUnderTest = new MoqawalatiClass();
+	 *  assert_should_throwMissingImplError(
+	 *    function ():void
+	 *    {
+	 *      classUnderTest.function_should_throw_error();
+	 *    });
 	 */
-	protected final function forceRendering(renderer:UIComponent):void
+	protected  final function assert_should_throwMissingImplError(
+		functionThrowingException:Function):void
 	{
-		renderer.validateNow();
+		try
+		{
+			functionThrowingException();
+			assertTrue("Should throw exception before to be here", false);
+		}
+		catch (error:Error)
+		{
+			assertTrue(error is AlKhwarizmixMissingImplError);
+		}
 	}
+	
 	
 } // class
 } // package

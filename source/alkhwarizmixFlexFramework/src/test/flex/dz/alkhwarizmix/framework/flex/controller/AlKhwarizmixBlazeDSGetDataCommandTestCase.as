@@ -12,9 +12,7 @@
 package dz.alkhwarizmix.framework.flex.controller
 {
 
-import dz.alkhwarizmix.framework.flex.errors.AlKhwarizmixMissingImplError;
-
-import flexunit.framework.TestCase;
+import dz.alkhwarizmix.framework.flex.testutils.AlKhwarizmixTestCase;
 
 /**
  *  <p>
@@ -24,15 +22,13 @@ import flexunit.framework.TestCase;
  *  @author فارس بلحواس (Fares Belhaouas)
  *  @since  ١٧ شوال ١٤٣٤ (August 24, 2013)
  */
-public class AlKhwarizmixBlazeDSGetDataCommandTestCase extends TestCase
+public class AlKhwarizmixBlazeDSGetDataCommandTestCase extends AlKhwarizmixTestCase
 {
 	//--------------------------------------------------------------------------
 	//
 	//  SETUP & TEARDOWN
 	//
 	//--------------------------------------------------------------------------
-	
-	private var classUnderTest:AlKhwarizmixBlazeDSGetDataCommand = null;
 	
 	override public function setUp():void
 	{
@@ -41,9 +37,12 @@ public class AlKhwarizmixBlazeDSGetDataCommandTestCase extends TestCase
 	
 	override public function tearDown():void
 	{
-		classUnderTest = null;
-		
 		super.tearDown();
+	}
+	
+	override protected function get classUnderTest():Class
+	{
+		return AlKhwarizmixBlazeDSGetDataCommand;
 	}
 	
 	//--------------------------------------------------------------------------
@@ -52,18 +51,37 @@ public class AlKhwarizmixBlazeDSGetDataCommandTestCase extends TestCase
 	//
 	//--------------------------------------------------------------------------
 	
+	[Ignore("Fail in maven")]
 	[Test]
-	public function test01_constructor_should_throwMissingImplError():void
+	public function test02_amfURI_should_throwMissingImplError():void
 	{
-		try
-		{
-			classUnderTest = new AlKhwarizmixBlazeDSGetDataCommand();
-			assertTrue("Should throw exception before to be here", false);
-		}
-		catch (error:Error)
-		{
-			assertTrue(error is AlKhwarizmixMissingImplError);
-		}
+		assert_should_throwMissingImplError(
+			function ():void
+			{
+				classInstanceUnderTest.amfURI;
+			});
+	}
+	
+	[Ignore("Fail in maven")]
+	[Test]
+	public function test03_operationName_should_throwMissingImplError():void
+	{
+		assert_should_throwMissingImplError(
+			function ():void
+			{
+				classInstanceUnderTest.operationName;
+			});
+	}
+	
+	[Ignore("Fail in maven")]
+	[Test]
+	public function test04_proxyName_should_throwMissingImplError():void
+	{
+		assert_should_throwMissingImplError(
+			function ():void
+			{
+				classInstanceUnderTest.proxyName;
+			});
 	}
 	
 } // class

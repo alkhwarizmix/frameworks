@@ -12,9 +12,7 @@
 package dz.alkhwarizmix.framework.flex.view.controls
 {
 
-import flash.display.DisplayObject;
-
-import dz.alkhwarizmix.framework.flex.testutils.AlkhwarizmixUITestCase;
+import dz.alkhwarizmix.framework.flex.testutils.AlKhwarizmixUITestCase;
 
 import org.flexunit.asserts.assertNotNull;
 
@@ -26,7 +24,7 @@ import org.flexunit.asserts.assertNotNull;
  *  @author فارس بلحواس (Fares Belhaouas)
  *  @since  ٢٥ شوال ١٤٣٤ (September 1, 2013)
  */
-public class AlKhwarizmixLabelTestCase extends AlkhwarizmixUITestCase 
+public class AlKhwarizmixLabelTestCase extends AlKhwarizmixUITestCase 
 {
 	//--------------------------------------------------------------------------
 	//
@@ -34,26 +32,21 @@ public class AlKhwarizmixLabelTestCase extends AlkhwarizmixUITestCase
 	//
 	//--------------------------------------------------------------------------
 	
-	private var classUnderTest:AlKhwarizmixLabel = null;
-	
 	[Before(async, ui)]
 	override public function setUp():void
 	{
 		super.setUp();
 	}
 	
-	override protected function getDisplayObjectUnderTest():DisplayObject
-	{
-		classUnderTest = new AlKhwarizmixLabel();
-		return classUnderTest;
-	}
-	
 	[After(ui)]
 	override public function tearDown():void
 	{
-		classUnderTest = null;
-		
 		super.tearDown();
+	}
+	
+	override protected function get classUnderTest():Class
+	{
+		return AlKhwarizmixLabel;
 	}
 	
 	//--------------------------------------------------------------------------

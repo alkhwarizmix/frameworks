@@ -12,13 +12,13 @@
 package dz.alkhwarizmix.framework.flex.utils
 {
 
-import flash.events.Event;
 import flash.events.EventDispatcher;
 import flash.events.TimerEvent;
 import flash.utils.Timer;
 
 import mx.collections.ArrayCollection;
 
+import dz.alkhwarizmix.framework.flex.event.AlKhwarizmixEvent;
 import dz.alkhwarizmix.framework.flex.logging.AlKhwarizmixLog;
 import dz.alkhwarizmix.framework.flex.logging.IAlKhwarizmixLogger;
 
@@ -36,9 +36,9 @@ public class ForEachAsync extends EventDispatcher
 	
 	// EVENTS
 	public static const LOOP_DONE:String =
-					"ForEachAsync_loop_done";
+		"ForEachAsync_loop_done";
 	public static const LOOP_FAULT:String =
-					"ForEachAsync_loop_fault";
+		"ForEachAsync_loop_fault";
 	
 	/**
 	 * LOG.
@@ -50,7 +50,7 @@ public class ForEachAsync extends EventDispatcher
 	 * Constructor.
 	 */
 	public function ForEachAsync(theSource:Array = null,
-				theLoopFunction:Function = null)
+		theLoopFunction:Function = null)
 	{
 		super();
 		
@@ -155,7 +155,7 @@ public class ForEachAsync extends EventDispatcher
 	 * loop_async Method TO_ASDoc_DO:
 	 */
 	public function loop_async(theLoopTime:Number = 1000,
-				thePauseTime:Number = 50):void
+		thePauseTime:Number = 50):void
 	{
 		if (AlKhwarizmixLog.isLogLevelAll)
 		{
@@ -172,7 +172,7 @@ public class ForEachAsync extends EventDispatcher
 		
 		asyncLoopTimer = new Timer(thePauseTime);
 		asyncLoopTimer.addEventListener(TimerEvent.TIMER,
-				asyncLoopTimer_timerHandler);
+			asyncLoopTimer_timerHandler);
 		asyncLoopTimer.start();
 	}
 	
@@ -192,7 +192,7 @@ public class ForEachAsync extends EventDispatcher
 		
 		stopAsyncLoop();
 		isAsyncLoopDone = true;
-		dispatchEvent(new Event(LOOP_DONE));
+		dispatchEvent(new AlKhwarizmixEvent(LOOP_DONE, false));
 	}
 	
 	/**
@@ -204,7 +204,7 @@ public class ForEachAsync extends EventDispatcher
 		
 		stopAsyncLoop();
 		isAsyncLoopDone = true;
-		dispatchEvent(new Event(LOOP_FAULT));		
+		dispatchEvent(new AlKhwarizmixEvent(LOOP_FAULT, false));
 	}
 	
 	/**
@@ -215,7 +215,7 @@ public class ForEachAsync extends EventDispatcher
 		if (AlKhwarizmixLog.isLogLevelAll)
 		{
 			LOG.debug("doLoopProcessing: asyncLoopSource.length={0}",
-					asyncLoopSource.length);
+				asyncLoopSource.length);
 		}
 		
 		var startTime:Number = flash.utils.getTimer();
@@ -250,8 +250,8 @@ public class ForEachAsync extends EventDispatcher
 	//* ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ******
 	
 	/**
-  	 * asyncLoopTimer_timerHandler Handler TO_ASDoc_DO:
-  	 */
+	 * asyncLoopTimer_timerHandler Handler TO_ASDoc_DO:
+	 */
 	private function asyncLoopTimer_timerHandler(ev:TimerEvent):void
 	{
 		asyncLoopTimer.stop();

@@ -12,9 +12,7 @@
 package dz.alkhwarizmix.framework.flex.view.components
 {
 
-import flash.display.DisplayObject;
-
-import dz.alkhwarizmix.framework.flex.testutils.AlkhwarizmixUITestCase;
+import dz.alkhwarizmix.framework.flex.testutils.AlKhwarizmixUITestCase;
 
 import org.flexunit.asserts.assertNotNull;
 
@@ -26,7 +24,7 @@ import org.flexunit.asserts.assertNotNull;
  *  @author فارس بلحواس (Fares Belhaouas)
  *  @since  ٢٤ شوال ١٤٣٤ (August 31, 2013)
  */
-public class AlKhwarizmixDataListCanvasTestCase extends AlkhwarizmixUITestCase 
+public class AlKhwarizmixDataListCanvasTestCase extends AlKhwarizmixUITestCase 
 {
 	//--------------------------------------------------------------------------
 	//
@@ -34,26 +32,21 @@ public class AlKhwarizmixDataListCanvasTestCase extends AlkhwarizmixUITestCase
 	//
 	//--------------------------------------------------------------------------
 	
-	private var classUnderTest:AlKhwarizmixDataListCanvas = null;
-	
 	[Before(async, ui)]
 	override public function setUp():void
 	{
 		super.setUp();
 	}
 	
-	override protected function getDisplayObjectUnderTest():DisplayObject
-	{
-		classUnderTest = new AlKhwarizmixDataListCanvas();
-		return classUnderTest;
-	}
-	
 	[After(ui)]
 	override public function tearDown():void
 	{
-		classUnderTest = null;
-		
 		super.tearDown();
+	}
+	
+	override protected function get classUnderTest():Class
+	{
+		return AlKhwarizmixDataListCanvas;
 	}
 	
 	//--------------------------------------------------------------------------

@@ -21,6 +21,7 @@ import dz.alkhwarizmix.framework.flex.model.AlKhwarizmixSuperProxyTestCase;
 import dz.alkhwarizmix.framework.flex.model.vo.AlKhwarizmixVOTestCase;
 import dz.alkhwarizmix.framework.flex.modules.AlKhwarizmixModuleTestCase;
 import dz.alkhwarizmix.framework.flex.rpc.remoting.AlKhwarizmixRemoteObjectTestCase;
+import dz.alkhwarizmix.framework.flex.utils.CryptoUtilTestCase;
 import dz.alkhwarizmix.framework.flex.view.AlKhwarizmixMediatorTestCase;
 import dz.alkhwarizmix.framework.flex.view.AlkhwarizmixDataListMediatorTestCase;
 import dz.alkhwarizmix.framework.flex.view.components.AlKhwarizmixDataListCanvasTestCase;
@@ -54,6 +55,9 @@ public class TestSuite
 	
 	// rpc
 	public var alKhwarizmixRemoteObjectTestCase:AlKhwarizmixRemoteObjectTestCase;
+	
+	// utils
+	public var cryptoUtilTestCase:CryptoUtilTestCase;
 	
 	// view
 	public var alKhwarizmixDataListCanvasTestCase:AlKhwarizmixDataListCanvasTestCase;

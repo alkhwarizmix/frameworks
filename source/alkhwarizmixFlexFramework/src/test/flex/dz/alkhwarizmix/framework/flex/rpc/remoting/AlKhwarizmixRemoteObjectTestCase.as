@@ -12,7 +12,9 @@
 package dz.alkhwarizmix.framework.flex.rpc.remoting
 {
 
-import flexunit.framework.TestCase;
+import dz.alkhwarizmix.framework.flex.testutils.AlKhwarizmixTestCase;
+
+import org.flexunit.asserts.assertNotNull;
 
 /**
  *  <p>
@@ -22,7 +24,7 @@ import flexunit.framework.TestCase;
  *  @author فارس بلحواس (Fares Belhaouas)
  *  @since  ٢٤ شوال ١٤٣٤ (August 31, 2013)
  */
-public class AlKhwarizmixRemoteObjectTestCase extends TestCase
+public class AlKhwarizmixRemoteObjectTestCase extends AlKhwarizmixTestCase
 {
 	//--------------------------------------------------------------------------
 	//
@@ -30,20 +32,26 @@ public class AlKhwarizmixRemoteObjectTestCase extends TestCase
 	//
 	//--------------------------------------------------------------------------
 	
-	private var classUnderTest:AlKhwarizmixRemoteObject = null;
-	
+	[Before]
 	override public function setUp():void
 	{
 		super.setUp();
-		
-		classUnderTest = new AlKhwarizmixRemoteObject();
 	}
 	
+	[After]
 	override public function tearDown():void
 	{
-		classUnderTest = null;
-		
 		super.tearDown();
+	}
+	
+	override protected function get classUnderTest():Class
+	{
+		return AlKhwarizmixRemoteObject;
+	}
+	
+	private function get utAlKhwarizmixRemoteObject():AlKhwarizmixRemoteObject
+	{
+		return classInstanceUnderTest as AlKhwarizmixRemoteObject;
 	}
 	
 	//--------------------------------------------------------------------------
@@ -55,7 +63,7 @@ public class AlKhwarizmixRemoteObjectTestCase extends TestCase
 	[Test]
 	public function test01_constructor():void
 	{
-		assertNotNull(classUnderTest);
+		assertNotNull(utAlKhwarizmixRemoteObject);
 	}
 	
 } // class

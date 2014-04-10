@@ -47,13 +47,13 @@
 						<id>default-cli</id>
 						<configuration>
 							<target>
+								<mkdir dir="${project.build.directory}/download" />
 								<!-- download file -->
-								<copy todir="${project.build.directory}/download/" flatten="true">
-									<resources>
-										<url
-											url="https://github.com/PureMVC/puremvc-as3-multicore-framework/raw/master/bin/PureMVC_AS3_MultiCore_1_0_5.swc" />
-									</resources>
-								</copy>
+								<get
+									dest="${project.build.directory}/download/PureMVC_AS3_MultiCore_1_0_5.swc">
+									<url
+										url="https://github.com/PureMVC/puremvc-as3-multicore-framework/raw/master/bin/PureMVC_AS3_MultiCore_1_0_5.swc" />
+								</get>
 							</target>
 						</configuration>
 						<goals>

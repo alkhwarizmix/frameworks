@@ -40,23 +40,19 @@
 	<build>
 		<plugins>
 			<plugin>
-				<artifactId>maven-antrun-plugin</artifactId>
-				<version>1.7</version>
+				<groupId>com.googlecode.maven-download-plugin</groupId>
+				<artifactId>maven-download-plugin</artifactId>
+				<version>1.1.0</version>
 				<executions>
 					<execution>
-						<id>default-cli</id>
-						<configuration>
-							<target>
-								<mkdir dir="${project.build.directory}/download" />
-								<!-- download file -->
-								<get dest="${project.build.directory}/download/as3crypto.swc">
-									<url url="https://as3crypto.googlecode.com/files/as3crypto.swc" />
-								</get>
-							</target>
-						</configuration>
 						<goals>
-							<goal>run</goal>
+							<goal>wget</goal>
 						</goals>
+						<configuration>
+							<url>https://as3crypto.googlecode.com/files/as3crypto.swc</url>
+							<outputFileName>as3crypto.swc</outputFileName>
+							<outputDirectory>${project.build.directory}/download/</outputDirectory>
+						</configuration>
 					</execution>
 				</executions>
 			</plugin>

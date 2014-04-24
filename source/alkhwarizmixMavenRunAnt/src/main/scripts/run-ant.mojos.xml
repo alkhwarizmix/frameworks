@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+////////////////////////////////////////////////////////////////////////////////
+//  بسم الله الرحمن الرحيم
+//
+//  حقوق التأليف والنشر ١٤٣٥ هجري، فارس بلحواس (Copyright 2014 Fares Belhaouas)  
+//  كافة الحقوق محفوظة (All Rights Reserved)
+//
+//  NOTICE: Fares Belhaouas permits you to use, modify, and distribute this file
+//  in accordance with the terms of the license agreement accompanying it.
+//
+////////////////////////////////////////////////////////////////////////////////
+--><!---
+/**
+ *  <p>
+ *  TODO: ASDOC
+ *  </p>
+ * 
+ *  @author فارس بلحواس (Fares Belhaouas)
+ *  @since  ٢٤ جمادى الثانية ١٤٣٥ (April 23, 2014)
+ */
+-->
+
+<pluginMetadata>
+	<mojos>
+		<mojo>
+			<goal>run</goal>
+
+			<!-- this element refers to the Ant target we'll invoke -->
+			<call>run</call>
+			<description>
+				Run Ant Script
+			</description>
+
+			<parameters>
+				<parameter>
+					<name>filename</name>
+					<property>dz.alkhwarizmix.run-ant.filename</property>
+					<required>true</required>
+					<expression>filename</expression>
+					<type>java.lang.String</type>
+					<description>Ant Script file to run</description>
+				</parameter>
+
+				<parameter>
+					<name>version</name>
+					<property>dz.alkhwarizmix.run-ant.version</property>
+					<required>true</required>
+					<expression>version</expression>
+					<type>java.lang.String</type>
+					<description>Ant Version to use (ex: 1.9.3)</description>
+				</parameter>
+
+				<parameter>
+					<name>target</name>
+					<property>dz.alkhwarizmix.run-ant.target</property>
+					<required>true</required>
+					<expression>target</expression>
+					<type>java.lang.String</type>
+					<description>Ant Script target to run</description>
+				</parameter>
+
+				<parameter>
+					<name>param1</name>
+					<property>dz.alkhwarizmix.run-ant.param1</property>
+					<required>false</required>
+					<expression>param1</expression>
+					<type>java.lang.String</type>
+					<description>Ant Script Param1</description>
+				</parameter>
+			</parameters>
+		</mojo>
+	</mojos>
+</pluginMetadata>

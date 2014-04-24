@@ -23,6 +23,7 @@ import dz.alkhwarizmix.framework.flex.interfaces.IAlKhwarizmixCommand;
 import dz.alkhwarizmix.framework.flex.logging.AlKhwarizmixLog;
 import dz.alkhwarizmix.framework.flex.logging.IAlKhwarizmixLogger;
 import dz.alkhwarizmix.framework.flex.rpc.remoting.AlKhwarizmixRemoteObject;
+import dz.alkhwarizmix.framework.flex.utils.CryptoUtil;
 
 import org.puremvc.as3.multicore.interfaces.INotification;
 import org.puremvc.as3.multicore.interfaces.IProxy;
@@ -125,6 +126,18 @@ public class AlKhwarizmixBlazeDSGetDataCommand extends AlKhwarizmixWebGetDataCom
 	}
 	
 	//----------------------------------
+	//  cryptoUtil
+	//----------------------------------
+	
+	/**
+	 * TODO: ASDOC Definition of cryptoUtil
+	 */
+	public function get cryptoUtil():CryptoUtil
+	{
+		return new CryptoUtil("%%KeyForTest$#09");
+	}
+	
+	//----------------------------------
 	//  operationName
 	//----------------------------------
 	
@@ -191,7 +204,7 @@ public class AlKhwarizmixBlazeDSGetDataCommand extends AlKhwarizmixWebGetDataCom
 		super.execute_try(notif);
 		
 		var operation:AbstractOperation = ro.getOperation(operationName);
-		operation.send.apply(operation, notif.getBody().operationParams);
+		operation.send.apply(operation, cryptoUtil.getEncryptedVersion(notif.getBody().operationParams));
 	}
 	
 	//--------------------------------------------------------------------------

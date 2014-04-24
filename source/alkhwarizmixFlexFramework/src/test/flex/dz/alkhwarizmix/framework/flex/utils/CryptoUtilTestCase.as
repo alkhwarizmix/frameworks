@@ -80,7 +80,7 @@ public class CryptoUtilTestCase extends AlKhwarizmixTestCase
 	{
 		var textToEncrypt:String = "This is a text to encrypt 345 éè" +
 			"م خ ة";
-		var encrypted:String = utCryptoUtil.encrypt(textToEncrypt);
+		var encrypted:String = utCryptoUtil.encryptString(textToEncrypt);
 		assertFalse("", ObjectUtil.compare(textToEncrypt, encrypted) == 0);
 	}
 	
@@ -89,8 +89,8 @@ public class CryptoUtilTestCase extends AlKhwarizmixTestCase
 	{
 		var textToEncrypt:String = "This is a text to encrypt 345 éè" +
 			"م خ ة";
-		var encrypted:String = utCryptoUtil.encrypt(textToEncrypt);
-		var decrypted:String = utCryptoUtil.decrypt(encrypted);
+		var encrypted:String = utCryptoUtil.encryptString(textToEncrypt);
+		var decrypted:String = utCryptoUtil.decryptString(encrypted);
 		assertEquals(textToEncrypt, decrypted);
 	}
 	

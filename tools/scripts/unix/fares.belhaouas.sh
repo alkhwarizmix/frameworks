@@ -20,7 +20,7 @@ echo
 echo "----- ----- ----- ----- ----- ----- ----- ----- ----- -----"
 echo
 echo "Fares Belhaouas functions"
-echo "Version 29 MAR 2014, 13:04"
+echo "Version 10 APR 2014, 22:49"
 echo
 echo "Type fbel-help                             to print all functions"
 echo
@@ -316,7 +316,7 @@ function fbel-add-fares
 
 function fbel-netstat
 {
-   netstat -an | egrep 'Proto|LISTEN'
+   netstat -anlp | egrep 'Proto|LISTEN'
 };
 
 # ----- ----- ----- ----- ----- ----- ----- ----- ----- -----

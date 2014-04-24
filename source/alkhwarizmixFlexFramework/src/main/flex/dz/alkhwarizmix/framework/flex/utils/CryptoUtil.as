@@ -22,6 +22,8 @@ import com.hurlant.util.Hex;
 
 import flash.utils.ByteArray;
 
+import mx.utils.ObjectUtil;
+
 /**
  *  <p>
  *  TODO: ASDOC
@@ -68,9 +70,9 @@ public class CryptoUtil
 	//--------------------------------------------------------------------------
 	
 	/**
-	 * encrypt
+	 * encryptString
 	 */
-	public final function encrypt(stringToEncrypt:String):String
+	public final function encryptString(stringToEncrypt:String):String
 	{
 		var kdata:ByteArray = Base64.decodeToByteArray(key);		
 		var data:ByteArray = Hex.toArray(Hex.fromString(stringToEncrypt));
@@ -87,9 +89,9 @@ public class CryptoUtil
 	}
 	
 	/**
-	 * decrypt
+	 * decryptString
 	 */
-	public final function decrypt(stringToDecrypt:String):String
+	public final function decryptString(stringToDecrypt:String):String
 	{
 		var kdata:ByteArray = Base64.decodeToByteArray(key);
 		var data:ByteArray = Base64.decodeToByteArray(stringToDecrypt);
@@ -102,6 +104,24 @@ public class CryptoUtil
 		mode.decrypt(data);
 		
 		var result:String = Hex.toString(Hex.fromArray(data));
+		return result;
+	}
+	
+	/**
+	 * getEncryptedVersion
+	 */
+	public final function getEncryptedVersion(objectToEncrypt:Object):Object
+	{
+		var result:Object = ObjectUtil.clone(objectToEncrypt);
+		return result;
+	}
+	
+	/**
+	 * getDecryptedVersion
+	 */
+	public final function getDecryptedVersion(encryptedObject:Object):Object
+	{
+		var result:Object = ObjectUtil.clone(encryptedObject) as Object;
 		return result;
 	}
 	

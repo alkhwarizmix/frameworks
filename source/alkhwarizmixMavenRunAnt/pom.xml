@@ -15,6 +15,8 @@
 /**
  *  <p>
  *  TODO: ASDOC
+ *  mvn -U clean install
+ *  mvn dz.alkhwarizmix:run-ant:run -Dfilename=test.build.xml -Dversion=1.9.3 -Dtarget=helloBis
  *  </p>
  * 
  *  @author فارس بلحواس (Fares Belhaouas)
@@ -26,18 +28,18 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<parent>
-		<groupId>dz.alkhwarizmix</groupId>
-		<artifactId>alkhwarizmix-common</artifactId>
-		<version>1.0.5.6</version>
-	</parent>
-
 	<groupId>dz.alkhwarizmix</groupId>
-	<artifactId>Install-as3crypto</artifactId>
-	<version>1.0.5.6</version>
-	<name>Install-as3crypto Maven</name>
+	<artifactId>run-ant</artifactId>
+	<version>1.0.2</version>
+	<packaging>maven-plugin</packaging>
+	<name>Run-ant Maven Plugin</name>
 
 	<dependencies>
+		<dependency>
+			<groupId>org.apache.maven</groupId>
+			<artifactId>maven-script-ant</artifactId>
+			<version>2.2.1</version>
+		</dependency>
 		<dependency>
 			<groupId>org.apache.ant</groupId>
 			<artifactId>ant-launcher</artifactId>
@@ -53,23 +55,23 @@
 	<build>
 		<plugins>
 			<plugin>
-				<groupId>dz.alkhwarizmix</groupId>
-				<artifactId>run-ant</artifactId>
-				<version>1.0.2</version>
-				<executions>
-					<execution>
-						<phase>generate-resources</phase>
-						<goals>
-							<goal>run</goal>
-						</goals>
-						<configuration>
-							<dz.alkhwarizmix.run-ant.filename>download.ant.build.xml</dz.alkhwarizmix.run-ant.filename>
-							<dz.alkhwarizmix.run-ant.version>1.9.3</dz.alkhwarizmix.run-ant.version>
-							<dz.alkhwarizmix.run-ant.target>download</dz.alkhwarizmix.run-ant.target>
-							<dz.alkhwarizmix.run-ant.param1>https://as3crypto.googlecode.com/files/as3crypto.swc</dz.alkhwarizmix.run-ant.param1>
-						</configuration>
-					</execution>
-				</executions>
+				<artifactId>maven-plugin-plugin</artifactId>
+				<version>3.2</version>
+
+				<!-- Add the Ant plugin tools -->
+				<dependencies>
+					<dependency>
+						<groupId>org.apache.maven.plugin-tools</groupId>
+						<artifactId>maven-plugin-tools-ant</artifactId>
+						<version>3.2</version>
+					</dependency>
+				</dependencies>
+
+				<!-- Tell the plugin-plugin which prefix we will use. Later, we'll configure 
+					Maven to allow us to invoke this plugin using the "prefix:mojo" shorthand. -->
+				<configuration>
+					<goalPrefix>run</goalPrefix>
+				</configuration>
 			</plugin>
 		</plugins>
 	</build>

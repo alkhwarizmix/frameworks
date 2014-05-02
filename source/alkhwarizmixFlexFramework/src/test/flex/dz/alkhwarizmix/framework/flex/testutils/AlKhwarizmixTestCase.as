@@ -12,6 +12,9 @@
 package dz.alkhwarizmix.framework.flex.testutils
 {
 
+import flash.events.Event;
+import flash.events.IEventDispatcher;
+
 import dz.alkhwarizmix.framework.flex.errors.AlKhwarizmixMissingImplError;
 
 import org.flexunit.asserts.assertTrue;
@@ -107,6 +110,34 @@ public class AlKhwarizmixTestCase
 		}
 	}
 	
-	
+	/**
+	 * @private
+	 * 
+	 * Example of use:
+	 * assert_should_dispatchedEvent(utMainControlBar,
+	 *  MainControlBarEvent.OPEN_WINDOW,
+	 *  MainControlBarEvent,
+	 *  function ():void
+	 *  {
+	 *   utMainControlBar.menuBar.dispatchEvent(
+	 *    new MenuEvent(MenuEvent.ITEM_CLICK));
+	 *  });
+	 */
+	protected final function assert_should_dispatchedEvent(
+		dispatcherToListen:IEventDispatcher,
+		eventToListen:String,
+		eventClassToListen:Class,
+		functionToRun:Function):void
+	{
+		var dispatchedEvent:Event = null;
+		dispatcherToListen.addEventListener(eventToListen,
+			function (event:Event):void
+			{
+				dispatchedEvent = event;
+			});
+		functionToRun();
+		assertTrue(dispatchedEvent is eventClassToListen);
+	}
+		
 } // class
 } // package

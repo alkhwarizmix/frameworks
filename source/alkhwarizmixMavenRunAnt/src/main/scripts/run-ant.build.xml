@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+////////////////////////////////////////////////////////////////////////////////
+//  بسم الله الرحمن الرحيم
+//
+//  حقوق التأليف والنشر ١٤٣٥ هجري، فارس بلحواس (Copyright 2014 Fares Belhaouas)  
+//  كافة الحقوق محفوظة (All Rights Reserved)
+//
+//  NOTICE: Fares Belhaouas permits you to use, modify, and distribute this file
+//  in accordance with the terms of the license agreement accompanying it.
+//
+////////////////////////////////////////////////////////////////////////////////
+-->
+<!---
+/**
+ *  <p>
+ *  TODO: ASDOC
+ *  </p>
+ * 
+ *  @author فارس بلحواس (Fares Belhaouas)
+ *  @since  ٢٤ جمادى الثانية ١٤٣٥ (April 23, 2014)
+ */
+-->
+
+<project>
+	<target name="run">
+		<echo>Run Ant Script: ${dz.alkhwarizmix.run-ant.filename}</echo>
+		<echo>Using Ant Version ${dz.alkhwarizmix.run-ant.version}</echo>
+		<echo>Param1=${dz.alkhwarizmix.run-ant.param1}</echo>
+
+		<property name="sub.builddir" value="." />
+		<property name="sub.buildfile" value="${dz.alkhwarizmix.run-ant.filename}" />
+		<property name="sub.target" value="${dz.alkhwarizmix.run-ant.target}" />
+
+		<java classname="org.apache.tools.ant.launch.Launcher" fork="true" failonerror="true" dir="${sub.builddir}" timeout="4000000" taskname="startAnt">
+			<classpath>
+				<pathelement location="${user.home}/.m2/repository/org/apache/ant/ant-launcher/${dz.alkhwarizmix.run-ant.version}/ant-launcher-${dz.alkhwarizmix.run-ant.version}.jar" />
+				<pathelement location="${user.home}/.m2/repository/org/apache/ant/ant/${dz.alkhwarizmix.run-ant.version}/ant-${dz.alkhwarizmix.run-ant.version}.jar" />
+			</classpath>
+			<arg value="-buildfile" />
+			<arg file="${sub.buildfile}" />
+			<arg value="-Dthis=this" />
+			<arg value="-Dthat=that" />
+			<arg value="-Dbasedir=${sub.builddir}" />
+			<arg value="-Dthe.other=the.other" />
+			<arg value="-Ddz.alkhwarizmix.run-ant.filename=${dz.alkhwarizmix.run-ant.filename}" />
+			<arg value="-Ddz.alkhwarizmix.run-ant.version=${dz.alkhwarizmix.run-ant.version}" />
+			<arg value="-Ddz.alkhwarizmix.run-ant.target=${dz.alkhwarizmix.run-ant.target}" />
+			<arg value="-Ddz.alkhwarizmix.run-ant.param1=${dz.alkhwarizmix.run-ant.param1}" />
+			<arg value="${sub.target}" />
+		</java>
+	</target>
+</project>

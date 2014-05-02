@@ -4,7 +4,7 @@
 ////////////////////////////////////////////////////////////////////////////////
 //  بسم الله الرحمن الرحيم
 //
-//  حقوق التأليف والنشر ١٤٣٤ هجري، فارس بلحواس (Copyright 2013 Fares Belhaouas)  
+//  حقوق التأليف والنشر ١٤٣٥ هجري، فارس بلحواس (Copyright 2014 Fares Belhaouas)  
 //  كافة الحقوق محفوظة (All Rights Reserved)
 //
 //  NOTICE: Fares Belhaouas permits you to use, modify, and distribute this file
@@ -18,7 +18,7 @@
  *  </p>
  * 
  *  @author فارس بلحواس (Fares Belhaouas)
- *  @since  ١٢ ذو القعدة ١٤٣٤ (September 17, 2013)
+ *  @since  ٠١ جمادى الثانية ١٤٣٥ (March 31, 2014)
  */
 -->
 
@@ -33,9 +33,9 @@
 	</parent>
 
 	<groupId>dz.alkhwarizmix</groupId>
-	<artifactId>Install-PureMVC_AS3_MultiCore_Framework</artifactId>
+	<artifactId>Install-as3crypto</artifactId>
 	<version>1.0.5.6</version>
-	<name>Install-PureMVC_AS3_MultiCore_Framework Maven</name>
+	<name>Install-as3crypto Maven</name>
 
 	<dependencies>
 		<dependency>
@@ -66,7 +66,7 @@
 							<dz.alkhwarizmix.run-ant.filename>download.ant.build.xml</dz.alkhwarizmix.run-ant.filename>
 							<dz.alkhwarizmix.run-ant.version>1.9.3</dz.alkhwarizmix.run-ant.version>
 							<dz.alkhwarizmix.run-ant.target>download</dz.alkhwarizmix.run-ant.target>
-							<dz.alkhwarizmix.run-ant.param1>https://github.com/PureMVC/puremvc-as3-multicore-framework/raw/master/bin/PureMVC_AS3_MultiCore_1_0_5.swc</dz.alkhwarizmix.run-ant.param1>
+							<dz.alkhwarizmix.run-ant.param1>https://as3crypto.googlecode.com/files/as3crypto.swc</dz.alkhwarizmix.run-ant.param1>
 						</configuration>
 					</execution>
 				</executions>

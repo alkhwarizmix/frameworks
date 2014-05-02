@@ -14,6 +14,7 @@ package dz.alkhwarizmix.framework.flex.controller
 
 import mx.messaging.ChannelSet;
 import mx.messaging.channels.AMFChannel;
+import mx.messaging.channels.SecureAMFChannel;
 import mx.rpc.AbstractOperation;
 import mx.rpc.events.FaultEvent;
 import mx.rpc.events.ResultEvent;
@@ -23,6 +24,7 @@ import dz.alkhwarizmix.framework.flex.interfaces.IAlKhwarizmixCommand;
 import dz.alkhwarizmix.framework.flex.logging.AlKhwarizmixLog;
 import dz.alkhwarizmix.framework.flex.logging.IAlKhwarizmixLogger;
 import dz.alkhwarizmix.framework.flex.rpc.remoting.AlKhwarizmixRemoteObject;
+import dz.alkhwarizmix.framework.flex.utils.CryptoUtil;
 
 import org.puremvc.as3.multicore.interfaces.INotification;
 import org.puremvc.as3.multicore.interfaces.IProxy;
@@ -67,8 +69,19 @@ public class AlKhwarizmixBlazeDSGetDataCommand extends AlKhwarizmixWebGetDataCom
 	 */
 	private function getChannelSet():ChannelSet
 	{
-		var result:ChannelSet = new ChannelSet(); 
-		result.addChannel(new AMFChannel("myAmf", amfURI));
+		var result:ChannelSet = new ChannelSet();
+		result.addChannel(newAMFChannel());
+		return result;
+	}
+	
+	/**
+	 * @private
+	 */
+	protected final function newAMFChannel():AMFChannel
+	{
+		var result:AMFChannel = isSecureConnexion
+			? new SecureAMFChannel("myAmf", amfURI)
+			: new AMFChannel("myAmf", amfURI);
 		return result;
 	}
 	
@@ -122,6 +135,30 @@ public class AlKhwarizmixBlazeDSGetDataCommand extends AlKhwarizmixWebGetDataCom
 	public function get amfURI():String
 	{
 		throw new AlKhwarizmixMissingImplError();
+	}
+	
+	//----------------------------------
+	//  cryptoUtil
+	//----------------------------------
+	
+	/**
+	 * TODO: ASDOC Definition of cryptoUtil
+	 */
+	public function get cryptoUtil():CryptoUtil
+	{
+		return new CryptoUtil("%%KeyForTest$#09");
+	}
+	
+	//----------------------------------
+	//  isSecureConnexion
+	//----------------------------------
+	
+	/**
+	 * TODO: ASDOC Definition of isSecureConnexion
+	 */
+	public final function get isSecureConnexion():Boolean
+	{
+		return (amfURI.indexOf("https") == 0);
 	}
 	
 	//----------------------------------
@@ -191,7 +228,8 @@ public class AlKhwarizmixBlazeDSGetDataCommand extends AlKhwarizmixWebGetDataCom
 		super.execute_try(notif);
 		
 		var operation:AbstractOperation = ro.getOperation(operationName);
-		operation.send.apply(operation, notif.getBody().operationParams);
+		operation.send.apply(operation, cryptoUtil.getEncryptedVersion(
+			notif.getBody().operationParams));
 	}
 	
 	//--------------------------------------------------------------------------

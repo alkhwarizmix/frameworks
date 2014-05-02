@@ -20,7 +20,7 @@ echo
 echo "----- ----- ----- ----- ----- ----- ----- ----- ----- -----"
 echo
 echo "Fares Belhaouas functions"
-echo "Version 10 APR 2014, 22:49"
+echo "Version 26 APR 2014, 15:10"
 echo
 echo "Type fbel-help                             to print all functions"
 echo
@@ -28,6 +28,7 @@ echo "Type fbel-apache2-restart                  to restart Apache server"
 echo "Type fbel-jenkins-restart                  to restart Jenkins server"
 echo "Type fbel-tomcat7-restart                  to restart Tomcat server"
 echo "Type fbel-backup(-sudo) file               to backup the file with current date and time"
+echo "Type fbel-ls-java-processes                to print list of java processes"
 echo "Type fbel-netstat                          to print used TCP/IP ports"
 echo "Type fbel-tail-apache2-sslaccess-log       to tail Apache2 sslaccess log"
 echo 
@@ -317,6 +318,13 @@ function fbel-add-fares
 function fbel-netstat
 {
    netstat -anlp | egrep 'Proto|LISTEN'
+};
+
+# ----- ----- ----- ----- ----- ----- ----- ----- ----- -----
+
+function fbel-ls-java-processes
+{
+   ps aux | grep java
 };
 
 # ----- ----- ----- ----- ----- ----- ----- ----- ----- -----

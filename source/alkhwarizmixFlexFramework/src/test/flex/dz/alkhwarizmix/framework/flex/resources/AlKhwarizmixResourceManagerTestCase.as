@@ -1,7 +1,7 @@
 ////////////////////////////////////////////////////////////////////////////////
 //  بسم الله الرحمن الرحيم
 //
-//  حقوق التأليف والنشر ١٤٣٤ هجري، فارس بلحواس (Copyright 2013 Fares Belhaouas)  
+//  حقوق التأليف والنشر ١٤٣٥ هجري، فارس بلحواس (Copyright 2014 Fares Belhaouas)    
 //  كافة الحقوق محفوظة (All Rights Reserved)
 //
 //  NOTICE: Fares Belhaouas permits you to use, modify, and distribute this file
@@ -9,15 +9,12 @@
 //
 ////////////////////////////////////////////////////////////////////////////////
 
-package dz.alkhwarizmix.framework.flex.view.containers
+package dz.alkhwarizmix.framework.flex.resources
 {
 
-import dz.alkhwarizmix.framework.flex.interfaces.IAlKhwarizmixLocalizable;
-import dz.alkhwarizmix.framework.flex.testutils.AlKhwarizmixUITestCase;
+import dz.alkhwarizmix.framework.flex.testutils.AlKhwarizmixTestCase;
 
-import org.flexunit.asserts.assertEquals;
 import org.flexunit.asserts.assertNotNull;
-import org.flexunit.asserts.assertTrue;
 
 /**
  *  <p>
@@ -25,9 +22,9 @@ import org.flexunit.asserts.assertTrue;
  *  </p>
  * 
  *  @author فارس بلحواس (Fares Belhaouas)
- *  @since  ٢٥ شوال ١٤٣٤ (September 1, 2013)
+ *  @since  ٠٧ رجب ١٤٣٥ (May 06, 2014)
  */
-public class AlKhwarizmixMDICanvasTestCase extends AlKhwarizmixUITestCase 
+public class AlKhwarizmixResourceManagerTestCase extends AlKhwarizmixTestCase
 {
 	//--------------------------------------------------------------------------
 	//
@@ -35,26 +32,21 @@ public class AlKhwarizmixMDICanvasTestCase extends AlKhwarizmixUITestCase
 	//
 	//--------------------------------------------------------------------------
 	
-	[Before(async, ui)]
+	[Before]
 	override public function setUp():void
 	{
 		super.setUp();
 	}
 	
-	[After(ui)]
+	override protected function get classUnderTest():Class
+	{
+		return AlKhwarizmixResourceManager;
+	}
+	
+	[After]
 	override public function tearDown():void
 	{
 		super.tearDown();
-	}
-	
-	override protected function get classUnderTest():Class
-	{
-		return AlKhwarizmixMDICanvas;
-	}
-	
-	private function get alKhwarizmixMDICanvas():AlKhwarizmixMDICanvas
-	{
-		return classInstanceUnderTest as AlKhwarizmixMDICanvas;
 	}
 	
 	//--------------------------------------------------------------------------
@@ -66,7 +58,7 @@ public class AlKhwarizmixMDICanvasTestCase extends AlKhwarizmixUITestCase
 	[Test]
 	public function test01_constructor():void
 	{
-		assertNotNull(alKhwarizmixMDICanvas);
+		assertNotNull(classInstanceUnderTest);
 	}
 	
 } // class

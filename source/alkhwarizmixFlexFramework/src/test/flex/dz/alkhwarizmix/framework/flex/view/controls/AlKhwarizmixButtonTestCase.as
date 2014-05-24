@@ -12,9 +12,12 @@
 package dz.alkhwarizmix.framework.flex.view.controls
 {
 
+import dz.alkhwarizmix.framework.flex.interfaces.IAlKhwarizmixLocalizable;
 import dz.alkhwarizmix.framework.flex.testutils.AlKhwarizmixUITestCase;
 
+import org.flexunit.asserts.assertEquals;
 import org.flexunit.asserts.assertNotNull;
+import org.flexunit.asserts.assertTrue;
 
 /**
  *  <p>
@@ -49,6 +52,11 @@ public class AlKhwarizmixButtonTestCase extends AlKhwarizmixUITestCase
 		return AlKhwarizmixButton;
 	}
 	
+	private function get alKhwarizmixButton():AlKhwarizmixButton
+	{
+		return classInstanceUnderTest as AlKhwarizmixButton;
+	}
+	
 	//--------------------------------------------------------------------------
 	//
 	//  TESTS
@@ -58,7 +66,28 @@ public class AlKhwarizmixButtonTestCase extends AlKhwarizmixUITestCase
 	[Test]
 	public function test01_constructor():void
 	{
-		assertNotNull(classUnderTest);
+		assertNotNull(alKhwarizmixButton);
+	}
+	
+	[Test]
+	public function test02_should_implement_IAlKhwarizmixLocalizable():void
+	{
+		assertTrue(alKhwarizmixButton is IAlKhwarizmixLocalizable);
+	}
+	
+	[Test]
+	public function test03_localize_function_should_not_be_null():void
+	{
+		assertNotNull(alKhwarizmixButton.localize);
+	}
+	
+	[Test]
+	public function test04_localize_function_should_call_resource_localize():void
+	{
+		assertEquals("dz.alkhwarizmix.i18n.AlKhwarizmixButtonTestCaseKey.0",
+			alKhwarizmixButton.localize("AlKhwarizmixButtonTestCaseKey"));
+		assertEquals("dz.alkhwarizmix.i18n.AlKhwarizmixButtonTestCaseKey.1",
+			alKhwarizmixButton.localize("AlKhwarizmixButtonTestCaseKey", [0]));
 	}
 	
 } // class

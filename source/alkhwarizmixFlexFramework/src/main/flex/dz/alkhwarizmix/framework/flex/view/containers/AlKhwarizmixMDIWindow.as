@@ -12,7 +12,6 @@
 package dz.alkhwarizmix.framework.flex.view.containers
 {
 
-import dz.alkhwarizmix.framework.flex.event.AlKhwarizmixEvent;
 import dz.alkhwarizmix.framework.flex.logging.AlKhwarizmixLog;
 import dz.alkhwarizmix.framework.flex.logging.IAlKhwarizmixLogger;
 import dz.alkhwarizmix.framework.flex.utils.EventUtil;

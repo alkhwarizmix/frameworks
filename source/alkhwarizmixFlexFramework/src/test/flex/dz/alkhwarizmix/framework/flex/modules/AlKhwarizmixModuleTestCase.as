@@ -12,7 +12,10 @@
 package dz.alkhwarizmix.framework.flex.modules
 {
 
-import flexunit.framework.TestCase;
+import dz.alkhwarizmix.framework.flex.errors.AlKhwarizmixMissingImplError;
+import dz.alkhwarizmix.framework.flex.testutils.AlKhwarizmixTestCase;
+
+import org.flexunit.asserts.assertNotNull;
 
 /**
  *  <p>
@@ -22,7 +25,7 @@ import flexunit.framework.TestCase;
  *  @author فارس بلحواس (Fares Belhaouas)
  *  @since  ٢٤ شوال ١٤٣٤ (August 31, 2013)
  */
-public class AlKhwarizmixModuleTestCase extends TestCase
+public class AlKhwarizmixModuleTestCase extends AlKhwarizmixTestCase
 {
 	//--------------------------------------------------------------------------
 	//
@@ -30,19 +33,20 @@ public class AlKhwarizmixModuleTestCase extends TestCase
 	//
 	//--------------------------------------------------------------------------
 	
-	private var classUnderTest:AlKhwarizmixModule = null;
-	
+	[Before]
 	override public function setUp():void
 	{
 		super.setUp();
-		
-		classUnderTest = new AlKhwarizmixModule();
 	}
 	
+	override protected function get classUnderTest():Class
+	{
+		return AlKhwarizmixModule;
+	}
+	
+	[After]
 	override public function tearDown():void
 	{
-		classUnderTest = null;
-		
 		super.tearDown();
 	}
 	
@@ -55,7 +59,7 @@ public class AlKhwarizmixModuleTestCase extends TestCase
 	[Test]
 	public function test01_constructor():void
 	{
-		assertNotNull(classUnderTest);
+		assertNotNull(classInstanceUnderTest);
 	}
 	
 } // class

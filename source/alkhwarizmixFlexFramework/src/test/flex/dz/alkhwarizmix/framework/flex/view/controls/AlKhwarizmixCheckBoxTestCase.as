@@ -12,9 +12,12 @@
 package dz.alkhwarizmix.framework.flex.view.controls
 {
 
+import dz.alkhwarizmix.framework.flex.interfaces.IAlKhwarizmixLocalizable;
 import dz.alkhwarizmix.framework.flex.testutils.AlKhwarizmixUITestCase;
 
+import org.flexunit.asserts.assertEquals;
 import org.flexunit.asserts.assertNotNull;
+import org.flexunit.asserts.assertTrue;
 
 /**
  *  <p>
@@ -49,6 +52,11 @@ public class AlKhwarizmixCheckBoxTestCase extends AlKhwarizmixUITestCase
 		return AlKhwarizmixCheckBox;
 	}
 	
+	private function get alKhwarizmixCheckBox():AlKhwarizmixCheckBox
+	{
+		return classInstanceUnderTest as AlKhwarizmixCheckBox;
+	}
+	
 	//--------------------------------------------------------------------------
 	//
 	//  TESTS
@@ -58,7 +66,28 @@ public class AlKhwarizmixCheckBoxTestCase extends AlKhwarizmixUITestCase
 	[Test]
 	public function test01_constructor():void
 	{
-		assertNotNull(classUnderTest);
+		assertNotNull(alKhwarizmixCheckBox);
+	}
+	
+	[Test]
+	public function test02_should_implement_IAlKhwarizmixLocalizable():void
+	{
+		assertTrue(alKhwarizmixCheckBox is IAlKhwarizmixLocalizable);
+	}
+	
+	[Test]
+	public function test03_localize_function_should_not_be_null():void
+	{
+		assertNotNull(alKhwarizmixCheckBox.localize);
+	}
+	
+	[Test]
+	public function test04_localize_function_should_call_resource_localize():void
+	{
+		assertEquals("dz.alkhwarizmix.i18n.AlKhwarizmixCheckBoxTestCaseKey.0",
+			alKhwarizmixCheckBox.localize("AlKhwarizmixCheckBoxTestCaseKey"));
+		assertEquals("dz.alkhwarizmix.i18n.AlKhwarizmixCheckBoxTestCaseKey.1",
+			alKhwarizmixCheckBox.localize("AlKhwarizmixCheckBoxTestCaseKey", [0]));
 	}
 	
 } // class

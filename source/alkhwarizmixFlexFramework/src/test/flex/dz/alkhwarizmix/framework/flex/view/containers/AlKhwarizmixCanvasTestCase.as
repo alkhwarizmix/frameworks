@@ -12,9 +12,12 @@
 package dz.alkhwarizmix.framework.flex.view.containers
 {
 
+import dz.alkhwarizmix.framework.flex.interfaces.IAlKhwarizmixLocalizable;
 import dz.alkhwarizmix.framework.flex.testutils.AlKhwarizmixUITestCase;
 
+import org.flexunit.asserts.assertEquals;
 import org.flexunit.asserts.assertNotNull;
+import org.flexunit.asserts.assertTrue;
 
 /**
  *  <p>
@@ -49,6 +52,11 @@ public class AlKhwarizmixCanvasTestCase extends AlKhwarizmixUITestCase
 		return AlKhwarizmixCanvas;
 	}
 	
+	private function get alKhwarizmixCanvas():AlKhwarizmixCanvas
+	{
+		return classInstanceUnderTest as AlKhwarizmixCanvas;
+	}
+	
 	//--------------------------------------------------------------------------
 	//
 	//  TESTS
@@ -58,7 +66,7 @@ public class AlKhwarizmixCanvasTestCase extends AlKhwarizmixUITestCase
 	[Test]
 	public function test01_constructor():void
 	{
-		assertNotNull(classUnderTest);
+		assertNotNull(alKhwarizmixCanvas);
 	}
 	
 } // class

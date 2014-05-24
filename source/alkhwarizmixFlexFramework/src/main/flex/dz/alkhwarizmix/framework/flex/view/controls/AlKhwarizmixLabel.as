@@ -14,8 +14,10 @@ package dz.alkhwarizmix.framework.flex.view.controls
 
 import spark.components.Label;
 
+import dz.alkhwarizmix.framework.flex.interfaces.IAlKhwarizmixLocalizable;
 import dz.alkhwarizmix.framework.flex.logging.AlKhwarizmixLog;
 import dz.alkhwarizmix.framework.flex.logging.IAlKhwarizmixLogger;
+import dz.alkhwarizmix.framework.flex.resources.AlKhwarizmixResourceManager;
 
 /**
  *  <p>
@@ -26,6 +28,7 @@ import dz.alkhwarizmix.framework.flex.logging.IAlKhwarizmixLogger;
  *  @since  ٢٤ شوال ١٤٣٤ (August 31, 2013)
  */
 public class AlKhwarizmixLabel extends Label
+	implements IAlKhwarizmixLocalizable
 {
 	include "../../../../../../../../templates/flex/core/Version.as";
 	
@@ -53,6 +56,8 @@ public class AlKhwarizmixLabel extends Label
 	public function AlKhwarizmixLabel()
 	{
 		super();
+		
+		new AlKhwarizmixResourceManager().registerLocalizable(this);
 	}
 	
 	//--------------------------------------------------------------------------
@@ -68,6 +73,30 @@ public class AlKhwarizmixLabel extends Label
 	protected function get logger():IAlKhwarizmixLogger
 	{
 		return LOG;
+	}
+	
+	//----------------------------------
+	//  localize
+	//----------------------------------
+	
+	private var _localize:Function;
+	[Bindable]
+	public function get localize():Function { return _localize; }
+	
+	public function set localize(value:Function):void
+	{
+		if (_localize == value)
+			return;
+		_localize = value;
+	}
+	
+	//----------------------------------
+	//  resourceBundleName
+	//----------------------------------
+	
+	public function get resourceBundleName():String
+	{
+		return null;
 	}
 	
 } // Class

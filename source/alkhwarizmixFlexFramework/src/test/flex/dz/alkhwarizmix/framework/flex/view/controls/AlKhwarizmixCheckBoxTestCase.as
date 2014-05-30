@@ -90,5 +90,11 @@ public class AlKhwarizmixCheckBoxTestCase extends AlKhwarizmixUITestCase
 			alKhwarizmixCheckBox.localize("AlKhwarizmixCheckBoxTestCaseKey", [0]));
 	}
 	
+	[Test]
+	public function test05_resourceKeyPath_should_return_the_default_alkhwarizmix_path():void
+	{
+		assertEquals("dz.alkhwarizmix.i18n.", alKhwarizmixCheckBox.resourceKeyPath);
+	}
+	
 } // class
 } // package

@@ -62,6 +62,19 @@ public class AlKhwarizmixLabel extends Label
 	
 	//--------------------------------------------------------------------------
 	//
+	//  Variables: Invalidation
+	//
+	//--------------------------------------------------------------------------
+	
+	/**
+	 *  @private
+	 *  Whether this component needs to have its
+	 *  commitText() method called.
+	 */
+	private var invalidateTextFlag:Boolean = false;
+	
+	//--------------------------------------------------------------------------
+	//
 	//  Properties
 	//
 	//--------------------------------------------------------------------------
@@ -73,6 +86,21 @@ public class AlKhwarizmixLabel extends Label
 	protected function get logger():IAlKhwarizmixLogger
 	{
 		return LOG;
+	}
+	
+	//----------------------------------
+	//  textResKey
+	//----------------------------------
+	
+	private var _textResKey:String = null;
+	public function get textResKey():String { return _textResKey; }
+	
+	public function set textResKey(value:String):void
+	{
+		if (_textResKey == value)
+			return;
+		_textResKey = value;
+		invalidateText();
 	}
 	
 	//----------------------------------
@@ -88,6 +116,7 @@ public class AlKhwarizmixLabel extends Label
 		if (_localize == value)
 			return;
 		_localize = value;
+		invalidateText();
 	}
 	
 	//----------------------------------
@@ -97,6 +126,67 @@ public class AlKhwarizmixLabel extends Label
 	public function get resourceBundleName():String
 	{
 		return null;
+	}
+	
+	//----------------------------------
+	//  resourceKeyPath
+	//----------------------------------
+	
+	public function get resourceKeyPath():String
+	{
+		return "dz.alkhwarizmix.i18n.";
+	}
+	
+	//--------------------------------------------------------------------------
+	//
+	//  Overriden methods
+	//
+	//--------------------------------------------------------------------------
+	
+	override protected function commitProperties():void
+	{
+		validateText();
+		
+		super.commitProperties();
+	}
+	
+	//--------------------------------------------------------------------------
+	//
+	//  Methods
+	//
+	//--------------------------------------------------------------------------
+	
+	/**
+	 * TODO: ASDOC Definition of commitText
+	 */
+	public function commitText():void
+	{
+		if (textResKey)
+			text = localize(textResKey);
+	}
+	
+	/**
+	 * TODO: ASDOC Definition of invalidateText
+	 */
+	public function invalidateText():void
+	{
+		if (!invalidateTextFlag)
+		{
+			invalidateTextFlag = true;
+			invalidateProperties();
+		}
+	}
+	
+	/**
+	 * TODO: ASDOC Definition of validateText
+	 */
+	public function validateText():void
+	{
+		if (invalidateTextFlag)
+		{
+			commitText();
+			invalidateTextFlag = false;
+		}
 	}
 	
 } // Class

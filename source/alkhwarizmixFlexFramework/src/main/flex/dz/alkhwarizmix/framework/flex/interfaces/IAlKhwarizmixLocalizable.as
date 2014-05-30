@@ -25,6 +25,7 @@ public interface IAlKhwarizmixLocalizable
 	function get localize():Function;
 	function set localize(value:Function):void;
 	function get resourceBundleName():String;
+	function get resourceKeyPath():String;
 	
 } // Interface
 } // Package

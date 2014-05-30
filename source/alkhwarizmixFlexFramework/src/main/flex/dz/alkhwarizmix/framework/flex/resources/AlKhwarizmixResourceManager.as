@@ -12,6 +12,8 @@
 package dz.alkhwarizmix.framework.flex.resources
 {
 
+import flash.events.Event;
+
 import mx.resources.ResourceManager;
 
 import dz.alkhwarizmix.framework.flex.interfaces.IAlKhwarizmixLocalizable;
@@ -38,6 +40,8 @@ public class AlKhwarizmixResourceManager extends ResourceManager
 	public function AlKhwarizmixResourceManager()
 	{
 		super();
+		
+		getInstance().addEventListener(Event.CHANGE, changeHandler);
 	}
 	
 	//--------------------------------------------------------------------------
@@ -79,12 +83,31 @@ public class AlKhwarizmixResourceManager extends ResourceManager
 	 */
 	private function localize2(key:String = null, parameters:Array = null):String
 	{
-		key = "dz.alkhwarizmix.i18n." + key;
+		key = localizable.resourceKeyPath + key;
 		var result:String = ResourceManager.getInstance().getString(
 			localizable.resourceBundleName, key, parameters);
 		if (!result)
 			result = key + "." + (parameters ? parameters.length : 0);
 		return result;
+	}
+	
+	//--------------------------------------------------------------------------
+	//
+	//  Event handlers
+	//
+	//--------------------------------------------------------------------------
+	
+	/**
+	 * 
+	 */
+	private function changeHandler(event:Event):void
+	{
+		if (localizable)
+		{
+			localizable.localize = (localizable.localize == localize1)
+				? localize2
+				: localize1;
+		}
 	}
 	
 } // class

@@ -90,5 +90,11 @@ public class AlKhwarizmixLabelTestCase extends AlKhwarizmixUITestCase
 			alKhwarizmixLabel.localize("AlKhwarizmixLabelTestCaseKey", [0]));
 	}
 	
+	[Test]
+	public function test05_resourceKeyPath_should_return_the_default_alkhwarizmix_path():void
+	{
+		assertEquals("dz.alkhwarizmix.i18n.", alKhwarizmixLabel.resourceKeyPath);
+	}
+	
 } // class
 } // package

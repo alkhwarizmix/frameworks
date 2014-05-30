@@ -62,6 +62,19 @@ public class AlKhwarizmixButton extends Button
 	
 	//--------------------------------------------------------------------------
 	//
+	//  Variables: Invalidation
+	//
+	//--------------------------------------------------------------------------
+	
+	/**
+	 *  @private
+	 *  Whether this component needs to have its
+	 *  commitLabel() method called.
+	 */
+	private var invalidateLabelFlag:Boolean = false;
+	
+	//--------------------------------------------------------------------------
+	//
 	//  Properties
 	//
 	//--------------------------------------------------------------------------
@@ -73,6 +86,21 @@ public class AlKhwarizmixButton extends Button
 	protected function get logger():IAlKhwarizmixLogger
 	{
 		return LOG;
+	}
+	
+	//----------------------------------
+	//  labelResKey
+	//----------------------------------
+	
+	private var _labelResKey:String = null;
+	public function get labelResKey():String { return _labelResKey; }
+	
+	public function set labelResKey(value:String):void
+	{
+		if (_labelResKey == value)
+			return;
+		_labelResKey = value;
+		invalidateLabel();
 	}
 	
 	//----------------------------------
@@ -88,6 +116,7 @@ public class AlKhwarizmixButton extends Button
 		if (_localize == value)
 			return;
 		_localize = value;
+		invalidateLabel();
 	}
 	
 	//----------------------------------
@@ -97,6 +126,67 @@ public class AlKhwarizmixButton extends Button
 	public function get resourceBundleName():String
 	{
 		return null;
+	}
+	
+	//----------------------------------
+	//  resourceKeyPath
+	//----------------------------------
+	
+	public function get resourceKeyPath():String
+	{
+		return "dz.alkhwarizmix.i18n.";
+	}
+	
+	//--------------------------------------------------------------------------
+	//
+	//  Overriden methods
+	//
+	//--------------------------------------------------------------------------
+	
+	override protected function commitProperties():void
+	{
+		validateLabel();
+		
+		super.commitProperties();
+	}
+	
+	//--------------------------------------------------------------------------
+	//
+	//  Methods
+	//
+	//--------------------------------------------------------------------------
+	
+	/**
+	 * TODO: ASDOC Definition of commitLabel
+	 */
+	public function commitLabel():void
+	{
+		if (labelResKey)
+			label = localize(labelResKey);
+	}
+	
+	/**
+	 * TODO: ASDOC Definition of invalidateLabel
+	 */
+	public function invalidateLabel():void
+	{
+		if (!invalidateLabelFlag)
+		{
+			invalidateLabelFlag = true;
+			invalidateProperties();
+		}
+	}
+	
+	/**
+	 * TODO: ASDOC Definition of validateLabel
+	 */
+	public function validateLabel():void
+	{
+		if (invalidateLabelFlag)
+		{
+			commitLabel();
+			invalidateLabelFlag = false;
+		}
 	}
 	
 } // Class

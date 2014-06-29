@@ -12,8 +12,6 @@
 package dz.alkhwarizmix.framework.flex.view
 {
 
-
-
 /**
  *  <p>
  *  TODO: ASDOC

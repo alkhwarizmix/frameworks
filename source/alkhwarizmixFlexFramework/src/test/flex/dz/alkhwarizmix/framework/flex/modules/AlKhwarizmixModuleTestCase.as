@@ -12,7 +12,6 @@
 package dz.alkhwarizmix.framework.flex.modules
 {
 
-import dz.alkhwarizmix.framework.flex.errors.AlKhwarizmixMissingImplError;
 import dz.alkhwarizmix.framework.flex.testutils.AlKhwarizmixTestCase;
 
 import org.flexunit.asserts.assertNotNull;

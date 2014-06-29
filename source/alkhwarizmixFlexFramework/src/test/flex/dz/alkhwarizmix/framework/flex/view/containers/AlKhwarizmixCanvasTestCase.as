@@ -12,12 +12,9 @@
 package dz.alkhwarizmix.framework.flex.view.containers
 {
 
-import dz.alkhwarizmix.framework.flex.interfaces.IAlKhwarizmixLocalizable;
 import dz.alkhwarizmix.framework.flex.testutils.AlKhwarizmixUITestCase;
 
-import org.flexunit.asserts.assertEquals;
 import org.flexunit.asserts.assertNotNull;
-import org.flexunit.asserts.assertTrue;
 
 /**
  *  <p>

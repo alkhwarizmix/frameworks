@@ -12,8 +12,6 @@
 package dz.alkhwarizmix.framework.flex.messaging
 {
 
-
-
 /**
  *  <p>
  *  TODO: ASDOC

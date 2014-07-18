@@ -57,9 +57,10 @@
 		<flexmojos.version>4.2-beta</flexmojos.version>
 		<flex.sdk.version>4.6.b.23201</flex.sdk.version>
 		<flexunit.version>4.0-rc-1</flexunit.version>
-
-		<flex.tlf.version>2.0.0.232</flex.tlf.version>
-		<flex.osmf.version>1.0.0.16316</flex.osmf.version>
+		
+		<flex.sdk.swz.version>4.6.0.23201</flex.sdk.swz.version>
+		<flex.tlf.swz.version>2.0.0.232</flex.tlf.swz.version>
+		<flex.osmf.swz.version>1.0.0.16316</flex.osmf.swz.version>
 	</properties>
 
 	<dependencies>

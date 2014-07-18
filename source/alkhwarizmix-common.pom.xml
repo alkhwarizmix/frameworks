@@ -31,7 +31,7 @@
 
 	<groupId>dz.alkhwarizmix</groupId>
 	<artifactId>alkhwarizmix-common</artifactId>
-	<version>1.0.6</version>
+	<version>1.0.7</version>
 	<packaging>pom</packaging>
 
 	<name>Alkhwarizmix Maven</name>

@@ -29,12 +29,12 @@
 	<parent>
 		<groupId>dz.alkhwarizmix</groupId>
 		<artifactId>alkhwarizmix-common</artifactId>
-		<version>1.0.6</version>
+		<version>1.0.7</version>
 	</parent>
 
 	<groupId>dz.alkhwarizmix</groupId>
 	<artifactId>Install-PureMVC_AS3_MultiCore_Framework</artifactId>
-	<version>1.0.6</version>
+	<version>1.0.7</version>
 	<name>Install-PureMVC_AS3_MultiCore_Framework Maven</name>
 
 	<dependencies>

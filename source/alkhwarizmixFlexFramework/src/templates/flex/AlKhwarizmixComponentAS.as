@@ -107,6 +107,19 @@ public class AlKhwarizmixComponentAS extends UIComponent
 	
 	//--------------------------------------------------------------------------
 	//
+	//  Variables: Invalidation
+	//
+	//--------------------------------------------------------------------------
+	
+	/**
+	 *  @private
+	 *  Whether this component needs to have its
+	 *  commitProperties() method called.
+	 */
+	private var invalidatePropertiesFlag:Boolean = false;
+	
+	//--------------------------------------------------------------------------
+	//
 	//  Overriden properties
 	//
 	//--------------------------------------------------------------------------
@@ -210,6 +223,30 @@ public class AlKhwarizmixComponentAS extends UIComponent
 	//  Methods
 	//
 	//--------------------------------------------------------------------------
+	
+	/**
+	 * TODO: ASDOC Definition of invalidateProperties
+	 */
+	public function invalidateProperties():void
+	{
+		if (!invalidatePropertiesFlag)
+		{
+			invalidatePropertiesFlag = true;
+			
+			if (nestLevel && UIComponentGlobals.layoutManager)
+				UIComponentGlobals.layoutManager.invalidateProperties(this);
+		}
+	}
+	
+	public function validateProperties():void
+	{
+		if (invalidatePropertiesFlag)
+		{
+			commitProperties();
+			
+			invalidatePropertiesFlag = false;
+		}
+	}
 	
 	/**
 	 * TODO: ASDOC Definition of publicAbstractMethod

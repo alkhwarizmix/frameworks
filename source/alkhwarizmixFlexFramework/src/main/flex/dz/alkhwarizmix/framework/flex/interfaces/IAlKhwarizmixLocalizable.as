@@ -1,7 +1,7 @@
 ////////////////////////////////////////////////////////////////////////////////
 //  بسم الله الرحمن الرحيم
 //
-//  حقوق التأليف والنشر ١٤٣٤ هجري، فارس بلحواس (Copyright 2013 Fares Belhaouas)  
+//  حقوق التأليف والنشر ١٤٣٥ هجري، فارس بلحواس (Copyright 2014 Fares Belhaouas)  
 //  كافة الحقوق محفوظة (All Rights Reserved)
 //
 //  NOTICE: Fares Belhaouas permits you to use, modify, and distribute this file
@@ -12,18 +12,20 @@
 package dz.alkhwarizmix.framework.flex.interfaces
 {
 
-import org.puremvc.as3.multicore.interfaces.IProxy;
-
 /**
  *  <p>
  *  TODO: ASDOC
  *  </p>
  * 
  *  @author فارس بلحواس (Fares Belhaouas)
- *  @since  ١٧ شوال ١٤٣٤ (August 24, 2013)
+ *  @since  ٠٧ رجب ١٤٣٥ (May 06, 2014)
  */
-public interface IAlKhwarizmixProxy extends IProxy
+public interface IAlKhwarizmixLocalizable
 {
+	function get localize():Function;
+	function set localize(value:Function):void;
+	function get resourceBundleName():String;
+	function get resourceKeyPath():String;
 	
 } // Interface
 } // Package

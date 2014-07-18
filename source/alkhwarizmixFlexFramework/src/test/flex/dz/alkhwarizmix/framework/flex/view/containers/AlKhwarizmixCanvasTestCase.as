@@ -49,6 +49,11 @@ public class AlKhwarizmixCanvasTestCase extends AlKhwarizmixUITestCase
 		return AlKhwarizmixCanvas;
 	}
 	
+	private function get alKhwarizmixCanvas():AlKhwarizmixCanvas
+	{
+		return classInstanceUnderTest as AlKhwarizmixCanvas;
+	}
+	
 	//--------------------------------------------------------------------------
 	//
 	//  TESTS
@@ -58,7 +63,7 @@ public class AlKhwarizmixCanvasTestCase extends AlKhwarizmixUITestCase
 	[Test]
 	public function test01_constructor():void
 	{
-		assertNotNull(classUnderTest);
+		assertNotNull(alKhwarizmixCanvas);
 	}
 	
 } // class

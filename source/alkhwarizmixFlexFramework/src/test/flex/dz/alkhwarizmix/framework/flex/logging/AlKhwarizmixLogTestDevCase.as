@@ -12,8 +12,6 @@
 package dz.alkhwarizmix.framework.flex.logging
 {
 
-
-
 /**
  *  <p>
  *  TODO: ASDOC

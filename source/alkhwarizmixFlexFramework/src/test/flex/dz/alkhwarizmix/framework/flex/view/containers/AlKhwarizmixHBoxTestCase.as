@@ -49,6 +49,11 @@ public class AlKhwarizmixHBoxTestCase extends AlKhwarizmixUITestCase
 		return AlKhwarizmixHBox;
 	}
 	
+	private function get alKhwarizmixHBox():AlKhwarizmixHBox
+	{
+		return classInstanceUnderTest as AlKhwarizmixHBox;
+	}
+	
 	//--------------------------------------------------------------------------
 	//
 	//  TESTS
@@ -58,7 +63,7 @@ public class AlKhwarizmixHBoxTestCase extends AlKhwarizmixUITestCase
 	[Test]
 	public function test01_constructor():void
 	{
-		assertNotNull(classUnderTest);
+		assertNotNull(alKhwarizmixHBox);
 	}
 	
 } // class

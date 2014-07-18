@@ -1,29 +1,25 @@
-/* ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** ***** *****/  /**
- *  Project: Pixtorio sFusion
- *  
- *  Copyright(c) 2007-2011 Tripod Ventures inc. ALL RIGHTS RESERVED, 
- *  
- *  This source code was expressly written for the purpose of project sFusion. 
- *  Any use outside the scope of the said project is prohibited without Tripod Ventures inc.'s written approval.
- *  
- *  @source
- *    ForEachAsync.as
- *  
- *  @author(s)
- *    Fares Belhaouas, Tripod Ventures inc (fares.belhaouas@tripodventures.com)
- * 
- *  @date
- *    09 APR 2010, 16:48
- *  
- *  @brief
- *    Gerer le rafraichissement asynchrone de la collection de données 
- */
+////////////////////////////////////////////////////////////////////////////////
+//  بسم الله الرحمن الرحيم
+//
+//  حقوق التأليف والنشر ١٤٣٥ هجري، فارس بلحواس (Copyright 2014 Fares Belhaouas)  
+//  كافة الحقوق محفوظة (All Rights Reserved)
+//
+//  NOTICE: Fares Belhaouas permits you to use, modify, and distribute this file
+//  in accordance with the terms of the license agreement accompanying it.
+//
+////////////////////////////////////////////////////////////////////////////////
 
 package dz.alkhwarizmix.framework.flex.utils
 {
 
-
-
+/**
+ *  <p>
+ *  TODO: ASDOC
+ *  </p>
+ * 
+ *  @author فارس بلحواس (Fares Belhaouas)
+ *  @since  ٢٤ شوال ١٤٣٤ (August 31, 2013)
+ */
 public class ForEachAsyncTestDevCase
 {
 	

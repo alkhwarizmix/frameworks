@@ -49,6 +49,11 @@ public class AlKhwarizmixMDIWindowTestCase extends AlKhwarizmixUITestCase
 		return AlKhwarizmixMDIWindow;
 	}
 	
+	private function get alKhwarizmixMDIWindow():AlKhwarizmixMDIWindow
+	{
+		return classInstanceUnderTest as AlKhwarizmixMDIWindow;
+	}
+	
 	//--------------------------------------------------------------------------
 	//
 	//  TESTS
@@ -58,7 +63,7 @@ public class AlKhwarizmixMDIWindowTestCase extends AlKhwarizmixUITestCase
 	[Test]
 	public function test01_constructor():void
 	{
-		assertNotNull(classUnderTest);
+		assertNotNull(alKhwarizmixMDIWindow);
 	}
 	
 } // class

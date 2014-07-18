@@ -20,6 +20,7 @@ import dz.alkhwarizmix.framework.flex.model.AlKhwarizmixProxyTestCase;
 import dz.alkhwarizmix.framework.flex.model.AlKhwarizmixSuperProxyTestCase;
 import dz.alkhwarizmix.framework.flex.model.vo.AlKhwarizmixVOTestCase;
 import dz.alkhwarizmix.framework.flex.modules.AlKhwarizmixModuleTestCase;
+import dz.alkhwarizmix.framework.flex.resources.AlKhwarizmixResourceManagerTestCase;
 import dz.alkhwarizmix.framework.flex.rpc.remoting.AlKhwarizmixRemoteObjectTestCase;
 import dz.alkhwarizmix.framework.flex.utils.CryptoUtilTestCase;
 import dz.alkhwarizmix.framework.flex.view.AlKhwarizmixMediatorTestCase;
@@ -33,6 +34,7 @@ import dz.alkhwarizmix.framework.flex.view.controls.AlKhwarizmixButtonTestCase;
 import dz.alkhwarizmix.framework.flex.view.controls.AlKhwarizmixCheckBoxTestCase;
 import dz.alkhwarizmix.framework.flex.view.controls.AlKhwarizmixDataGridTestCase;
 import dz.alkhwarizmix.framework.flex.view.controls.AlKhwarizmixLabelTestCase;
+import dz.alkhwarizmix.framework.flex.view.controls.AlKhwarizmixMenuBarTestCase;
 import dz.alkhwarizmix.framework.flex.view.controls.AlKhwarizmixTextInputTestCase;
 
 [Suite]
@@ -56,6 +58,9 @@ public class TestSuite
 	// rpc
 	public var alKhwarizmixRemoteObjectTestCase:AlKhwarizmixRemoteObjectTestCase;
 	
+	// resources
+	public var alkhwarizmixResourceManagerTestCase:AlKhwarizmixResourceManagerTestCase;
+	
 	// utils
 	public var cryptoUtilTestCase:CryptoUtilTestCase;
 	
@@ -72,6 +77,7 @@ public class TestSuite
 	public var alKhwarizmixTextInputTestCase:AlKhwarizmixTextInputTestCase;
 	public var alkhwarizmixDataListMediatorTestCase:AlkhwarizmixDataListMediatorTestCase;
 	public var alKhwarizmixMediatorTestCase:AlKhwarizmixMediatorTestCase;
+	public var alKhwarizmixMenuBarTestCase:AlKhwarizmixMenuBarTestCase;
 	
 } // class
 } // package

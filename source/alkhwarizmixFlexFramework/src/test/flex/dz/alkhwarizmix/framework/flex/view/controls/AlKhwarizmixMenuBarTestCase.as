@@ -1,7 +1,7 @@
 ////////////////////////////////////////////////////////////////////////////////
 //  بسم الله الرحمن الرحيم
 //
-//  حقوق التأليف والنشر ١٤٣٤ هجري، فارس بلحواس (Copyright 2013 Fares Belhaouas)  
+//  حقوق التأليف والنشر ١٤٣٥ هجري، فارس بلحواس (Copyright 2014 Fares Belhaouas)  
 //  كافة الحقوق محفوظة (All Rights Reserved)
 //
 //  NOTICE: Fares Belhaouas permits you to use, modify, and distribute this file
@@ -25,9 +25,9 @@ import org.flexunit.asserts.assertTrue;
  *  </p>
  * 
  *  @author فارس بلحواس (Fares Belhaouas)
- *  @since  ٢٥ شوال ١٤٣٤ (September 1, 2013)
+ *  @since  ٢٧ رجب ١٤٣٥ (May 26, 2014)
  */
-public class AlKhwarizmixCheckBoxTestCase extends AlKhwarizmixUITestCase 
+public class AlKhwarizmixMenuBarTestCase extends AlKhwarizmixUITestCase 
 {
 	//--------------------------------------------------------------------------
 	//
@@ -49,12 +49,12 @@ public class AlKhwarizmixCheckBoxTestCase extends AlKhwarizmixUITestCase
 	
 	override protected function get classUnderTest():Class
 	{
-		return AlKhwarizmixCheckBox;
+		return AlKhwarizmixMenuBar;
 	}
 	
-	private function get alKhwarizmixCheckBox():AlKhwarizmixCheckBox
+	private function get alKhwarizmixMenuBar():AlKhwarizmixMenuBar
 	{
-		return classInstanceUnderTest as AlKhwarizmixCheckBox;
+		return classInstanceUnderTest as AlKhwarizmixMenuBar;
 	}
 	
 	//--------------------------------------------------------------------------
@@ -66,34 +66,34 @@ public class AlKhwarizmixCheckBoxTestCase extends AlKhwarizmixUITestCase
 	[Test]
 	public function test01_constructor():void
 	{
-		assertNotNull(alKhwarizmixCheckBox);
+		assertNotNull(alKhwarizmixMenuBar);
 	}
 	
 	[Test]
 	public function test02_should_implement_IAlKhwarizmixLocalizable():void
 	{
-		assertTrue(alKhwarizmixCheckBox is IAlKhwarizmixLocalizable);
+		assertTrue(alKhwarizmixMenuBar is IAlKhwarizmixLocalizable);
 	}
 	
 	[Test]
 	public function test03_localize_function_should_not_be_null():void
 	{
-		assertNotNull(alKhwarizmixCheckBox.localize);
+		assertNotNull(alKhwarizmixMenuBar.localize);
 	}
 	
 	[Test]
 	public function test04_localize_function_should_call_resource_localize():void
 	{
-		assertEquals("dz.alkhwarizmix.i18n.AlKhwarizmixCheckBoxTestCaseKey.0",
-			alKhwarizmixCheckBox.localize("AlKhwarizmixCheckBoxTestCaseKey"));
-		assertEquals("dz.alkhwarizmix.i18n.AlKhwarizmixCheckBoxTestCaseKey.1",
-			alKhwarizmixCheckBox.localize("AlKhwarizmixCheckBoxTestCaseKey", [0]));
+		assertEquals("dz.alkhwarizmix.i18n.AlKhwarizmixMenuBarTestCaseKey.0",
+			alKhwarizmixMenuBar.localize("AlKhwarizmixMenuBarTestCaseKey"));
+		assertEquals("dz.alkhwarizmix.i18n.AlKhwarizmixMenuBarTestCaseKey.1",
+			alKhwarizmixMenuBar.localize("AlKhwarizmixMenuBarTestCaseKey", [0]));
 	}
 	
 	[Test]
 	public function test05_resourceKeyPath_should_return_the_default_alkhwarizmix_path():void
 	{
-		assertEquals("dz.alkhwarizmix.i18n.", alKhwarizmixCheckBox.resourceKeyPath);
+		assertEquals("dz.alkhwarizmix.i18n.", alKhwarizmixMenuBar.resourceKeyPath);
 	}
 	
 } // class

@@ -1,7 +1,7 @@
 ////////////////////////////////////////////////////////////////////////////////
 //  بسم الله الرحمن الرحيم
 //
-//  حقوق التأليف والنشر ١٤٣٤ هجري، فارس بلحواس (Copyright 2013 Fares Belhaouas)  
+//  حقوق التأليف والنشر ١٤٣٥ هجري، فارس بلحواس (Copyright 2014 Fares Belhaouas)  
 //  كافة الحقوق محفوظة (All Rights Reserved)
 //
 //  NOTICE: Fares Belhaouas permits you to use, modify, and distribute this file
@@ -12,7 +12,7 @@
 package dz.alkhwarizmix.framework.flex.view.controls
 {
 
-import spark.components.Button;
+import mx.controls.MenuBar;
 
 import dz.alkhwarizmix.framework.flex.interfaces.IAlKhwarizmixLocalizable;
 import dz.alkhwarizmix.framework.flex.logging.AlKhwarizmixLog;
@@ -25,9 +25,9 @@ import dz.alkhwarizmix.framework.flex.resources.AlKhwarizmixResourceManager;
  *  </p>
  * 
  *  @author فارس بلحواس (Fares Belhaouas)
- *  @since  ٢٤ شوال ١٤٣٤ (August 31, 2013)
+ *  @since  ٢٧ رجب ١٤٣٥ (May 26, 2014)
  */
-public class AlKhwarizmixButton extends Button
+public class AlKhwarizmixMenuBar extends MenuBar
 	implements IAlKhwarizmixLocalizable
 {
 	include "../../../../../../../../templates/flex/core/Version.as";
@@ -42,7 +42,7 @@ public class AlKhwarizmixButton extends Button
 	 * The Logger
 	 */
 	private static const LOG:IAlKhwarizmixLogger = AlKhwarizmixLog.
-		getLogger(AlKhwarizmixButton);
+		getLogger(AlKhwarizmixMenuBar);
 	
 	//--------------------------------------------------------------------------
 	//
@@ -53,7 +53,7 @@ public class AlKhwarizmixButton extends Button
 	/**
 	 *  Constructor.
 	 */
-	public function AlKhwarizmixButton()
+	public function AlKhwarizmixMenuBar()
 	{
 		super();
 		
@@ -69,9 +69,32 @@ public class AlKhwarizmixButton extends Button
 	/**
 	 *  @private
 	 *  Whether this component needs to have its
-	 *  commitLabel() method called.
+	 *  commitLabels() method called.
 	 */
-	private var invalidateLabelFlag:Boolean = false;
+	private var invalidateLabelsFlag:Boolean = true;
+	
+	//--------------------------------------------------------------------------
+	//
+	//  Overriden properties
+	//
+	//--------------------------------------------------------------------------
+	
+	private var _originalDataProvider:Object = null;
+	
+	/**
+	 *  @inheritDoc
+	 */
+	override public function get dataProvider():Object
+	{
+		return super.dataProvider;
+	}
+	override public function set dataProvider(value:Object):void
+	{
+		if (_originalDataProvider == value)
+			return;
+		_originalDataProvider = value;
+		invalidateLabels();
+	}
 	
 	//--------------------------------------------------------------------------
 	//
@@ -89,21 +112,6 @@ public class AlKhwarizmixButton extends Button
 	}
 	
 	//----------------------------------
-	//  labelResKey
-	//----------------------------------
-	
-	private var _labelResKey:String = null;
-	public function get labelResKey():String { return _labelResKey; }
-	
-	public function set labelResKey(value:String):void
-	{
-		if (_labelResKey == value)
-			return;
-		_labelResKey = value;
-		invalidateLabel();
-	}
-	
-	//----------------------------------
 	//  localize
 	//----------------------------------
 	
@@ -116,7 +124,7 @@ public class AlKhwarizmixButton extends Button
 		if (_localize == value)
 			return;
 		_localize = value;
-		invalidateLabel();
+		invalidateLabels();
 	}
 	
 	//----------------------------------
@@ -136,7 +144,6 @@ public class AlKhwarizmixButton extends Button
 	{
 		return "dz.alkhwarizmix.i18n.";
 	}
-	
 	//--------------------------------------------------------------------------
 	//
 	//  Overriden methods
@@ -145,7 +152,7 @@ public class AlKhwarizmixButton extends Button
 	
 	override protected function commitProperties():void
 	{
-		validateLabel();
+		validateLabels();
 		
 		super.commitProperties();
 	}
@@ -157,35 +164,48 @@ public class AlKhwarizmixButton extends Button
 	//--------------------------------------------------------------------------
 	
 	/**
-	 * TODO: ASDOC Definition of commitLabel
+	 * TODO: ASDOC Definition of commitLabels
 	 */
-	public function commitLabel():void
+	public function commitLabels():void
 	{
-		if (labelResKey)
-			label = localize(labelResKey);
+		var localizedDataProvider:XML = new XML(_originalDataProvider);
+		localizeXMLMenuItemsLabel(localizedDataProvider);
+		super.dataProvider = localizedDataProvider;
 	}
 	
 	/**
-	 * TODO: ASDOC Definition of invalidateLabel
+	 * TODO: ASDOC Definition of localizeXMLLabels
 	 */
-	public function invalidateLabel():void
+	private function localizeXMLMenuItemsLabel(xml:XML):void
 	{
-		if (!invalidateLabelFlag)
+		for each (var x:XML in xml.menuitem)
 		{
-			invalidateLabelFlag = true;
+			x.@label = localize(x.@label);
+			localizeXMLMenuItemsLabel(x);
+		}
+	}
+	
+	/**
+	 * TODO: ASDOC Definition of invalidateLabels
+	 */
+	public function invalidateLabels():void
+	{
+		if (!invalidateLabelsFlag)
+		{
+			invalidateLabelsFlag = true;
 			invalidateProperties();
 		}
 	}
 	
 	/**
-	 * TODO: ASDOC Definition of validateLabel
+	 * TODO: ASDOC Definition of validateLabels
 	 */
-	public function validateLabel():void
+	public function validateLabels():void
 	{
-		if (invalidateLabelFlag)
+		if (invalidateLabelsFlag)
 		{
-			commitLabel();
-			invalidateLabelFlag = false;
+			commitLabels();
+			invalidateLabelsFlag = false;
 		}
 	}
 	

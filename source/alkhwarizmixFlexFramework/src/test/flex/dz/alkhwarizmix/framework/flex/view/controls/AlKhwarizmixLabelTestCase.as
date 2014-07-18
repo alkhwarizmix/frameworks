@@ -12,9 +12,12 @@
 package dz.alkhwarizmix.framework.flex.view.controls
 {
 
+import dz.alkhwarizmix.framework.flex.interfaces.IAlKhwarizmixLocalizable;
 import dz.alkhwarizmix.framework.flex.testutils.AlKhwarizmixUITestCase;
 
+import org.flexunit.asserts.assertEquals;
 import org.flexunit.asserts.assertNotNull;
+import org.flexunit.asserts.assertTrue;
 
 /**
  *  <p>
@@ -49,6 +52,11 @@ public class AlKhwarizmixLabelTestCase extends AlKhwarizmixUITestCase
 		return AlKhwarizmixLabel;
 	}
 	
+	private function get alKhwarizmixLabel():AlKhwarizmixLabel
+	{
+		return classInstanceUnderTest as AlKhwarizmixLabel;
+	}
+	
 	//--------------------------------------------------------------------------
 	//
 	//  TESTS
@@ -58,7 +66,34 @@ public class AlKhwarizmixLabelTestCase extends AlKhwarizmixUITestCase
 	[Test]
 	public function test01_constructor():void
 	{
-		assertNotNull(classUnderTest);
+		assertNotNull(alKhwarizmixLabel);
+	}
+	
+	[Test]
+	public function test02_should_implement_IAlKhwarizmixLocalizable():void
+	{
+		assertTrue(alKhwarizmixLabel is IAlKhwarizmixLocalizable);
+	}
+	
+	[Test]
+	public function test03_localize_function_should_not_be_null():void
+	{
+		assertNotNull(alKhwarizmixLabel.localize);
+	}
+	
+	[Test]
+	public function test04_localize_function_should_call_resource_localize():void
+	{
+		assertEquals("dz.alkhwarizmix.i18n.AlKhwarizmixLabelTestCaseKey.0",
+			alKhwarizmixLabel.localize("AlKhwarizmixLabelTestCaseKey"));
+		assertEquals("dz.alkhwarizmix.i18n.AlKhwarizmixLabelTestCaseKey.1",
+			alKhwarizmixLabel.localize("AlKhwarizmixLabelTestCaseKey", [0]));
+	}
+	
+	[Test]
+	public function test05_resourceKeyPath_should_return_the_default_alkhwarizmix_path():void
+	{
+		assertEquals("dz.alkhwarizmix.i18n.", alKhwarizmixLabel.resourceKeyPath);
 	}
 	
 } // class

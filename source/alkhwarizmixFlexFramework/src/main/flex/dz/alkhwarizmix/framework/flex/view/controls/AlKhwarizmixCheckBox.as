@@ -14,8 +14,10 @@ package dz.alkhwarizmix.framework.flex.view.controls
 
 import spark.components.CheckBox;
 
+import dz.alkhwarizmix.framework.flex.interfaces.IAlKhwarizmixLocalizable;
 import dz.alkhwarizmix.framework.flex.logging.AlKhwarizmixLog;
 import dz.alkhwarizmix.framework.flex.logging.IAlKhwarizmixLogger;
+import dz.alkhwarizmix.framework.flex.resources.AlKhwarizmixResourceManager;
 
 /**
  *  <p>
@@ -26,6 +28,7 @@ import dz.alkhwarizmix.framework.flex.logging.IAlKhwarizmixLogger;
  *  @since  ٢٤ شوال ١٤٣٤ (August 31, 2013)
  */
 public class AlKhwarizmixCheckBox extends CheckBox
+	implements IAlKhwarizmixLocalizable
 {
 	include "../../../../../../../../templates/flex/core/Version.as";
 	
@@ -53,7 +56,22 @@ public class AlKhwarizmixCheckBox extends CheckBox
 	public function AlKhwarizmixCheckBox()
 	{
 		super();
+		
+		new AlKhwarizmixResourceManager().registerLocalizable(this);
 	}
+	
+	//--------------------------------------------------------------------------
+	//
+	//  Variables: Invalidation
+	//
+	//--------------------------------------------------------------------------
+	
+	/**
+	 *  @private
+	 *  Whether this component needs to have its
+	 *  commitLabel() method called.
+	 */
+	private var invalidateLabelFlag:Boolean = false;
 	
 	//--------------------------------------------------------------------------
 	//
@@ -68,6 +86,107 @@ public class AlKhwarizmixCheckBox extends CheckBox
 	protected function get logger():IAlKhwarizmixLogger
 	{
 		return LOG;
+	}
+	
+	//----------------------------------
+	//  labelResKey
+	//----------------------------------
+	
+	private var _labelResKey:String = null;
+	public function get labelResKey():String { return _labelResKey; }
+	
+	public function set labelResKey(value:String):void
+	{
+		if (_labelResKey == value)
+			return;
+		_labelResKey = value;
+		invalidateLabel();
+	}
+	
+	//----------------------------------
+	//  localize
+	//----------------------------------
+	
+	private var _localize:Function = null;
+	[Bindable]
+	public function get localize():Function { return _localize; }
+	
+	public function set localize(value:Function):void
+	{
+		if (_localize == value)
+			return;
+		_localize = value;
+		invalidateLabel();
+	}
+	
+	//----------------------------------
+	//  resourceBundleName
+	//----------------------------------
+	
+	public function get resourceBundleName():String
+	{
+		return null;
+	}
+	
+	//----------------------------------
+	//  resourceKeyPath
+	//----------------------------------
+	
+	public function get resourceKeyPath():String
+	{
+		return "dz.alkhwarizmix.i18n.";
+	}
+	
+	//--------------------------------------------------------------------------
+	//
+	//  Overriden methods
+	//
+	//--------------------------------------------------------------------------
+	
+	override protected function commitProperties():void
+	{
+		validateLabel();
+		
+		super.commitProperties();
+	}
+	
+	//--------------------------------------------------------------------------
+	//
+	//  Methods
+	//
+	//--------------------------------------------------------------------------
+	
+	/**
+	 * TODO: ASDOC Definition of commitLabel
+	 */
+	public function commitLabel():void
+	{
+		if (labelResKey)
+			label = localize(labelResKey);
+	}
+	
+	/**
+	 * TODO: ASDOC Definition of invalidateLabel
+	 */
+	public function invalidateLabel():void
+	{
+		if (!invalidateLabelFlag)
+		{
+			invalidateLabelFlag = true;
+			invalidateProperties();
+		}
+	}
+	
+	/**
+	 * TODO: ASDOC Definition of validateLabel
+	 */
+	public function validateLabel():void
+	{
+		if (invalidateLabelFlag)
+		{
+			commitLabel();
+			invalidateLabelFlag = false;
+		}
 	}
 	
 } // Class

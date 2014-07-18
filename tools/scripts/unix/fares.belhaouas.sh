@@ -20,7 +20,7 @@ echo
 echo "----- ----- ----- ----- ----- ----- ----- ----- ----- -----"
 echo
 echo "Fares Belhaouas functions"
-echo "Version 26 APR 2014, 15:10"
+echo "Version 16 JULY 2014, 00:00"
 echo
 echo "Type fbel-help                             to print all functions"
 echo
@@ -325,6 +325,33 @@ function fbel-netstat
 function fbel-ls-java-processes
 {
    ps aux | grep java
+};
+
+# ----- ----- ----- ----- ----- ----- ----- ----- ----- -----
+
+function fbel-backup-all-server-data
+{
+   local FOLDERS_TO_BACKUP="/etc/apache2/sites-available
+   /var/lib/jenkins/backups"
+   
+   local TODAY=`eval date +%Y-%m-%d`
+   echo  TODAY=$TODAY
+   local BACKUP_FOLDER=/home/fares/backups/$TODAY
+   echo  BACKUP_FOLDER=$BACKUP_FOLDER
+   mkdir $BACKUP_FOLDER
+   echo
+   
+   for f in $FOLDERS_TO_BACKUP
+   do
+      echo "Processing '$f'"
+      local PROLOG=$f
+      PROLOG+="_"
+      PROLOG+=$TODAY
+      PROLOG+="_"
+      echo $PROLOG
+      fbel-backup-sudo $f
+      sudo mv $PROLOG*.zip $BACKUP_FOLDER
+    done
 };
 
 # ----- ----- ----- ----- ----- ----- ----- ----- ----- -----

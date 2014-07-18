@@ -1,7 +1,7 @@
 ////////////////////////////////////////////////////////////////////////////////
 //  بسم الله الرحمن الرحيم
 //
-//  حقوق التأليف والنشر ١٤٣٤ هجري، فارس بلحواس (Copyright 2013 Fares Belhaouas)  
+//  حقوق التأليف والنشر ١٤٣٥ هجري، فارس بلحواس (Copyright 2014 Fares Belhaouas)    
 //  كافة الحقوق محفوظة (All Rights Reserved)
 //
 //  NOTICE: Fares Belhaouas permits you to use, modify, and distribute this file
@@ -9,12 +9,12 @@
 //
 ////////////////////////////////////////////////////////////////////////////////
 
-package dz.alkhwarizmix.framework.flex.model
+package dz.alkhwarizmix.framework.flex.resources
 {
 
-import dz.alkhwarizmix.framework.flex.errors.AlKhwarizmixMissingImplError;
+import dz.alkhwarizmix.framework.flex.testutils.AlKhwarizmixTestCase;
 
-import flexunit.framework.TestCase;
+import org.flexunit.asserts.assertNotNull;
 
 /**
  *  <p>
@@ -22,9 +22,9 @@ import flexunit.framework.TestCase;
  *  </p>
  * 
  *  @author فارس بلحواس (Fares Belhaouas)
- *  @since  ٢٤ شوال ١٤٣٤ (August 30, 2013)
+ *  @since  ٠٧ رجب ١٤٣٥ (May 06, 2014)
  */
-public class AlKhwarizmixProxyTestCase extends TestCase
+public class AlKhwarizmixResourceManagerTestCase extends AlKhwarizmixTestCase
 {
 	//--------------------------------------------------------------------------
 	//
@@ -32,17 +32,20 @@ public class AlKhwarizmixProxyTestCase extends TestCase
 	//
 	//--------------------------------------------------------------------------
 	
-	private var classUnderTest:AlKhwarizmixProxy = null;
-	
+	[Before]
 	override public function setUp():void
 	{
 		super.setUp();
 	}
 	
+	override protected function get classUnderTest():Class
+	{
+		return AlKhwarizmixResourceManager;
+	}
+	
+	[After]
 	override public function tearDown():void
 	{
-		classUnderTest = null;
-		
 		super.tearDown();
 	}
 	
@@ -52,19 +55,10 @@ public class AlKhwarizmixProxyTestCase extends TestCase
 	//
 	//--------------------------------------------------------------------------
 	
-	
 	[Test]
-	public function test01_constructor_should_throwMissingImplError():void
+	public function test01_constructor():void
 	{
-		try
-		{
-			classUnderTest = new AlKhwarizmixProxy();
-			assertTrue("Should throw exception before to be here", false);
-		}
-		catch (error:Error)
-		{
-			assertTrue(error is AlKhwarizmixMissingImplError);
-		}
+		assertNotNull(classInstanceUnderTest);
 	}
 	
 } // class

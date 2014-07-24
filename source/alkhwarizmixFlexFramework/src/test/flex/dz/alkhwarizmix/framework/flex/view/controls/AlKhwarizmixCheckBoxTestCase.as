@@ -21,7 +21,7 @@ import org.flexunit.asserts.assertTrue;
 
 /**
  *  <p>
- *  TODO: ASDOC
+ *  Test for AlKhwarizmixCheckBox
  *  </p>
  * 
  *  @author فارس بلحواس (Fares Belhaouas)

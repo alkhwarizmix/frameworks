@@ -18,7 +18,7 @@ import org.flexunit.asserts.assertNotNull;
 
 /**
  *  <p>
- *  TODO: ASDOC
+ *  Test for AlKhwarizmixTextInput
  *  </p>
  * 
  *  @author فارس بلحواس (Fares Belhaouas)
@@ -49,6 +49,11 @@ public class AlKhwarizmixTextInputTestCase extends AlKhwarizmixUITestCase
 		return AlKhwarizmixTextInput;
 	}
 	
+	private function get alKhwarizmixTextInput():AlKhwarizmixTextInput
+	{
+		return classInstanceUnderTest as AlKhwarizmixTextInput;
+	}
+	
 	//--------------------------------------------------------------------------
 	//
 	//  TESTS
@@ -58,7 +63,7 @@ public class AlKhwarizmixTextInputTestCase extends AlKhwarizmixUITestCase
 	[Test]
 	public function test01_constructor():void
 	{
-		assertNotNull(classUnderTest);
+		assertNotNull(alKhwarizmixTextInput);
 	}
 	
 } // class

@@ -1,7 +1,7 @@
 ////////////////////////////////////////////////////////////////////////////////
 //  بسم الله الرحمن الرحيم
 //
-//  حقوق التأليف والنشر ١٤٣٤ هجري، فارس بلحواس (Copyright 2013 Fares Belhaouas)  
+//  حقوق التأليف والنشر ١٤٣٥ هجري، فارس بلحواس (Copyright 2014 Fares Belhaouas)  
 //  كافة الحقوق محفوظة (All Rights Reserved)
 //
 //  NOTICE: Fares Belhaouas permits you to use, modify, and distribute this file
@@ -9,7 +9,7 @@
 //
 ////////////////////////////////////////////////////////////////////////////////
 
-package dz.alkhwarizmix.framework.flex.view.controls
+package dz.alkhwarizmix.framework.flex.view.components
 {
 
 import dz.alkhwarizmix.framework.flex.testutils.AlKhwarizmixUITestCase;
@@ -18,13 +18,13 @@ import org.flexunit.asserts.assertNotNull;
 
 /**
  *  <p>
- *  Test for AlKhwarizmixDataGrid
+ *  Test for AlKhwarizmixImage
  *  </p>
  * 
  *  @author فارس بلحواس (Fares Belhaouas)
- *  @since  ٢٥ شوال ١٤٣٤ (September 1, 2013)
+ *  @since  ٢٥ رمضان ١٤٣٥ (July 23, 2014)
  */
-public class AlKhwarizmixDataGridTestCase extends AlKhwarizmixUITestCase 
+public class AlKhwarizmixImageTestCase extends AlKhwarizmixUITestCase 
 {
 	//--------------------------------------------------------------------------
 	//
@@ -46,12 +46,7 @@ public class AlKhwarizmixDataGridTestCase extends AlKhwarizmixUITestCase
 	
 	override protected function get classUnderTest():Class
 	{
-		return AlKhwarizmixDataGrid;
-	}
-	
-	private function get alKhwarizmixDataGrid():AlKhwarizmixDataGrid
-	{
-		return classInstanceUnderTest as AlKhwarizmixDataGrid;
+		return AlKhwarizmixImage;
 	}
 	
 	//--------------------------------------------------------------------------
@@ -63,7 +58,7 @@ public class AlKhwarizmixDataGridTestCase extends AlKhwarizmixUITestCase
 	[Test]
 	public function test01_constructor():void
 	{
-		assertNotNull(alKhwarizmixDataGrid);
+		assertNotNull(classUnderTest);
 	}
 	
 } // class

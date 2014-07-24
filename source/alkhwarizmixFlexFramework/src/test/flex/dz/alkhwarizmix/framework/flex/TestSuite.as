@@ -26,6 +26,7 @@ import dz.alkhwarizmix.framework.flex.utils.CryptoUtilTestCase;
 import dz.alkhwarizmix.framework.flex.view.AlKhwarizmixMediatorTestCase;
 import dz.alkhwarizmix.framework.flex.view.AlkhwarizmixDataListMediatorTestCase;
 import dz.alkhwarizmix.framework.flex.view.components.AlKhwarizmixDataListCanvasTestCase;
+import dz.alkhwarizmix.framework.flex.view.components.AlKhwarizmixImageTestCase;
 import dz.alkhwarizmix.framework.flex.view.containers.AlKhwarizmixCanvasTestCase;
 import dz.alkhwarizmix.framework.flex.view.containers.AlKhwarizmixMDICanvasTestCase;
 import dz.alkhwarizmix.framework.flex.view.containers.AlKhwarizmixMDIWindowTestCase;
@@ -35,6 +36,7 @@ import dz.alkhwarizmix.framework.flex.view.controls.AlKhwarizmixCheckBoxTestCase
 import dz.alkhwarizmix.framework.flex.view.controls.AlKhwarizmixDataGridTestCase;
 import dz.alkhwarizmix.framework.flex.view.controls.AlKhwarizmixLabelTestCase;
 import dz.alkhwarizmix.framework.flex.view.controls.AlKhwarizmixMenuBarTestCase;
+import dz.alkhwarizmix.framework.flex.view.controls.AlKhwarizmixTextAreaTestCase;
 import dz.alkhwarizmix.framework.flex.view.controls.AlKhwarizmixTextInputTestCase;
 
 [Suite]
@@ -78,6 +80,8 @@ public class TestSuite
 	public var alkhwarizmixDataListMediatorTestCase:AlkhwarizmixDataListMediatorTestCase;
 	public var alKhwarizmixMediatorTestCase:AlKhwarizmixMediatorTestCase;
 	public var alKhwarizmixMenuBarTestCase:AlKhwarizmixMenuBarTestCase;
+	public var alKhwarizmixImageTestCase:AlKhwarizmixImageTestCase;
+	public var alKhwarizmixTextAreaTestCase:AlKhwarizmixTextAreaTestCase;
 	
 } // class
 } // package

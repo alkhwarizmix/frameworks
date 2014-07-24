@@ -20,7 +20,7 @@ echo
 echo "----- ----- ----- ----- ----- ----- ----- ----- ----- -----"
 echo
 echo "Fares Belhaouas functions"
-echo "Version 16 JULY 2014, 00:00"
+echo "Version 19 JULY 2014, 14:49"
 echo
 echo "Type fbel-help                             to print all functions"
 echo
@@ -31,6 +31,7 @@ echo "Type fbel-backup(-sudo) file               to backup the file with current
 echo "Type fbel-ls-java-processes                to print list of java processes"
 echo "Type fbel-netstat                          to print used TCP/IP ports"
 echo "Type fbel-tail-apache2-sslaccess-log       to tail Apache2 sslaccess log"
+echo "Type fbel-tail-tomcat7-catalina-out        to tail Tomcat7 catalina out"
 echo 
 echo "Type fbel-install-101-basic                to install Ubuntu basic tools"
 echo "Type fbel-install-apache2                  to install Apache2"
@@ -115,6 +116,13 @@ function fbel-install-apache2
 function fbel-tail-apache2-sslaccess-log
 {
   tail -f -n 200 /var/log/apache2/ssl_access.log 
+}
+
+# ----- ----- ----- ----- ----- ----- ----- ----- ----- -----
+
+function fbel-tail-tomcat7-catalina-out
+{
+  tail -f -n 200 /var/log/tomcat7/catalina.out
 }
 
 # ----- ----- ----- ----- ----- ----- ----- ----- ----- -----
@@ -331,7 +339,7 @@ function fbel-ls-java-processes
 
 function fbel-backup-all-server-data
 {
-   local FOLDERS_TO_BACKUP="/etc/apache2/sites-available
+   local FILES_TO_BACKUP="/etc/apache2/sites-available
    /var/lib/jenkins/backups"
    
    local TODAY=`eval date +%Y-%m-%d`
@@ -341,7 +349,7 @@ function fbel-backup-all-server-data
    mkdir $BACKUP_FOLDER
    echo
    
-   for f in $FOLDERS_TO_BACKUP
+   for f in $FILES_TO_BACKUP
    do
       echo "Processing '$f'"
       local PROLOG=$f

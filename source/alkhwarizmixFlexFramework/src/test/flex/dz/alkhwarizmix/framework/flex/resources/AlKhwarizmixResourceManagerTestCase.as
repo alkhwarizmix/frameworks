@@ -32,21 +32,19 @@ public class AlKhwarizmixResourceManagerTestCase extends AlKhwarizmixTestCase
 	//
 	//--------------------------------------------------------------------------
 	
-	[Before]
-	override public function setUp():void
+	override protected function setUp():void
 	{
-		super.setUp();
+		// NOOP
+	}
+	
+	override protected function tearDown():void
+	{
+		// NOOP
 	}
 	
 	override protected function get classUnderTest():Class
 	{
 		return AlKhwarizmixResourceManager;
-	}
-	
-	[After]
-	override public function tearDown():void
-	{
-		super.tearDown();
 	}
 	
 	//--------------------------------------------------------------------------

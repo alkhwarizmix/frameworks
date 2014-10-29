@@ -22,7 +22,7 @@ import org.flexunit.asserts.assertTrue;
 
 /**
  *  <p>
- *  TODO: ASDOC
+ *  Test for AlKhwarizmixBlazeDSGetDataCommand
  *  </p>
  * 
  *  @author فارس بلحواس (Fares Belhaouas)
@@ -36,16 +36,14 @@ public class AlKhwarizmixBlazeDSGetDataCommandTestCase extends AlKhwarizmixTestC
 	//
 	//--------------------------------------------------------------------------
 	
-	[Before]
-	override public function setUp():void
+	override protected function setUp():void
 	{
-		super.setUp();
+		// NOOP
 	}
 	
-	[After]
-	override public function tearDown():void
+	override protected function tearDown():void
 	{
-		super.tearDown();
+		// NOOP
 	}
 	
 	override protected function get classUnderTest():Class

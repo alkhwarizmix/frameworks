@@ -46,13 +46,38 @@ public class AlKhwarizmixTestCase
 	
 	protected var classInstanceUnderTest:* = null;
 	
-	[Before]
-	public function setUp():void
+	[Before(order=1)]
+	public final function setUp_final():void
 	{
-		if (classUnderTestConstructorArg1)
-			classInstanceUnderTest = new classUnderTest(classUnderTestConstructorArg1);
+		doBeforeSetUp();
+		
+		if (classUnderTestConstructorArg2)
+		{
+			classInstanceUnderTest = new classUnderTest(
+				classUnderTestConstructorArg1,
+				classUnderTestConstructorArg2);
+		}
+		else if (classUnderTestConstructorArg1)
+		{
+			classInstanceUnderTest = new classUnderTest(
+				classUnderTestConstructorArg1);
+		}
 		else
+		{
 			classInstanceUnderTest = new classUnderTest();
+		}
+		
+		setUp();
+	}
+	
+	protected function doBeforeSetUp():void
+	{
+		// NOOP
+	}
+	
+	protected function setUp():void
+	{
+		throw new AlKhwarizmixMissingImplError();
 	}
 	
 	protected function get classUnderTest():Class
@@ -65,10 +90,22 @@ public class AlKhwarizmixTestCase
 		return null;
 	}
 	
-	[After]
-	public function tearDown():void
+	protected function get classUnderTestConstructorArg2():*
 	{
+		return null;
+	}
+	
+	[After(order=999)]
+	public final function tearDown_final():void
+	{
+		tearDown();
+		
 		classInstanceUnderTest = null;
+	}
+	
+	protected function tearDown():void
+	{
+		throw new AlKhwarizmixMissingImplError();
 	}
 	
 	//--------------------------------------------------------------------------
@@ -138,6 +175,6 @@ public class AlKhwarizmixTestCase
 		functionToRun();
 		assertTrue(dispatchedEvent is eventClassToListen);
 	}
-		
+	
 } // class
 } // package

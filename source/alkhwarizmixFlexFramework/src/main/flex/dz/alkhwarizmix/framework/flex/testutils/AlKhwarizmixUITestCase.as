@@ -17,7 +17,10 @@ import flash.display.DisplayObject;
 import mx.core.UIComponent;
 import mx.events.FlexEvent;
 
+import dz.alkhwarizmix.framework.flex.errors.AlKhwarizmixMissingImplError;
+
 import org.flexunit.asserts.assertFalse;
+import org.flexunit.asserts.assertNotNull;
 import org.flexunit.asserts.assertTrue;
 import org.flexunit.async.Async;
 import org.fluint.uiImpersonation.UIImpersonator;
@@ -43,29 +46,46 @@ public class AlKhwarizmixUITestCase extends AlKhwarizmixTestCase
 		return classInstanceUnderTest as DisplayObject;
 	}
 	
-	[Before(async, ui)]
-	override public function setUp():void
+	[Before(ui, async, order=2)]
+	public final function setUpAyncUI_final():void
 	{
-		super.setUp();
-		
+		assertNotNull("Could not instanciate displayObjectUnderTest", displayObjectUnderTest);
 		if (displayObjectUnderTest)
 		{
 			Async.proceedOnEvent(this, displayObjectUnderTest,
 				FlexEvent.CREATION_COMPLETE, THREE_SECONDS);
 			addDisplayObjectToUI(displayObjectUnderTest);
 		}
-		else
-		{
-			assertTrue("Could not instanciate displayObjectUnderTest", false);
-		}
+		
+		setUpAsyncUI();
 	}
 	
-	[After(ui)]
-	override public function tearDown():void
+	protected function setUpAsyncUI():void
 	{
-		UIImpersonator.removeChild(displayObjectUnderTest);
+		throw new AlKhwarizmixMissingImplError();
+	}
+	
+	override protected final function setUp():void
+	{
+		// NO throw new AlKhwarizmixMissingImplError();
+	}
+	
+	[After(ui, order=998)]
+	public final function tearDownUI_final():void
+	{
+		tearDownUI();
 		
-		super.tearDown();
+		UIImpersonator.removeChild(displayObjectUnderTest);
+	}
+	
+	protected function tearDownUI():void
+	{
+		throw new AlKhwarizmixMissingImplError();
+	}
+	
+	override protected final function tearDown():void
+	{
+		// NO throw new AlKhwarizmixMissingImplError();
 	}
 	
 	//--------------------------------------------------------------------------

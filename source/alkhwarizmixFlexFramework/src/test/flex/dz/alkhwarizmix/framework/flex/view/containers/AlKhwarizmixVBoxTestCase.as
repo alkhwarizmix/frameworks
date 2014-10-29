@@ -32,16 +32,14 @@ public class AlKhwarizmixVBoxTestCase extends AlKhwarizmixUITestCase
 	//
 	//--------------------------------------------------------------------------
 	
-	[Before(async, ui)]
-	override public function setUp():void
+	override protected function setUpAsyncUI():void
 	{
-		super.setUp();
+		// NOOP
 	}
 	
-	[After(ui)]
-	override public function tearDown():void
+	override protected function tearDownUI():void
 	{
-		super.tearDown();
+		// NOOP
 	}
 	
 	override protected function get classUnderTest():Class
@@ -63,6 +61,7 @@ public class AlKhwarizmixVBoxTestCase extends AlKhwarizmixUITestCase
 	[Test]
 	public function test01_constructor():void
 	{
+		assertNotNull(classInstanceUnderTest);
 		assertNotNull(alKhwarizmixVBox);
 	}
 	

@@ -20,18 +20,18 @@ echo
 echo "----- ----- ----- ----- ----- ----- ----- ----- ----- -----"
 echo
 echo "Fares Belhaouas functions"
-echo "Version 19 JULY 2014, 14:49"
+echo "Version 29 OCT 2014, 23:18"
 echo
 echo "Type fbel-help                             to print all functions"
 echo
 echo "Type fbel-apache2-restart                  to restart Apache server"
 echo "Type fbel-jenkins-restart                  to restart Jenkins server"
-echo "Type fbel-tomcat7-restart                  to restart Tomcat server"
+echo "Type fbel-tomcat8-restart                  to restart Tomcat server"
 echo "Type fbel-backup(-sudo) file               to backup the file with current date and time"
 echo "Type fbel-ls-java-processes                to print list of java processes"
 echo "Type fbel-netstat                          to print used TCP/IP ports"
 echo "Type fbel-tail-apache2-sslaccess-log       to tail Apache2 sslaccess log"
-echo "Type fbel-tail-tomcat7-catalina-out        to tail Tomcat7 catalina out"
+echo "Type fbel-tail-tomcat8-catalina-out        to tail Tomcat8 catalina out"
 echo 
 echo "Type fbel-install-101-basic                to install Ubuntu basic tools"
 echo "Type fbel-install-apache2                  to install Apache2"
@@ -42,7 +42,7 @@ echo "Type fbel-install-phpmyadmin               to install phpmyadmin"
 echo "Type fbel-install-phppgadmin               to install phppgadmin"
 echo "Type fbel-install-postgresql               to install PostgreSQL"
 echo "Type fbel-install-subversion               to install Subversion"
-echo "Type fbel-install-tomcat7                  to install Tomcat7"
+echo "Type fbel-install-tomcat8                  to install Tomcat8"
 echo
 echo "----- ----- ----- ----- ----- ----- ----- ----- ----- -----"
 echo
@@ -56,7 +56,7 @@ fbel-help
 
 alias fbel-apache2-restart='sudo service apache2 restart'
 alias fbel-jenkins-restart='sudo service jenkins restart'
-alias fbel-tomcat7-restart='sudo service tomcat7 restart'
+alias fbel-tomcat8-restart='sudo service tomcat8 restart'
 
 # ----- ----- ----- ----- ----- ----- ----- ----- ----- -----
 # FUNCTIONS
@@ -120,19 +120,19 @@ function fbel-tail-apache2-sslaccess-log
 
 # ----- ----- ----- ----- ----- ----- ----- ----- ----- -----
 
-function fbel-tail-tomcat7-catalina-out
+function fbel-tail-tomcat8-catalina-out
 {
-  tail -f -n 200 /var/log/tomcat7/catalina.out
+  tail -f -n 200 /var/log/tomcat8/catalina.out
 }
 
 # ----- ----- ----- ----- ----- ----- ----- ----- ----- -----
 
-function fbel-install-tomcat7
+function fbel-install-tomcat8
 {
   sudo apt-get upgrade
   
-  sudo apt-get install tomcat7
-  sudo apt-get install tomcat7-admin
+  sudo apt-get install tomcat8
+  sudo apt-get install tomcat8-admin
 }
 
 # ----- ----- ----- ----- ----- ----- ----- ----- ----- -----
@@ -325,7 +325,7 @@ function fbel-add-fares
 
 function fbel-netstat
 {
-   netstat -anlp | egrep 'Proto|LISTEN'
+   sudo netstat -anlp | egrep 'Proto|LISTEN'
 };
 
 # ----- ----- ----- ----- ----- ----- ----- ----- ----- -----

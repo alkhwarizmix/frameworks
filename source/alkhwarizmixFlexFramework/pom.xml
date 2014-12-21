@@ -102,6 +102,14 @@
 		</dependency>
 
 		<dependency>
+			<groupId>com.googlecode.flexxb</groupId>
+			<artifactId>FlexXB</artifactId>
+			<version>2.3.1</version>
+			<type>swc</type>
+			<scope>merged</scope>
+		</dependency>
+
+		<dependency>
 			<groupId>com.adobe.flexunit</groupId>
 			<artifactId>flexunit</artifactId>
 			<version>${flexunit.version}</version>

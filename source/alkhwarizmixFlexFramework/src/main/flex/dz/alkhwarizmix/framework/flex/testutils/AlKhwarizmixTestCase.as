@@ -38,6 +38,10 @@ public class AlKhwarizmixTestCase
 	
 	protected static const THREE_SECONDS:Number = 3000;
 	
+	protected static const FRENCH_TEXT:String = "éè";
+	protected static const ARABIC_TEXT:String = "" +
+		"م خ ة";
+
 	//--------------------------------------------------------------------------
 	//
 	//  SETUP & TEARDOWN

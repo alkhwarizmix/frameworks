@@ -12,7 +12,11 @@
 package dz.alkhwarizmix.framework.flex.dtos
 {
 
+import flash.utils.Dictionary;
+
 import dz.alkhwarizmix.framework.flex.dtos.customize.model.vo.CustomDataVO;
+import dz.alkhwarizmix.framework.flex.dtos.record.model.vo.RecordListVO;
+import dz.alkhwarizmix.framework.flex.dtos.record.model.vo.RecordVO;
 
 /**
  *  <p>
@@ -22,14 +26,35 @@ import dz.alkhwarizmix.framework.flex.dtos.customize.model.vo.CustomDataVO;
  *  @author فارس بلحواس (Fares Belhaouas)
  *  @since  ١٩ محرم ١٤٣٥ (November 23, 2013)
  */
-public class DTOsToInclude
+public class AlKhwarizmixDTOsToInclude
 {
+	private var registeredClassesInstances:Dictionary = null;
+	
+	public function AlKhwarizmixDTOsToInclude()
+	{
+		registerNeededClasses();
+	}
+	
 	/**
 	 * TODO: ASDOC Definition of registerNeededClasses
 	 */
-	public function registerNeededClasses():void
+	protected function registerNeededClasses():void
 	{
-		var customDataVO:CustomDataVO = new CustomDataVO();
+		registeredClassesInstances = new Dictionary(false);
+		
+		registerClass(CustomDataVO);
+		registerClass(RecordVO);
+		registerClass(RecordListVO);
+	}
+	
+	public function registerClass(clazz:Class):void
+	{
+		registeredClassesInstances[clazz] = new clazz();
+	}
+	
+	public function isClassRegistered(clazz:Class):Boolean
+	{
+		return (registeredClassesInstances[clazz] != null)
 	}
 	
 } // Class

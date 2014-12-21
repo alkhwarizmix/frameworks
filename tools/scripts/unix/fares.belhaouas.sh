@@ -20,20 +20,21 @@ echo
 echo "----- ----- ----- ----- ----- ----- ----- ----- ----- -----"
 echo
 echo "Fares Belhaouas functions"
-echo "Version 29 OCT 2014, 23:18"
+echo "Version 26 NOV 2014, 08:41"
 echo
 echo "Type fbel-help                             to print all functions"
 echo
 echo "Type fbel-apache2-restart                  to restart Apache server"
 echo "Type fbel-jenkins-restart                  to restart Jenkins server"
-echo "Type fbel-tomcat8-restart                  to restart Tomcat server"
+echo "Type fbel-tomcat7-restart                  to restart Tomcat server"
 echo "Type fbel-backup(-sudo) file               to backup the file with current date and time"
 echo "Type fbel-ls-java-processes                to print list of java processes"
 echo "Type fbel-netstat                          to print used TCP/IP ports"
 echo "Type fbel-tail-apache2-sslaccess-log       to tail Apache2 sslaccess log"
-echo "Type fbel-tail-tomcat8-catalina-out        to tail Tomcat8 catalina out"
+echo "Type fbel-tail-tomcat7-catalina-out        to tail Tomcat7 catalina out"
 echo 
 echo "Type fbel-install-101-basic                to install Ubuntu basic tools"
+echo "Type fbel-install-update                   to install Ubuntu updates"
 echo "Type fbel-install-apache2                  to install Apache2"
 echo "Type fbel-install-jenkins                  to install Jenkins"
 echo "Type fbel-install-MySQL                    to install MySQL"
@@ -42,7 +43,7 @@ echo "Type fbel-install-phpmyadmin               to install phpmyadmin"
 echo "Type fbel-install-phppgadmin               to install phppgadmin"
 echo "Type fbel-install-postgresql               to install PostgreSQL"
 echo "Type fbel-install-subversion               to install Subversion"
-echo "Type fbel-install-tomcat8                  to install Tomcat8"
+echo "Type fbel-install-tomcat7                  to install Tomcat7"
 echo
 echo "----- ----- ----- ----- ----- ----- ----- ----- ----- -----"
 echo
@@ -56,7 +57,7 @@ fbel-help
 
 alias fbel-apache2-restart='sudo service apache2 restart'
 alias fbel-jenkins-restart='sudo service jenkins restart'
-alias fbel-tomcat8-restart='sudo service tomcat8 restart'
+alias fbel-tomcat7-restart='sudo service tomcat7 restart'
 
 # ----- ----- ----- ----- ----- ----- ----- ----- ----- -----
 # FUNCTIONS
@@ -84,6 +85,29 @@ function fbel-install-101-basic
   sudo apt-get install ntp
   sudo ntpdate ntp.ubuntu.com pool.ntp.org
   sudo apt-get install git
+  
+  # sudo ufw enable
+  # sudo ufw deny 22
+  # sudo ufw allow 80
+  # sudo ufw allow 443
+  # sudo ufw allow proto tcp from 00.00.00.00 to any port 22
+};
+
+# ----- ----- ----- ----- ----- ----- ----- ----- ----- -----
+
+function fbel-install-update
+{
+  sudo apt-get update
+  sudo apt-get upgrade
+};
+
+# ----- ----- ----- ----- ----- ----- ----- ----- ----- -----
+
+function fbel-install-glances
+{
+  sudo apt-get install python-pip build-essential python-dev
+  sudo pip install Glances
+  sudo pip install PySensors
 };
 
 # ----- ----- ----- ----- ----- ----- ----- ----- ----- -----
@@ -115,24 +139,24 @@ function fbel-install-apache2
 
 function fbel-tail-apache2-sslaccess-log
 {
-  tail -f -n 200 /var/log/apache2/ssl_access.log 
+  sudo tail -f -n 200 /var/log/apache2/ssl_access.log 
 }
 
 # ----- ----- ----- ----- ----- ----- ----- ----- ----- -----
 
-function fbel-tail-tomcat8-catalina-out
+function fbel-tail-tomcat7-catalina-out
 {
-  tail -f -n 200 /var/log/tomcat8/catalina.out
+  sudo tail -f -n 200 /var/log/tomcat7/catalina.out
 }
 
 # ----- ----- ----- ----- ----- ----- ----- ----- ----- -----
 
-function fbel-install-tomcat8
+function fbel-install-tomcat7
 {
   sudo apt-get upgrade
   
-  sudo apt-get install tomcat8
-  sudo apt-get install tomcat8-admin
+  sudo apt-get install tomcat7
+  sudo apt-get install tomcat7-admin
 }
 
 # ----- ----- ----- ----- ----- ----- ----- ----- ----- -----

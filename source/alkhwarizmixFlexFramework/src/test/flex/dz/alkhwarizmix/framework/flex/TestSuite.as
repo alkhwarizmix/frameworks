@@ -13,9 +13,14 @@ package dz.alkhwarizmix.framework.flex
 {
 
 import dz.alkhwarizmix.framework.flex.controller.AlKhwarizmixBlazeDSGetDataCommandTestCase;
+import dz.alkhwarizmix.framework.flex.controller.AlKhwarizmixCommitRecordListCommandTestCase;
+import dz.alkhwarizmix.framework.flex.controller.AlKhwarizmixGetRecordListCommandTestCase;
 import dz.alkhwarizmix.framework.flex.controller.AlKhwarizmixMacroCommandTestCase;
 import dz.alkhwarizmix.framework.flex.controller.AlKhwarizmixSimpleCommandTestCase;
 import dz.alkhwarizmix.framework.flex.controller.AlKhwarizmixWebGetDataCommandTestCase;
+import dz.alkhwarizmix.framework.flex.dtos.AlKhwarizmixDTOsToIncludeTestCase;
+import dz.alkhwarizmix.framework.flex.dtos.record.model.vo.RecordListVOTestCase;
+import dz.alkhwarizmix.framework.flex.dtos.record.model.vo.RecordVOTestCase;
 import dz.alkhwarizmix.framework.flex.model.AlKhwarizmixProxyTestCase;
 import dz.alkhwarizmix.framework.flex.model.AlKhwarizmixSuperProxyTestCase;
 import dz.alkhwarizmix.framework.flex.model.vo.AlKhwarizmixVOTestCase;
@@ -48,6 +53,13 @@ public class TestSuite
 	public var alKhwarizmixMacroCommandTestCase:AlKhwarizmixMacroCommandTestCase;
 	public var alKhwarizmixSimpleCommandTestCase:AlKhwarizmixSimpleCommandTestCase;
 	public var alKhwarizmixWebGetDataCommandTestCase:AlKhwarizmixWebGetDataCommandTestCase;
+	public var alKhwarizmixGetRecordListCommandTestCase:AlKhwarizmixGetRecordListCommandTestCase;
+	public var alKhwarizmixCommitRecordListCommandTestCase:AlKhwarizmixCommitRecordListCommandTestCase;
+	
+	// dtos
+	public var recordVOTestCase:RecordVOTestCase;
+	public var recordListVOTestCase:RecordListVOTestCase;
+	public var alKhwarizmixDTOsToIncludeTestCase:AlKhwarizmixDTOsToIncludeTestCase;
 	
 	// model
 	public var alKhwarizmixVOTestCase:AlKhwarizmixVOTestCase;

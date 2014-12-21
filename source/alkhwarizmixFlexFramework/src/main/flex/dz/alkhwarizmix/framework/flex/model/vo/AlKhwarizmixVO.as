@@ -12,6 +12,9 @@
 package dz.alkhwarizmix.framework.flex.model.vo
 {
 
+import com.googlecode.flexxb.FlexXBEngine;
+
+import dz.alkhwarizmix.framework.flex.errors.AlKhwarizmixMissingImplError;
 import dz.alkhwarizmix.framework.flex.logging.AlKhwarizmixLog;
 import dz.alkhwarizmix.framework.flex.logging.IAlKhwarizmixLogger;
 
@@ -80,6 +83,37 @@ public class AlKhwarizmixVO
 		if (_id == value)
 			return;
 		_id = value;
+	}
+	
+	//--------------------------------------------------------------------------
+	//
+	//  Methods
+	//
+	//--------------------------------------------------------------------------
+	
+	public final function toXML():XML
+	{
+		return FlexXBEngine.instance.serialize(this);
+	}
+	
+	public final function toXMLString():String
+	{
+		return toXML().toXMLString();
+	}
+	
+	public final function fromXML(xml:XML):AlKhwarizmixVO
+	{
+		return FlexXBEngine.instance.deserialize(xml, getClassForXMLDeserializer());
+	}
+	
+	public final function fromXMLString(xmlString:String):AlKhwarizmixVO
+	{
+		return fromXML(XML(xmlString));
+	}
+	
+	protected function getClassForXMLDeserializer():Class
+	{
+		throw new AlKhwarizmixMissingImplError();
 	}
 	
 } // Class

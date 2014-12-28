@@ -12,7 +12,9 @@
 package dz.alkhwarizmix.framework.flex.model.vo
 {
 
-import flexunit.framework.TestCase;
+import dz.alkhwarizmix.framework.flex.testutils.AlKhwarizmixTestCase;
+
+import org.flexunit.asserts.assertNotNull;
 
 /**
  *  <p>
@@ -22,7 +24,7 @@ import flexunit.framework.TestCase;
  *  @author فارس بلحواس (Fares Belhaouas)
  *  @since  ٢٤ شوال ١٤٣٤ (August 30, 2013)
  */
-public class AlKhwarizmixVOTestCase extends TestCase
+public class AlKhwarizmixVOTestCase extends AlKhwarizmixTestCase
 {
 	//--------------------------------------------------------------------------
 	//
@@ -30,20 +32,29 @@ public class AlKhwarizmixVOTestCase extends TestCase
 	//
 	//--------------------------------------------------------------------------
 	
-	private var classUnderTest:AlKhwarizmixVO = null;
-	
-	override public function setUp():void
+	override protected function setUp():void
 	{
-		super.setUp();
-		
-		classUnderTest = new AlKhwarizmixVO();
+		// NOOP
 	}
 	
-	override public function tearDown():void
+	override protected function tearDown():void
 	{
-		classUnderTest = null;
-		
-		super.tearDown();
+		// NOOP
+	}
+	
+	override protected function get shouldNotHaveLogger():Boolean
+	{
+		return true;
+	}
+	
+	override protected function get classUnderTest():Class
+	{
+		return AlKhwarizmixVO;
+	}
+	
+	private function get alKhwarizmixVO():AlKhwarizmixVO
+	{
+		return classInstanceUnderTest as AlKhwarizmixVO;
 	}
 	
 	//--------------------------------------------------------------------------
@@ -55,7 +66,7 @@ public class AlKhwarizmixVOTestCase extends TestCase
 	[Test]
 	public function test01_constructor():void
 	{
-		assertNotNull(classUnderTest);
+		assertNotNull(alKhwarizmixVO);
 	}
 	
 } // class

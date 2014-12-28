@@ -14,6 +14,7 @@ package dz.alkhwarizmix.framework.flex.view
 
 import mx.core.FlexGlobals;
 
+import dz.alkhwarizmix.framework.flex.controller.AlKhwarizmixSimpleCommand;
 import dz.alkhwarizmix.framework.flex.interfaces.IAlKhwarizmixMediator;
 import dz.alkhwarizmix.framework.flex.logging.AlKhwarizmixLog;
 import dz.alkhwarizmix.framework.flex.logging.IAlKhwarizmixLogger;
@@ -36,18 +37,6 @@ public class AlKhwarizmixMediator extends Mediator
 	
 	//--------------------------------------------------------------------------
 	//
-	//  Constants
-	//
-	//--------------------------------------------------------------------------
-	
-	/**
-	 * The Logger
-	 */
-	private static const LOG:IAlKhwarizmixLogger = AlKhwarizmixLog.
-		getLogger(AlKhwarizmixMediator);
-	
-	//--------------------------------------------------------------------------
-	//
 	//  Constructor
 	//
 	//--------------------------------------------------------------------------
@@ -59,6 +48,9 @@ public class AlKhwarizmixMediator extends Mediator
 		mediatorName:String = null, viewComponent:Object = null)
 	{
 		super(mediatorName, viewComponent);
+		
+		if (AlKhwarizmixLog.isLogLevelAll)
+			logger.debug(AlKhwarizmixLog.CONSTRUCTOR);
 	}
 	
 	//--------------------------------------------------------------------------
@@ -67,13 +59,14 @@ public class AlKhwarizmixMediator extends Mediator
 	//
 	//--------------------------------------------------------------------------
 	
+	//----------------------------------
+	//  logger
+	//----------------------------------
+	
 	/**
-	 * TODO: ASDOC Definition of isHandleNotificationDelayed
+	 * The Logger
 	 */
-	protected function get isHandleNotificationDelayed():Boolean
-	{
-		return false;
-	}
+	private static var LOG:IAlKhwarizmixLogger = null;
 	
 	/**
 	 * Returns the specific class log, by default returns a generic log,
@@ -81,7 +74,21 @@ public class AlKhwarizmixMediator extends Mediator
 	 */
 	protected function get logger():IAlKhwarizmixLogger
 	{
+		if (!LOG)
+			LOG = AlKhwarizmixLog.getLogger(AlKhwarizmixMediator);
 		return LOG;
+	}
+	
+	//----------------------------------
+	//  isHandleNotificationDelayed
+	//----------------------------------
+	
+	/**
+	 * TODO: ASDOC Definition of isHandleNotificationDelayed
+	 */
+	protected function get isHandleNotificationDelayed():Boolean
+	{
+		return false;
 	}
 	
 	//--------------------------------------------------------------------------

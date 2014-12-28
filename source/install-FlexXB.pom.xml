@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+////////////////////////////////////////////////////////////////////////////////
+//  بسم الله الرحمن الرحيم
+//
+//  حقوق التأليف والنشر ١٤٣٦ هجري، فارس بلحواس (Copyright 2014 Fares Belhaouas)  
+//  كافة الحقوق محفوظة (All Rights Reserved)
+//
+//  NOTICE: Fares Belhaouas permits you to use, modify, and distribute this file
+//  in accordance with the terms of the license agreement accompanying it.
+//
+////////////////////////////////////////////////////////////////////////////////
+--><!---
+/**
+ *  <p>
+ *  TODO: ASDOC
+ *  </p>
+ * 
+ *  @author فارس بلحواس (Fares Belhaouas)
+ *  @since  ٢٨ صفر ١٤٣٦ (December 20, 2014)
+ */
+-->
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>dz.alkhwarizmix</groupId>
+		<artifactId>alkhwarizmix-common</artifactId>
+		<version>1.1.7</version>
+	</parent>
+
+	<groupId>dz.alkhwarizmix</groupId>
+	<artifactId>Install-FlexXB</artifactId>
+	<version>${dz.alkhwarizmix.common.version}</version>
+	<name>Install-FlexXB Maven</name>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.apache.ant</groupId>
+			<artifactId>ant-launcher</artifactId>
+			<version>1.9.3</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.ant</groupId>
+			<artifactId>ant</artifactId>
+			<version>1.9.3</version>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>dz.alkhwarizmix</groupId>
+				<artifactId>run-ant</artifactId>
+				<version>1.0.2</version>
+				<executions>
+					<execution>
+						<phase>generate-resources</phase>
+						<goals>
+							<goal>run</goal>
+						</goals>
+						<configuration>
+							<dz.alkhwarizmix.run-ant.filename>download.ant.build.xml</dz.alkhwarizmix.run-ant.filename>
+							<dz.alkhwarizmix.run-ant.version>1.9.3</dz.alkhwarizmix.run-ant.version>
+							<dz.alkhwarizmix.run-ant.target>download</dz.alkhwarizmix.run-ant.target>
+							<dz.alkhwarizmix.run-ant.param1>http://dz.alkhwarizmix.com/FlexXB-2_3_1-14042012-bin/bin/FlexXB.swc</dz.alkhwarizmix.run-ant.param1>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+</project>

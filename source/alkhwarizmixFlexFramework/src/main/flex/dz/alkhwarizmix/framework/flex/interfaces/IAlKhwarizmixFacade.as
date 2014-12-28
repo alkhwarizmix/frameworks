@@ -1,7 +1,7 @@
 ////////////////////////////////////////////////////////////////////////////////
 //  بسم الله الرحمن الرحيم
 //
-//  حقوق التأليف والنشر ١٤٣٤ هجري، فارس بلحواس (Copyright 2013 Fares Belhaouas)  
+//  حقوق التأليف والنشر ١٤٣٦ هجري، فارس بلحواس (Copyright 2014 Fares Belhaouas)  
 //  كافة الحقوق محفوظة (All Rights Reserved)
 //
 //  NOTICE: Fares Belhaouas permits you to use, modify, and distribute this file
@@ -9,10 +9,10 @@
 //
 ////////////////////////////////////////////////////////////////////////////////
 
-package dz.alkhwarizmix.framework.flex.dtos
+package dz.alkhwarizmix.framework.flex.interfaces
 {
 
-import dz.alkhwarizmix.framework.flex.dtos.customize.model.vo.CustomDataVO;
+import org.puremvc.as3.multicore.interfaces.IFacade;
 
 /**
  *  <p>
@@ -20,17 +20,10 @@ import dz.alkhwarizmix.framework.flex.dtos.customize.model.vo.CustomDataVO;
  *  </p>
  * 
  *  @author فارس بلحواس (Fares Belhaouas)
- *  @since  ١٩ محرم ١٤٣٥ (November 23, 2013)
+ *  @since  ٠٣ ربيع الأول ١٤٣٦ (December 24, 2014)
  */
-public class DTOsToInclude
+public interface IAlKhwarizmixFacade extends IFacade
 {
-	/**
-	 * TODO: ASDOC Definition of registerNeededClasses
-	 */
-	public function registerNeededClasses():void
-	{
-		var customDataVO:CustomDataVO = new CustomDataVO();
-	}
 	
-} // Class
+} // Interface
 } // Package

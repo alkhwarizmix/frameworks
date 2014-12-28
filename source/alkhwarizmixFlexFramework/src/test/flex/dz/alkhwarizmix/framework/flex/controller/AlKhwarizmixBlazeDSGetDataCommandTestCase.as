@@ -22,7 +22,7 @@ import org.flexunit.asserts.assertTrue;
 
 /**
  *  <p>
- *  TODO: ASDOC
+ *  Test for AlKhwarizmixBlazeDSGetDataCommand
  *  </p>
  * 
  *  @author فارس بلحواس (Fares Belhaouas)
@@ -36,16 +36,14 @@ public class AlKhwarizmixBlazeDSGetDataCommandTestCase extends AlKhwarizmixTestC
 	//
 	//--------------------------------------------------------------------------
 	
-	[Before]
-	override public function setUp():void
+	override protected function setUp():void
 	{
-		super.setUp();
+		// NOOP
 	}
 	
-	[After]
-	override public function tearDown():void
+	override protected function tearDown():void
 	{
-		super.tearDown();
+		// NOOP
 	}
 	
 	override protected function get classUnderTest():Class
@@ -122,7 +120,13 @@ import dz.alkhwarizmix.framework.flex.controller.AlKhwarizmixBlazeDSGetDataComma
 
 internal class AlKhwarizmixBlazeDSGetDataCommandEnhancedForTest extends AlKhwarizmixBlazeDSGetDataCommand
 {
+	/**
+	 * Used by AlKhwarizmixTestCase::test_logger to test super class logger
+	 */
+	public static const loggerClazzForTest:Class = AlKhwarizmixBlazeDSGetDataCommand;
+	
 	public var _amfURI:String = null;
+	
 	override public function get amfURI():String
 	{
 		return (_amfURI ? _amfURI : super.amfURI);

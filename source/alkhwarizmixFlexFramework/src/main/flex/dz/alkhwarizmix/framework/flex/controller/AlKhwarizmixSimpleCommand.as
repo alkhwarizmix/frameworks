@@ -12,14 +12,14 @@
 package dz.alkhwarizmix.framework.flex.controller
 {
 
-import dz.alkhwarizmix.framework.flex.interfaces.IAlKhwarizmixCommand;
-import dz.alkhwarizmix.framework.flex.logging.AlKhwarizmixLog;
-import dz.alkhwarizmix.framework.flex.logging.IAlKhwarizmixLogger;
-
 import flash.events.TimerEvent;
 import flash.utils.Timer;
 
 import mx.core.FlexGlobals;
+
+import dz.alkhwarizmix.framework.flex.interfaces.IAlKhwarizmixCommand;
+import dz.alkhwarizmix.framework.flex.logging.AlKhwarizmixLog;
+import dz.alkhwarizmix.framework.flex.logging.IAlKhwarizmixLogger;
 
 import org.puremvc.as3.multicore.interfaces.INotification;
 import org.puremvc.as3.multicore.patterns.command.SimpleCommand;
@@ -39,31 +39,48 @@ public class AlKhwarizmixSimpleCommand extends SimpleCommand
 	
 	//--------------------------------------------------------------------------
 	//
-	//  Constants
+	//  Constructor
+	//
+	//--------------------------------------------------------------------------
+	
+	/**
+	 *  Constructor.
+	 */
+	public function AlKhwarizmixSimpleCommand()
+	{
+		super();
+		
+		if (AlKhwarizmixLog.isLogLevelAll)
+			logger.debug(AlKhwarizmixLog.CONSTRUCTOR);
+	}
+	
+	//--------------------------------------------------------------------------
+	//
+	//  Logger
 	//
 	//--------------------------------------------------------------------------
 	
 	/**
 	 * The Logger
 	 */
-	private static const LOG:IAlKhwarizmixLogger = AlKhwarizmixLog.
-		getLogger(AlKhwarizmixSimpleCommand);
+	private static var LOG:IAlKhwarizmixLogger = null;
+	
+	/**
+	 * Returns the specific class log, by default returns a generic log,
+	 * should be overrided by inheriting classes
+	 */
+	protected function get logger():IAlKhwarizmixLogger
+	{
+		if (!LOG)
+			LOG = AlKhwarizmixLog.getLogger(AlKhwarizmixSimpleCommand);
+		return LOG;
+	}
 	
 	//--------------------------------------------------------------------------
 	//
 	//  Properties
 	//
 	//--------------------------------------------------------------------------
-	
-	//----------------------------------
-	//  log
-	//----------------------------------
-	
-	/**
-	 * Returns the specific class log, by default returns a generic log,
-	 * should be overrided by inheriting classes
-	 */
-	protected function get logger():IAlKhwarizmixLogger { return LOG; }
 	
 	//----------------------------------
 	//  executeLaterDelay

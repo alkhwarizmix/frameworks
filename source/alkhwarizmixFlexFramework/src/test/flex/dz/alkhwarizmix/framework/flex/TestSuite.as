@@ -13,9 +13,17 @@ package dz.alkhwarizmix.framework.flex
 {
 
 import dz.alkhwarizmix.framework.flex.controller.AlKhwarizmixBlazeDSGetDataCommandTestCase;
+import dz.alkhwarizmix.framework.flex.controller.AlKhwarizmixCommitRecordListCommandTestCase;
+import dz.alkhwarizmix.framework.flex.controller.AlKhwarizmixGetRecordListCommandTestCase;
 import dz.alkhwarizmix.framework.flex.controller.AlKhwarizmixMacroCommandTestCase;
 import dz.alkhwarizmix.framework.flex.controller.AlKhwarizmixSimpleCommandTestCase;
 import dz.alkhwarizmix.framework.flex.controller.AlKhwarizmixWebGetDataCommandTestCase;
+import dz.alkhwarizmix.framework.flex.dtos.AlKhwarizmixDTOsToIncludeTestCase;
+import dz.alkhwarizmix.framework.flex.dtos.record.model.vo.RecordListVOTestCase;
+import dz.alkhwarizmix.framework.flex.dtos.record.model.vo.RecordVOTestCase;
+import dz.alkhwarizmix.framework.flex.dtos.security.model.vo.EncryptionVOTestCase;
+import dz.alkhwarizmix.framework.flex.dtos.security.model.vo.GroupVOTestCase;
+import dz.alkhwarizmix.framework.flex.dtos.security.model.vo.UserVOTestCase;
 import dz.alkhwarizmix.framework.flex.model.AlKhwarizmixProxyTestCase;
 import dz.alkhwarizmix.framework.flex.model.AlKhwarizmixSuperProxyTestCase;
 import dz.alkhwarizmix.framework.flex.model.vo.AlKhwarizmixVOTestCase;
@@ -26,6 +34,7 @@ import dz.alkhwarizmix.framework.flex.utils.CryptoUtilTestCase;
 import dz.alkhwarizmix.framework.flex.view.AlKhwarizmixMediatorTestCase;
 import dz.alkhwarizmix.framework.flex.view.AlkhwarizmixDataListMediatorTestCase;
 import dz.alkhwarizmix.framework.flex.view.components.AlKhwarizmixDataListCanvasTestCase;
+import dz.alkhwarizmix.framework.flex.view.components.AlKhwarizmixImageTestCase;
 import dz.alkhwarizmix.framework.flex.view.containers.AlKhwarizmixCanvasTestCase;
 import dz.alkhwarizmix.framework.flex.view.containers.AlKhwarizmixMDICanvasTestCase;
 import dz.alkhwarizmix.framework.flex.view.containers.AlKhwarizmixMDIWindowTestCase;
@@ -35,6 +44,7 @@ import dz.alkhwarizmix.framework.flex.view.controls.AlKhwarizmixCheckBoxTestCase
 import dz.alkhwarizmix.framework.flex.view.controls.AlKhwarizmixDataGridTestCase;
 import dz.alkhwarizmix.framework.flex.view.controls.AlKhwarizmixLabelTestCase;
 import dz.alkhwarizmix.framework.flex.view.controls.AlKhwarizmixMenuBarTestCase;
+import dz.alkhwarizmix.framework.flex.view.controls.AlKhwarizmixTextAreaTestCase;
 import dz.alkhwarizmix.framework.flex.view.controls.AlKhwarizmixTextInputTestCase;
 
 [Suite]
@@ -46,6 +56,16 @@ public class TestSuite
 	public var alKhwarizmixMacroCommandTestCase:AlKhwarizmixMacroCommandTestCase;
 	public var alKhwarizmixSimpleCommandTestCase:AlKhwarizmixSimpleCommandTestCase;
 	public var alKhwarizmixWebGetDataCommandTestCase:AlKhwarizmixWebGetDataCommandTestCase;
+	public var alKhwarizmixGetRecordListCommandTestCase:AlKhwarizmixGetRecordListCommandTestCase;
+	public var alKhwarizmixCommitRecordListCommandTestCase:AlKhwarizmixCommitRecordListCommandTestCase;
+	
+	// dtos
+	public var recordVOTestCase:RecordVOTestCase;
+	public var recordListVOTestCase:RecordListVOTestCase;
+	public var alKhwarizmixDTOsToIncludeTestCase:AlKhwarizmixDTOsToIncludeTestCase;
+	public var userVOTestCase:UserVOTestCase;
+	public var groupVOTestCase:GroupVOTestCase;
+	public var encryptionVOTestCase:EncryptionVOTestCase;
 	
 	// model
 	public var alKhwarizmixVOTestCase:AlKhwarizmixVOTestCase;
@@ -78,6 +98,8 @@ public class TestSuite
 	public var alkhwarizmixDataListMediatorTestCase:AlkhwarizmixDataListMediatorTestCase;
 	public var alKhwarizmixMediatorTestCase:AlKhwarizmixMediatorTestCase;
 	public var alKhwarizmixMenuBarTestCase:AlKhwarizmixMenuBarTestCase;
+	public var alKhwarizmixImageTestCase:AlKhwarizmixImageTestCase;
+	public var alKhwarizmixTextAreaTestCase:AlKhwarizmixTextAreaTestCase;
 	
 } // class
 } // package

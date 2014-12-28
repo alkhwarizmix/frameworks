@@ -21,7 +21,7 @@ import org.flexunit.asserts.assertTrue;
 
 /**
  *  <p>
- *  TODO: ASDOC
+ *  Test for AlKhwarizmixLabel
  *  </p>
  * 
  *  @author فارس بلحواس (Fares Belhaouas)
@@ -35,16 +35,14 @@ public class AlKhwarizmixLabelTestCase extends AlKhwarizmixUITestCase
 	//
 	//--------------------------------------------------------------------------
 	
-	[Before(async, ui)]
-	override public function setUp():void
+	override protected function setUpAsyncUI():void
 	{
-		super.setUp();
+		// NOOP
 	}
 	
-	[After(ui)]
-	override public function tearDown():void
+	override protected function tearDownUI():void
 	{
-		super.tearDown();
+		// NOOP
 	}
 	
 	override protected function get classUnderTest():Class

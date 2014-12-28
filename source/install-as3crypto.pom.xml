@@ -29,12 +29,12 @@
 	<parent>
 		<groupId>dz.alkhwarizmix</groupId>
 		<artifactId>alkhwarizmix-common</artifactId>
-		<version>1.0.5.6</version>
+		<version>1.1.7</version>
 	</parent>
 
 	<groupId>dz.alkhwarizmix</groupId>
 	<artifactId>Install-as3crypto</artifactId>
-	<version>1.0.5.6</version>
+	<version>${dz.alkhwarizmix.common.version}</version>
 	<name>Install-as3crypto Maven</name>
 
 	<dependencies>

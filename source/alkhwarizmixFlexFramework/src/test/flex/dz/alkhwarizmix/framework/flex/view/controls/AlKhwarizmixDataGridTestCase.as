@@ -18,7 +18,7 @@ import org.flexunit.asserts.assertNotNull;
 
 /**
  *  <p>
- *  TODO: ASDOC
+ *  Test for AlKhwarizmixDataGrid
  *  </p>
  * 
  *  @author فارس بلحواس (Fares Belhaouas)
@@ -32,21 +32,24 @@ public class AlKhwarizmixDataGridTestCase extends AlKhwarizmixUITestCase
 	//
 	//--------------------------------------------------------------------------
 	
-	[Before(async, ui)]
-	override public function setUp():void
+	override protected function setUpAsyncUI():void
 	{
-		super.setUp();
+		// NOOP
 	}
 	
-	[After(ui)]
-	override public function tearDown():void
+	override protected function tearDownUI():void
 	{
-		super.tearDown();
+		// NOOP
 	}
 	
 	override protected function get classUnderTest():Class
 	{
 		return AlKhwarizmixDataGrid;
+	}
+	
+	private function get alKhwarizmixDataGrid():AlKhwarizmixDataGrid
+	{
+		return classInstanceUnderTest as AlKhwarizmixDataGrid;
 	}
 	
 	//--------------------------------------------------------------------------
@@ -58,7 +61,7 @@ public class AlKhwarizmixDataGridTestCase extends AlKhwarizmixUITestCase
 	[Test]
 	public function test01_constructor():void
 	{
-		assertNotNull(classUnderTest);
+		assertNotNull(alKhwarizmixDataGrid);
 	}
 	
 } // class

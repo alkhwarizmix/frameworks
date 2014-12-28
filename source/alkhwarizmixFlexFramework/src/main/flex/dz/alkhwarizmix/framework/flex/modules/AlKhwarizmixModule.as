@@ -44,18 +44,6 @@ public class AlKhwarizmixModule extends Module
 	
 	//--------------------------------------------------------------------------
 	//
-	//  Constants
-	//
-	//--------------------------------------------------------------------------
-	
-	/**
-	 * The Logger
-	 */
-	private static const LOG:IAlKhwarizmixLogger = AlKhwarizmixLog.
-		getLogger(AlKhwarizmixModule);
-	
-	//--------------------------------------------------------------------------
-	//
 	//  Constructor
 	//
 	//--------------------------------------------------------------------------
@@ -66,6 +54,9 @@ public class AlKhwarizmixModule extends Module
 	public function AlKhwarizmixModule()
 	{
 		super();
+		
+		if (AlKhwarizmixLog.isLogLevelAll)
+			logger.debug(AlKhwarizmixLog.CONSTRUCTOR);
 		
 		registerNeededClasses();
 	}
@@ -93,11 +84,14 @@ public class AlKhwarizmixModule extends Module
 			ObjectProxy);
 	}
 	
-	//--------------------------------------------------------------------------
-	//
-	//  Properties
-	//
-	//--------------------------------------------------------------------------
+	//----------------------------------
+	//  logger
+	//----------------------------------
+	
+	/**
+	 * The Logger
+	 */
+	private static var LOG:IAlKhwarizmixLogger = null;
 	
 	/**
 	 * Returns the specific class log, by default returns a generic log,
@@ -105,8 +99,20 @@ public class AlKhwarizmixModule extends Module
 	 */
 	protected function get logger():IAlKhwarizmixLogger
 	{
+		if (!LOG)
+			LOG = AlKhwarizmixLog.getLogger(AlKhwarizmixModule);
 		return LOG;
 	}
+	
+	//--------------------------------------------------------------------------
+	//
+	//  Properties
+	//
+	//--------------------------------------------------------------------------
+	
+	//----------------------------------
+	//  facadeName
+	//----------------------------------
 	
 	/**
 	 * @copy dz.alkhwarizmix.framework.flex.interfaces.IAlKhwarizmixModule#facadeName

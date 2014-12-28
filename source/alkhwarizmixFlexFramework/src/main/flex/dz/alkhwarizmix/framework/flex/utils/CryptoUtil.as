@@ -135,6 +135,20 @@ public class CryptoUtil
 		return result;
 	}
 	
+	/**
+	 * reverseString
+	 */
+	public final function reverseString(text:String):String
+	{
+		var result:String = null;
+		if (text != null) {
+			result = "";
+			for (var i:int = text.length - 1; i >= 0; i--)
+				result += text.charAt(i);
+		}
+		return result;
+	}
+	
 	private function stringToBytes(string:String):ByteArray
 	{
 		var result:ByteArray = new ByteArray();

@@ -19,6 +19,7 @@ import dz.alkhwarizmix.framework.flex.testutils.AlKhwarizmixTestCase;
 import org.flexunit.asserts.assertEquals;
 import org.flexunit.asserts.assertFalse;
 import org.flexunit.asserts.assertNotNull;
+import org.flexunit.asserts.assertNull;
 
 /**
  *  <p>
@@ -36,21 +37,23 @@ public class CryptoUtilTestCase extends AlKhwarizmixTestCase
 	//
 	//--------------------------------------------------------------------------
 	
-	private const CLEAR_TEXT:String = "This is a text to encrypt 345 éè" +
-		"م خ ة";
+	private const CLEAR_TEXT:String = "This is a text to encrypt 345 " + FRENCH_TEXT + ARABIC_TEXT;
 	private const CLEAR_TEXT_AS_HEX:String = "546869732069732061207465787420746f20656e63727970742033343520c3a9c3a8d98520d8ae20d8a9";
 	private const ENCRYPTED_BY_JAVA:String = "9800013c054878194737e873787291051c33432530ae1639d86cb0541f60450047ad0ac2b8b00fbd5635028039c4ee8f";
 	
-	[Before]
-	override public function setUp():void
+	override protected function setUp():void
 	{
-		super.setUp();
+		// NOOP
 	}
 	
-	[After]
-	override public function tearDown():void
+	override protected function tearDown():void
 	{
-		super.tearDown();
+		// NOOP
+	}
+	
+	override protected function get shouldNotHaveLogger():Boolean
+	{
+		return true;
 	}
 	
 	override protected function get classUnderTest():Class
@@ -130,6 +133,38 @@ public class CryptoUtilTestCase extends AlKhwarizmixTestCase
 		var encrypted1:String = utCryptoUtil.encryptString(text1ToEncrypt);
 		var encrypted2:String = utCryptoUtil.encryptString(text2ToEncrypt);
 		assertFalse("", ObjectUtil.compare(encrypted1, encrypted2) == 0);
+	}
+	
+	[Test]
+	public function test07_A_reverse_empty_string_should_return_empty():void
+	{
+		var textToReverse:String = "";
+		var result:String = utCryptoUtil.reverseString(textToReverse);
+		assertEquals("", result);
+	}
+	
+	[Test]
+	public function test07_B_reverse_string_1_should_return_1():void
+	{
+		var textToReverse:String = "1";
+		var result:String = utCryptoUtil.reverseString(textToReverse);
+		assertEquals("1", result);
+	}
+	
+	[Test]
+	public function test07_C_reverse_abc_should_return_cba_char():void
+	{
+		var textToReverse:String = "abc";
+		var result:String = utCryptoUtil.reverseString(textToReverse);
+		assertEquals("cba", result);
+	}
+	
+	[Test]
+	public function test07_D_reverse_null_should_return_null():void
+	{
+		var textToReverse:String = null;
+		var result:String = utCryptoUtil.reverseString(textToReverse);
+		assertNull(result);
 	}
 	
 } // class

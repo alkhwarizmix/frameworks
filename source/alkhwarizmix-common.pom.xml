@@ -24,6 +24,20 @@
 
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<properties>
+		<dz.alkhwarizmix.common.version>1.1.7</dz.alkhwarizmix.common.version>
+		<dz.alkhwarizmix.moqawalati.version>1.2.8</dz.alkhwarizmix.moqawalati.version>
+		
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<flexmojos.version>4.2-beta</flexmojos.version>
+		<flex.sdk.version>4.6.b.23201</flex.sdk.version>
+		<flexunit.version>4.0-rc-1</flexunit.version>
+		
+		<flex.sdk.swz.version>4.6.0.23201</flex.sdk.swz.version>
+		<flex.tlf.swz.version>2.0.0.232</flex.tlf.swz.version>
+		<flex.osmf.swz.version>1.0.0.16316</flex.osmf.swz.version>
+	</properties>
+
 	<modelVersion>4.0.0</modelVersion>
 	<prerequisites>
 		<maven>3.0.3</maven>
@@ -31,7 +45,7 @@
 
 	<groupId>dz.alkhwarizmix</groupId>
 	<artifactId>alkhwarizmix-common</artifactId>
-	<version>1.0.6</version>
+	<version>${dz.alkhwarizmix.common.version}</version>
 	<packaging>pom</packaging>
 
 	<name>Alkhwarizmix Maven</name>
@@ -51,17 +65,6 @@
 			</roles>
 		</developer>
 	</developers>
-
-	<properties>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<flexmojos.version>4.2-beta</flexmojos.version>
-		<flex.sdk.version>4.6.b.23201</flex.sdk.version>
-		<flexunit.version>4.0-rc-1</flexunit.version>
-		
-		<flex.sdk.swz.version>4.6.0.23201</flex.sdk.swz.version>
-		<flex.tlf.swz.version>2.0.0.232</flex.tlf.swz.version>
-		<flex.osmf.swz.version>1.0.0.16316</flex.osmf.swz.version>
-	</properties>
 
 	<dependencies>
 		<dependency>

@@ -17,6 +17,7 @@ import flash.utils.Dictionary;
 import dz.alkhwarizmix.framework.flex.errors.AlKhwarizmixMissingImplError;
 import dz.alkhwarizmix.framework.flex.errors.AlKhwarizmixTypeError;
 import dz.alkhwarizmix.framework.flex.interfaces.IAlKhwarizmixCommand;
+import dz.alkhwarizmix.framework.flex.interfaces.IAlKhwarizmixFacade;
 import dz.alkhwarizmix.framework.flex.logging.AlKhwarizmixLog;
 import dz.alkhwarizmix.framework.flex.logging.IAlKhwarizmixLogger;
 
@@ -31,20 +32,9 @@ import org.puremvc.as3.multicore.patterns.facade.Facade;
  *  @since  ١٧ شوال ١٤٣٤ (August 24, 2013)
  */
 public class AlKhwarizmixFacade extends Facade
+	implements IAlKhwarizmixFacade
 {
 	include "../../../../../../../templates/flex/core/Version.as";
-	
-	//--------------------------------------------------------------------------
-	//
-	//  Constants
-	//
-	//--------------------------------------------------------------------------
-	
-	/**
-	 * The Logger
-	 */
-	private static const LOG:IAlKhwarizmixLogger = AlKhwarizmixLog.
-		getLogger(AlKhwarizmixFacade);
 	
 	//--------------------------------------------------------------------------
 	//
@@ -58,13 +48,19 @@ public class AlKhwarizmixFacade extends Facade
 	public function AlKhwarizmixFacade(key:String)
 	{
 		super(key);
+		
+		if (AlKhwarizmixLog.isLogLevelAll)
+			logger.debug(AlKhwarizmixLog.CONSTRUCTOR);
 	}
 	
-	//--------------------------------------------------------------------------
-	//
-	//  Properties
-	//
-	//--------------------------------------------------------------------------
+	//----------------------------------
+	//  logger
+	//----------------------------------
+	
+	/**
+	 * The Logger
+	 */
+	private static var LOG:IAlKhwarizmixLogger = null;
 	
 	/**
 	 * Returns the specific class log, by default returns a generic log,
@@ -72,8 +68,16 @@ public class AlKhwarizmixFacade extends Facade
 	 */
 	protected function get logger():IAlKhwarizmixLogger
 	{
+		if (!LOG)
+			LOG = AlKhwarizmixLog.getLogger(AlKhwarizmixFacade);
 		return LOG;
 	}
+	
+	//--------------------------------------------------------------------------
+	//
+	//  Properties
+	//
+	//--------------------------------------------------------------------------
 	
 	//----------------------------------
 	//  commandsToRegister

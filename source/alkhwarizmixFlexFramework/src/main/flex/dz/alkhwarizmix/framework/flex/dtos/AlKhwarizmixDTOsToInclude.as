@@ -17,6 +17,9 @@ import flash.utils.Dictionary;
 import dz.alkhwarizmix.framework.flex.dtos.customize.model.vo.CustomDataVO;
 import dz.alkhwarizmix.framework.flex.dtos.record.model.vo.RecordListVO;
 import dz.alkhwarizmix.framework.flex.dtos.record.model.vo.RecordVO;
+import dz.alkhwarizmix.framework.flex.dtos.security.model.vo.EncryptionVO;
+import dz.alkhwarizmix.framework.flex.dtos.security.model.vo.GroupVO;
+import dz.alkhwarizmix.framework.flex.dtos.security.model.vo.UserVO;
 
 /**
  *  <p>
@@ -41,6 +44,10 @@ public class AlKhwarizmixDTOsToInclude
 	protected function registerNeededClasses():void
 	{
 		registeredClassesInstances = new Dictionary(false);
+		
+		registerClass(UserVO);
+		registerClass(GroupVO);
+		registerClass(EncryptionVO);
 		
 		registerClass(CustomDataVO);
 		registerClass(RecordVO);

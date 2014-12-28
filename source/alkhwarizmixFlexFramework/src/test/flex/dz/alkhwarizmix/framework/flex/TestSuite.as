@@ -21,6 +21,9 @@ import dz.alkhwarizmix.framework.flex.controller.AlKhwarizmixWebGetDataCommandTe
 import dz.alkhwarizmix.framework.flex.dtos.AlKhwarizmixDTOsToIncludeTestCase;
 import dz.alkhwarizmix.framework.flex.dtos.record.model.vo.RecordListVOTestCase;
 import dz.alkhwarizmix.framework.flex.dtos.record.model.vo.RecordVOTestCase;
+import dz.alkhwarizmix.framework.flex.dtos.security.model.vo.EncryptionVOTestCase;
+import dz.alkhwarizmix.framework.flex.dtos.security.model.vo.GroupVOTestCase;
+import dz.alkhwarizmix.framework.flex.dtos.security.model.vo.UserVOTestCase;
 import dz.alkhwarizmix.framework.flex.model.AlKhwarizmixProxyTestCase;
 import dz.alkhwarizmix.framework.flex.model.AlKhwarizmixSuperProxyTestCase;
 import dz.alkhwarizmix.framework.flex.model.vo.AlKhwarizmixVOTestCase;
@@ -60,6 +63,9 @@ public class TestSuite
 	public var recordVOTestCase:RecordVOTestCase;
 	public var recordListVOTestCase:RecordListVOTestCase;
 	public var alKhwarizmixDTOsToIncludeTestCase:AlKhwarizmixDTOsToIncludeTestCase;
+	public var userVOTestCase:UserVOTestCase;
+	public var groupVOTestCase:GroupVOTestCase;
+	public var encryptionVOTestCase:EncryptionVOTestCase;
 	
 	// model
 	public var alKhwarizmixVOTestCase:AlKhwarizmixVOTestCase;

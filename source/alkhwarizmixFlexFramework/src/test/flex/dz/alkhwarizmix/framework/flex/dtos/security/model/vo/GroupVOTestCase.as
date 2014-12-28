@@ -1,7 +1,7 @@
 ////////////////////////////////////////////////////////////////////////////////
 //  بسم الله الرحمن الرحيم
 //
-//  حقوق التأليف والنشر ١٤٣٤ هجري، فارس بلحواس (Copyright 2013 Fares Belhaouas)  
+//  حقوق التأليف والنشر ١٤٣٦ هجري، فارس بلحواس (Copyright 2014 Fares Belhaouas)  
 //  كافة الحقوق محفوظة (All Rights Reserved)
 //
 //  NOTICE: Fares Belhaouas permits you to use, modify, and distribute this file
@@ -9,12 +9,13 @@
 //
 ////////////////////////////////////////////////////////////////////////////////
 
-package dz.alkhwarizmix.framework.flex.model.vo
+package dz.alkhwarizmix.framework.flex.dtos.security.model.vo
 {
 
 import dz.alkhwarizmix.framework.flex.testutils.AlKhwarizmixTestCase;
 
 import org.flexunit.asserts.assertNotNull;
+import org.flexunit.asserts.assertTrue;
 
 /**
  *  <p>
@@ -22,9 +23,9 @@ import org.flexunit.asserts.assertNotNull;
  *  </p>
  * 
  *  @author فارس بلحواس (Fares Belhaouas)
- *  @since  ٢٤ شوال ١٤٣٤ (August 30, 2013)
+ *  @since  ٠٧ ربيع الأول ١٤٣٦ (December 28, 2014)
  */
-public class AlKhwarizmixVOTestCase extends AlKhwarizmixTestCase
+public class GroupVOTestCase extends AlKhwarizmixTestCase
 {
 	//--------------------------------------------------------------------------
 	//
@@ -49,12 +50,12 @@ public class AlKhwarizmixVOTestCase extends AlKhwarizmixTestCase
 	
 	override protected function get classUnderTest():Class
 	{
-		return AlKhwarizmixVO;
+		return GroupVO;
 	}
 	
-	private function get alKhwarizmixVO():AlKhwarizmixVO
+	private function get utGroupVO():GroupVO
 	{
-		return classInstanceUnderTest as AlKhwarizmixVO;
+		return classInstanceUnderTest as GroupVO;
 	}
 	
 	//--------------------------------------------------------------------------
@@ -64,9 +65,16 @@ public class AlKhwarizmixVOTestCase extends AlKhwarizmixTestCase
 	//--------------------------------------------------------------------------
 	
 	[Test]
-	public function test01_constructor():void
+	public function test00_constructor():void
 	{
-		assertNotNull(alKhwarizmixVO);
+		assertNotNull(utGroupVO);
+	}
+	
+	[Ignore("TODO: TDD")]
+	[Test]
+	public function test01():void
+	{
+		assertTrue(false);
 	}
 	
 } // class

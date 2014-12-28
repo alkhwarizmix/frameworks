@@ -15,8 +15,12 @@ package dz.alkhwarizmix.framework.flex.testutils
 import flash.events.Event;
 import flash.events.IEventDispatcher;
 
-import dz.alkhwarizmix.framework.flex.errors.AlKhwarizmixMissingImplError;
+import mx.logging.LogEventLevel;
 
+import dz.alkhwarizmix.framework.flex.errors.AlKhwarizmixMissingImplError;
+import dz.alkhwarizmix.framework.flex.logging.AlKhwarizmixLog;
+
+import org.flexunit.asserts.assertFalse;
 import org.flexunit.asserts.assertTrue;
 import org.puremvc.as3.multicore.patterns.facade.Facade;
 
@@ -41,19 +45,25 @@ public class AlKhwarizmixTestCase
 	protected static const FRENCH_TEXT:String = "éè";
 	protected static const ARABIC_TEXT:String = "" +
 		"م خ ة";
-
+	
 	//--------------------------------------------------------------------------
 	//
 	//  SETUP & TEARDOWN
 	//
 	//--------------------------------------------------------------------------
 	
+	private var loggingTargetForTest:LoggingTargetForTest = null;
 	protected var classInstanceUnderTest:* = null;
 	
 	[Before(order=1)]
 	public final function setUp_final():void
 	{
 		doBeforeSetUp();
+		
+		loggingTargetForTest = new LoggingTargetForTest(classUnderTest);
+		AlKhwarizmixLog.addTarget(loggingTargetForTest);
+		loggingTargetForTest.level = LogEventLevel.ALL;
+		AlKhwarizmixLog.isLogLevelAll = true;
 		
 		if (classUnderTestConstructorArg2)
 		{
@@ -72,6 +82,7 @@ public class AlKhwarizmixTestCase
 		}
 		
 		setUp();
+		test_logger();
 	}
 	
 	protected function doBeforeSetUp():void
@@ -104,12 +115,20 @@ public class AlKhwarizmixTestCase
 	{
 		tearDown();
 		
+		AlKhwarizmixLog.isLogLevelAll = false;		
+		AlKhwarizmixLog.removeTarget(loggingTargetForTest);
+		loggingTargetForTest = null;
 		classInstanceUnderTest = null;
 	}
 	
 	protected function tearDown():void
 	{
 		throw new AlKhwarizmixMissingImplError();
+	}
+	
+	protected function get shouldNotHaveLogger():Boolean
+	{
+		return false;
 	}
 	
 	//--------------------------------------------------------------------------
@@ -180,5 +199,68 @@ public class AlKhwarizmixTestCase
 		assertTrue(dispatchedEvent is eventClassToListen);
 	}
 	
+	//--------------------------------------------------------------------------
+	//
+	//  TESTS
+	//
+	//--------------------------------------------------------------------------
+	
+	private function test_logger():void
+	{
+		if (shouldNotHaveLogger)
+		{
+			assertFalse("No log should have been done",
+				loggingTargetForTest.atLeastOneEventWasLogged);
+		}
+		else
+		{
+			assertTrue("Constructor does not log",
+				loggingTargetForTest.wasContructorLoggedOnlyOnce);
+		}
+	}
+	
 } // class
 } // package
+
+//--------------------------------------------------------------------------
+
+import flash.utils.getQualifiedClassName;
+
+import mx.logging.AbstractTarget;
+import mx.logging.LogEvent;
+
+internal class LoggingTargetForTest extends AbstractTarget
+{
+	private var numConstructorLogged:int = 0;
+	private var numEventLogged:int = 0;
+	
+	public function get wasContructorLoggedOnlyOnce():Boolean
+	{
+		return (numConstructorLogged == 1);
+	}
+	
+	public function get atLeastOneEventWasLogged():Boolean
+	{
+		return (numEventLogged > 0);
+	}
+	
+	public function LoggingTargetForTest(clazz:Class)
+	{
+		super();
+		if (clazz["loggerClazzForTest"])
+			clazz = clazz["loggerClazzForTest"];
+		var clazzName:String = getQualifiedClassName(clazz).replace("::", ".");
+		this.filters = [clazzName];
+	}
+	
+	override public function logEvent(event:LogEvent):void
+	{
+		numEventLogged++;
+		if (event.message == "Constructor") {
+			numConstructorLogged++;
+		}
+	}
+	
+}
+
+//--------------------------------------------------------------------------

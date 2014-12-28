@@ -12,6 +12,7 @@
 package dz.alkhwarizmix.framework.flex
 {
 
+
 /**
  *  <p>
  *  TODO: ASDOC
@@ -35,6 +36,8 @@ public class AlKhwarizmixConstants
 	public static const COMMIT_RECORD_LIST:String = "AlKhwarizmix_commit_record_list";
 	
 	public static const RECORD_PROXY_CHANGED:String = "AlKhwarizmix_record_proxy_changed";
+	
+	public static const REMOTE_SERVER_ERROR:String = "AlKhwarizmix_remote_server_error";
 	
 } // class
 } // package

@@ -71,20 +71,6 @@ public class AlKhwarizmixVO
 		return LOG;
 	}
 	
-	//----------------------------------
-	//  id
-	//----------------------------------
-	
-	private var _id:Number = NaN;
-	public function get id():Number { return _id; }
-	
-	public function set id(value:Number):void
-	{
-		if (_id == value)
-			return;
-		_id = value;
-	}
-	
 	//--------------------------------------------------------------------------
 	//
 	//  Methods

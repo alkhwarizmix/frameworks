@@ -46,6 +46,11 @@ public class AlKhwarizmixDTOsToIncludeTestCase extends AlKhwarizmixTestCase
 		// NOOP
 	}
 	
+	override protected function get shouldNotHaveLogger():Boolean
+	{
+		return true;
+	}
+	
 	override protected function get classUnderTest():Class
 	{
 		return AlKhwarizmixDTOsToInclude;

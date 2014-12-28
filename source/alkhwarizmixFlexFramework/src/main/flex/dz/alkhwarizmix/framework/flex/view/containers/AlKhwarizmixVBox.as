@@ -32,18 +32,6 @@ public class AlKhwarizmixVBox extends VGroup
 	
 	//--------------------------------------------------------------------------
 	//
-	//  Constants
-	//
-	//--------------------------------------------------------------------------
-	
-	/**
-	 * The Logger
-	 */
-	private static const LOG:IAlKhwarizmixLogger = AlKhwarizmixLog.
-		getLogger(AlKhwarizmixVBox);
-	
-	//--------------------------------------------------------------------------
-	//
 	//  Constructor
 	//
 	//--------------------------------------------------------------------------
@@ -54,13 +42,21 @@ public class AlKhwarizmixVBox extends VGroup
 	public function AlKhwarizmixVBox()
 	{
 		super();
+		
+		if (AlKhwarizmixLog.isLogLevelAll)
+			logger.debug(AlKhwarizmixLog.CONSTRUCTOR);
 	}
 	
 	//--------------------------------------------------------------------------
 	//
-	//  Properties
+	//  Logger
 	//
 	//--------------------------------------------------------------------------
+	
+	/**
+	 * The Logger
+	 */
+	private static var LOG:IAlKhwarizmixLogger = null;
 	
 	/**
 	 * Returns the specific class log, by default returns a generic log,
@@ -68,6 +64,8 @@ public class AlKhwarizmixVBox extends VGroup
 	 */
 	protected function get logger():IAlKhwarizmixLogger
 	{
+		if (!LOG)
+			LOG = AlKhwarizmixLog.getLogger(AlKhwarizmixVBox);
 		return LOG;
 	}
 	

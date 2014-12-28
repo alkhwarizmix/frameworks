@@ -31,18 +31,6 @@ public class AlKhwarizmixConsumer extends Consumer
 	
 	//--------------------------------------------------------------------------
 	//
-	//  Constants
-	//
-	//--------------------------------------------------------------------------
-	
-	/**
-	 * The Logger
-	 */
-	private static const LOG:IAlKhwarizmixLogger = AlKhwarizmixLog.
-		getLogger(AlKhwarizmixConsumer);
-	
-	//--------------------------------------------------------------------------
-	//
 	//  Constructor
 	//
 	//--------------------------------------------------------------------------
@@ -53,13 +41,21 @@ public class AlKhwarizmixConsumer extends Consumer
 	public function AlKhwarizmixConsumer()
 	{
 		super();
+		
+		if (AlKhwarizmixLog.isLogLevelAll)
+			logger.debug(AlKhwarizmixLog.CONSTRUCTOR);
 	}
 	
 	//--------------------------------------------------------------------------
 	//
-	//  Properties
+	//  Logger
 	//
 	//--------------------------------------------------------------------------
+	
+	/**
+	 * The Logger
+	 */
+	private static var LOG:IAlKhwarizmixLogger = null;
 	
 	/**
 	 * Returns the specific class log, by default returns a generic log,
@@ -67,6 +63,8 @@ public class AlKhwarizmixConsumer extends Consumer
 	 */
 	protected function get logger():IAlKhwarizmixLogger
 	{
+		if (!LOG)
+			LOG = AlKhwarizmixLog.getLogger(AlKhwarizmixConsumer);
 		return LOG;
 	}
 	

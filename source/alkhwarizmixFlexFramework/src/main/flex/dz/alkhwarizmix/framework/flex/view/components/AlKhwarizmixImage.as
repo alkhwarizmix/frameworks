@@ -34,18 +34,6 @@ public class AlKhwarizmixImage extends Image
 	
 	//--------------------------------------------------------------------------
 	//
-	//  Constants
-	//
-	//--------------------------------------------------------------------------
-	
-	/**
-	 * The Logger
-	 */
-	private static const LOG:IAlKhwarizmixLogger = AlKhwarizmixLog.
-		getLogger(AlKhwarizmixImage);
-	
-	//--------------------------------------------------------------------------
-	//
 	//  Constructor
 	//
 	//--------------------------------------------------------------------------
@@ -58,6 +46,30 @@ public class AlKhwarizmixImage extends Image
 		super();
 		
 		new AlKhwarizmixResourceManager().registerLocalizable(this);
+		if (AlKhwarizmixLog.isLogLevelAll)
+			logger.debug(AlKhwarizmixLog.CONSTRUCTOR);
+	}
+	
+	//--------------------------------------------------------------------------
+	//
+	//  Logger
+	//
+	//--------------------------------------------------------------------------
+	
+	/**
+	 * The Logger
+	 */
+	private static var LOG:IAlKhwarizmixLogger = null;
+	
+	/**
+	 * Returns the specific class log, by default returns a generic log,
+	 * should be overrided by inheriting classes
+	 */
+	protected function get logger():IAlKhwarizmixLogger
+	{
+		if (!LOG)
+			LOG = AlKhwarizmixLog.getLogger(AlKhwarizmixImage);
+		return LOG;
 	}
 	
 	//--------------------------------------------------------------------------
@@ -72,21 +84,6 @@ public class AlKhwarizmixImage extends Image
 	 *  commitSource() method called.
 	 */
 	private var invalidateSourceFlag:Boolean = false;
-	
-	//--------------------------------------------------------------------------
-	//
-	//  Properties
-	//
-	//--------------------------------------------------------------------------
-	
-	/**
-	 * Returns the specific class log, by default returns a generic log,
-	 * should be overrided by inheriting classes
-	 */
-	protected function get logger():IAlKhwarizmixLogger
-	{
-		return LOG;
-	}
 	
 	//----------------------------------
 	//  sourceResKey

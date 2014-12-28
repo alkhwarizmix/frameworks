@@ -32,18 +32,6 @@ public class AlKhwarizmixMDICanvas extends MDICanvas
 	
 	//--------------------------------------------------------------------------
 	//
-	//  Constants
-	//
-	//--------------------------------------------------------------------------
-	
-	/**
-	 * The Logger
-	 */
-	private static const LOG:IAlKhwarizmixLogger = AlKhwarizmixLog.
-		getLogger(AlKhwarizmixMDICanvas);
-	
-	//--------------------------------------------------------------------------
-	//
 	//  Constructor
 	//
 	//--------------------------------------------------------------------------
@@ -54,13 +42,20 @@ public class AlKhwarizmixMDICanvas extends MDICanvas
 	public function AlKhwarizmixMDICanvas()
 	{
 		super();
+		if (AlKhwarizmixLog.isLogLevelAll)
+			logger.debug(AlKhwarizmixLog.CONSTRUCTOR);
 	}
 	
 	//--------------------------------------------------------------------------
 	//
-	//  Properties
+	//  Logger
 	//
 	//--------------------------------------------------------------------------
+	
+	/**
+	 * The Logger
+	 */
+	private static var LOG:IAlKhwarizmixLogger = null;
 	
 	/**
 	 * Returns the specific class log, by default returns a generic log,
@@ -68,6 +63,8 @@ public class AlKhwarizmixMDICanvas extends MDICanvas
 	 */
 	protected function get logger():IAlKhwarizmixLogger
 	{
+		if (!LOG)
+			LOG = AlKhwarizmixLog.getLogger(AlKhwarizmixMDICanvas);
 		return LOG;
 	}
 	

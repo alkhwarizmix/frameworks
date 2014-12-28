@@ -14,6 +14,7 @@ package dz.alkhwarizmix.framework.flex.messaging
 
 import mx.messaging.Producer;
 
+import dz.alkhwarizmix.framework.flex.controller.AlKhwarizmixSimpleCommand;
 import dz.alkhwarizmix.framework.flex.logging.AlKhwarizmixLog;
 import dz.alkhwarizmix.framework.flex.logging.IAlKhwarizmixLogger;
 
@@ -31,18 +32,6 @@ public class AlKhwarizmixProducer extends Producer
 	
 	//--------------------------------------------------------------------------
 	//
-	//  Constants
-	//
-	//--------------------------------------------------------------------------
-	
-	/**
-	 * The Logger
-	 */
-	private static const LOG:IAlKhwarizmixLogger = AlKhwarizmixLog.
-		getLogger(AlKhwarizmixProducer);
-	
-	//--------------------------------------------------------------------------
-	//
 	//  Constructor
 	//
 	//--------------------------------------------------------------------------
@@ -53,13 +42,21 @@ public class AlKhwarizmixProducer extends Producer
 	public function AlKhwarizmixProducer()
 	{
 		super();
+		
+		if (AlKhwarizmixLog.isLogLevelAll)
+			logger.debug(AlKhwarizmixLog.CONSTRUCTOR);
 	}
 	
 	//--------------------------------------------------------------------------
 	//
-	//  Properties
+	//  Logger
 	//
 	//--------------------------------------------------------------------------
+	
+	/**
+	 * The Logger
+	 */
+	private static var LOG:IAlKhwarizmixLogger = null;
 	
 	/**
 	 * Returns the specific class log, by default returns a generic log,
@@ -67,6 +64,8 @@ public class AlKhwarizmixProducer extends Producer
 	 */
 	protected function get logger():IAlKhwarizmixLogger
 	{
+		if (!LOG)
+			LOG = AlKhwarizmixLog.getLogger(AlKhwarizmixSimpleCommand);
 		return LOG;
 	}
 	

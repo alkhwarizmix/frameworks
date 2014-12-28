@@ -31,18 +31,6 @@ public class AlKhwarizmixTextArea extends TextArea
 	
 	//--------------------------------------------------------------------------
 	//
-	//  Constants
-	//
-	//--------------------------------------------------------------------------
-	
-	/**
-	 * The Logger
-	 */
-	private static const LOG:IAlKhwarizmixLogger = AlKhwarizmixLog.
-		getLogger(AlKhwarizmixTextArea);
-	
-	//--------------------------------------------------------------------------
-	//
 	//  Constructor
 	//
 	//--------------------------------------------------------------------------
@@ -53,13 +41,21 @@ public class AlKhwarizmixTextArea extends TextArea
 	public function AlKhwarizmixTextArea()
 	{
 		super();
+		
+		if (AlKhwarizmixLog.isLogLevelAll)
+			logger.debug(AlKhwarizmixLog.CONSTRUCTOR);
 	}
 	
 	//--------------------------------------------------------------------------
 	//
-	//  Properties
+	//  Logger
 	//
 	//--------------------------------------------------------------------------
+	
+	/**
+	 * The Logger
+	 */
+	private static var LOG:IAlKhwarizmixLogger = null;
 	
 	/**
 	 * Returns the specific class log, by default returns a generic log,
@@ -67,6 +63,8 @@ public class AlKhwarizmixTextArea extends TextArea
 	 */
 	protected function get logger():IAlKhwarizmixLogger
 	{
+		if (!LOG)
+			LOG = AlKhwarizmixLog.getLogger(AlKhwarizmixTextArea);
 		return LOG;
 	}
 	

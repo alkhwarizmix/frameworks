@@ -43,6 +43,11 @@ public class RecordVOTestCase extends AlKhwarizmixTestCase
 		// NOOP
 	}
 	
+	override protected function get shouldNotHaveLogger():Boolean
+	{
+		return true;
+	}
+	
 	override protected function get classUnderTest():Class
 	{
 		return RecordVO;
@@ -95,6 +100,13 @@ public class RecordVOTestCase extends AlKhwarizmixTestCase
 	
 	[Test]
 	public function test05_data_setAndGet():void {
+		var valueToSet:String = ARABIC_TEXT;
+		utRecordVO.data = valueToSet;
+		assertEquals(valueToSet, utRecordVO.data);
+	}
+	
+	[Test]
+	public function test06_encyption_setAndGet():void {
 		var valueToSet:String = ARABIC_TEXT;
 		utRecordVO.data = valueToSet;
 		assertEquals(valueToSet, utRecordVO.data);

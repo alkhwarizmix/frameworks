@@ -19,6 +19,7 @@ import mx.rpc.AbstractOperation;
 import mx.rpc.events.FaultEvent;
 import mx.rpc.events.ResultEvent;
 
+import dz.alkhwarizmix.framework.flex.AlKhwarizmixConstants;
 import dz.alkhwarizmix.framework.flex.errors.AlKhwarizmixMissingImplError;
 import dz.alkhwarizmix.framework.flex.interfaces.IAlKhwarizmixCommand;
 import dz.alkhwarizmix.framework.flex.logging.AlKhwarizmixLog;
@@ -91,10 +92,14 @@ public class AlKhwarizmixBlazeDSGetDataCommand extends AlKhwarizmixWebGetDataCom
 	//
 	//--------------------------------------------------------------------------
 	
-	private static const LOG:IAlKhwarizmixLogger = AlKhwarizmixLog.
-		getLogger(AlKhwarizmixBlazeDSGetDataCommand);
+	private static var LOG:IAlKhwarizmixLogger = null;
 	
-	override protected function get logger():IAlKhwarizmixLogger { return LOG; }
+	override protected function get logger():IAlKhwarizmixLogger
+	{
+		if (!LOG)
+			LOG = AlKhwarizmixLog.getLogger(AlKhwarizmixBlazeDSGetDataCommand);
+		return LOG;
+	}
 	
 	//--------------------------------------------------------------------------
 	//
@@ -244,6 +249,11 @@ public class AlKhwarizmixBlazeDSGetDataCommand extends AlKhwarizmixWebGetDataCom
 	private function ro_faultHandler(event:FaultEvent):void
 	{
 		logger.error("ro_faultHandler: {0}", event.fault.faultString);
+		
+		facade.sendNotification(AlKhwarizmixConstants.REMOTE_SERVER_ERROR,
+			{
+				error:event.fault
+			});
 	}
 	
 	/**

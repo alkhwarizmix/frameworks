@@ -12,6 +12,8 @@
 package dz.alkhwarizmix.framework.flex.controller
 {
 
+import dz.alkhwarizmix.framework.flex.logging.AlKhwarizmixLog;
+import dz.alkhwarizmix.framework.flex.logging.IAlKhwarizmixLogger;
 import dz.alkhwarizmix.framework.flex.model.RecordProxy;
 
 /**
@@ -36,6 +38,21 @@ public class AlKhwarizmixCommitRecordListCommand extends AlKhwarizmixBlazeDSGetD
 	public function AlKhwarizmixCommitRecordListCommand()
 	{
 		super();
+	}
+	
+	//--------------------------------------------------------------------------
+	//
+	//  Logger
+	//
+	//--------------------------------------------------------------------------
+	
+	private static var LOG:IAlKhwarizmixLogger = null;
+	
+	override protected function get logger():IAlKhwarizmixLogger
+	{
+		if (!LOG)
+			LOG = AlKhwarizmixLog.getLogger(AlKhwarizmixCommitRecordListCommand);
+		return LOG;
 	}
 	
 	//--------------------------------------------------------------------------

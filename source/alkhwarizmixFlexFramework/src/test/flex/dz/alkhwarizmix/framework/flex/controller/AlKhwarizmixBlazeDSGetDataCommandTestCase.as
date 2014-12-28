@@ -120,7 +120,13 @@ import dz.alkhwarizmix.framework.flex.controller.AlKhwarizmixBlazeDSGetDataComma
 
 internal class AlKhwarizmixBlazeDSGetDataCommandEnhancedForTest extends AlKhwarizmixBlazeDSGetDataCommand
 {
+	/**
+	 * Used by AlKhwarizmixTestCase::test_logger to test super class logger
+	 */
+	public static const loggerClazzForTest:Class = AlKhwarizmixBlazeDSGetDataCommand;
+	
 	public var _amfURI:String = null;
+	
 	override public function get amfURI():String
 	{
 		return (_amfURI ? _amfURI : super.amfURI);

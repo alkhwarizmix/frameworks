@@ -33,6 +33,14 @@ public class AlKhwarizmixLog extends Log
 	
 	//--------------------------------------------------------------------------
 	//
+	//  Constants
+	//
+	//--------------------------------------------------------------------------
+	
+	public static const CONSTRUCTOR:String = "Constructor";
+	
+	//--------------------------------------------------------------------------
+	//
 	//  Class variables
 	//
 	//--------------------------------------------------------------------------
@@ -69,6 +77,14 @@ public class AlKhwarizmixLog extends Log
 	}
 	
 	/**
+	 *  This method removes all of the current loggers from the cache.
+	 */
+	public static function flush():void
+	{
+		Log.flush();
+	}
+	
+	/**
 	 * Returns a Logger for the complete clazz category
 	 */
 	public static function getLogger(clazz:Class):IAlKhwarizmixLogger
@@ -77,6 +93,13 @@ public class AlKhwarizmixLog extends Log
 		var result:IAlKhwarizmixLogger = new AlKhwarizmixLogger(
 			Log.getLogger(clazzName)) as IAlKhwarizmixLogger;
 		return result;
+	}
+	
+	/**
+	 */
+	public static function removeTarget(target:ILoggingTarget):void
+	{
+		Log.removeTarget(target);
 	}
 	
 	//--------------------------------------------------------------------------

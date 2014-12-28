@@ -12,6 +12,7 @@
 package dz.alkhwarizmix.framework.flex.dtos.record.model.vo
 {
 
+import dz.alkhwarizmix.framework.flex.dtos.security.model.vo.EncryptionVO;
 import dz.alkhwarizmix.framework.flex.model.vo.AlKhwarizmixVO;
 
 /**
@@ -56,6 +57,20 @@ public class RecordVO extends AlKhwarizmixVO
 	//  Properties
 	//
 	//--------------------------------------------------------------------------
+	
+	//----------------------------------
+	//  encryption
+	//----------------------------------
+	
+	private var _encryption:EncryptionVO = null;
+	public function get encryption():EncryptionVO { return _encryption; }
+	
+	public function set encryption(value:EncryptionVO):void
+	{
+		if (_encryption == value)
+			return;
+		_encryption = value;
+	}
 	
 	//----------------------------------
 	//  recordId

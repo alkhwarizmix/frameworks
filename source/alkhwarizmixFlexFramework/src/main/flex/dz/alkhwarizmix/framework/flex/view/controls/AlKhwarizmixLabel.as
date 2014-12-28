@@ -34,18 +34,6 @@ public class AlKhwarizmixLabel extends Label
 	
 	//--------------------------------------------------------------------------
 	//
-	//  Constants
-	//
-	//--------------------------------------------------------------------------
-	
-	/**
-	 * The Logger
-	 */
-	private static const LOG:IAlKhwarizmixLogger = AlKhwarizmixLog.
-		getLogger(AlKhwarizmixLabel);
-	
-	//--------------------------------------------------------------------------
-	//
 	//  Constructor
 	//
 	//--------------------------------------------------------------------------
@@ -58,6 +46,31 @@ public class AlKhwarizmixLabel extends Label
 		super();
 		
 		new AlKhwarizmixResourceManager().registerLocalizable(this);
+		
+		if (AlKhwarizmixLog.isLogLevelAll)
+			logger.debug(AlKhwarizmixLog.CONSTRUCTOR);
+	}
+	
+	//--------------------------------------------------------------------------
+	//
+	//  Logger
+	//
+	//--------------------------------------------------------------------------
+	
+	/**
+	 * The Logger
+	 */
+	private static var LOG:IAlKhwarizmixLogger = null;
+	
+	/**
+	 * Returns the specific class log, by default returns a generic log,
+	 * should be overrided by inheriting classes
+	 */
+	protected function get logger():IAlKhwarizmixLogger
+	{
+		if (!LOG)
+			LOG = AlKhwarizmixLog.getLogger(AlKhwarizmixLabel);
+		return LOG;
 	}
 	
 	//--------------------------------------------------------------------------
@@ -78,15 +91,6 @@ public class AlKhwarizmixLabel extends Label
 	//  Properties
 	//
 	//--------------------------------------------------------------------------
-	
-	/**
-	 * Returns the specific class log, by default returns a generic log,
-	 * should be overrided by inheriting classes
-	 */
-	protected function get logger():IAlKhwarizmixLogger
-	{
-		return LOG;
-	}
 	
 	//----------------------------------
 	//  textResKey

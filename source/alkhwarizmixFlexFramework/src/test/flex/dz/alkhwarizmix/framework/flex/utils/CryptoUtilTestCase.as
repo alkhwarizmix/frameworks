@@ -51,6 +51,11 @@ public class CryptoUtilTestCase extends AlKhwarizmixTestCase
 		// NOOP
 	}
 	
+	override protected function get shouldNotHaveLogger():Boolean
+	{
+		return true;
+	}
+	
 	override protected function get classUnderTest():Class
 	{
 		return CryptoUtil;

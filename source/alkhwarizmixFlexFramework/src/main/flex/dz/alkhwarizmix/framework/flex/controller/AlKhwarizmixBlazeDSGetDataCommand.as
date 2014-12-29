@@ -22,6 +22,7 @@ import mx.rpc.events.ResultEvent;
 import dz.alkhwarizmix.framework.flex.AlKhwarizmixConstants;
 import dz.alkhwarizmix.framework.flex.errors.AlKhwarizmixMissingImplError;
 import dz.alkhwarizmix.framework.flex.interfaces.IAlKhwarizmixCommand;
+import dz.alkhwarizmix.framework.flex.interfaces.ICryptoUtil;
 import dz.alkhwarizmix.framework.flex.logging.AlKhwarizmixLog;
 import dz.alkhwarizmix.framework.flex.logging.IAlKhwarizmixLogger;
 import dz.alkhwarizmix.framework.flex.rpc.remoting.AlKhwarizmixRemoteObject;
@@ -149,7 +150,7 @@ public class AlKhwarizmixBlazeDSGetDataCommand extends AlKhwarizmixWebGetDataCom
 	/**
 	 * TODO: ASDOC Definition of cryptoUtil
 	 */
-	public function get cryptoUtil():CryptoUtil
+	public function get cryptoUtil():ICryptoUtil
 	{
 		return new CryptoUtil("%%KeyForTest$#09");
 	}
@@ -263,7 +264,7 @@ public class AlKhwarizmixBlazeDSGetDataCommand extends AlKhwarizmixWebGetDataCom
 	{
 		logger.debug("ro_resultHandler");
 		
-		proxy.setData(event.result);
+		proxy.setData(cryptoUtil.getDecryptedVersion(event.result));
 	}
 	
 } // class

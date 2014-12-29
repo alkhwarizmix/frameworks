@@ -22,7 +22,11 @@ import com.hurlant.util.Hex;
 
 import flash.utils.ByteArray;
 
+import mx.collections.ArrayCollection;
 import mx.utils.ObjectUtil;
+
+import dz.alkhwarizmix.framework.flex.interfaces.ICryptoUtil;
+import dz.alkhwarizmix.framework.flex.interfaces.IEncryptable;
 
 /**
  *  <p>
@@ -32,7 +36,7 @@ import mx.utils.ObjectUtil;
  *  @author فارس بلحواس (Fares Belhaouas)
  *  @since  ١٣ جمادى الأول ١٤٣٥ (March 13, 2014)
  */
-public class CryptoUtil
+public class CryptoUtil implements ICryptoUtil
 {
 	private var cipher:ICipher = null;
 	
@@ -78,11 +82,13 @@ public class CryptoUtil
 	 */
 	public final function encryptString(stringToEncrypt:String):String
 	{
-		var data:ByteArray = Hex.toArray(stringToHex(stringToEncrypt));
-		
-		cipher.encrypt(data);
-		
-		var result:String = Hex.fromArray(data);
+		var result:String = stringToEncrypt;
+		if (!(!stringToEncrypt))
+		{
+			var data:ByteArray = Hex.toArray(stringToHex(stringToEncrypt));
+			cipher.encrypt(data);
+			result = Hex.fromArray(data);
+		}
 		return result;
 	}
 	
@@ -100,11 +106,13 @@ public class CryptoUtil
 	 */
 	public final function decryptString(hexStringToDecrypt:String):String
 	{
-		var data:ByteArray = Hex.toArray(hexStringToDecrypt);
-		
-		cipher.decrypt(data);
-		
-		var result:String = hexToString(Hex.fromArray(data));
+		var result:String = hexStringToDecrypt;
+		if (!(!hexStringToDecrypt))
+		{
+			var data:ByteArray = Hex.toArray(hexStringToDecrypt);
+			cipher.decrypt(data);
+			result = hexToString(Hex.fromArray(data));
+		}
 		return result;
 	}
 	
@@ -123,7 +131,27 @@ public class CryptoUtil
 	public final function getEncryptedVersion(objectToEncrypt:Object):Object
 	{
 		var result:Object = ObjectUtil.clone(objectToEncrypt);
+		encryptObject(result);
 		return result;
+	}
+	
+	/**
+	 * encryptObject
+	 */
+	private function encryptObject(objectToEncrypt:Object):void
+	{
+		if ((objectToEncrypt is Array) || (objectToEncrypt is ArrayCollection))
+		{
+			for each (var obj:Object in objectToEncrypt)
+			{
+				encryptObject(obj);
+			}
+		}
+		else if (objectToEncrypt is IEncryptable)
+		{
+			var encryptableObject:IEncryptable = objectToEncrypt as IEncryptable;
+			encryptableObject.encrypt(this);
+		}
 	}
 	
 	/**
@@ -132,7 +160,27 @@ public class CryptoUtil
 	public final function getDecryptedVersion(encryptedObject:Object):Object
 	{
 		var result:Object = ObjectUtil.clone(encryptedObject) as Object;
+		decryptObject(result);
 		return result;
+	}
+	
+	/**
+	 * decryptObject
+	 */
+	private function decryptObject(encryptedObject:Object):void
+	{
+		if ((encryptedObject is Array) || (encryptedObject is ArrayCollection))
+		{
+			for each (var obj:Object in encryptedObject)
+			{
+				decryptObject(obj);
+			}
+		}
+		else if (encryptedObject is IEncryptable)
+		{
+			var encryptableObject:IEncryptable = encryptedObject as IEncryptable;
+			encryptableObject.decrypt(this);
+		}
 	}
 	
 	/**

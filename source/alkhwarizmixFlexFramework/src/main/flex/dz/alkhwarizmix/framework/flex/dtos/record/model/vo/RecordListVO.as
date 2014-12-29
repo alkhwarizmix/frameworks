@@ -14,6 +14,8 @@ package dz.alkhwarizmix.framework.flex.dtos.record.model.vo
 
 import mx.collections.ArrayCollection;
 
+import dz.alkhwarizmix.framework.flex.interfaces.ICryptoUtil;
+import dz.alkhwarizmix.framework.flex.interfaces.IEncryptable;
 import dz.alkhwarizmix.framework.flex.model.vo.AlKhwarizmixVO;
 
 /**
@@ -27,6 +29,7 @@ import dz.alkhwarizmix.framework.flex.model.vo.AlKhwarizmixVO;
 [Bindable]
 [RemoteClass(alias="dz.alkhwarizmix.framework.java.dtos.record.model.vo.RecordList")]
 public class RecordListVO extends AlKhwarizmixVO
+	implements IEncryptable
 {
 	//--------------------------------------------------------------------------
 	//
@@ -65,6 +68,28 @@ public class RecordListVO extends AlKhwarizmixVO
 		if (_list == value)
 			return;
 		_list = value;
+	}
+	
+	//--------------------------------------------------------------------------
+	//
+	//  Methods (IEncryptable)
+	//
+	//--------------------------------------------------------------------------
+	
+	public function encrypt(cryptoUtil:ICryptoUtil):void
+	{
+		for each (var record:RecordVO in list)
+		{
+			record.encrypt(cryptoUtil);
+		}
+	}
+	
+	public function decrypt(cryptoUtil:ICryptoUtil):void
+	{
+		for each (var record:RecordVO in list)
+		{
+			record.decrypt(cryptoUtil);
+		}
 	}
 	
 } // Class

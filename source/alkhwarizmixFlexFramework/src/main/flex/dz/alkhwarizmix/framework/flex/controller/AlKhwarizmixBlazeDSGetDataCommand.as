@@ -46,6 +46,14 @@ public class AlKhwarizmixBlazeDSGetDataCommand extends AlKhwarizmixWebGetDataCom
 	
 	//--------------------------------------------------------------------------
 	//
+	//  Static variables
+	//
+	//--------------------------------------------------------------------------
+	
+	private static var channelSet:ChannelSet = null;
+	
+	//--------------------------------------------------------------------------
+	//
 	//  Constructor
 	//
 	//--------------------------------------------------------------------------
@@ -71,9 +79,12 @@ public class AlKhwarizmixBlazeDSGetDataCommand extends AlKhwarizmixWebGetDataCom
 	 */
 	private function getChannelSet():ChannelSet
 	{
-		var result:ChannelSet = new ChannelSet();
-		result.addChannel(newAMFChannel());
-		return result;
+		if (!channelSet)
+		{
+			channelSet = new ChannelSet();
+			channelSet.addChannel(newAMFChannel());
+		}
+		return channelSet;
 	}
 	
 	/**
@@ -232,7 +243,6 @@ public class AlKhwarizmixBlazeDSGetDataCommand extends AlKhwarizmixWebGetDataCom
 	override protected function execute_try(notif:INotification):void
 	{
 		super.execute_try(notif);
-		
 		var operation:AbstractOperation = ro.getOperation(operationName);
 		operation.send.apply(operation, cryptoUtil.getEncryptedVersion(
 			notif.getBody().operationParams));

@@ -33,6 +33,7 @@ import dz.alkhwarizmix.framework.flex.rpc.remoting.AlKhwarizmixRemoteObjectTestC
 import dz.alkhwarizmix.framework.flex.utils.CryptoUtilTestCase;
 import dz.alkhwarizmix.framework.flex.view.AlKhwarizmixMediatorTestCase;
 import dz.alkhwarizmix.framework.flex.view.AlkhwarizmixDataListMediatorTestCase;
+import dz.alkhwarizmix.framework.flex.view.components.AlKhwarizmixDataEditFormCanvasTestCase;
 import dz.alkhwarizmix.framework.flex.view.components.AlKhwarizmixDataListCanvasTestCase;
 import dz.alkhwarizmix.framework.flex.view.components.AlKhwarizmixImageTestCase;
 import dz.alkhwarizmix.framework.flex.view.containers.AlKhwarizmixCanvasTestCase;
@@ -100,6 +101,7 @@ public class TestSuite
 	public var alKhwarizmixMenuBarTestCase:AlKhwarizmixMenuBarTestCase;
 	public var alKhwarizmixImageTestCase:AlKhwarizmixImageTestCase;
 	public var alKhwarizmixTextAreaTestCase:AlKhwarizmixTextAreaTestCase;
+	public var alKhwarizmixDataEditFormCanvasTestCase:AlKhwarizmixDataEditFormCanvasTestCase;
 	
 } // class
 } // package

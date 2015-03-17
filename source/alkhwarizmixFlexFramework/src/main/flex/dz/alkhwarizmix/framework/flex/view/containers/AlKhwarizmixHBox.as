@@ -12,6 +12,8 @@
 package dz.alkhwarizmix.framework.flex.view.containers
 {
 
+import mx.core.UIComponent;
+
 import spark.components.HGroup;
 
 import dz.alkhwarizmix.framework.flex.logging.AlKhwarizmixLog;
@@ -78,10 +80,28 @@ public class AlKhwarizmixHBox extends HGroup
 	/**
 	 * 
 	 */
+	protected final function hideComponent(component:UIComponent):void
+	{
+		component.setVisible(false);
+		component.includeInLayout = false;
+	}
+	
+	/**
+	 * 
+	 */
 	protected final function sendEvent(
 		eventType:String, eventClass:Class = null, bubbles:Boolean = true):void
 	{
 		new EventUtil().sendEvent(this, eventType, eventClass, bubbles);
+	}
+	
+	/**
+	 * 
+	 */
+	protected final function showComponent(component:UIComponent):void
+	{
+		component.setVisible(true);
+		component.includeInLayout = true;
 	}
 	
 } // Class

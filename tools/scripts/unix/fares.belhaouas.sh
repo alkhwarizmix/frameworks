@@ -20,7 +20,7 @@ echo
 echo "----- ----- ----- ----- ----- ----- ----- ----- ----- -----"
 echo
 echo "Fares Belhaouas functions"
-echo "Version 26 NOV 2014, 08:41"
+echo "Version 09 MAY 2015, 20:09"
 echo
 echo "Type fbel-help                             to print all functions"
 echo
@@ -70,6 +70,16 @@ function fbel-backup
 function fbel-backup-sudo
 {
   sudo zip -r $1_`eval date +%Y-%m-%d_%H.%M.%S`.zip $1
+};
+
+function fbel-backup-server
+{
+  FILES="$FILES /home/ubuntu/.profile"
+  FILES="$FILES /etc/apache2/workers.properties"
+  FILES="$FILES /etc/apache2/sites-available/"
+  FILES="$FILES /home/alkhwarizmix/"
+  FILES="$FILES /var/www/"
+  sudo zip -r ~/backups/`eval date +%Y-%m-%d_%H.%M.%S`.zip $FILES
 };
 
 # ----- ----- ----- ----- ----- ----- ----- ----- ----- -----
@@ -124,6 +134,7 @@ function fbel-install-apache2
   sudo apt-get install apache2 libapache-mod-ssl
   sudo apt-get install apache2 libapache-mod-security
   sudo apt-get install libapache2-mod-authnz-external pwauth
+  sudo apt-get install libapache2-mod-jk
   
   sudo a2enmod ssl
   sudo a2ensite default-ssl
@@ -131,6 +142,7 @@ function fbel-install-apache2
   sudo a2enmod proxy_http
   sudo a2enmod vhost_alias
   sudo a2enmod authnz_external
+  sudo a2enmod rewrite
   
   sudo service apache2 restart
 };

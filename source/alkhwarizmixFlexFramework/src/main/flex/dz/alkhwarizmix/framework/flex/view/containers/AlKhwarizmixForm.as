@@ -1,7 +1,7 @@
 ////////////////////////////////////////////////////////////////////////////////
 //  بسم الله الرحمن الرحيم
 //
-//  حقوق التأليف والنشر ١٤٣٥ هجري، فارس بلحواس (Copyright 2013 Fares Belhaouas)  
+//  حقوق التأليف والنشر ١٤٣٦ هجري، فارس بلحواس (Copyright 2014 Fares Belhaouas)  
 //  كافة الحقوق محفوظة (All Rights Reserved)
 //
 //  NOTICE: Fares Belhaouas permits you to use, modify, and distribute this file
@@ -12,9 +12,7 @@
 package dz.alkhwarizmix.framework.flex.view.containers
 {
 
-import mx.core.UIComponent;
-
-import spark.components.HGroup;
+import spark.components.Form;
 
 import dz.alkhwarizmix.framework.flex.logging.AlKhwarizmixLog;
 import dz.alkhwarizmix.framework.flex.logging.IAlKhwarizmixLogger;
@@ -26,9 +24,9 @@ import dz.alkhwarizmix.framework.flex.utils.EventUtil;
  *  </p>
  * 
  *  @author فارس بلحواس (Fares Belhaouas)
- *  @since  ٢٩ محرم ١٤٣٥ (December 03, 2013)
+ *  @since  ٠٨ ربيع الأول ١٤٣٦ (December 29, 2014)
  */
-public class AlKhwarizmixHBox extends HGroup
+public class AlKhwarizmixForm extends Form
 {
 	include "../../../../../../../../templates/flex/core/Version.as";
 	
@@ -41,7 +39,7 @@ public class AlKhwarizmixHBox extends HGroup
 	/**
 	 *  Constructor.
 	 */
-	public function AlKhwarizmixHBox()
+	public function AlKhwarizmixForm()
 	{
 		super();
 		
@@ -51,7 +49,7 @@ public class AlKhwarizmixHBox extends HGroup
 	
 	//--------------------------------------------------------------------------
 	//
-	//  Logger
+	//  Properties
 	//
 	//--------------------------------------------------------------------------
 	
@@ -67,7 +65,7 @@ public class AlKhwarizmixHBox extends HGroup
 	protected function get logger():IAlKhwarizmixLogger
 	{
 		if (!LOG)
-			LOG = AlKhwarizmixLog.getLogger(AlKhwarizmixHBox);
+			LOG = AlKhwarizmixLog.getLogger(AlKhwarizmixForm);
 		return LOG;
 	}
 	
@@ -80,28 +78,10 @@ public class AlKhwarizmixHBox extends HGroup
 	/**
 	 * 
 	 */
-	protected final function hideComponent(component:UIComponent):void
-	{
-		component.setVisible(false);
-		component.includeInLayout = false;
-	}
-	
-	/**
-	 * 
-	 */
 	protected final function sendEvent(
 		eventType:String, eventClass:Class = null, bubbles:Boolean = true):void
 	{
 		new EventUtil().sendEvent(this, eventType, eventClass, bubbles);
-	}
-	
-	/**
-	 * 
-	 */
-	protected final function showComponent(component:UIComponent):void
-	{
-		component.setVisible(true);
-		component.includeInLayout = true;
 	}
 	
 } // Class

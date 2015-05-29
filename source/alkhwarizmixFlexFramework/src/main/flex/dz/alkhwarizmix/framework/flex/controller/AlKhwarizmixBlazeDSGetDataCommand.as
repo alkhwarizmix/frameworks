@@ -22,6 +22,7 @@ import mx.rpc.events.ResultEvent;
 import dz.alkhwarizmix.framework.flex.AlKhwarizmixConstants;
 import dz.alkhwarizmix.framework.flex.errors.AlKhwarizmixMissingImplError;
 import dz.alkhwarizmix.framework.flex.interfaces.IAlKhwarizmixCommand;
+import dz.alkhwarizmix.framework.flex.interfaces.ICryptoUtil;
 import dz.alkhwarizmix.framework.flex.logging.AlKhwarizmixLog;
 import dz.alkhwarizmix.framework.flex.logging.IAlKhwarizmixLogger;
 import dz.alkhwarizmix.framework.flex.rpc.remoting.AlKhwarizmixRemoteObject;
@@ -42,6 +43,14 @@ public class AlKhwarizmixBlazeDSGetDataCommand extends AlKhwarizmixWebGetDataCom
 	implements IAlKhwarizmixCommand
 {
 	include "../../../../../../../templates/flex/core/Version.as";
+	
+	//--------------------------------------------------------------------------
+	//
+	//  Static variables
+	//
+	//--------------------------------------------------------------------------
+	
+	private static var channelSet:ChannelSet = null;
 	
 	//--------------------------------------------------------------------------
 	//
@@ -70,9 +79,12 @@ public class AlKhwarizmixBlazeDSGetDataCommand extends AlKhwarizmixWebGetDataCom
 	 */
 	private function getChannelSet():ChannelSet
 	{
-		var result:ChannelSet = new ChannelSet();
-		result.addChannel(newAMFChannel());
-		return result;
+		if (!channelSet)
+		{
+			channelSet = new ChannelSet();
+			channelSet.addChannel(newAMFChannel());
+		}
+		return channelSet;
 	}
 	
 	/**
@@ -149,7 +161,7 @@ public class AlKhwarizmixBlazeDSGetDataCommand extends AlKhwarizmixWebGetDataCom
 	/**
 	 * TODO: ASDOC Definition of cryptoUtil
 	 */
-	public function get cryptoUtil():CryptoUtil
+	public function get cryptoUtil():ICryptoUtil
 	{
 		return new CryptoUtil("%%KeyForTest$#09");
 	}
@@ -231,7 +243,6 @@ public class AlKhwarizmixBlazeDSGetDataCommand extends AlKhwarizmixWebGetDataCom
 	override protected function execute_try(notif:INotification):void
 	{
 		super.execute_try(notif);
-		
 		var operation:AbstractOperation = ro.getOperation(operationName);
 		operation.send.apply(operation, cryptoUtil.getEncryptedVersion(
 			notif.getBody().operationParams));
@@ -263,7 +274,7 @@ public class AlKhwarizmixBlazeDSGetDataCommand extends AlKhwarizmixWebGetDataCom
 	{
 		logger.debug("ro_resultHandler");
 		
-		proxy.setData(event.result);
+		proxy.setData(cryptoUtil.getDecryptedVersion(event.result));
 	}
 	
 } // class

@@ -12,6 +12,8 @@
 package dz.alkhwarizmix.framework.flex.interfaces
 {
 
+import dz.alkhwarizmix.framework.flex.dtos.security.model.vo.EncryptionVO;
+
 /**
  *  <p>
  *  TODO: ASDOC
@@ -22,6 +24,9 @@ package dz.alkhwarizmix.framework.flex.interfaces
  */
 public interface IEncryptable
 {
+	
+	function get encryption():EncryptionVO;
+	
 	function decrypt(cryptoUtil:ICryptoUtil):void;
 	function encrypt(cryptoUtil:ICryptoUtil):void;	
 	

@@ -22,10 +22,11 @@ package dz.alkhwarizmix.framework.flex.interfaces
  */
 public interface ICryptoUtil
 {
-	function decryptString(hexStringToDecrypt:String):String;
+	
+	function decryptString(stringToDecrypt:String):String;
 	function encryptString(stringToEncrypt:String):String;
-	function getDecryptedVersion(encryptedObject:Object):Object;
-	function getEncryptedVersion(objectToEncrypt:Object):Object;
+	function getDecryptedVersion(encryptedObject:IEncryptable):IEncryptable;
+	function getEncryptedVersion(objectToEncrypt:IEncryptable):IEncryptable;
 	
 } // Interface
 } // Package

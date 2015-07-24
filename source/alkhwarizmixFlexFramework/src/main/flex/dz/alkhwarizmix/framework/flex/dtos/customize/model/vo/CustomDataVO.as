@@ -12,6 +12,8 @@
 package dz.alkhwarizmix.framework.flex.dtos.customize.model.vo
 {
 
+import mx.core.IFactory;
+
 import dz.alkhwarizmix.framework.flex.model.vo.AlKhwarizmixVO;
 
 /**
@@ -25,6 +27,7 @@ import dz.alkhwarizmix.framework.flex.model.vo.AlKhwarizmixVO;
 [Bindable]
 [RemoteClass(alias="dz.alkhwarizmix.framework.java.dtos.customize.model.vo.CustomData")]
 public class CustomDataVO extends AlKhwarizmixVO
+	implements IFactory
 {
 	//--------------------------------------------------------------------------
 	//
@@ -74,6 +77,17 @@ public class CustomDataVO extends AlKhwarizmixVO
 		if (_customDataValue == value)
 			return;
 		_customDataValue = value;
+	}
+	
+	//--------------------------------------------------------------------------
+	//
+	//  Methods
+	//
+	//--------------------------------------------------------------------------
+	
+	public function newInstance():*
+	{
+		return new CustomDataVO();
 	}
 	
 } // Class

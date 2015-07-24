@@ -34,7 +34,8 @@
 		import mx.events.FlexEvent;
 		import mx.logging.LogEventLevel;
 		
-		import dz.alkhwarizmix.framework.flex.TestSuite;
+		import dz.alkhwarizmix.framework.flex.AlKhwarizmixTestSuite;
+		import dz.alkhwarizmix.moqawalati.flex.Moqawalati1TestSuite;
 		
 		import org.flexunit.internals.TextListener;
 		import org.flexunit.internals.TraceListener;
@@ -63,7 +64,7 @@
 			flexUnitCore.addListener(new TraceListener()); // - For AS3 Projects
 			flexUnitCore.addListener(TextListener.getDefaultTextListener(LogEventLevel.DEBUG)); // - For Flex Projects
 			
-			flexUnitCore.run(TestSuite);
+			flexUnitCore.run(AlKhwarizmixTestSuite, Moqawalati1TestSuite);
 		}
 		
 		//--------------------------------------------------------------------------

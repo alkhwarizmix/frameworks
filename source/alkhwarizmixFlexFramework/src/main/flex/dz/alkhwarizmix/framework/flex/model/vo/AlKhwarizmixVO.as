@@ -29,19 +29,26 @@ import dz.alkhwarizmix.framework.flex.logging.IAlKhwarizmixLogger;
 public class AlKhwarizmixVO
 {
 	include "../../../../../../../../templates/flex/core/Version.as";
-	
+
 	//--------------------------------------------------------------------------
 	//
-	//  Constants
+	//  Logger
 	//
 	//--------------------------------------------------------------------------
-	
+
+	private static var LOG:IAlKhwarizmixLogger = null;
+
 	/**
-	 * The Logger
+	 * Returns the specific class log, by default returns a generic log,
+	 * should be overrided by inheriting classes
 	 */
-	private static const LOG:IAlKhwarizmixLogger = AlKhwarizmixLog.
-		getLogger(AlKhwarizmixVO);
-	
+	protected function get logger():IAlKhwarizmixLogger
+	{
+		if (!LOG)
+			LOG = AlKhwarizmixLog.getLogger(AlKhwarizmixVO);
+		return LOG;
+	}	
+
 	//--------------------------------------------------------------------------
 	//
 	//  Constructor
@@ -62,14 +69,7 @@ public class AlKhwarizmixVO
 	//
 	//--------------------------------------------------------------------------
 	
-	/**
-	 * Returns the specific class log, by default returns a generic log,
-	 * should be overrided by inheriting classes
-	 */
-	protected function get logger():IAlKhwarizmixLogger
-	{
-		return LOG;
-	}
+	// EMPTY
 	
 	//--------------------------------------------------------------------------
 	//

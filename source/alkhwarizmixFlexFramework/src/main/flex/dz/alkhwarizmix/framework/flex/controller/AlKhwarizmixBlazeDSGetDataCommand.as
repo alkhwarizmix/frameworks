@@ -22,11 +22,11 @@ import mx.rpc.events.ResultEvent;
 import dz.alkhwarizmix.framework.flex.AlKhwarizmixConstants;
 import dz.alkhwarizmix.framework.flex.errors.AlKhwarizmixMissingImplError;
 import dz.alkhwarizmix.framework.flex.interfaces.IAlKhwarizmixCommand;
-import dz.alkhwarizmix.framework.flex.interfaces.ICryptoUtil;
+import dz.alkhwarizmix.framework.flex.interfaces.ICryptoUtilFactory;
 import dz.alkhwarizmix.framework.flex.logging.AlKhwarizmixLog;
 import dz.alkhwarizmix.framework.flex.logging.IAlKhwarizmixLogger;
 import dz.alkhwarizmix.framework.flex.rpc.remoting.AlKhwarizmixRemoteObject;
-import dz.alkhwarizmix.framework.flex.utils.CryptoUtil;
+import dz.alkhwarizmix.framework.flex.utils.CryptoUtilFactory;
 
 import org.puremvc.as3.multicore.interfaces.INotification;
 import org.puremvc.as3.multicore.interfaces.IProxy;
@@ -159,11 +159,11 @@ public class AlKhwarizmixBlazeDSGetDataCommand extends AlKhwarizmixWebGetDataCom
 	//----------------------------------
 	
 	/**
-	 * TODO: ASDOC Definition of cryptoUtil
+	 * TODO: ASDOC Definition of cryptoUtilFactory
 	 */
-	public function get cryptoUtil():ICryptoUtil
+	public function get cryptoUtilFactory():ICryptoUtilFactory
 	{
-		return new CryptoUtil("%%KeyForTest$#09");
+		return new CryptoUtilFactory();
 	}
 	
 	//----------------------------------
@@ -244,7 +244,7 @@ public class AlKhwarizmixBlazeDSGetDataCommand extends AlKhwarizmixWebGetDataCom
 	{
 		super.execute_try(notif);
 		var operation:AbstractOperation = ro.getOperation(operationName);
-		operation.send.apply(operation, cryptoUtil.getEncryptedVersion(
+		operation.send.apply(operation, cryptoUtilFactory.getEncryptedVersion(
 			notif.getBody().operationParams));
 	}
 	
@@ -274,7 +274,7 @@ public class AlKhwarizmixBlazeDSGetDataCommand extends AlKhwarizmixWebGetDataCom
 	{
 		logger.debug("ro_resultHandler");
 		
-		proxy.setData(cryptoUtil.getDecryptedVersion(event.result));
+		proxy.setData(cryptoUtilFactory.getDecryptedVersion(event.result));
 	}
 	
 } // class

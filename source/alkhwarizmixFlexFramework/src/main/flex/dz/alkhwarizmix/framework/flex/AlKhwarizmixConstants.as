@@ -12,7 +12,6 @@
 package dz.alkhwarizmix.framework.flex
 {
 
-
 /**
  *  <p>
  *  TODO: ASDOC
@@ -38,6 +37,17 @@ public class AlKhwarizmixConstants
 	public static const RECORD_PROXY_CHANGED:String = "AlKhwarizmix_record_proxy_changed";
 	
 	public static const REMOTE_SERVER_ERROR:String = "AlKhwarizmix_remote_server_error";
+	
+	public static const GET_CUSTOMDATA:String = "AlKhwarizmix_get_customdata";
+	public static const SET_CUSTOMDATA:String = "AlKhwarizmix_set_customdata";
+	
+	public static const CUSTOMDATA_PROXY_CHANGED:String = "AlKhwarizmix_customdata_proxy_changed";
+	public static const LOGINUSER_PROXY_CHANGED:String = "AlKhwarizmix_loginuser_proxy_changed";
+	
+	public static const CONNECT:String = "AlKhwarizmix_connect";
+	public static const SUBSCRIBE:String = "AlKhwarizmix_subscribe";
+	public static const LOGIN:String = "AlKhwarizmix_login";
+	public static const LOGOUT:String = "AlKhwarizmix_logout";
 	
 } // class
 } // package

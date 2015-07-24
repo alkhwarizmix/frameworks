@@ -30,7 +30,10 @@ import dz.alkhwarizmix.framework.flex.model.vo.AlKhwarizmixVOTestCase;
 import dz.alkhwarizmix.framework.flex.modules.AlKhwarizmixModuleTestCase;
 import dz.alkhwarizmix.framework.flex.resources.AlKhwarizmixResourceManagerTestCase;
 import dz.alkhwarizmix.framework.flex.rpc.remoting.AlKhwarizmixRemoteObjectTestCase;
+import dz.alkhwarizmix.framework.flex.utils.CryptoUtilFactoryTestCase;
 import dz.alkhwarizmix.framework.flex.utils.CryptoUtilTestCase;
+import dz.alkhwarizmix.framework.flex.utils.CryptoUtilV2TestCase;
+import dz.alkhwarizmix.framework.flex.utils.CryptoUtilV3TestCase;
 import dz.alkhwarizmix.framework.flex.view.AlKhwarizmixMediatorTestCase;
 import dz.alkhwarizmix.framework.flex.view.AlkhwarizmixDataListMediatorTestCase;
 import dz.alkhwarizmix.framework.flex.view.components.AlKhwarizmixDataEditFormCanvasTestCase;
@@ -50,7 +53,7 @@ import dz.alkhwarizmix.framework.flex.view.controls.AlKhwarizmixTextInputTestCas
 
 [Suite]
 [RunWith("org.flexunit.runners.Suite")]
-public class TestSuite
+public class AlKhwarizmixTestSuite
 {
 	// controller
 	public var alKhwarizmixBlazeDSGetDataCommandTestCase:AlKhwarizmixBlazeDSGetDataCommandTestCase;
@@ -84,6 +87,9 @@ public class TestSuite
 	
 	// utils
 	public var cryptoUtilTestCase:CryptoUtilTestCase;
+	public var cryptoUtilV2TestCase:CryptoUtilV2TestCase;
+	public var cryptoUtilV3TestCase:CryptoUtilV3TestCase;
+	public var cryptoUtilFactoryTestCase:CryptoUtilFactoryTestCase;
 	
 	// view
 	public var alKhwarizmixDataListCanvasTestCase:AlKhwarizmixDataListCanvasTestCase;

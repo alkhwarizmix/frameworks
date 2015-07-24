@@ -12,11 +12,12 @@
 package dz.alkhwarizmix.framework.flex.model
 {
 
+import mx.core.IFactory;
+
 import dz.alkhwarizmix.framework.flex.errors.AlKhwarizmixMissingImplError;
 import dz.alkhwarizmix.framework.flex.interfaces.IAlKhwarizmixProxy;
 import dz.alkhwarizmix.framework.flex.logging.AlKhwarizmixLog;
 import dz.alkhwarizmix.framework.flex.logging.IAlKhwarizmixLogger;
-import dz.alkhwarizmix.framework.flex.model.vo.AlKhwarizmixVO;
 
 import org.puremvc.as3.multicore.patterns.proxy.Proxy;
 
@@ -49,7 +50,7 @@ public class AlKhwarizmixProxy extends Proxy
 	{
 		super(proxyName, data);
 		
-		getOneItem();
+		_itemFactory = getItemFactory();
 		
 		if (AlKhwarizmixLog.isLogLevelAll)
 			logger.debug(AlKhwarizmixLog.CONSTRUCTOR);
@@ -91,6 +92,12 @@ public class AlKhwarizmixProxy extends Proxy
 		throw new AlKhwarizmixMissingImplError();
 	}
 	
+	/**
+	 * TODO: ASDOC Definition of _itemFactory
+	 */
+	private var _itemFactory:IFactory = null;
+	public function get itemFactory():IFactory { return _itemFactory; }
+	
 	//--------------------------------------------------------------------------
 	//
 	//  Overriden methods
@@ -113,9 +120,9 @@ public class AlKhwarizmixProxy extends Proxy
 	//--------------------------------------------------------------------------
 	
 	/**
-	 * TODO: ASDOC Definition of getOneItem
+	 * TODO: ASDOC Definition of getItemFactory
 	 */
-	public function getOneItem():AlKhwarizmixVO
+	public function getItemFactory():IFactory
 	{
 		throw new AlKhwarizmixMissingImplError();
 	}

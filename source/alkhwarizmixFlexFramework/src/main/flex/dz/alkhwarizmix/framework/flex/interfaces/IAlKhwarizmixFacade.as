@@ -25,5 +25,7 @@ import org.puremvc.as3.multicore.interfaces.IFacade;
 public interface IAlKhwarizmixFacade extends IFacade
 {
 	
+	function startup(app:*):void
+	
 } // Interface
 } // Package

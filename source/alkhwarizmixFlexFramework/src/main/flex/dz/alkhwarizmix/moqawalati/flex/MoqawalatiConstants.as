@@ -45,6 +45,10 @@ public class MoqawalatiConstants extends AlKhwarizmixConstants
 	public static const STARTUP:String = "Moqawalati_startup";
 	public static const STARTUP_COMPLETE:String	= "Moqawalati_startup_complete";
 	
+	public static const STARTUP_VIEW:String = "Moqawalati_startup_view";
+	public static const STARTUP_VIEW_COMPLETE:String = "Moqawalati_startup_view_complete";
+	public static const SHUTDOWN_VIEW:String = "Moqawalati_shutdown_view";
+	
 	public static const CLOSE_WINDOW:String = "Moqawalati_close_window";
 	public static const OPEN_WINDOW:String = "Moqawalati_open_window";
 		

@@ -1,7 +1,7 @@
 ////////////////////////////////////////////////////////////////////////////////
 //  بسم الله الرحمن الرحيم
 //
-//  حقوق التأليف والنشر ١٤٣٦ هجري، فارس بلحواس (Copyright 2015 Fares Belhaouas)
+//  حقوق التأليف والنشر ١٤٣٦ هجري، فارس بلحواس (Copyright 2014 Fares Belhaouas)  
 //  كافة الحقوق محفوظة (All Rights Reserved)
 //
 //  NOTICE: Fares Belhaouas permits you to use, modify, and distribute this file
@@ -9,26 +9,30 @@
 //
 ////////////////////////////////////////////////////////////////////////////////
 
-package dz.alkhwarizmix.winrak.flex.testutils
+package dz.alkhwarizmix.framework.flex.interfaces
 {
-
-import dz.alkhwarizmix.winrak.flex.interfaces.IWinrakApplication;
 
 /**
  *  <p>
- *  WinrakApplicationMock
+ *  TODO: ASDOC
  *  </p>
  * 
  *  @author فارس بلحواس (Fares Belhaouas)
- *  @since  ٠٤ شوال ١٤٣٦ (July 20, 2015)
+ *  @since  ٠٣ ربيع الأول ١٤٣٦ (December 24, 2014)
  */
-public class WinrakApplicationMock
-	implements IWinrakApplication
+public interface IAlKhwarizmixConfigProxy
 {
-	public function get parameters():Object
-	{
-		return {};
-	}
+	/**
+	 */
+	function get appURLPath():String;
 	
-} // class
-} // package
+	/**
+	 */
+	function get appParameters():Object;
+	
+	/**
+	 */
+	function get flashBuilderBuild():Boolean;
+	
+} // Interface
+} // Package

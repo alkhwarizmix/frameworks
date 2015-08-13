@@ -12,6 +12,7 @@
 package dz.alkhwarizmix.moqawalati.flex.interfaces
 {
 import dz.alkhwarizmix.framework.flex.interfaces.IAlKhwarizmixCommand;
+import dz.alkhwarizmix.framework.flex.interfaces.IAlKhwarizmixConfigProxy;
 
 /**
  *  <p>
@@ -29,7 +30,7 @@ public interface IMoqawalatiCommand extends IAlKhwarizmixCommand
 	
 	/**
 	 */
-	function get appConfigProxy():IMoqawalatiConfigProxy;
+	function get appConfigProxy():IAlKhwarizmixConfigProxy;
 	
 } // Interface
 } // Package

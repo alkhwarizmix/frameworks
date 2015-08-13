@@ -14,7 +14,7 @@ package dz.alkhwarizmix.moqawalati.flex.testutils
 
 import dz.alkhwarizmix.framework.flex.facade.AlKhwarizmixFacade;
 import dz.alkhwarizmix.moqawalati.flex.MoqawalatiConstants;
-import dz.alkhwarizmix.moqawalati.flex.interfaces.IMoqawalatiConfigProxy;
+import dz.alkhwarizmix.framework.flex.interfaces.IAlKhwarizmixConfigProxy;
 import dz.alkhwarizmix.moqawalati.flex.interfaces.IMoqawalatiFacade;
 import dz.alkhwarizmix.moqawalati.flex.model.MoqawalatiConfigProxy;
 
@@ -75,7 +75,7 @@ public class MoqawalatiPureMVCTestCase extends MoqawalatiTestCase
 		return MoqawalatiFacadeForTest.getInstance(MoqawalatiConstants.FACADE_NAME) as IMoqawalatiFacade;
 	}
 	
-	protected final  function get moqawalatiConfigProxy():IMoqawalatiConfigProxy
+	protected final  function get moqawalatiConfigProxy():IAlKhwarizmixConfigProxy
 	{
 		return moqawalatiMainFacade.retrieveProxy(MoqawalatiConfigProxy.NAME)
 			as MoqawalatiConfigProxy;

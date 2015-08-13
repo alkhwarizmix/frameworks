@@ -1,7 +1,7 @@
 ////////////////////////////////////////////////////////////////////////////////
 //  بسم الله الرحمن الرحيم
 //
-//  حقوق التأليف والنشر ١٤٣٤ هجري، فارس بلحواس (Copyright 2013 Fares Belhaouas)  
+//  حقوق التأليف والنشر ١٤٣٦ هجري، فارس بلحواس (Copyright 2015 Fares Belhaouas)  
 //  كافة الحقوق محفوظة (All Rights Reserved)
 //
 //  NOTICE: Fares Belhaouas permits you to use, modify, and distribute this file
@@ -9,15 +9,15 @@
 //
 ////////////////////////////////////////////////////////////////////////////////
 
-package dz.alkhwarizmix.moqawalati.flex.facade
+package dz.alkhwarizmix.moqawalati.mobile.facade
 {
 
-import dz.alkhwarizmix.framework.flex.errors.AlKhwarizmixTypeError;
-import dz.alkhwarizmix.framework.flex.facade.AlKhwarizmixFacade;
+import dz.alkhwarizmix.framework.flex.errors.AlKhwarizmixMissingImplError;
+import dz.alkhwarizmix.framework.flex.interfaces.IAlKhwarizmixView;
 import dz.alkhwarizmix.framework.flex.logging.AlKhwarizmixLog;
 import dz.alkhwarizmix.framework.flex.logging.IAlKhwarizmixLogger;
-import dz.alkhwarizmix.moqawalati.flex.interfaces.IMoqawalatiCommand;
-import dz.alkhwarizmix.moqawalati.flex.interfaces.IMoqawalatiFacade;
+import dz.alkhwarizmix.moqawalati.flex.facade.MoqawalatiFacade;
+import dz.alkhwarizmix.moqawalati.mobile.interfaces.IMoqawalatiMobileFacade;
 
 /**
  *  <p>
@@ -25,10 +25,10 @@ import dz.alkhwarizmix.moqawalati.flex.interfaces.IMoqawalatiFacade;
  *  </p>
  * 
  *  @author فارس بلحواس (Fares Belhaouas)
- *  @since  ٠٢ ذو القعدة ١٤٣٤ (September 08, 2013)
+ *  @since  ١٦ شوال ١٤٣٦ (August 01, 2015)
  */
-public class MoqawalatiFacade extends AlKhwarizmixFacade
-	implements IMoqawalatiFacade
+public class MoqawalatiMobileFacade extends MoqawalatiFacade
+	implements IMoqawalatiMobileFacade
 {
 	//--------------------------------------------------------------------------
 	//
@@ -39,7 +39,7 @@ public class MoqawalatiFacade extends AlKhwarizmixFacade
 	/**
 	 *  Constructor.
 	 */
-	public function MoqawalatiFacade(key:String)
+	public function MoqawalatiMobileFacade(key:String)
 	{
 		super(key);
 	}
@@ -55,7 +55,7 @@ public class MoqawalatiFacade extends AlKhwarizmixFacade
 	override protected function get logger():IAlKhwarizmixLogger
 	{
 		if (!LOG)
-			LOG = AlKhwarizmixLog.getLogger(MoqawalatiFacade);
+			LOG = AlKhwarizmixLog.getLogger(MoqawalatiMobileFacade);
 		return LOG;
 	}
 	
@@ -66,15 +66,21 @@ public class MoqawalatiFacade extends AlKhwarizmixFacade
 	//--------------------------------------------------------------------------
 	
 	/**
-	 * @inheritDoc
-	 */
-	override public function registerCommand(
-		notificationName:String, commandClassRef:Class):void
+	 * Login view startup
+	 * 
+	 * @param view a reference to the login view 
+	 */  
+	public function startupView(view:IAlKhwarizmixView):void
 	{
-		if (new commandClassRef() is IMoqawalatiCommand)
-			super.registerCommand(notificationName, commandClassRef);
-		else
-			throw new AlKhwarizmixTypeError();
+		throw new AlKhwarizmixMissingImplError();
+	}
+	
+	/**
+	 * 
+	 */  
+	public function shutdownView(view:IAlKhwarizmixView):void
+	{
+		throw new AlKhwarizmixMissingImplError();
 	}
 	
 } // class

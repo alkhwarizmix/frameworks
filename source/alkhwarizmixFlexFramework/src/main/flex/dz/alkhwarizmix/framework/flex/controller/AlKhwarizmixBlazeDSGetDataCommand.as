@@ -223,23 +223,6 @@ public class AlKhwarizmixBlazeDSGetDataCommand extends AlKhwarizmixWebGetDataCom
 	/**
 	 *  @inheritDoc
 	 */
-	override protected function execute_catch_error(
-		notif:INotification, error:Error):void
-	{
-		super.execute_catch_error(notif, error);
-	}
-	
-	/**
-	 *  @inheritDoc
-	 */
-	override protected function execute_finally(notif:INotification):void
-	{
-		super.execute_finally(notif);
-	}
-	
-	/**
-	 *  @inheritDoc
-	 */
 	override protected function execute_try(notif:INotification):void
 	{
 		super.execute_try(notif);

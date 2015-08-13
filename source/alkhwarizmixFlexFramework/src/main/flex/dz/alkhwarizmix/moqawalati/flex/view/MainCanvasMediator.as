@@ -12,11 +12,10 @@
 package dz.alkhwarizmix.moqawalati.flex.view
 {
 
-// import mx.controls.Alert;
-
 import dz.alkhwarizmix.framework.flex.AlKhwarizmixConstants;
 import dz.alkhwarizmix.framework.flex.logging.AlKhwarizmixLog;
 import dz.alkhwarizmix.framework.flex.logging.IAlKhwarizmixLogger;
+import dz.alkhwarizmix.framework.flex.utils.AlertUtil;
 import dz.alkhwarizmix.moqawalati.flex.interfaces.IMoqawalatiMediator;
 import dz.alkhwarizmix.moqawalati.flex.view.containers.MainCanvas;
 
@@ -134,7 +133,7 @@ public class MainCanvasMediator extends MoqawalatiMediator
 	{
 		logger.debug("handleRemoteServerError");
 		var error:Object = notifBody.error.rootCause;
-		// Alert.show(error.localizedMessage, "Remote Server Error: " + error.errorCode);
+		new AlertUtil().showAlert(error.localizedMessage, "Remote Server Error: " + error.errorCode);
 	}
 	
 } // class

@@ -12,12 +12,13 @@
 package dz.alkhwarizmix.winrak.flex
 {
 
+import dz.alkhwarizmix.winrak.flex.controller.WinrakStartupCommandTestCase;
 import dz.alkhwarizmix.winrak.flex.model.vo.GeolocationListVOTestCase;
 import dz.alkhwarizmix.winrak.flex.model.vo.GeolocationVOTestCase;
 
 [Suite]
 [RunWith("org.flexunit.runners.Suite")]
-public class WinrakFlexMobileTestSuite
+public class WinrakTestSuite
 {
 	// public var moqawalatiFlexTestCase:MoqawalatiFlexTestCase;
 	// public var moqawalatiConstantsTestCase:MoqawalatiConstantsTestCase;
@@ -27,7 +28,7 @@ public class WinrakFlexMobileTestSuite
 	// public var moqawalatiMainFacadeTestCase:MoqawalatiMainFacadeTestCase;
 	
 	// controller
-	// public var moqawalatiBlazeDSGetDataCommandTestCase:MoqawalatiBlazeDSGetDataCommandTestCase;
+	public var winrakStartupCommandTestCase:WinrakStartupCommandTestCase;
 	
 	// event
 	// public var moqawalatiEventTestCase:MoqawalatiEventTestCase;

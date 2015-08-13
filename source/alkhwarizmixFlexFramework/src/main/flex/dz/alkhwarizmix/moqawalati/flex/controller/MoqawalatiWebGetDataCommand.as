@@ -17,7 +17,7 @@ import dz.alkhwarizmix.framework.flex.logging.AlKhwarizmixLog;
 import dz.alkhwarizmix.framework.flex.logging.IAlKhwarizmixLogger;
 import dz.alkhwarizmix.moqawalati.flex.MoqawalatiConstants;
 import dz.alkhwarizmix.moqawalati.flex.interfaces.IMoqawalatiCommand;
-import dz.alkhwarizmix.moqawalati.flex.interfaces.IMoqawalatiConfigProxy;
+import dz.alkhwarizmix.framework.flex.interfaces.IAlKhwarizmixConfigProxy;
 import dz.alkhwarizmix.moqawalati.flex.interfaces.IMoqawalatiFacade;
 import dz.alkhwarizmix.moqawalati.flex.model.MoqawalatiConfigProxy;
 
@@ -65,10 +65,10 @@ public class MoqawalatiWebGetDataCommand extends AlKhwarizmixWebGetDataCommand
 	//  appConfigProxy
 	//----------------------------------
 	
-	public final function get appConfigProxy():IMoqawalatiConfigProxy
+	public final function get appConfigProxy():IAlKhwarizmixConfigProxy
 	{
 		return appFacade.retrieveProxy(MoqawalatiConfigProxy.NAME)
-			as IMoqawalatiConfigProxy;
+			as IAlKhwarizmixConfigProxy;
 	}
 	
 } // class

@@ -76,17 +76,17 @@ public class AlKhwarizmixLog extends Log
 		target.level = LogEventLevel.INFO;
 		Log.addTarget(target);
 	}
-
+	
 	/**
 	 */
-	public static function initDefault():void
+	public static function initDefault(level:int = LogEventLevel.WARN):void
 	{
 		var newTarget:TraceTarget = new TraceTarget();
 		addTarget(newTarget);
-		newTarget.level = LogEventLevel.WARN;
+		newTarget.level = level;
 		isLogLevelAll = true;
 	}
-
+	
 	/**
 	 *  This method removes all of the current loggers from the cache.
 	 */

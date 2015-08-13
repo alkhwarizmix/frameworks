@@ -18,7 +18,7 @@ import mx.core.IFactory;
 
 import dz.alkhwarizmix.framework.flex.logging.AlKhwarizmixLog;
 import dz.alkhwarizmix.framework.flex.logging.IAlKhwarizmixLogger;
-import dz.alkhwarizmix.moqawalati.flex.interfaces.IMoqawalatiConfigProxy;
+import dz.alkhwarizmix.framework.flex.interfaces.IAlKhwarizmixConfigProxy;
 
 /**
  *  <p>
@@ -29,7 +29,7 @@ import dz.alkhwarizmix.moqawalati.flex.interfaces.IMoqawalatiConfigProxy;
  *  @since  ١٨ ذو الحجة ١٤٣٤ (October 23, 2013)
  */
 public class MoqawalatiConfigProxy extends MoqawalatiProxy
-	implements IMoqawalatiConfigProxy
+	implements IAlKhwarizmixConfigProxy
 {
 	//--------------------------------------------------------------------------
 	//

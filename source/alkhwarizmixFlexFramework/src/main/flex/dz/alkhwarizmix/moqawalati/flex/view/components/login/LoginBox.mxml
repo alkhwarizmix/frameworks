@@ -22,14 +22,12 @@
  */
 -->
 
-<containers:MoqawalatiHBox
+<containers:MoqawalatiCanvas
 	xmlns:fx="http://ns.adobe.com/mxml/2009"
 	xmlns:mx="library://ns.adobe.com/flex/mx" 
 	xmlns:s="library://ns.adobe.com/flex/spark" 
 	xmlns:containers="dz.alkhwarizmix.moqawalati.flex.view.containers.*"
 	xmlns:controls="dz.alkhwarizmix.moqawalati.flex.view.controls.*"
-	horizontalAlign="right"
-	verticalAlign="middle"
 	>
 	
 	<fx:Script>
@@ -50,7 +48,6 @@
 		//  Logger
 		//
 		//--------------------------------------------------------------------------
-		
 		
 		private static var LOG:IAlKhwarizmixLogger = null;
 		
@@ -265,5 +262,5 @@
 		click="btnSend_clickHandler(event)"/>
 	<controls:MoqawalatiButton id="btnCancel"
 		labelResKey="CANCEL"
-		click="btnCancel_clickHandler(event)"/>	
-</containers:MoqawalatiHBox>
+		click="btnCancel_clickHandler(event)"/>		
+</containers:MoqawalatiCanvas>

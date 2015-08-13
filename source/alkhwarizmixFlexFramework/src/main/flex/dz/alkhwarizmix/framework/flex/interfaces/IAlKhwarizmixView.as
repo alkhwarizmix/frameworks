@@ -1,7 +1,7 @@
 ////////////////////////////////////////////////////////////////////////////////
 //  بسم الله الرحمن الرحيم
 //
-//  حقوق التأليف والنشر ١٤٣٦ هجري، فارس بلحواس (Copyright 2014 Fares Belhaouas)  
+//  حقوق التأليف والنشر ١٤٣٦ هجري، فارس بلحواس (Copyright 2015 Fares Belhaouas)  
 //  كافة الحقوق محفوظة (All Rights Reserved)
 //
 //  NOTICE: Fares Belhaouas permits you to use, modify, and distribute this file
@@ -9,7 +9,7 @@
 //
 ////////////////////////////////////////////////////////////////////////////////
 
-package dz.alkhwarizmix.moqawalati.flex.interfaces
+package dz.alkhwarizmix.framework.flex.interfaces
 {
 
 /**
@@ -18,21 +18,10 @@ package dz.alkhwarizmix.moqawalati.flex.interfaces
  *  </p>
  * 
  *  @author فارس بلحواس (Fares Belhaouas)
- *  @since  ٠٣ ربيع الأول ١٤٣٦ (December 24, 2014)
+ *  @since  ٢١ شوال ١٤٣٦ (August 06, 2015)
  */
-public interface IMoqawalatiConfigProxy
+public interface IAlKhwarizmixView
 {
-	/**
-	 */
-	function get appURLPath():String;
-	
-	/**
-	 */
-	function get appParameters():Object;
-	
-	/**
-	 */
-	function get flashBuilderBuild():Boolean;
 	
 } // Interface
 } // Package

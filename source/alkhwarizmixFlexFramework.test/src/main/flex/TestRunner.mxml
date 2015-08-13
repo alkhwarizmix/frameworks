@@ -36,6 +36,8 @@
 		
 		import dz.alkhwarizmix.framework.flex.AlKhwarizmixTestSuite;
 		import dz.alkhwarizmix.moqawalati.flex.Moqawalati1TestSuite;
+		import dz.alkhwarizmix.moqawalati.mobile.MoqawalatiMobileTestSuite;
+		import dz.alkhwarizmix.winrak.flex.WinrakTestSuite;
 		
 		import org.flexunit.internals.TextListener;
 		import org.flexunit.internals.TraceListener;
@@ -64,7 +66,11 @@
 			flexUnitCore.addListener(new TraceListener()); // - For AS3 Projects
 			flexUnitCore.addListener(TextListener.getDefaultTextListener(LogEventLevel.DEBUG)); // - For Flex Projects
 			
-			flexUnitCore.run(AlKhwarizmixTestSuite, Moqawalati1TestSuite);
+			flexUnitCore.run(AlKhwarizmixTestSuite,
+				Moqawalati1TestSuite,
+				MoqawalatiMobileTestSuite,
+				WinrakTestSuite
+			);
 		}
 		
 		//--------------------------------------------------------------------------

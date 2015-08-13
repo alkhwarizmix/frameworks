@@ -34,10 +34,6 @@
 	creationComplete="this_creationCompleteHandler(event)"
 	>
 	
-	<fx:Declarations>
-		<fx:XML id="menuList"/> <!--source="../../../../../../../resources/assets/xml/application-mainmenu.xml"/>-->
-	</fx:Declarations>
-	
 	<fx:Script>
 	<![CDATA[
 		import mx.events.FlexEvent;
@@ -61,6 +57,15 @@
 				LOG = AlKhwarizmixLog.getLogger(MainControlBar);
 			return LOG;
 		}
+		
+		//--------------------------------------------------------------------------
+		//
+		//  Methods
+		//
+		//--------------------------------------------------------------------------
+		
+		[Bindable]
+		public var menuList:XML;
 		
 		//--------------------------------------------------------------------------
 		//
@@ -109,5 +114,9 @@
 		showRoot="false"
 		itemClick="menuBar_itemClickHandler(event)"/>
 	
-	<login:LoginBox id="loginBox" width="100%"/>
+	<login:LoginBox id="loginBox" width="100%">
+		<login:layout>
+			<s:HorizontalLayout horizontalAlign="right" verticalAlign="middle"/>
+		</login:layout>
+	</login:LoginBox>
 </containers:MoqawalatiHBox>

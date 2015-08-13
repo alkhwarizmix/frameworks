@@ -1,7 +1,7 @@
 ////////////////////////////////////////////////////////////////////////////////
 //  بسم الله الرحمن الرحيم
 //
-//  حقوق التأليف والنشر ١٤٣٥ هجري، فارس بلحواس (Copyright 2014 Fares Belhaouas)  
+//  حقوق التأليف والنشر ١٤٣٦ هجري، فارس بلحواس (Copyright 2015 Fares Belhaouas)  
 //  كافة الحقوق محفوظة (All Rights Reserved)
 //
 //  NOTICE: Fares Belhaouas permits you to use, modify, and distribute this file
@@ -9,7 +9,7 @@
 //
 ////////////////////////////////////////////////////////////////////////////////
 
-package dz.alkhwarizmix.moqawalati.flex.facade
+package dz.alkhwarizmix.moqawalati.mobile.facade
 {
 
 import dz.alkhwarizmix.moqawalati.flex.testutils.MoqawalatiTestCase;
@@ -23,9 +23,9 @@ import org.flexunit.asserts.assertTrue;
  *  </p>
  * 
  *  @author فارس بلحواس (Fares Belhaouas)
- *  @since  ٣٠ شعبان ١٤٣٥ (June 28, 2014)
+ *  @since  ١٦ شوال ١٤٣٦ (August 01, 2015)
  */
-public class MoqawalatiFacadeTestCase extends MoqawalatiTestCase
+public class MoqawalatiMobileFacadeTestCase extends MoqawalatiTestCase
 {
 	//--------------------------------------------------------------------------
 	//
@@ -45,17 +45,17 @@ public class MoqawalatiFacadeTestCase extends MoqawalatiTestCase
 	
 	override protected function get classUnderTest():Class
 	{
-		return MoqawalatiFacadeEnhancedForTest;
+		return MoqawalatiMobileFacadeEnhancedForTest;
 	}
 	
 	override protected function get classUnderTestConstructorArg1():*
 	{
-		return "MoqawalatiFacadeTestCase"; // key
+		return "key"; // key
 	}
 	
-	private function get utMoqawalatiFacade():MoqawalatiFacade
+	private function get utMoqawalatiMobileFacade():MoqawalatiMobileFacade
 	{
-		return classInstanceUnderTest as MoqawalatiFacade;
+		return classInstanceUnderTest as MoqawalatiMobileFacade;
 	}
 	
 	//--------------------------------------------------------------------------
@@ -67,7 +67,7 @@ public class MoqawalatiFacadeTestCase extends MoqawalatiTestCase
 	[Test]
 	public function test00_constructor():void
 	{
-		assertNotNull(utMoqawalatiFacade);
+		assertNotNull(utMoqawalatiMobileFacade);
 	}
 	
 	[Ignore("TODO: TDD")]
@@ -82,16 +82,16 @@ public class MoqawalatiFacadeTestCase extends MoqawalatiTestCase
 
 //--------------------------------------------------------------------------
 
-import dz.alkhwarizmix.moqawalati.flex.facade.MoqawalatiFacade;
+import dz.alkhwarizmix.moqawalati.mobile.facade.MoqawalatiMobileFacade;
 
-internal class MoqawalatiFacadeEnhancedForTest extends MoqawalatiFacade
+internal class MoqawalatiMobileFacadeEnhancedForTest extends MoqawalatiMobileFacade
 {
 	/**
 	 * Used by AlKhwarizmixTestCase::test_logger to test super class logger
 	 */
-	public static const loggerClazzForTest:Class = MoqawalatiFacade;
+	public static const loggerClazzForTest:Class = MoqawalatiMobileFacade;
 	
-	public function MoqawalatiFacadeEnhancedForTest(key:String)
+	public function MoqawalatiMobileFacadeEnhancedForTest(key:String)
 	{
 		super(key);
 	}

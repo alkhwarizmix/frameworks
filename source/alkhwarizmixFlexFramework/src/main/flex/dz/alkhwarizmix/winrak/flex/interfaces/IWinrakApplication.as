@@ -12,9 +12,6 @@
 package dz.alkhwarizmix.winrak.flex.interfaces
 {
 
-import dz.alkhwarizmix.winrak.flex.view.containers.WinrakCanvas;
-import dz.alkhwarizmix.winrak.flex.view.containers.WinrakHBox;
-
 /**
  *  <p>
  *  TODO: ASDOC
@@ -26,8 +23,6 @@ import dz.alkhwarizmix.winrak.flex.view.containers.WinrakHBox;
 public interface IWinrakApplication
 {
 	function get parameters():Object;
-	function get mainCanvas():WinrakCanvas;
-	function get mainControlBar():WinrakHBox;
 	
 } // Interface
 } // Package

@@ -1,7 +1,7 @@
 ////////////////////////////////////////////////////////////////////////////////
 //  بسم الله الرحمن الرحيم
 //
-//  حقوق التأليف والنشر ١٤٣٦ هجري، فارس بلحواس (Copyright 2015 Fares Belhaouas)
+//  حقوق التأليف والنشر ١٤٣٦ هجري، فارس بلحواس (Copyright 2015 Fares Belhaouas)  
 //  كافة الحقوق محفوظة (All Rights Reserved)
 //
 //  NOTICE: Fares Belhaouas permits you to use, modify, and distribute this file
@@ -9,26 +9,25 @@
 //
 ////////////////////////////////////////////////////////////////////////////////
 
-package dz.alkhwarizmix.winrak.flex.testutils
+package dz.alkhwarizmix.moqawalati.mobile
 {
 
-import dz.alkhwarizmix.winrak.flex.interfaces.IWinrakApplication;
+import dz.alkhwarizmix.moqawalati.mobile.facade.MoqawalatiMobileFacadeTestCase;
 
 /**
  *  <p>
- *  WinrakApplicationMock
+ *  TODO: ASDOC
  *  </p>
  * 
  *  @author فارس بلحواس (Fares Belhaouas)
- *  @since  ٠٤ شوال ١٤٣٦ (July 20, 2015)
+ *  @since  ٢٧ شوال ١٤٣٦ (August 12, 2015)
  */
-public class WinrakApplicationMock
-	implements IWinrakApplication
+[Suite]
+[RunWith("org.flexunit.runners.Suite")]
+public class MoqawalatiMobileTestSuite
 {
-	public function get parameters():Object
-	{
-		return {};
-	}
+	// facade
+	public var moqawalatiMobileFacadeTestCase:MoqawalatiMobileFacadeTestCase;
 	
 } // class
 } // package

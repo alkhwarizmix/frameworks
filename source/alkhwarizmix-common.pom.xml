@@ -25,8 +25,8 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<properties>
-		<dz.alkhwarizmix.common.version>1.2.9</dz.alkhwarizmix.common.version>
-		<dz.alkhwarizmix.moqawalati.version>1.5.13</dz.alkhwarizmix.moqawalati.version>
+		<dz.alkhwarizmix.common.version>1.2.10.FBEL</dz.alkhwarizmix.common.version>
+		<dz.alkhwarizmix.moqawalati.version>1.5.14.FBEL</dz.alkhwarizmix.moqawalati.version>
 		
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<flexmojos.version>4.2-beta</flexmojos.version>
@@ -45,7 +45,7 @@
 
 	<groupId>dz.alkhwarizmix</groupId>
 	<artifactId>alkhwarizmix-common</artifactId>
-	<version>1.2.9</version>
+	<version>1.2.10.FBEL</version>
 	<packaging>pom</packaging>
 
 	<name>Alkhwarizmix Maven</name>

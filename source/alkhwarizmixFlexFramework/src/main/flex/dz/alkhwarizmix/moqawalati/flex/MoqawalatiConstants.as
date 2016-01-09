@@ -32,7 +32,7 @@ public class MoqawalatiConstants extends AlKhwarizmixConstants
 	/**
 	 * APPLICATION POM VERSION
 	 */
-	public static const APP_POM_VERSION:String = "1.5.14.FBEL";
+	public static const APP_POM_VERSION:String = "1.6.14.FBEL";
 	
 	/**
 	 * FACADE NAME

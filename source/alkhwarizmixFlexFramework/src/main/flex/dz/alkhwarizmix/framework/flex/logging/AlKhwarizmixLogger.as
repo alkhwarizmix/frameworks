@@ -18,6 +18,8 @@ import mx.logging.ILogger;
 import mx.logging.Log;
 import mx.utils.StringUtil;
 
+import dz.alkhwarizmix.framework.flex.utils.AlertUtil;
+
 /**
  *  <p>
  *  TODO: ASDOC
@@ -102,7 +104,7 @@ public class AlKhwarizmixLogger extends EventDispatcher
 			args.unshift(msg);
 			logLogger.error.apply(logLogger, args);
 			
-			showAlert(StringUtil.substitute(msg, rest.concat()), "ERROR");
+			new AlertUtil().showAlert(StringUtil.substitute(msg, rest.concat()), "ERROR");
 		}
 	}
 	
@@ -117,7 +119,7 @@ public class AlKhwarizmixLogger extends EventDispatcher
 			args.unshift(msg);
 			logLogger.fatal.apply(logLogger, args);
 			
-			showAlert(StringUtil.substitute(msg, rest.concat()), "FATAL");
+			new AlertUtil().showAlert(StringUtil.substitute(msg, rest.concat()), "FATAL");
 		}
 	}
 	
@@ -156,14 +158,6 @@ public class AlKhwarizmixLogger extends EventDispatcher
 			args.unshift(msg);
 			logLogger.warn.apply(logLogger, args);
 		}
-	}
-	
-	/**
-	 * @private
-	 */
-	private function showAlert(message:String, title:String):void
-	{
-		// new Alert.show(message, title);
 	}
 	
 } // Class

@@ -22,7 +22,6 @@ import com.hurlant.util.Hex;
 
 import flash.utils.ByteArray;
 
-import mx.collections.ArrayCollection;
 import mx.utils.ObjectUtil;
 
 import dz.alkhwarizmix.framework.flex.interfaces.ICryptoUtil;
@@ -104,12 +103,12 @@ public class CryptoUtil implements ICryptoUtil
 	/**
 	 * decryptString
 	 */
-	public final function decryptString(hexStringToDecrypt:String):String
+	public final function decryptString(stringToDecrypt:String):String
 	{
-		var result:String = hexStringToDecrypt;
-		if (!(!hexStringToDecrypt))
+		var result:String = stringToDecrypt;
+		if (!(!stringToDecrypt))
 		{
-			var data:ByteArray = Hex.toArray(hexStringToDecrypt);
+			var data:ByteArray = Hex.toArray(stringToDecrypt);
 			cipher.decrypt(data);
 			result = hexToString(Hex.fromArray(data));
 		}
@@ -128,9 +127,9 @@ public class CryptoUtil implements ICryptoUtil
 	/**
 	 * getEncryptedVersion
 	 */
-	public final function getEncryptedVersion(objectToEncrypt:Object):Object
+	public final function getEncryptedVersion(objectToEncrypt:IEncryptable):IEncryptable
 	{
-		var result:Object = ObjectUtil.clone(objectToEncrypt);
+		var result:IEncryptable = ObjectUtil.clone(objectToEncrypt) as IEncryptable;
 		encryptObject(result);
 		return result;
 	}
@@ -138,28 +137,17 @@ public class CryptoUtil implements ICryptoUtil
 	/**
 	 * encryptObject
 	 */
-	private function encryptObject(objectToEncrypt:Object):void
+	private function encryptObject(objectToEncrypt:IEncryptable):void
 	{
-		if ((objectToEncrypt is Array) || (objectToEncrypt is ArrayCollection))
-		{
-			for each (var obj:Object in objectToEncrypt)
-			{
-				encryptObject(obj);
-			}
-		}
-		else if (objectToEncrypt is IEncryptable)
-		{
-			var encryptableObject:IEncryptable = objectToEncrypt as IEncryptable;
-			encryptableObject.encrypt(this);
-		}
+		objectToEncrypt.encrypt(this);
 	}
 	
 	/**
 	 * getDecryptedVersion
 	 */
-	public final function getDecryptedVersion(encryptedObject:Object):Object
+	public final function getDecryptedVersion(encryptedObject:IEncryptable):IEncryptable
 	{
-		var result:Object = ObjectUtil.clone(encryptedObject) as Object;
+		var result:IEncryptable = ObjectUtil.clone(encryptedObject) as IEncryptable;
 		decryptObject(result);
 		return result;
 	}
@@ -167,20 +155,9 @@ public class CryptoUtil implements ICryptoUtil
 	/**
 	 * decryptObject
 	 */
-	private function decryptObject(encryptedObject:Object):void
+	private function decryptObject(encryptedObject:IEncryptable):void
 	{
-		if ((encryptedObject is Array) || (encryptedObject is ArrayCollection))
-		{
-			for each (var obj:Object in encryptedObject)
-			{
-				decryptObject(obj);
-			}
-		}
-		else if (encryptedObject is IEncryptable)
-		{
-			var encryptableObject:IEncryptable = encryptedObject as IEncryptable;
-			encryptableObject.decrypt(this);
-		}
+		encryptedObject.decrypt(this);
 	}
 	
 	/**

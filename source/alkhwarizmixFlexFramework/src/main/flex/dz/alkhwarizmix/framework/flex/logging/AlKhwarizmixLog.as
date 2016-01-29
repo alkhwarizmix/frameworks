@@ -18,6 +18,7 @@ import mx.logging.ILoggingTarget;
 import mx.logging.Log;
 import mx.logging.LogEventLevel;
 import mx.logging.targets.LineFormattedTarget;
+import mx.logging.targets.TraceTarget;
 
 /**
  *  <p>
@@ -74,6 +75,16 @@ public class AlKhwarizmixLog extends Log
 		}
 		target.level = LogEventLevel.INFO;
 		Log.addTarget(target);
+	}
+	
+	/**
+	 */
+	public static function initDefault(level:int = LogEventLevel.WARN):void
+	{
+		var newTarget:TraceTarget = new TraceTarget();
+		addTarget(newTarget);
+		newTarget.level = level;
+		isLogLevelAll = true;
 	}
 	
 	/**

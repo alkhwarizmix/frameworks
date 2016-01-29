@@ -33,40 +33,18 @@ public class AlKhwarizmixMacroCommand extends MacroCommand
 	
 	//--------------------------------------------------------------------------
 	//
-	//  Constants
+	//  Logger
 	//
 	//--------------------------------------------------------------------------
 	
-	/**
-	 * The Logger
-	 */
-	private static const LOG:IAlKhwarizmixLogger = AlKhwarizmixLog.
-		getLogger(AlKhwarizmixMacroCommand);
+	private static var LOG:IAlKhwarizmixLogger = null;
 	
-	//--------------------------------------------------------------------------
-	//
-	//  Constructor
-	//
-	//--------------------------------------------------------------------------
-	
-	/**
-	 *  Constructor.
-	 *
-	 * @param proxyName TODO: ASDOC
-	 * @param data TODO: ASDOC
-	 */
-	/*
-	public function AlKhwarizmixProxy(proxyName:String=null, data:Object=null)
+	protected function get logger():IAlKhwarizmixLogger
 	{
-	super(proxyName, data);
+		if (!LOG)
+			LOG = AlKhwarizmixLog.getLogger(AlKhwarizmixMacroCommand);
+		return LOG;
 	}
-	*/
-	
-	//--------------------------------------------------------------------------
-	//
-	//  Properties
-	//
-	//--------------------------------------------------------------------------
 	
 } // class
 } // package

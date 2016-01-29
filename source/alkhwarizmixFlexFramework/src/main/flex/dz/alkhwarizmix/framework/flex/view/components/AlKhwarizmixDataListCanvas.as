@@ -12,22 +12,16 @@
 package dz.alkhwarizmix.framework.flex.view.components
 {
 
-import flash.display.DisplayObject;
 import flash.events.ContextMenuEvent;
-import flash.events.MouseEvent;
 import flash.ui.ContextMenu;
 import flash.ui.ContextMenuItem;
 
 import mx.collections.ArrayCollection;
-import mx.core.FlexGlobals;
-import mx.managers.PopUpManager;
-
-import spark.components.TitleWindow;
 
 import dz.alkhwarizmix.framework.flex.logging.AlKhwarizmixLog;
 import dz.alkhwarizmix.framework.flex.logging.IAlKhwarizmixLogger;
+import dz.alkhwarizmix.framework.flex.utils.AlertUtil;
 import dz.alkhwarizmix.framework.flex.view.containers.AlKhwarizmixCanvas;
-import dz.alkhwarizmix.framework.flex.view.controls.AlKhwarizmixButton;
 import dz.alkhwarizmix.framework.flex.view.controls.AlKhwarizmixDataGrid;
 
 import flexlib.mdi.containers.MDIWindow;
@@ -207,46 +201,16 @@ public class AlKhwarizmixDataListCanvas extends AlKhwarizmixCanvas
 		{
 			case ("CONTEXT_MENU_LABEL_CAPTION"):
 			{
-				showAlert("CONTEXT_MENU_LABEL_CAPTION");
+				new AlertUtil().showAlert("CONTEXT_MENU_LABEL_CAPTION");
 				break;
 			}
 				
 			case ("كونتاكست مونيو"):
 			{
-				showAlert("كونتاكست مونيو");
+				new AlertUtil().showAlert("كونتاكست مونيو");
 				break;
 			}
 		}
-	}
-	
-	/**
-	 * 
-	 */
-	private function showAlert(message:String):void
-	{
-		var alertTitleWindow:TitleWindow = new TitleWindow();
-		alertTitleWindow.title = message;
-		alertTitleWindow.width= 220;
-		alertTitleWindow.height= 150;
-		populateWindow(alertTitleWindow);
-		var alertParent:DisplayObject = FlexGlobals.topLevelApplication as DisplayObject;
-		PopUpManager.addPopUp(alertTitleWindow, alertParent, true);
-		PopUpManager.centerPopUp(alertTitleWindow);
-	}
-	
-	/**
-	 * 
-	 */
-	private function populateWindow(titleWindow:TitleWindow):void
-	{
-		var btnClose:AlKhwarizmixButton = new AlKhwarizmixButton();
-		btnClose.label="close";
-		btnClose.addEventListener(MouseEvent.CLICK,
-			function (event:MouseEvent):void
-			{
-				PopUpManager.removePopUp(titleWindow);
-			});
-		titleWindow.addElement(btnClose);   
 	}
 	
 } // Class

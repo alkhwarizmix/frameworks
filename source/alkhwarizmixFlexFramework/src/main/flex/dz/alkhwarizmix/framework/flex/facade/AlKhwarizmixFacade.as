@@ -171,6 +171,16 @@ public class AlKhwarizmixFacade extends Facade
 	}
 	
 	/**
+	 * Application or Module startup
+	 * 
+	 * @param app a reference to the application or module component 
+	 */  
+	public function startup(app:*):void
+	{
+		throw new AlKhwarizmixMissingImplError();
+	}
+	
+	/**
 	 * @private
 	 */
 	private function unregisterCommands():void

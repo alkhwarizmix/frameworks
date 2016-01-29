@@ -153,6 +153,11 @@ public class AlKhwarizmixButton extends Button
 		super.commitProperties();
 	}
 	
+	override protected function partAdded(partName:String, instance:Object):void
+	{
+		super.partAdded(partName, instance);
+	}
+	
 	//--------------------------------------------------------------------------
 	//
 	//  Methods

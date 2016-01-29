@@ -20,7 +20,7 @@ echo
 echo "----- ----- ----- ----- ----- ----- ----- ----- ----- -----"
 echo
 echo "Fares Belhaouas functions"
-echo "Version 09 MAY 2015, 20:09"
+echo "Version 16 JAN 2016, 21:17"
 echo
 echo "Type fbel-help                             to print all functions"
 echo
@@ -376,11 +376,16 @@ function fbel-ls-java-processes
 function fbel-backup-all-server-data
 {
    local FILES_TO_BACKUP="/etc/apache2/sites-available
-   /var/lib/jenkins/backups"
-   
+   /etc/default
+   /home
+   /var/log/apache2
+   /var/log/postgresql
+   /var/log/tomcat7
+   /var/www"
+
    local TODAY=`eval date +%Y-%m-%d`
    echo  TODAY=$TODAY
-   local BACKUP_FOLDER=/home/fares/backups/$TODAY
+   local BACKUP_FOLDER=~/backups/$TODAY
    echo  BACKUP_FOLDER=$BACKUP_FOLDER
    mkdir $BACKUP_FOLDER
    echo

@@ -28,6 +28,20 @@ public class EncryptionVO extends AlKhwarizmixVO
 {
 	//--------------------------------------------------------------------------
 	//
+	//  Constructor
+	//
+	//--------------------------------------------------------------------------
+	
+	/**
+	 *  Constructor.
+	 */
+	public function EncryptionVO(pEncryptionId:String = "CryptoUtilV2")
+	{
+		encryptionId = pEncryptionId;
+	}
+	
+	//--------------------------------------------------------------------------
+	//
 	//  Properties
 	//
 	//--------------------------------------------------------------------------

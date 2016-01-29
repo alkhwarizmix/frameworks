@@ -12,6 +12,8 @@
 package dz.alkhwarizmix.framework.flex.dtos.security.model.vo
 {
 
+import mx.core.IFactory;
+
 import dz.alkhwarizmix.framework.flex.model.vo.AlKhwarizmixVO;
 
 /**
@@ -25,6 +27,7 @@ import dz.alkhwarizmix.framework.flex.model.vo.AlKhwarizmixVO;
 [Bindable]
 [RemoteClass(alias="dz.alkhwarizmix.framework.java.dtos.security.model.vo.User")]
 public class UserVO extends AlKhwarizmixVO
+	implements IFactory
 {
 	//--------------------------------------------------------------------------
 	//
@@ -72,6 +75,17 @@ public class UserVO extends AlKhwarizmixVO
 		if (_group == value)
 			return;
 		_group = value;
+	}
+	
+	//--------------------------------------------------------------------------
+	//
+	//  Methods
+	//
+	//--------------------------------------------------------------------------
+	
+	public function newInstance():*
+	{
+		return new UserVO();
 	}
 	
 } // Class

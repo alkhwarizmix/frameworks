@@ -32,7 +32,7 @@ import org.puremvc.as3.multicore.patterns.facade.Facade;
  */
 public class WinrakPureMVCTestCase extends WinrakTestCase
 {
-	private static const TEST_FACADE_NAME:String = "TEST_FACADE";
+	private static const TEST_FACADE_NAME:String = "WinrakPureMVCTestCase_TEST_FACADE";
 	
 	//--------------------------------------------------------------------------
 	//

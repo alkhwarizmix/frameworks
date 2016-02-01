@@ -16,13 +16,13 @@ import flash.utils.Dictionary;
 
 import dz.alkhwarizmix.framework.flex.logging.AlKhwarizmixLog;
 import dz.alkhwarizmix.framework.flex.logging.IAlKhwarizmixLogger;
+import dz.alkhwarizmix.framework.flex.model.AlKhwarizmixCustomDataProxy;
+import dz.alkhwarizmix.framework.flex.model.AlKhwarizmixLoginUserProxy;
 import dz.alkhwarizmix.framework.flex.model.RecordProxy;
 import dz.alkhwarizmix.moqawalati.flex.MoqawalatiConstants;
 import dz.alkhwarizmix.moqawalati.flex.interfaces.IMoqawalatiApplication;
 import dz.alkhwarizmix.moqawalati.flex.interfaces.IMoqawalatiCommand;
 import dz.alkhwarizmix.moqawalati.flex.model.MoqawalatiConfigProxy;
-import dz.alkhwarizmix.moqawalati.flex.model.MoqawalatiCustomDataProxy;
-import dz.alkhwarizmix.moqawalati.flex.model.MoqawalatiLoginUserProxy;
 import dz.alkhwarizmix.moqawalati.flex.view.LoginBoxMediator;
 import dz.alkhwarizmix.moqawalati.flex.view.MDICanvasMediator;
 import dz.alkhwarizmix.moqawalati.flex.view.MainCanvasMediator;
@@ -113,8 +113,8 @@ public class MoqawalatiStartupCommand extends MoqawalatiSimpleCommand
 	{
 		facade.registerProxy(new MoqawalatiConfigProxy(
 			getConfigDico(app.parameters)));
-		facade.registerProxy(new MoqawalatiCustomDataProxy());
-		facade.registerProxy(new MoqawalatiLoginUserProxy());
+		facade.registerProxy(new AlKhwarizmixCustomDataProxy());
+		facade.registerProxy(new AlKhwarizmixLoginUserProxy());
 		facade.registerProxy(new RecordProxy());
 	}
 	

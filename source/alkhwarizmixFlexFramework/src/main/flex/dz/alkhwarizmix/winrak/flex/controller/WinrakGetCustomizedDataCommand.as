@@ -14,9 +14,9 @@ package dz.alkhwarizmix.winrak.flex.controller
 
 import dz.alkhwarizmix.framework.flex.logging.AlKhwarizmixLog;
 import dz.alkhwarizmix.framework.flex.logging.IAlKhwarizmixLogger;
+import dz.alkhwarizmix.framework.flex.model.AlKhwarizmixCustomDataProxy;
 import dz.alkhwarizmix.framework.flex.rpc.remoting.AlKhwarizmixRemoteObject;
 import dz.alkhwarizmix.winrak.flex.interfaces.IWinrakCommand;
-import dz.alkhwarizmix.winrak.flex.model.WinrakCustomDataProxy;
 
 /**
  *  <p>
@@ -85,7 +85,7 @@ public class WinrakGetCustomizedDataCommand extends WinrakBlazeDSGetDataCommand
 	 */
 	override public function get proxyName():String
 	{
-		return WinrakCustomDataProxy.NAME;
+		return AlKhwarizmixCustomDataProxy.NAME;
 	}
 	
 	//--------------------------------------------------------------------------

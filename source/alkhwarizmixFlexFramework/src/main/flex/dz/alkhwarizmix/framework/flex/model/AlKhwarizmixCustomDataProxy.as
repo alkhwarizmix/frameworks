@@ -1,7 +1,7 @@
 ////////////////////////////////////////////////////////////////////////////////
 //  بسم الله الرحمن الرحيم
 //
-//  حقوق التأليف والنشر ١٤٣٦ هجري، فارس بلحواس (Copyright 2015 Fares Belhaouas)  
+//  حقوق التأليف والنشر ١٤٣٥ هجري، فارس بلحواس (Copyright 2013 Fares Belhaouas)  
 //  كافة الحقوق محفوظة (All Rights Reserved)
 //
 //  NOTICE: Fares Belhaouas permits you to use, modify, and distribute this file
@@ -9,7 +9,7 @@
 //
 ////////////////////////////////////////////////////////////////////////////////
 
-package dz.alkhwarizmix.winrak.flex.model
+package dz.alkhwarizmix.framework.flex.model
 {
 
 import flash.utils.Dictionary;
@@ -18,9 +18,9 @@ import mx.core.IFactory;
 
 import dz.alkhwarizmix.framework.flex.AlKhwarizmixConstants;
 import dz.alkhwarizmix.framework.flex.dtos.customize.model.vo.CustomDataVO;
+import dz.alkhwarizmix.framework.flex.interfaces.IAlKhwarizmixProxy;
 import dz.alkhwarizmix.framework.flex.logging.AlKhwarizmixLog;
 import dz.alkhwarizmix.framework.flex.logging.IAlKhwarizmixLogger;
-import dz.alkhwarizmix.winrak.flex.interfaces.IWinrakProxy;
 
 /**
  *  <p>
@@ -28,10 +28,10 @@ import dz.alkhwarizmix.winrak.flex.interfaces.IWinrakProxy;
  *  </p>
  * 
  *  @author فارس بلحواس (Fares Belhaouas)
- *  @since  ٠٤ شوال ١٤٣٦ (July 20, 2015)
+ *  @since  ٢٠ محرم ١٤٣٥ (November 24, 2013)
  */
-public class WinrakCustomDataProxy extends WinrakProxy
-	implements IWinrakProxy
+public class AlKhwarizmixCustomDataProxy extends AlKhwarizmixProxy
+	implements IAlKhwarizmixProxy
 {
 	//--------------------------------------------------------------------------
 	//
@@ -42,7 +42,7 @@ public class WinrakCustomDataProxy extends WinrakProxy
 	/**
 	 * The proxy name
 	 */
-	public static const NAME:String = "WinrakCustomDataProxy";
+	public static const NAME:String = "AlKhwarizmixCustomDataProxy";
 	
 	//--------------------------------------------------------------------------
 	//
@@ -55,7 +55,7 @@ public class WinrakCustomDataProxy extends WinrakProxy
 	 *
 	 * @param data TODO: ASDOC
 	 */
-	public function WinrakCustomDataProxy(data:Object=null)
+	public function AlKhwarizmixCustomDataProxy(data:Object=null)
 	{
 		super(NAME, data);
 	}
@@ -71,7 +71,7 @@ public class WinrakCustomDataProxy extends WinrakProxy
 	override protected function get logger():IAlKhwarizmixLogger
 	{
 		if (!LOG)
-			LOG = AlKhwarizmixLog.getLogger(WinrakCustomDataProxy);
+			LOG = AlKhwarizmixLog.getLogger(AlKhwarizmixCustomDataProxy);
 		return LOG;
 	}
 	

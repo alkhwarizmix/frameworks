@@ -84,7 +84,7 @@ public class MoqawalatiSetCustomizedDataCommandTestCase extends MoqawalatiPureMV
 	[Test]
 	public function test03_proxyName():void
 	{
-		assertEquals("MoqawalatiCustomDataProxy", moqawalatiSetCustomizedDataCommand.proxyName);
+		assertEquals("AlKhwarizmixCustomDataProxy", moqawalatiSetCustomizedDataCommand.proxyName);
 	}
 	
 } // class

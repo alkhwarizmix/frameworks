@@ -1,7 +1,7 @@
 ////////////////////////////////////////////////////////////////////////////////
 //  بسم الله الرحمن الرحيم
 //
-//  حقوق التأليف والنشر ١٤٣٥ هجري، فارس بلحواس (Copyright 2014 Fares Belhaouas)  
+//  حقوق التأليف والنشر ١٤٣٧ هجري، فارس بلحواس (Copyright 2016 Fares Belhaouas)  
 //  كافة الحقوق محفوظة (All Rights Reserved)
 //
 //  NOTICE: Fares Belhaouas permits you to use, modify, and distribute this file
@@ -9,16 +9,17 @@
 //
 ////////////////////////////////////////////////////////////////////////////////
 
-package dz.alkhwarizmix.moqawalati.flex.model
+package dz.alkhwarizmix.winrak.flex.view
 {
 
-import mx.core.IFactory;
-
 import dz.alkhwarizmix.framework.flex.AlKhwarizmixConstants;
-import dz.alkhwarizmix.framework.flex.dtos.security.model.vo.UserVO;
+import dz.alkhwarizmix.framework.flex.interfaces.IAlKhwarizmixView;
 import dz.alkhwarizmix.framework.flex.logging.AlKhwarizmixLog;
 import dz.alkhwarizmix.framework.flex.logging.IAlKhwarizmixLogger;
-import dz.alkhwarizmix.moqawalati.flex.interfaces.IMoqawalatiProxy;
+import dz.alkhwarizmix.framework.flex.utils.AlertUtil;
+import dz.alkhwarizmix.winrak.flex.interfaces.IWinrakMediator;
+
+import org.puremvc.as3.multicore.interfaces.INotification;
 
 /**
  *  <p>
@@ -26,10 +27,10 @@ import dz.alkhwarizmix.moqawalati.flex.interfaces.IMoqawalatiProxy;
  *  </p>
  * 
  *  @author فارس بلحواس (Fares Belhaouas)
- *  @since  ٢١ جمادى الأول ١٤٣٥ (March 21, 2014)
+ *  @since ٢٣ ربيع الثاني ١٤٣٧ (January 29, 2016)
  */
-public class MoqawalatiLoginUserProxy extends MoqawalatiProxy
-	implements IMoqawalatiProxy
+public class HomeViewMediator extends WinrakMediator
+	implements IWinrakMediator
 {
 	//--------------------------------------------------------------------------
 	//
@@ -38,9 +39,9 @@ public class MoqawalatiLoginUserProxy extends MoqawalatiProxy
 	//--------------------------------------------------------------------------
 	
 	/**
-	 * The proxy name
+	 * The mediator name
 	 */
-	public static const NAME:String = "MoqawalatiLoginUserProxy";
+	public static const NAME:String = "HomeViewMediator";
 	
 	//--------------------------------------------------------------------------
 	//
@@ -50,12 +51,10 @@ public class MoqawalatiLoginUserProxy extends MoqawalatiProxy
 	
 	/**
 	 *  Constructor.
-	 *
-	 * @param data TODO: ASDOC
 	 */
-	public function MoqawalatiLoginUserProxy(data:Object=null)
+	public function HomeViewMediator(viewComponent:Object = null)
 	{
-		super(NAME, data);
+		super(NAME, viewComponent);
 	}
 	
 	//--------------------------------------------------------------------------
@@ -69,22 +68,8 @@ public class MoqawalatiLoginUserProxy extends MoqawalatiProxy
 	override protected function get logger():IAlKhwarizmixLogger
 	{
 		if (!LOG)
-			LOG = AlKhwarizmixLog.getLogger(MoqawalatiLoginUserProxy);
+			LOG = AlKhwarizmixLog.getLogger(HomeViewMediator);
 		return LOG;
-	}
-	
-	//--------------------------------------------------------------------------
-	//
-	//  Overriden properties
-	//
-	//--------------------------------------------------------------------------
-	
-	/**
-	 *  @inheritDoc
-	 */
-	override public function get changedNoteName():String
-	{
-		return AlKhwarizmixConstants.LOGINUSER_PROXY_CHANGED;
 	}
 	
 	//--------------------------------------------------------------------------
@@ -93,13 +78,12 @@ public class MoqawalatiLoginUserProxy extends MoqawalatiProxy
 	//
 	//--------------------------------------------------------------------------
 	
-	//----------------------------------
-	//  user
-	//----------------------------------
-	
-	public function get user():UserVO
+	/**
+	 * TODO: ASDOC Definition of homeView
+	 */
+	public final function get homeView():IAlKhwarizmixView
 	{
-		return (getData() as UserVO);
+		return viewComponent as IAlKhwarizmixView;
 	}
 	
 	//--------------------------------------------------------------------------
@@ -109,12 +93,48 @@ public class MoqawalatiLoginUserProxy extends MoqawalatiProxy
 	//--------------------------------------------------------------------------
 	
 	/**
-	 * @inheritDoc
+	 *  @inheritDoc
 	 */
-	override public function getItemFactory():IFactory
+	override public function listNotificationInterests():Array
 	{
-		return new UserVO();
+		return [
+			AlKhwarizmixConstants.REMOTE_SERVER_ERROR
+		];
 	}
 	
-} // Class
-} // Package
+	/**
+	 *  @inheritDoc
+	 */
+	override protected function handleNotification_try(notif:INotification):void
+	{
+		super.handleNotification_try(notif);
+		
+		switch (notif.getName())
+		{
+			case AlKhwarizmixConstants.REMOTE_SERVER_ERROR:
+			{
+				handleRemoteServerError(notif.getBody());
+				break;
+			}
+				
+		} // switch
+	}
+	
+	//--------------------------------------------------------------------------
+	//
+	//  Methods
+	//
+	//--------------------------------------------------------------------------
+	
+	/**
+	 * TODO: ASDOC Definition of handleRemoteServerError
+	 */
+	public function handleRemoteServerError(notifBody:Object):void
+	{
+		logger.debug("handleRemoteServerError");
+		var error:Object = notifBody.error.rootCause;
+		new AlertUtil().showAlert(error.localizedMessage, "Remote Server Error: " + error.errorCode);
+	}
+	
+} // class
+} // package

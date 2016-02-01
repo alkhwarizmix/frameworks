@@ -80,7 +80,7 @@ public class MoqawalatiLoginCommandTestCase extends MoqawalatiPureMVCTestCase
 	[Test]
 	public function test03_proxyName():void
 	{
-		assertEquals("MoqawalatiLoginUserProxy", moqawalatiLoginCommand.proxyName);
+		assertEquals("AlKhwarizmixLoginUserProxy", moqawalatiLoginCommand.proxyName);
 	}
 	
 } // class

@@ -51,6 +51,6 @@ public class MoqawalatiConstants extends AlKhwarizmixConstants
 	
 	public static const CLOSE_WINDOW:String = "Moqawalati_close_window";
 	public static const OPEN_WINDOW:String = "Moqawalati_open_window";
-		
+	
 } // class
 } // package

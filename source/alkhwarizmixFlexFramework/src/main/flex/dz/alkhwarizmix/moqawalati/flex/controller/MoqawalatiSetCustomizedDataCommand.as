@@ -14,8 +14,8 @@ package dz.alkhwarizmix.moqawalati.flex.controller
 
 import dz.alkhwarizmix.framework.flex.logging.AlKhwarizmixLog;
 import dz.alkhwarizmix.framework.flex.logging.IAlKhwarizmixLogger;
+import dz.alkhwarizmix.framework.flex.model.AlKhwarizmixCustomDataProxy;
 import dz.alkhwarizmix.framework.flex.rpc.remoting.AlKhwarizmixRemoteObject;
-import dz.alkhwarizmix.moqawalati.flex.model.MoqawalatiCustomDataProxy;
 
 /**
  *  <p>
@@ -83,7 +83,7 @@ public class MoqawalatiSetCustomizedDataCommand extends MoqawalatiBlazeDSGetData
 	 */
 	override public function get proxyName():String
 	{
-		return MoqawalatiCustomDataProxy.NAME;
+		return AlKhwarizmixCustomDataProxy.NAME;
 	}
 	
 	

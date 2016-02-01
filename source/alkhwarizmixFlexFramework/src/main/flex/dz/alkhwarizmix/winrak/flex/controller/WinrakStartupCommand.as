@@ -16,14 +16,14 @@ import flash.utils.Dictionary;
 
 import dz.alkhwarizmix.framework.flex.logging.AlKhwarizmixLog;
 import dz.alkhwarizmix.framework.flex.logging.IAlKhwarizmixLogger;
+import dz.alkhwarizmix.framework.flex.model.AlKhwarizmixCustomDataProxy;
+import dz.alkhwarizmix.framework.flex.model.AlKhwarizmixLoginUserProxy;
 import dz.alkhwarizmix.framework.flex.model.RecordProxy;
-import dz.alkhwarizmix.moqawalati.flex.MoqawalatiConstants;
-import dz.alkhwarizmix.moqawalati.flex.controller.MoqawalatiSimpleCommand;
-import dz.alkhwarizmix.moqawalati.flex.interfaces.IMoqawalatiCommand;
-import dz.alkhwarizmix.moqawalati.flex.model.MoqawalatiConfigProxy;
-import dz.alkhwarizmix.moqawalati.flex.model.MoqawalatiCustomDataProxy;
-import dz.alkhwarizmix.moqawalati.flex.model.MoqawalatiLoginUserProxy;
+import dz.alkhwarizmix.winrak.flex.WinrakConstants;
 import dz.alkhwarizmix.winrak.flex.interfaces.IWinrakApplication;
+import dz.alkhwarizmix.winrak.flex.interfaces.IWinrakCommand;
+import dz.alkhwarizmix.winrak.flex.model.GeolocationProxy;
+import dz.alkhwarizmix.winrak.flex.model.WinrakConfigProxy;
 
 import org.puremvc.as3.multicore.interfaces.INotification;
 
@@ -35,8 +35,8 @@ import org.puremvc.as3.multicore.interfaces.INotification;
  *  @author فارس بلحواس (Fares Belhaouas)
  *  @since  ٠٨ شوال ١٤٣٦ (July 24, 2015)
  */
-public class WinrakStartupCommand extends MoqawalatiSimpleCommand
-	implements IMoqawalatiCommand
+public class WinrakStartupCommand extends WinrakSimpleCommand
+	implements IWinrakCommand
 {
 	//--------------------------------------------------------------------------
 	//
@@ -97,11 +97,12 @@ public class WinrakStartupCommand extends MoqawalatiSimpleCommand
 	 */
 	private function registerProxies(app:IWinrakApplication):void
 	{
-		facade.registerProxy(new MoqawalatiConfigProxy(
+		facade.registerProxy(new WinrakConfigProxy(
 			getConfigDico(app.parameters)));
-		facade.registerProxy(new MoqawalatiCustomDataProxy());
-		facade.registerProxy(new MoqawalatiLoginUserProxy());
+		facade.registerProxy(new AlKhwarizmixCustomDataProxy());
+		facade.registerProxy(new AlKhwarizmixLoginUserProxy());
 		facade.registerProxy(new RecordProxy());
+		facade.registerProxy(new GeolocationProxy());
 	}
 	
 	/**
@@ -119,7 +120,7 @@ public class WinrakStartupCommand extends MoqawalatiSimpleCommand
 	 */
 	private function sendNotifications():void
 	{
-		sendNotification(MoqawalatiConstants.STARTUP_COMPLETE);
+		sendNotification(WinrakConstants.STARTUP_COMPLETE);
 	}
 	
 } // class

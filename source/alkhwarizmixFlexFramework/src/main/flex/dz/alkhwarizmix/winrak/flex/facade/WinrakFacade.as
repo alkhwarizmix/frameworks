@@ -16,6 +16,7 @@ import dz.alkhwarizmix.framework.flex.errors.AlKhwarizmixTypeError;
 import dz.alkhwarizmix.framework.flex.facade.AlKhwarizmixFacade;
 import dz.alkhwarizmix.framework.flex.logging.AlKhwarizmixLog;
 import dz.alkhwarizmix.framework.flex.logging.IAlKhwarizmixLogger;
+import dz.alkhwarizmix.moqawalati.flex.interfaces.IMoqawalatiCommand;
 import dz.alkhwarizmix.winrak.flex.interfaces.IWinrakCommand;
 import dz.alkhwarizmix.winrak.flex.interfaces.IWinrakFacade;
 
@@ -71,10 +72,13 @@ public class WinrakFacade extends AlKhwarizmixFacade
 	override public function registerCommand(
 		notificationName:String, commandClassRef:Class):void
 	{
-		if (new commandClassRef() is IWinrakCommand)
+		var command:* = new commandClassRef();
+		if (command is IWinrakCommand)
+			super.registerCommand(notificationName, commandClassRef);
+		else if (command is IMoqawalatiCommand)
 			super.registerCommand(notificationName, commandClassRef);
 		else
-			throw new AlKhwarizmixTypeError();
+			throw new AlKhwarizmixTypeError(command);
 	}
 	
 } // class

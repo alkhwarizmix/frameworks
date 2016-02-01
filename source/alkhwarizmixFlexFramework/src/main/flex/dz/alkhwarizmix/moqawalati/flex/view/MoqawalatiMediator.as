@@ -12,15 +12,15 @@
 package dz.alkhwarizmix.moqawalati.flex.view
 {
 
+import dz.alkhwarizmix.framework.flex.interfaces.IAlKhwarizmixConfigProxy;
 import dz.alkhwarizmix.framework.flex.logging.AlKhwarizmixLog;
 import dz.alkhwarizmix.framework.flex.logging.IAlKhwarizmixLogger;
+import dz.alkhwarizmix.framework.flex.model.AlKhwarizmixCustomDataProxy;
 import dz.alkhwarizmix.framework.flex.view.AlKhwarizmixMediator;
 import dz.alkhwarizmix.moqawalati.flex.MoqawalatiConstants;
-import dz.alkhwarizmix.framework.flex.interfaces.IAlKhwarizmixConfigProxy;
 import dz.alkhwarizmix.moqawalati.flex.interfaces.IMoqawalatiFacade;
 import dz.alkhwarizmix.moqawalati.flex.interfaces.IMoqawalatiMediator;
 import dz.alkhwarizmix.moqawalati.flex.model.MoqawalatiConfigProxy;
-import dz.alkhwarizmix.moqawalati.flex.model.MoqawalatiCustomDataProxy;
 
 import org.puremvc.as3.multicore.interfaces.INotification;
 import org.puremvc.as3.multicore.patterns.facade.Facade;
@@ -92,10 +92,10 @@ public class MoqawalatiMediator extends AlKhwarizmixMediator
 	//  appCustomDataProxy
 	//----------------------------------
 	
-	public final function get appCustomDataProxy():MoqawalatiCustomDataProxy
+	public final function get appCustomDataProxy():AlKhwarizmixCustomDataProxy
 	{
-		return appFacade.retrieveProxy(MoqawalatiCustomDataProxy.NAME)
-			as MoqawalatiCustomDataProxy;
+		return appFacade.retrieveProxy(AlKhwarizmixCustomDataProxy.NAME)
+			as AlKhwarizmixCustomDataProxy;
 	}
 	
 	//--------------------------------------------------------------------------

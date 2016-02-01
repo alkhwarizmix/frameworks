@@ -12,6 +12,7 @@
 package dz.alkhwarizmix.framework.flex.model
 {
 
+import mx.collections.ArrayCollection;
 import mx.core.IFactory;
 
 import dz.alkhwarizmix.framework.flex.errors.AlKhwarizmixMissingImplError;
@@ -118,6 +119,25 @@ public class AlKhwarizmixProxy extends Proxy
 	//  Methods
 	//
 	//--------------------------------------------------------------------------
+	
+	/**
+	 * TODO: ASDOC Definition of addDataItems
+	 */
+	public function addDataItems(dataItems:ArrayCollection):void
+	{
+		var data:ArrayCollection = getData() as ArrayCollection;
+		if (data)
+		{
+			data.addAll(dataItems);
+			sendChangedNotification();
+		}
+		else
+		{
+			data = new ArrayCollection();
+			data.addAll(dataItems);
+			setData(data);
+		}
+	}
 	
 	/**
 	 * TODO: ASDOC Definition of getItemFactory

@@ -31,7 +31,7 @@ public class WinrakConstants
 	/**
 	 * APPLICATION POM VERSION
 	 */
-	public static const APP_POM_VERSION:String = "1.5.13";
+	public static const APP_POM_VERSION:String = "1.7.15.FBEL";
 	
 	/**
 	 * FACADE NAME
@@ -44,16 +44,12 @@ public class WinrakConstants
 	public static const STARTUP:String = "Winrak_startup";
 	public static const STARTUP_COMPLETE:String	= "Winrak_startup_complete";
 	
-	public static const GET_CUSTOMDATA:String = "Winrak_get_customdata";
-	public static const SET_CUSTOMDATA:String = "Winrak_set_customdata";
+	public static const STARTUP_VIEW:String = "Winrak_startup_view";
+	public static const STARTUP_VIEW_COMPLETE:String = "Winrak_startup_view_complete";
+	public static const SHUTDOWN_VIEW:String = "Winrak_shutdown_view";
 	
-	public static const CUSTOMDATA_PROXY_CHANGED:String = "Winrak_customdata_proxy_changed";
-	public static const LOGINUSER_PROXY_CHANGED:String = "Winrak_loginuser_proxy_changed";
-	
-	public static const CONNECT:String = "Winrak_connect";
-	public static const SUBSCRIBE:String = "Winrak_subscribe";
-	public static const LOGIN:String = "Winrak_login";
-	public static const LOGOUT:String = "Winrak_logout";
+	public static const GEOLOCATION_PROXY_CHANGED:String = "Winrak_geolocation_proxy_changed";
+	public static const ADD_GEOLOCATION:String = "Winrak_add_geolocation";
 	
 } // class
 } // package

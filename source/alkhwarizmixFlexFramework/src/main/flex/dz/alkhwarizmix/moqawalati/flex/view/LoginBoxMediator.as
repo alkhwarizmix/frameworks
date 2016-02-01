@@ -16,9 +16,9 @@ import dz.alkhwarizmix.framework.flex.AlKhwarizmixConstants;
 import dz.alkhwarizmix.framework.flex.dtos.security.model.vo.UserVO;
 import dz.alkhwarizmix.framework.flex.logging.AlKhwarizmixLog;
 import dz.alkhwarizmix.framework.flex.logging.IAlKhwarizmixLogger;
+import dz.alkhwarizmix.framework.flex.model.AlKhwarizmixLoginUserProxy;
 import dz.alkhwarizmix.moqawalati.flex.event.MoqawalatiEvent;
 import dz.alkhwarizmix.moqawalati.flex.interfaces.IMoqawalatiMediator;
-import dz.alkhwarizmix.moqawalati.flex.model.MoqawalatiLoginUserProxy;
 import dz.alkhwarizmix.moqawalati.flex.view.components.login.LoginBox;
 import dz.alkhwarizmix.moqawalati.flex.view.components.login.LoginBoxEvent;
 
@@ -95,10 +95,10 @@ public class LoginBoxMediator extends MoqawalatiMediator
 	//  appLoginUserProxy
 	//----------------------------------
 	
-	public final function get appLoginUserProxy():MoqawalatiLoginUserProxy
+	public final function get appLoginUserProxy():AlKhwarizmixLoginUserProxy
 	{
-		return appFacade.retrieveProxy(MoqawalatiLoginUserProxy.NAME)
-			as MoqawalatiLoginUserProxy;
+		return appFacade.retrieveProxy(AlKhwarizmixLoginUserProxy.NAME)
+			as AlKhwarizmixLoginUserProxy;
 	}
 	
 	//--------------------------------------------------------------------------

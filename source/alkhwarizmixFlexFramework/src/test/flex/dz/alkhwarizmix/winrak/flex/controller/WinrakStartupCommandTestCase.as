@@ -12,16 +12,11 @@
 package dz.alkhwarizmix.winrak.flex.controller
 {
 
+import dz.alkhwarizmix.framework.flex.model.AlKhwarizmixCustomDataProxy;
+import dz.alkhwarizmix.framework.flex.model.AlKhwarizmixLoginUserProxy;
 import dz.alkhwarizmix.framework.flex.model.RecordProxy;
-import dz.alkhwarizmix.moqawalati.flex.interfaces.IMoqawalatiApplication;
 import dz.alkhwarizmix.moqawalati.flex.model.MoqawalatiConfigProxy;
-import dz.alkhwarizmix.moqawalati.flex.model.MoqawalatiCustomDataProxy;
-import dz.alkhwarizmix.moqawalati.flex.model.MoqawalatiLoginUserProxy;
-import dz.alkhwarizmix.moqawalati.flex.testutils.MoqawalatiApplicationMock;
 import dz.alkhwarizmix.moqawalati.flex.testutils.MoqawalatiPureMVCTestCase;
-import dz.alkhwarizmix.moqawalati.flex.view.LoginBoxMediator;
-import dz.alkhwarizmix.moqawalati.flex.view.MDICanvasMediator;
-import dz.alkhwarizmix.moqawalati.flex.view.MainControlBarMediator;
 import dz.alkhwarizmix.winrak.flex.interfaces.IWinrakApplication;
 import dz.alkhwarizmix.winrak.flex.testutils.WinrakApplicationMock;
 
@@ -89,8 +84,8 @@ public class WinrakStartupCommandTestCase extends MoqawalatiPureMVCTestCase
 	{
 		testFacade.sendNotification("NOTE", app);
 		assertTrue(MoqawalatiConfigProxy.NAME, testFacade.hasProxy(MoqawalatiConfigProxy.NAME));
-		assertTrue(MoqawalatiCustomDataProxy.NAME, testFacade.hasProxy(MoqawalatiCustomDataProxy.NAME));
-		assertTrue(MoqawalatiLoginUserProxy.NAME, testFacade.hasProxy(MoqawalatiLoginUserProxy.NAME));
+		assertTrue(AlKhwarizmixCustomDataProxy.NAME, testFacade.hasProxy(AlKhwarizmixCustomDataProxy.NAME));
+		assertTrue(AlKhwarizmixLoginUserProxy.NAME, testFacade.hasProxy(AlKhwarizmixLoginUserProxy.NAME));
 		assertTrue(RecordProxy.NAME, testFacade.hasProxy(RecordProxy.NAME));
 	}
 	

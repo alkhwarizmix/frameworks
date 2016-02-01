@@ -24,8 +24,6 @@ import dz.alkhwarizmix.framework.flex.model.vo.AlKhwarizmixVO;
  *  @author فارس بلحواس (Fares Belhaouas)
  *  @since  ٢١ رمضان ١٤٣٦ (July 08, 2015)
  */
-[Bindable]
-[RemoteClass(alias="dz.alkhwarizmix.framework.java.dtos.record.model.vo.Record")]
 public class GeolocationVO extends AlKhwarizmixVO
 	implements IFactory
 {
@@ -49,17 +47,17 @@ public class GeolocationVO extends AlKhwarizmixVO
 	//--------------------------------------------------------------------------
 	
 	//----------------------------------
-	//  horizontalAccuracy
+	//  hAccuracy
 	//----------------------------------
 	
-	private var _horizontalAccuracy:Number;
-	public function get horizontalAccuracy():Number { return _horizontalAccuracy; }
+	private var _hAccuracy:Number;
+	public function get hAccuracy():Number { return _hAccuracy; }
 	
-	public function set horizontalAccuracy(value:Number):void
+	public function set hAccuracy(value:Number):void
 	{
-		if (_horizontalAccuracy == value)
+		if (_hAccuracy == value)
 			return;
-		_horizontalAccuracy = value;
+		_hAccuracy = value;
 	}
 	
 	//----------------------------------
@@ -102,6 +100,20 @@ public class GeolocationVO extends AlKhwarizmixVO
 		if (_speed == value)
 			return;
 		_speed = value;
+	}
+	
+	//----------------------------------
+	//  vAccuracy
+	//----------------------------------
+	
+	private var _vAccuracy:Number;
+	public function get vAccuracy():Number { return _vAccuracy; }
+	
+	public function set vAccuracy(value:Number):void
+	{
+		if (_vAccuracy == value)
+			return;
+		_vAccuracy = value;
 	}
 	
 	//--------------------------------------------------------------------------

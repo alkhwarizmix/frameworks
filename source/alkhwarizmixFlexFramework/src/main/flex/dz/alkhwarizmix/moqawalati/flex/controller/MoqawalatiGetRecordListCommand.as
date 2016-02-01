@@ -48,10 +48,14 @@ public class MoqawalatiGetRecordListCommand extends MoqawalatiBlazeDSGetDataComm
 	//
 	//--------------------------------------------------------------------------
 	
-	private static const LOG:IAlKhwarizmixLogger = AlKhwarizmixLog.
-		getLogger(MoqawalatiGetRecordListCommand);
+	private static var LOG:IAlKhwarizmixLogger = null;
 	
-	override protected function get logger():IAlKhwarizmixLogger { return LOG; }
+	override protected function get logger():IAlKhwarizmixLogger
+	{
+		if (!LOG)
+			LOG = AlKhwarizmixLog.getLogger(MoqawalatiGetRecordListCommand);
+		return LOG;
+	}
 	
 	//--------------------------------------------------------------------------
 	//

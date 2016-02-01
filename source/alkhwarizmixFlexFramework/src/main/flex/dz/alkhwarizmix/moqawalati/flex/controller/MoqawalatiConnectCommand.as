@@ -14,7 +14,7 @@ package dz.alkhwarizmix.moqawalati.flex.controller
 
 import dz.alkhwarizmix.framework.flex.logging.AlKhwarizmixLog;
 import dz.alkhwarizmix.framework.flex.logging.IAlKhwarizmixLogger;
-import dz.alkhwarizmix.moqawalati.flex.model.MoqawalatiLoginUserProxy;
+import dz.alkhwarizmix.framework.flex.model.AlKhwarizmixLoginUserProxy;
 
 /**
  *  <p>
@@ -82,7 +82,7 @@ public class MoqawalatiConnectCommand extends MoqawalatiBlazeDSGetDataCommand
 	 */
 	override public function get proxyName():String
 	{
-		return MoqawalatiLoginUserProxy.NAME;
+		return AlKhwarizmixLoginUserProxy.NAME;
 	}
 	
 } // class

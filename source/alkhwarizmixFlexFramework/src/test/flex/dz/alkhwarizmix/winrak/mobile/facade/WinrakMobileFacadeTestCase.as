@@ -1,7 +1,7 @@
 ////////////////////////////////////////////////////////////////////////////////
 //  بسم الله الرحمن الرحيم
 //
-//  حقوق التأليف والنشر ١٤٣٥ هجري، فارس بلحواس (Copyright 2014 Fares Belhaouas)  
+//  حقوق التأليف والنشر ١٤٣٧ هجري، فارس بلحواس (Copyright 2016 Fares Belhaouas)  
 //  كافة الحقوق محفوظة (All Rights Reserved)
 //
 //  NOTICE: Fares Belhaouas permits you to use, modify, and distribute this file
@@ -9,10 +9,10 @@
 //
 ////////////////////////////////////////////////////////////////////////////////
 
-package dz.alkhwarizmix.moqawalati.flex.model
+package dz.alkhwarizmix.winrak.mobile.facade
 {
 
-import dz.alkhwarizmix.moqawalati.flex.testutils.MoqawalatiTestCase;
+import dz.alkhwarizmix.winrak.flex.testutils.WinrakTestCase;
 
 import org.flexunit.asserts.assertNotNull;
 import org.flexunit.asserts.assertTrue;
@@ -23,9 +23,9 @@ import org.flexunit.asserts.assertTrue;
  *  </p>
  * 
  *  @author فارس بلحواس (Fares Belhaouas)
- *  @since  ٣٠ شعبان ١٤٣٥ (June 28, 2014)
+ *  @since ٢٤ ربيع الثاني ١٤٣٧ (January 30, 2016)
  */
-public class MoqawalatiCustomDataProxyTestCase extends MoqawalatiTestCase
+public class WinrakMobileFacadeTestCase extends WinrakTestCase
 {
 	//--------------------------------------------------------------------------
 	//
@@ -45,12 +45,17 @@ public class MoqawalatiCustomDataProxyTestCase extends MoqawalatiTestCase
 	
 	override protected function get classUnderTest():Class
 	{
-		return MoqawalatiCustomDataProxy;
+		return WinrakMobileFacadeEnhancedForTest;
 	}
 	
-	private function get utMoqawalatiCustomDataProxy():MoqawalatiCustomDataProxy
+	override protected function get classUnderTestConstructorArg1():*
 	{
-		return classInstanceUnderTest as MoqawalatiCustomDataProxy;
+		return "key"; // key
+	}
+	
+	private function get utWinrakMobileFacade():WinrakMobileFacade
+	{
+		return classInstanceUnderTest as WinrakMobileFacade;
 	}
 	
 	//--------------------------------------------------------------------------
@@ -62,7 +67,7 @@ public class MoqawalatiCustomDataProxyTestCase extends MoqawalatiTestCase
 	[Test]
 	public function test00_constructor():void
 	{
-		assertNotNull(utMoqawalatiCustomDataProxy);
+		assertNotNull(utWinrakMobileFacade);
 	}
 	
 	[Ignore("TODO: TDD")]
@@ -74,3 +79,28 @@ public class MoqawalatiCustomDataProxyTestCase extends MoqawalatiTestCase
 	
 } // class
 } // package
+
+//--------------------------------------------------------------------------
+
+import dz.alkhwarizmix.winrak.mobile.facade.WinrakMobileFacade;
+
+internal class WinrakMobileFacadeEnhancedForTest extends WinrakMobileFacade
+{
+	/**
+	 * Used by AlKhwarizmixTestCase::test_logger to test super class logger
+	 */
+	public static const loggerClazzForTest:Class = WinrakMobileFacade;
+	
+	public function WinrakMobileFacadeEnhancedForTest(key:String)
+	{
+		super(key);
+	}
+	
+	override protected function initCommandsToRegister():void
+	{
+		// NO throw new AlKhwarizmixMissingImplError();
+	}
+	
+}
+
+//--------------------------------------------------------------------------

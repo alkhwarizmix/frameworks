@@ -24,6 +24,7 @@ import dz.alkhwarizmix.framework.flex.dtos.record.model.vo.RecordVOTestCase;
 import dz.alkhwarizmix.framework.flex.dtos.security.model.vo.EncryptionVOTestCase;
 import dz.alkhwarizmix.framework.flex.dtos.security.model.vo.GroupVOTestCase;
 import dz.alkhwarizmix.framework.flex.dtos.security.model.vo.UserVOTestCase;
+import dz.alkhwarizmix.framework.flex.model.AlKhwarizmixLoginUserProxyTestCase;
 import dz.alkhwarizmix.framework.flex.model.AlKhwarizmixProxyTestCase;
 import dz.alkhwarizmix.framework.flex.model.AlKhwarizmixSuperProxyTestCase;
 import dz.alkhwarizmix.framework.flex.model.vo.AlKhwarizmixVOTestCase;
@@ -56,31 +57,32 @@ import dz.alkhwarizmix.framework.flex.view.controls.AlKhwarizmixTextInputTestCas
 public class AlKhwarizmixTestSuite
 {
 	// controller
-	public var alKhwarizmixBlazeDSGetDataCommandTestCase:AlKhwarizmixBlazeDSGetDataCommandTestCase;
-	public var alKhwarizmixMacroCommandTestCase:AlKhwarizmixMacroCommandTestCase;
-	public var alKhwarizmixSimpleCommandTestCase:AlKhwarizmixSimpleCommandTestCase;
-	public var alKhwarizmixWebGetDataCommandTestCase:AlKhwarizmixWebGetDataCommandTestCase;
-	public var alKhwarizmixGetRecordListCommandTestCase:AlKhwarizmixGetRecordListCommandTestCase;
-	public var alKhwarizmixCommitRecordListCommandTestCase:AlKhwarizmixCommitRecordListCommandTestCase;
+	public var alkhwarizmixBlazeDSGetDataCommandTestCase:AlKhwarizmixBlazeDSGetDataCommandTestCase;
+	public var alkhwarizmixMacroCommandTestCase:AlKhwarizmixMacroCommandTestCase;
+	public var alkhwarizmixSimpleCommandTestCase:AlKhwarizmixSimpleCommandTestCase;
+	public var alkhwarizmixWebGetDataCommandTestCase:AlKhwarizmixWebGetDataCommandTestCase;
+	public var alkhwarizmixGetRecordListCommandTestCase:AlKhwarizmixGetRecordListCommandTestCase;
+	public var alkhwarizmixCommitRecordListCommandTestCase:AlKhwarizmixCommitRecordListCommandTestCase;
 	
 	// dtos
 	public var recordVOTestCase:RecordVOTestCase;
 	public var recordListVOTestCase:RecordListVOTestCase;
-	public var alKhwarizmixDTOsToIncludeTestCase:AlKhwarizmixDTOsToIncludeTestCase;
+	public var alkhwarizmixDTOsToIncludeTestCase:AlKhwarizmixDTOsToIncludeTestCase;
 	public var userVOTestCase:UserVOTestCase;
 	public var groupVOTestCase:GroupVOTestCase;
 	public var encryptionVOTestCase:EncryptionVOTestCase;
 	
 	// model
-	public var alKhwarizmixVOTestCase:AlKhwarizmixVOTestCase;
-	public var alKhwarizmixProxyTestCase:AlKhwarizmixProxyTestCase;
-	public var alKhwarizmixSuperProxy:AlKhwarizmixSuperProxyTestCase;
+	public var alkhwarizmixVOTestCase:AlKhwarizmixVOTestCase;
+	public var alkhwarizmixProxyTestCase:AlKhwarizmixProxyTestCase;
+	public var alkhwarizmixSuperProxy:AlKhwarizmixSuperProxyTestCase;
+	public var alkhwarizmixLoginUserProxyTestCase:AlKhwarizmixLoginUserProxyTestCase;
 	
 	// modules
-	public var alKhwarizmixModuleTestCase:AlKhwarizmixModuleTestCase;
+	public var alkhwarizmixModuleTestCase:AlKhwarizmixModuleTestCase;
 	
 	// rpc
-	public var alKhwarizmixRemoteObjectTestCase:AlKhwarizmixRemoteObjectTestCase;
+	public var alkhwarizmixRemoteObjectTestCase:AlKhwarizmixRemoteObjectTestCase;
 	
 	// resources
 	public var alkhwarizmixResourceManagerTestCase:AlKhwarizmixResourceManagerTestCase;
@@ -92,22 +94,22 @@ public class AlKhwarizmixTestSuite
 	public var cryptoUtilFactoryTestCase:CryptoUtilFactoryTestCase;
 	
 	// view
-	public var alKhwarizmixDataListCanvasTestCase:AlKhwarizmixDataListCanvasTestCase;
-	public var alKhwarizmixCanvasTestCase:AlKhwarizmixCanvasTestCase;
-	public var alKhwarizmixMDICanvasTestCase:AlKhwarizmixMDICanvasTestCase;
-	public var alKhwarizmixMDIWindowTestCase:AlKhwarizmixMDIWindowTestCase;
-	public var alKhwarizmixVBoxTestCase:AlKhwarizmixVBoxTestCase;
-	public var alKhwarizmixButtonTestCase:AlKhwarizmixButtonTestCase;
-	public var alKhwarizmixCheckBoxTestCase:AlKhwarizmixCheckBoxTestCase;
-	public var alKhwarizmixDataGridTestCase:AlKhwarizmixDataGridTestCase;
-	public var alKhwarizmixLabelTestCase:AlKhwarizmixLabelTestCase;
-	public var alKhwarizmixTextInputTestCase:AlKhwarizmixTextInputTestCase;
+	public var alkhwarizmixDataListCanvasTestCase:AlKhwarizmixDataListCanvasTestCase;
+	public var alkhwarizmixCanvasTestCase:AlKhwarizmixCanvasTestCase;
+	public var alkhwarizmixMDICanvasTestCase:AlKhwarizmixMDICanvasTestCase;
+	public var alkhwarizmixMDIWindowTestCase:AlKhwarizmixMDIWindowTestCase;
+	public var alkhwarizmixVBoxTestCase:AlKhwarizmixVBoxTestCase;
+	public var alkhwarizmixButtonTestCase:AlKhwarizmixButtonTestCase;
+	public var alkhwarizmixCheckBoxTestCase:AlKhwarizmixCheckBoxTestCase;
+	public var alkhwarizmixDataGridTestCase:AlKhwarizmixDataGridTestCase;
+	public var alkhwarizmixLabelTestCase:AlKhwarizmixLabelTestCase;
+	public var alkhwarizmixTextInputTestCase:AlKhwarizmixTextInputTestCase;
 	public var alkhwarizmixDataListMediatorTestCase:AlkhwarizmixDataListMediatorTestCase;
-	public var alKhwarizmixMediatorTestCase:AlKhwarizmixMediatorTestCase;
-	public var alKhwarizmixMenuBarTestCase:AlKhwarizmixMenuBarTestCase;
-	public var alKhwarizmixImageTestCase:AlKhwarizmixImageTestCase;
-	public var alKhwarizmixTextAreaTestCase:AlKhwarizmixTextAreaTestCase;
-	public var alKhwarizmixDataEditFormCanvasTestCase:AlKhwarizmixDataEditFormCanvasTestCase;
+	public var alkhwarizmixMediatorTestCase:AlKhwarizmixMediatorTestCase;
+	public var alkhwarizmixMenuBarTestCase:AlKhwarizmixMenuBarTestCase;
+	public var alkhwarizmixImageTestCase:AlKhwarizmixImageTestCase;
+	public var alkhwarizmixTextAreaTestCase:AlKhwarizmixTextAreaTestCase;
+	public var alkhwarizmixDataEditFormCanvasTestCase:AlKhwarizmixDataEditFormCanvasTestCase;
 	
 } // class
 } // package

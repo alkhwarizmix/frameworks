@@ -73,8 +73,8 @@ public class GeolocationVOTestCase extends AlKhwarizmixTestCase
 	[Test]
 	public function test01_horizontalAccuracy_setAndGet():void {
 		var valueToSet:Number = 200.56;
-		utGeolocationVO.horizontalAccuracy = valueToSet;
-		assertEquals(valueToSet, utGeolocationVO.horizontalAccuracy);
+		utGeolocationVO.hAccuracy = valueToSet;
+		assertEquals(valueToSet, utGeolocationVO.hAccuracy);
 	}
 	
 	[Test]
@@ -96,6 +96,13 @@ public class GeolocationVOTestCase extends AlKhwarizmixTestCase
 		var valueToSet:Number = 90.09;
 		utGeolocationVO.speed = valueToSet;
 		assertEquals(valueToSet, utGeolocationVO.speed);
+	}
+	
+	[Test]
+	public function test05_verticalAccuracy_setAndGet():void {
+		var valueToSet:Number = 200.56;
+		utGeolocationVO.vAccuracy = valueToSet;
+		assertEquals(valueToSet, utGeolocationVO.vAccuracy);
 	}
 	
 } // class

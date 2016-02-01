@@ -1,7 +1,7 @@
 ////////////////////////////////////////////////////////////////////////////////
 //  بسم الله الرحمن الرحيم
 //
-//  حقوق التأليف والنشر ١٤٣٥ هجري، فارس بلحواس (Copyright 2013 Fares Belhaouas)  
+//  حقوق التأليف والنشر ١٤٣٥ هجري، فارس بلحواس (Copyright 2014 Fares Belhaouas)  
 //  كافة الحقوق محفوظة (All Rights Reserved)
 //
 //  NOTICE: Fares Belhaouas permits you to use, modify, and distribute this file
@@ -9,18 +9,17 @@
 //
 ////////////////////////////////////////////////////////////////////////////////
 
-package dz.alkhwarizmix.moqawalati.flex.model
+package dz.alkhwarizmix.framework.flex.model
 {
-
-import flash.utils.Dictionary;
 
 import mx.core.IFactory;
 
 import dz.alkhwarizmix.framework.flex.AlKhwarizmixConstants;
-import dz.alkhwarizmix.framework.flex.dtos.customize.model.vo.CustomDataVO;
+import dz.alkhwarizmix.framework.flex.dtos.security.model.vo.UserVO;
+import dz.alkhwarizmix.framework.flex.interfaces.IAlKhwarizmixProxy;
 import dz.alkhwarizmix.framework.flex.logging.AlKhwarizmixLog;
 import dz.alkhwarizmix.framework.flex.logging.IAlKhwarizmixLogger;
-import dz.alkhwarizmix.moqawalati.flex.interfaces.IMoqawalatiProxy;
+import dz.alkhwarizmix.framework.flex.model.AlKhwarizmixProxy;
 
 /**
  *  <p>
@@ -28,10 +27,10 @@ import dz.alkhwarizmix.moqawalati.flex.interfaces.IMoqawalatiProxy;
  *  </p>
  * 
  *  @author فارس بلحواس (Fares Belhaouas)
- *  @since  ٢٠ محرم ١٤٣٥ (November 24, 2013)
+ *  @since  ٢١ جمادى الأول ١٤٣٥ (March 21, 2014)
  */
-public class MoqawalatiCustomDataProxy extends MoqawalatiProxy
-	implements IMoqawalatiProxy
+public class AlKhwarizmixLoginUserProxy extends AlKhwarizmixProxy
+	implements IAlKhwarizmixProxy
 {
 	//--------------------------------------------------------------------------
 	//
@@ -42,7 +41,7 @@ public class MoqawalatiCustomDataProxy extends MoqawalatiProxy
 	/**
 	 * The proxy name
 	 */
-	public static const NAME:String = "MoqawalatiCustomDataProxy";
+	public static const NAME:String = "AlKhwarizmixLoginUserProxy";
 	
 	//--------------------------------------------------------------------------
 	//
@@ -55,7 +54,7 @@ public class MoqawalatiCustomDataProxy extends MoqawalatiProxy
 	 *
 	 * @param data TODO: ASDOC
 	 */
-	public function MoqawalatiCustomDataProxy(data:Object=null)
+	public function AlKhwarizmixLoginUserProxy(data:Object=null)
 	{
 		super(NAME, data);
 	}
@@ -71,7 +70,7 @@ public class MoqawalatiCustomDataProxy extends MoqawalatiProxy
 	override protected function get logger():IAlKhwarizmixLogger
 	{
 		if (!LOG)
-			LOG = AlKhwarizmixLog.getLogger(MoqawalatiCustomDataProxy);
+			LOG = AlKhwarizmixLog.getLogger(AlKhwarizmixLoginUserProxy);
 		return LOG;
 	}
 	
@@ -86,7 +85,7 @@ public class MoqawalatiCustomDataProxy extends MoqawalatiProxy
 	 */
 	override public function get changedNoteName():String
 	{
-		return AlKhwarizmixConstants.CUSTOMDATA_PROXY_CHANGED;
+		return AlKhwarizmixConstants.LOGINUSER_PROXY_CHANGED;
 	}
 	
 	//--------------------------------------------------------------------------
@@ -96,14 +95,12 @@ public class MoqawalatiCustomDataProxy extends MoqawalatiProxy
 	//--------------------------------------------------------------------------
 	
 	//----------------------------------
-	//  configDico
+	//  user
 	//----------------------------------
 	
-	public function get configDico():Dictionary
+	public function get user():UserVO
 	{
-		if (!getData())
-			setData(new Dictionary());
-		return (getData() as Dictionary);
+		return (getData() as UserVO);
 	}
 	
 	//--------------------------------------------------------------------------
@@ -117,7 +114,7 @@ public class MoqawalatiCustomDataProxy extends MoqawalatiProxy
 	 */
 	override public function getItemFactory():IFactory
 	{
-		return new CustomDataVO();
+		return new UserVO();
 	}
 	
 } // Class

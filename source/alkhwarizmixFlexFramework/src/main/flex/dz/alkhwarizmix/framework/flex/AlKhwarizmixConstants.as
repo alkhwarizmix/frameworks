@@ -27,15 +27,15 @@ public class AlKhwarizmixConstants
 	//  Constants
 	//
 	//--------------------------------------------------------------------------
-	
+
 	/**
 	 *  Notification name constants
 	 */
 	public static const GET_RECORD_LIST:String = "AlKhwarizmix_get_record_list";
 	public static const COMMIT_RECORD_LIST:String = "AlKhwarizmix_commit_record_list";
-	
+
 	public static const RECORD_PROXY_CHANGED:String = "AlKhwarizmix_record_proxy_changed";
-	
+
 	public static const REMOTE_SERVER_ERROR:String = "AlKhwarizmix_remote_server_error";
 	
 	public static const GET_CUSTOMDATA:String = "AlKhwarizmix_get_customdata";

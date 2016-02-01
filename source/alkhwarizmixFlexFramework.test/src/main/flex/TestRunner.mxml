@@ -38,6 +38,7 @@
 		import dz.alkhwarizmix.moqawalati.flex.Moqawalati1TestSuite;
 		import dz.alkhwarizmix.moqawalati.mobile.MoqawalatiMobileTestSuite;
 		import dz.alkhwarizmix.winrak.flex.WinrakTestSuite;
+		import dz.alkhwarizmix.winrak.mobile.WinrakMobileTestSuite;
 		
 		import org.flexunit.internals.TextListener;
 		import org.flexunit.internals.TraceListener;
@@ -69,7 +70,8 @@
 			flexUnitCore.run(AlKhwarizmixTestSuite,
 				Moqawalati1TestSuite,
 				MoqawalatiMobileTestSuite,
-				WinrakTestSuite
+				WinrakTestSuite,
+				WinrakMobileTestSuite
 			);
 		}
 		

@@ -14,8 +14,8 @@ package dz.alkhwarizmix.moqawalati.flex.view
 
 import dz.alkhwarizmix.framework.flex.AlKhwarizmixConstants;
 import dz.alkhwarizmix.framework.flex.dtos.security.model.vo.UserVO;
+import dz.alkhwarizmix.framework.flex.model.AlKhwarizmixLoginUserProxy;
 import dz.alkhwarizmix.framework.flex.utils.EventUtil;
-import dz.alkhwarizmix.moqawalati.flex.model.MoqawalatiLoginUserProxy;
 import dz.alkhwarizmix.moqawalati.flex.testutils.MoqawalatiPureMVCTestCase;
 import dz.alkhwarizmix.moqawalati.flex.testutils.MoqawalatiSimpleCommandMock;
 import dz.alkhwarizmix.moqawalati.flex.view.components.login.LoginBox;
@@ -53,7 +53,7 @@ public class LoginBoxMediatorTestCase extends MoqawalatiPureMVCTestCase
 	{
 		super.setUp();
 		
-		moqawalatiMainFacade.registerProxy(new MoqawalatiLoginUserProxy());
+		moqawalatiMainFacade.registerProxy(new AlKhwarizmixLoginUserProxy());
 		
 		testFacade.registerMediator(utLoginBoxMediator);
 	}
@@ -63,7 +63,7 @@ public class LoginBoxMediatorTestCase extends MoqawalatiPureMVCTestCase
 		utLoginBoxMediator.setViewComponent(null);
 		testFacade.removeMediator(utLoginBoxMediator.getMediatorName());
 		
-		moqawalatiMainFacade.removeProxy(MoqawalatiLoginUserProxy.NAME);
+		moqawalatiMainFacade.removeProxy(AlKhwarizmixLoginUserProxy.NAME);
 		
 		super.tearDown();
 	}
@@ -83,10 +83,10 @@ public class LoginBoxMediatorTestCase extends MoqawalatiPureMVCTestCase
 		return classInstanceUnderTest as LoginBoxMediator;
 	}
 	
-	private function get appLoginUserProxy():MoqawalatiLoginUserProxy
+	private function get appLoginUserProxy():AlKhwarizmixLoginUserProxy
 	{
-		return moqawalatiMainFacade.retrieveProxy(MoqawalatiLoginUserProxy.NAME)
-			as MoqawalatiLoginUserProxy;
+		return moqawalatiMainFacade.retrieveProxy(AlKhwarizmixLoginUserProxy.NAME)
+			as AlKhwarizmixLoginUserProxy;
 	}
 	
 	private function newUserVO(userId:String):UserVO

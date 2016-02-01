@@ -32,7 +32,7 @@ import org.puremvc.as3.multicore.patterns.facade.Facade;
  */
 public class MoqawalatiPureMVCTestCase extends MoqawalatiTestCase
 {
-	private static const TEST_FACADE_NAME:String = "TEST_FACADE";
+	private static const TEST_FACADE_NAME:String = "MoqawalatiPureMVCTestCase_TEST_FACADE";
 	
 	//--------------------------------------------------------------------------
 	//

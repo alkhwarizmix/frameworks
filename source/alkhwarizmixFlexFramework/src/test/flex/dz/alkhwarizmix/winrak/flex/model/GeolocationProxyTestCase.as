@@ -1,7 +1,7 @@
 ////////////////////////////////////////////////////////////////////////////////
 //  بسم الله الرحمن الرحيم
 //
-//  حقوق التأليف والنشر ١٤٣٦ هجري، فارس بلحواس (Copyright 2015 Fares Belhaouas)  
+//  حقوق التأليف والنشر ١٤٣٧ هجري، فارس بلحواس (Copyright 2016 Fares Belhaouas)  
 //  كافة الحقوق محفوظة (All Rights Reserved)
 //
 //  NOTICE: Fares Belhaouas permits you to use, modify, and distribute this file
@@ -12,7 +12,7 @@
 package dz.alkhwarizmix.winrak.flex.model
 {
 
-import dz.alkhwarizmix.winrak.flex.testutils.WinrakTestCase;
+import dz.alkhwarizmix.winrak.flex.testutils.WinrakPureMVCTestCase;
 
 import org.flexunit.asserts.assertNotNull;
 import org.flexunit.asserts.assertTrue;
@@ -23,9 +23,9 @@ import org.flexunit.asserts.assertTrue;
  *  </p>
  * 
  *  @author فارس بلحواس (Fares Belhaouas)
- *  @since  ٠٤ شوال ١٤٣٦ (July 20, 2015)
+ *  @since ٢٤ ربيع الثاني ١٤٣٧ (January 30, 2016)
  */
-public class WinrakCustomDataProxyTestCase extends WinrakTestCase
+public class GeolocationProxyTestCase extends WinrakPureMVCTestCase
 {
 	//--------------------------------------------------------------------------
 	//
@@ -45,12 +45,12 @@ public class WinrakCustomDataProxyTestCase extends WinrakTestCase
 	
 	override protected function get classUnderTest():Class
 	{
-		return WinrakCustomDataProxy;
+		return GeolocationProxy;
 	}
 	
-	private function get utWinrakCustomDataProxy():WinrakCustomDataProxy
+	private function get utGeolocationProxy():GeolocationProxy
 	{
-		return classInstanceUnderTest as WinrakCustomDataProxy;
+		return classInstanceUnderTest as GeolocationProxy;
 	}
 	
 	//--------------------------------------------------------------------------
@@ -62,7 +62,7 @@ public class WinrakCustomDataProxyTestCase extends WinrakTestCase
 	[Test]
 	public function test00_constructor():void
 	{
-		assertNotNull(utWinrakCustomDataProxy);
+		assertNotNull(utGeolocationProxy);
 	}
 	
 	[Ignore("TODO: TDD")]

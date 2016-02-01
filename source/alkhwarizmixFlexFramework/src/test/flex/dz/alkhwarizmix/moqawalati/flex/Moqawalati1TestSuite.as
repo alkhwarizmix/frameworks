@@ -28,7 +28,6 @@ import dz.alkhwarizmix.moqawalati.flex.facade.MoqawalatiFacadeTestCase;
 import dz.alkhwarizmix.moqawalati.flex.messaging.MoqawalatiConsumerTestCase;
 import dz.alkhwarizmix.moqawalati.flex.messaging.MoqawalatiProducerTestCase;
 import dz.alkhwarizmix.moqawalati.flex.model.MoqawalatiConfigProxyTestCase;
-import dz.alkhwarizmix.moqawalati.flex.model.MoqawalatiLoginUserProxyTestCase;
 import dz.alkhwarizmix.moqawalati.flex.model.MoqawalatiProxyTestCase;
 import dz.alkhwarizmix.moqawalati.flex.model.vo.MoqawalatiVOTestCase;
 import dz.alkhwarizmix.moqawalati.flex.resources.MoqawalatiResourceManagerTestCase;
@@ -91,7 +90,6 @@ public class Moqawalati1TestSuite
 	
 	// model
 	public var moqawalatiConfigProxyTestCase:MoqawalatiConfigProxyTestCase;
-	public var moqawalatiLoginUserProxyTestCase:MoqawalatiLoginUserProxyTestCase;
 	public var moqawalatiMDICanvasTestCase:MoqawalatiMDICanvasTestCase;
 	public var moqawalatiProxyTestCase:MoqawalatiProxyTestCase;
 	

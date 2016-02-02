@@ -74,13 +74,13 @@ public class MoqawalatiSubscribeCommandTestCase extends MoqawalatiPureMVCTestCas
 	[Test]
 	public function test02_operationName():void
 	{
-		assertEquals("login", moqawalatiSubscribeCommand.operationName);
+		assertEquals("subscribe", moqawalatiSubscribeCommand.operationName);
 	}
 	
 	[Test]
 	public function test03_proxyName():void
 	{
-		assertEquals("MoqawalatiSubscribeUserProxy", moqawalatiSubscribeCommand.proxyName);
+		assertEquals("AlKhwarizmixLoginUserProxy", moqawalatiSubscribeCommand.proxyName);
 	}
 	
 } // class

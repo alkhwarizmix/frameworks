@@ -74,13 +74,13 @@ public class MoqawalatiConnectCommandTestCase extends MoqawalatiPureMVCTestCase
 	[Test]
 	public function test02_operationName():void
 	{
-		assertEquals("login", moqawalatiConnectCommand.operationName);
+		assertEquals("connect", moqawalatiConnectCommand.operationName);
 	}
 	
 	[Test]
 	public function test03_proxyName():void
 	{
-		assertEquals("MoqawalatiConnectUserProxy", moqawalatiConnectCommand.proxyName);
+		assertEquals("AlKhwarizmixLoginUserProxy", moqawalatiConnectCommand.proxyName);
 	}
 	
 } // class

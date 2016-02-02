@@ -74,13 +74,13 @@ public class WinrakConnectCommandTestCase extends WinrakPureMVCTestCase
 	[Test]
 	public function test02_operationName():void
 	{
-		assertEquals("login", winrakConnectCommand.operationName);
+		assertEquals("connect", winrakConnectCommand.operationName);
 	}
 	
 	[Test]
 	public function test03_proxyName():void
 	{
-		assertEquals("WinrakConnectUserProxy", winrakConnectCommand.proxyName);
+		assertEquals("AlKhwarizmixLoginUserProxy", winrakConnectCommand.proxyName);
 	}
 	
 } // class

@@ -80,7 +80,7 @@ public class WinrakLoginCommandTestCase extends WinrakPureMVCTestCase
 	[Test]
 	public function test03_proxyName():void
 	{
-		assertEquals("WinrakLoginUserProxy", moqawalatiLoginCommand.proxyName);
+		assertEquals("AlKhwarizmixLoginUserProxy", moqawalatiLoginCommand.proxyName);
 	}
 	
 } // class

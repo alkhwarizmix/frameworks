@@ -13,11 +13,14 @@ package dz.alkhwarizmix.winrak.flex
 {
 
 import dz.alkhwarizmix.winrak.flex.controller.WinrakAddGeolocationCommandTestCase;
+import dz.alkhwarizmix.winrak.flex.controller.WinrakConnectCommandTestCase;
+import dz.alkhwarizmix.winrak.flex.controller.WinrakGetCustomizedDataCommandTestCase;
 import dz.alkhwarizmix.winrak.flex.controller.WinrakLoginCommandTestCase;
 import dz.alkhwarizmix.winrak.flex.controller.WinrakLogoutCommandTestCase;
 import dz.alkhwarizmix.winrak.flex.controller.WinrakSetCustomizedDataCommandTestCase;
 import dz.alkhwarizmix.winrak.flex.controller.WinrakStartupCommandTestCase;
 import dz.alkhwarizmix.winrak.flex.controller.WinrakSubscribeCommandTestCase;
+import dz.alkhwarizmix.winrak.flex.model.GeolocationProxyTestCase;
 import dz.alkhwarizmix.winrak.flex.model.vo.GeolocationListVOTestCase;
 import dz.alkhwarizmix.winrak.flex.model.vo.GeolocationVOTestCase;
 
@@ -34,6 +37,8 @@ public class WinrakTestSuite
 	
 	// controller
 	public var winrakAddGeolocationCommandTestCase:WinrakAddGeolocationCommandTestCase;
+	public var winrakConnectCommandTestCase:WinrakConnectCommandTestCase;
+	public var winrakGetCustomizedDataCommandTestCase:WinrakGetCustomizedDataCommandTestCase;
 	public var winrakLoginCommandTestCase:WinrakLoginCommandTestCase;
 	public var winrakLogoutCommandTestCase:WinrakLogoutCommandTestCase;
 	public var winrakSetCustomizedDataCommandTestCase:WinrakSetCustomizedDataCommandTestCase;
@@ -46,6 +51,7 @@ public class WinrakTestSuite
 	// model
 	public var geolocationVOTestCase:GeolocationVOTestCase;
 	public var geolocationListVOTestCase:GeolocationListVOTestCase;
+	public var geolocationProxyTestCase:GeolocationProxyTestCase;
 	
 	// dtos
 	// public var moqawalatiDTOsToIncludeTestCase:MoqawalatiDTOsToIncludeTestCase;

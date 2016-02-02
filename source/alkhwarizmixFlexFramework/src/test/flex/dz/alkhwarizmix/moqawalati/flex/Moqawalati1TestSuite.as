@@ -14,6 +14,7 @@ package dz.alkhwarizmix.moqawalati.flex
 
 import dz.alkhwarizmix.moqawalati.flex.controller.MoqawalatiBlazeDSGetDataCommandTestCase;
 import dz.alkhwarizmix.moqawalati.flex.controller.MoqawalatiCommitRecordListCommandTestCase;
+import dz.alkhwarizmix.moqawalati.flex.controller.MoqawalatiConnectCommandTestCase;
 import dz.alkhwarizmix.moqawalati.flex.controller.MoqawalatiGetCustomizedDataCommandTestCase;
 import dz.alkhwarizmix.moqawalati.flex.controller.MoqawalatiGetRecordListCommandTestCase;
 import dz.alkhwarizmix.moqawalati.flex.controller.MoqawalatiLoginCommandTestCase;
@@ -21,6 +22,7 @@ import dz.alkhwarizmix.moqawalati.flex.controller.MoqawalatiLogoutCommandTestCas
 import dz.alkhwarizmix.moqawalati.flex.controller.MoqawalatiSetCustomizedDataCommandTestCase;
 import dz.alkhwarizmix.moqawalati.flex.controller.MoqawalatiSimpleCommandTestCase;
 import dz.alkhwarizmix.moqawalati.flex.controller.MoqawalatiStartupCommandTestCase;
+import dz.alkhwarizmix.moqawalati.flex.controller.MoqawalatiSubscribeCommandTestCase;
 import dz.alkhwarizmix.moqawalati.flex.controller.MoqawalatiWebGetDataCommandTestCase;
 import dz.alkhwarizmix.moqawalati.flex.errors.MoqawalatiErrorTestCase;
 import dz.alkhwarizmix.moqawalati.flex.event.MoqawalatiEventTestCase;
@@ -75,15 +77,17 @@ public class Moqawalati1TestSuite
 	
 	// controller
 	public var moqawalatiBlazeDSGetDataCommandTestCase:MoqawalatiBlazeDSGetDataCommandTestCase;
+	public var moqawalatiCommitRecordListCommandTestCase:MoqawalatiCommitRecordListCommandTestCase;
+	public var moqawalatiConnectCommandTestCase:MoqawalatiConnectCommandTestCase;
 	public var moqawalatiGetCustomizedDataCommandTestCase:MoqawalatiGetCustomizedDataCommandTestCase;
+	public var moqawalatiGetRecordListCommandTestCase:MoqawalatiGetRecordListCommandTestCase;
 	public var moqawalatiSetCustomizedDataCommandTestCase:MoqawalatiSetCustomizedDataCommandTestCase;
 	public var moqawalatiStartupCommandTestCase:MoqawalatiStartupCommandTestCase;
 	public var moqawalatiLoginCommandTestCase:MoqawalatiLoginCommandTestCase;
 	public var moqawalatiLogoutCommandTestCase:MoqawalatiLogoutCommandTestCase;
 	public var moqawalatiWebGetDataCommandTestCase:MoqawalatiWebGetDataCommandTestCase;
 	public var moqawalatiSimpleCommandTestCase:MoqawalatiSimpleCommandTestCase;
-	public var moqawalatiGetRecordListCommandTestCase:MoqawalatiGetRecordListCommandTestCase;
-	public var moqawalatiCommitRecordListCommandTestCase:MoqawalatiCommitRecordListCommandTestCase;
+	public var moqawalatiSubscribeCommandTestCase:MoqawalatiSubscribeCommandTestCase;
 	
 	// event
 	public var moqawalatiEventTestCase:MoqawalatiEventTestCase;

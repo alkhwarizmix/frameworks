@@ -15,6 +15,8 @@ package dz.alkhwarizmix.winrak.flex.model
 import mx.core.IFactory;
 
 import dz.alkhwarizmix.framework.flex.interfaces.IAlKhwarizmixProxy;
+import dz.alkhwarizmix.framework.flex.logging.AlKhwarizmixLog;
+import dz.alkhwarizmix.framework.flex.logging.IAlKhwarizmixLogger;
 import dz.alkhwarizmix.winrak.flex.WinrakConstants;
 import dz.alkhwarizmix.winrak.flex.model.vo.GeolocationVO;
 
@@ -54,6 +56,21 @@ public class GeolocationProxy extends WinrakProxy
 	public function GeolocationProxy(data:Object=null)
 	{
 		super(NAME, data);
+	}
+	
+	//--------------------------------------------------------------------------
+	//
+	//  Logger
+	//
+	//--------------------------------------------------------------------------
+	
+	private static var LOG:IAlKhwarizmixLogger = null;
+	
+	override protected function get logger():IAlKhwarizmixLogger
+	{
+		if (!LOG)
+			LOG = AlKhwarizmixLog.getLogger(GeolocationProxy);
+		return LOG;
 	}
 	
 	//--------------------------------------------------------------------------

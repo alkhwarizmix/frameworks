@@ -16,6 +16,7 @@ import dz.alkhwarizmix.winrak.flex.testutils.WinrakTestCase;
 
 import org.flexunit.asserts.assertNotNull;
 import org.flexunit.asserts.assertTrue;
+import org.puremvc.as3.multicore.patterns.facade.Facade;
 
 /**
  *  <p>
@@ -40,7 +41,7 @@ public class WinrakMobileFacadeTestCase extends WinrakTestCase
 	
 	override protected function tearDown():void
 	{
-		// NOOP
+		Facade.removeCore("key");
 	}
 	
 	override protected function get classUnderTest():Class

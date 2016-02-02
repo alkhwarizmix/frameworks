@@ -84,7 +84,7 @@ public class WinrakGetCustomizedDataCommandTestCase extends WinrakPureMVCTestCas
 	[Test]
 	public function test03_proxyName():void
 	{
-		assertEquals("WinrakCustomDataProxy", winrakGetCustomizedDataCommand.proxyName);
+		assertEquals("AlKhwarizmixCustomDataProxy", winrakGetCustomizedDataCommand.proxyName);
 	}
 	
 } // class

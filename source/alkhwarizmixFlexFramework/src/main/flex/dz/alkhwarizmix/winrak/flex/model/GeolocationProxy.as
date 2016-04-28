@@ -75,7 +75,7 @@ public class GeolocationProxy extends WinrakProxy
 	
 	//--------------------------------------------------------------------------
 	//
-	//  Overriden properties
+	//  Overridden properties
 	//
 	//--------------------------------------------------------------------------
 	
@@ -89,7 +89,7 @@ public class GeolocationProxy extends WinrakProxy
 	
 	//--------------------------------------------------------------------------
 	//
-	//  Overriden methods
+	//  Overridden methods
 	//
 	//--------------------------------------------------------------------------
 	

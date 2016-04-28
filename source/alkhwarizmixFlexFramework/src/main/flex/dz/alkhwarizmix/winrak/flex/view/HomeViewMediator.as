@@ -88,7 +88,7 @@ public class HomeViewMediator extends WinrakMediator
 	
 	//--------------------------------------------------------------------------
 	//
-	//  Overriden methods
+	//  Overridden methods
 	//
 	//--------------------------------------------------------------------------
 	

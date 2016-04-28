@@ -88,7 +88,7 @@ public class MainCanvasMediator extends MoqawalatiMediator
 	
 	//--------------------------------------------------------------------------
 	//
-	//  Overriden methods
+	//  Overridden methods
 	//
 	//--------------------------------------------------------------------------
 	

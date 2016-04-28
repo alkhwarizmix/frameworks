@@ -59,7 +59,7 @@ public class WinrakGetRecordListCommand extends WinrakBlazeDSGetDataCommand
 	
 	//--------------------------------------------------------------------------
 	//
-	//  Overriden properties
+	//  Overridden properties
 	//
 	//--------------------------------------------------------------------------
 	

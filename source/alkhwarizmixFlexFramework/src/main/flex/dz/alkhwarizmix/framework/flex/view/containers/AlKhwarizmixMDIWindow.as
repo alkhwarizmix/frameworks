@@ -71,7 +71,7 @@ public class AlKhwarizmixMDIWindow extends MDIWindow
 	
 	//--------------------------------------------------------------------------
 	//
-	//  Overriden methods
+	//  Overridden methods
 	//
 	//--------------------------------------------------------------------------
 	

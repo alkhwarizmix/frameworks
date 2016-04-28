@@ -51,7 +51,7 @@ public class WinrakBlazeDSGetDataCommand extends AlKhwarizmixBlazeDSGetDataComma
 	
 	//--------------------------------------------------------------------------
 	//
-	//  Overriden properties
+	//  Overridden properties
 	//
 	//--------------------------------------------------------------------------
 	

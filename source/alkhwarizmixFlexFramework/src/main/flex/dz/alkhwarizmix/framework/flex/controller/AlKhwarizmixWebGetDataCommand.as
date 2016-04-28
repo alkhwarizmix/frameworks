@@ -48,7 +48,7 @@ public class AlKhwarizmixWebGetDataCommand extends AlKhwarizmixSimpleCommand
 	
 	//--------------------------------------------------------------------------
 	//
-	//  Overriden properties
+	//  Overridden properties
 	//
 	//--------------------------------------------------------------------------
 	
@@ -80,7 +80,7 @@ public class AlKhwarizmixWebGetDataCommand extends AlKhwarizmixSimpleCommand
 	
 	//--------------------------------------------------------------------------
 	//
-	//  Overriden methods
+	//  Overridden methods
 	//
 	//--------------------------------------------------------------------------
 	

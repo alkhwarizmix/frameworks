@@ -60,7 +60,7 @@ public class MoqawalatiStartupCommand extends MoqawalatiSimpleCommand
 	
 	//--------------------------------------------------------------------------
 	//
-	//  Overriden methods
+	//  Overridden methods
 	//
 	//--------------------------------------------------------------------------
 	

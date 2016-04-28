@@ -57,7 +57,7 @@ public class MoqawalatiTextInput extends AlKhwarizmixTextInput
 	
 	//--------------------------------------------------------------------------
 	//
-	//  Overriden properties
+	//  Overridden properties
 	//
 	//--------------------------------------------------------------------------
 	

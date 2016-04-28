@@ -57,7 +57,7 @@ public class AlKhwarizmixCommitRecordListCommand extends AlKhwarizmixBlazeDSGetD
 	
 	//--------------------------------------------------------------------------
 	//
-	//  Overriden properties
+	//  Overridden properties
 	//
 	//--------------------------------------------------------------------------
 	

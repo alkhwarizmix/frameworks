@@ -57,7 +57,7 @@ public class MoqawalatiSubscribeCommand extends MoqawalatiBlazeDSGetDataCommand
 	
 	//--------------------------------------------------------------------------
 	//
-	//  Overriden properties
+	//  Overridden properties
 	//
 	//--------------------------------------------------------------------------
 	

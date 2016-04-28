@@ -103,7 +103,7 @@ public class LoginBoxMediator extends MoqawalatiMediator
 	
 	//--------------------------------------------------------------------------
 	//
-	//  Overriden methods
+	//  Overridden methods
 	//
 	//--------------------------------------------------------------------------
 	

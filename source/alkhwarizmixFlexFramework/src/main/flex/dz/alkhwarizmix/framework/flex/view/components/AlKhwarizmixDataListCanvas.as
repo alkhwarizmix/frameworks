@@ -103,7 +103,7 @@ public class AlKhwarizmixDataListCanvas extends AlKhwarizmixCanvas
 	
 	//--------------------------------------------------------------------------
 	//
-	//  Overriden methods
+	//  Overridden methods
 	//
 	//--------------------------------------------------------------------------
 	

@@ -57,7 +57,7 @@ public class MoqawalatiMenuBar extends AlKhwarizmixMenuBar
 	
 	//--------------------------------------------------------------------------
 	//
-	//  Overriden properties
+	//  Overridden properties
 	//
 	//--------------------------------------------------------------------------
 	

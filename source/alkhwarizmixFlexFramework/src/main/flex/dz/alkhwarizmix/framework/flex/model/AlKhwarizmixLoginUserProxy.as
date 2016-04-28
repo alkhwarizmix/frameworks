@@ -76,7 +76,7 @@ public class AlKhwarizmixLoginUserProxy extends AlKhwarizmixProxy
 	
 	//--------------------------------------------------------------------------
 	//
-	//  Overriden properties
+	//  Overridden properties
 	//
 	//--------------------------------------------------------------------------
 	
@@ -105,7 +105,7 @@ public class AlKhwarizmixLoginUserProxy extends AlKhwarizmixProxy
 	
 	//--------------------------------------------------------------------------
 	//
-	//  Overriden methods
+	//  Overridden methods
 	//
 	//--------------------------------------------------------------------------
 	

@@ -77,7 +77,7 @@ public class AlKhwarizmixCustomDataProxy extends AlKhwarizmixProxy
 	
 	//--------------------------------------------------------------------------
 	//
-	//  Overriden properties
+	//  Overridden properties
 	//
 	//--------------------------------------------------------------------------
 	
@@ -108,7 +108,7 @@ public class AlKhwarizmixCustomDataProxy extends AlKhwarizmixProxy
 	
 	//--------------------------------------------------------------------------
 	//
-	//  Overriden methods
+	//  Overridden methods
 	//
 	//--------------------------------------------------------------------------
 	

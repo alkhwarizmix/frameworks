@@ -88,7 +88,7 @@ public class AlKhwarizmixMenuBar extends MenuBar
 	
 	//--------------------------------------------------------------------------
 	//
-	//  Overriden properties
+	//  Overridden properties
 	//
 	//--------------------------------------------------------------------------
 	
@@ -150,7 +150,7 @@ public class AlKhwarizmixMenuBar extends MenuBar
 	}
 	//--------------------------------------------------------------------------
 	//
-	//  Overriden methods
+	//  Overridden methods
 	//
 	//--------------------------------------------------------------------------
 	

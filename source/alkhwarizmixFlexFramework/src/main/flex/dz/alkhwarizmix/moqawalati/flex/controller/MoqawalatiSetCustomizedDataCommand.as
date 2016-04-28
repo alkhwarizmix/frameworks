@@ -58,7 +58,7 @@ public class MoqawalatiSetCustomizedDataCommand extends MoqawalatiBlazeDSGetData
 	
 	//--------------------------------------------------------------------------
 	//
-	//  Overriden properties
+	//  Overridden properties
 	//
 	//--------------------------------------------------------------------------
 	
@@ -89,7 +89,7 @@ public class MoqawalatiSetCustomizedDataCommand extends MoqawalatiBlazeDSGetData
 	
 	//--------------------------------------------------------------------------
 	//
-	//  Overriden methods
+	//  Overridden methods
 	//
 	//--------------------------------------------------------------------------
 	

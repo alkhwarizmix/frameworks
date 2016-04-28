@@ -142,7 +142,7 @@ public class AlKhwarizmixCheckBox extends CheckBox
 	
 	//--------------------------------------------------------------------------
 	//
-	//  Overriden methods
+	//  Overridden methods
 	//
 	//--------------------------------------------------------------------------
 	

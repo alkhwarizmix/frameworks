@@ -57,7 +57,7 @@ public class WinrakLogoutCommand extends WinrakBlazeDSGetDataCommand
 	
 	//--------------------------------------------------------------------------
 	//
-	//  Overriden properties
+	//  Overridden properties
 	//
 	//--------------------------------------------------------------------------
 	

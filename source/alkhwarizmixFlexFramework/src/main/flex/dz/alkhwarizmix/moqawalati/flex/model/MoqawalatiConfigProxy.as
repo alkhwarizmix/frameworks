@@ -75,7 +75,7 @@ public class MoqawalatiConfigProxy extends MoqawalatiProxy
 	
 	//--------------------------------------------------------------------------
 	//
-	//  Overriden properties
+	//  Overridden properties
 	//
 	//--------------------------------------------------------------------------
 	
@@ -149,7 +149,7 @@ public class MoqawalatiConfigProxy extends MoqawalatiProxy
 	
 	//--------------------------------------------------------------------------
 	//
-	//  Overriden methods
+	//  Overridden methods
 	//
 	//--------------------------------------------------------------------------
 	

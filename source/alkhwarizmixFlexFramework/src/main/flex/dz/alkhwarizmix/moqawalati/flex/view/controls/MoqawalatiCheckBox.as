@@ -57,7 +57,7 @@ public class MoqawalatiCheckBox extends AlKhwarizmixCheckBox
 	
 	//--------------------------------------------------------------------------
 	//
-	//  Overriden properties
+	//  Overridden properties
 	//
 	//--------------------------------------------------------------------------
 	

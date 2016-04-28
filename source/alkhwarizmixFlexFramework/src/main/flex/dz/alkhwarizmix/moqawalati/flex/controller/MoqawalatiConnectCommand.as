@@ -57,7 +57,7 @@ public class MoqawalatiConnectCommand extends MoqawalatiBlazeDSGetDataCommand
 	
 	//--------------------------------------------------------------------------
 	//
-	//  Overriden properties
+	//  Overridden properties
 	//
 	//--------------------------------------------------------------------------
 	

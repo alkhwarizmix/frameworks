@@ -53,7 +53,7 @@ public class AlKhwarizmixGetRecordListCommand extends AlKhwarizmixBlazeDSGetData
 	
 	//--------------------------------------------------------------------------
 	//
-	//  Overriden properties
+	//  Overridden properties
 	//
 	//--------------------------------------------------------------------------
 	

@@ -57,7 +57,7 @@ public class MoqawalatiLabel extends AlKhwarizmixLabel
 	
 	//--------------------------------------------------------------------------
 	//
-	//  Overriden properties
+	//  Overridden properties
 	//
 	//--------------------------------------------------------------------------
 	

@@ -120,7 +120,7 @@ public class AlKhwarizmixComponentAS extends UIComponent
 	
 	//--------------------------------------------------------------------------
 	//
-	//  Overriden properties
+	//  Overridden properties
 	//
 	//--------------------------------------------------------------------------
 	
@@ -198,7 +198,7 @@ public class AlKhwarizmixComponentAS extends UIComponent
 	
 	//--------------------------------------------------------------------------
 	//
-	//  Overriden methods
+	//  Overridden methods
 	//
 	//--------------------------------------------------------------------------
 	

@@ -58,7 +58,7 @@ public class WinrakSetCustomizedDataCommand extends WinrakBlazeDSGetDataCommand
 	
 	//--------------------------------------------------------------------------
 	//
-	//  Overriden properties
+	//  Overridden properties
 	//
 	//--------------------------------------------------------------------------
 	
@@ -89,7 +89,7 @@ public class WinrakSetCustomizedDataCommand extends WinrakBlazeDSGetDataCommand
 	
 	//--------------------------------------------------------------------------
 	//
-	//  Overriden methods
+	//  Overridden methods
 	//
 	//--------------------------------------------------------------------------
 	

@@ -93,7 +93,7 @@ public class AlKhwarizmixMediator extends Mediator
 	
 	//--------------------------------------------------------------------------
 	//
-	//  Overriden methods
+	//  Overridden methods
 	//
 	//--------------------------------------------------------------------------
 	

@@ -57,7 +57,7 @@ public class MoqawalatiImage extends AlKhwarizmixImage
 	
 	//--------------------------------------------------------------------------
 	//
-	//  Overriden properties
+	//  Overridden properties
 	//
 	//--------------------------------------------------------------------------
 	

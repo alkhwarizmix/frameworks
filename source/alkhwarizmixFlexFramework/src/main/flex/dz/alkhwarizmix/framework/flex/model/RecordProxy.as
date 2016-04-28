@@ -58,7 +58,7 @@ public class RecordProxy extends AlKhwarizmixProxy
 	
 	//--------------------------------------------------------------------------
 	//
-	//  Overriden properties
+	//  Overridden properties
 	//
 	//--------------------------------------------------------------------------
 	
@@ -72,7 +72,7 @@ public class RecordProxy extends AlKhwarizmixProxy
 	
 	//--------------------------------------------------------------------------
 	//
-	//  Overriden methods
+	//  Overridden methods
 	//
 	//--------------------------------------------------------------------------
 	

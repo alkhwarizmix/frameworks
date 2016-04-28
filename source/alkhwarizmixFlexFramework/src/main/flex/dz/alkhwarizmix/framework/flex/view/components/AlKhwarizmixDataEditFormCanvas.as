@@ -79,7 +79,7 @@ public class AlKhwarizmixDataEditFormCanvas extends AlKhwarizmixCanvas
 	
 	//--------------------------------------------------------------------------
 	//
-	//  Overriden methods
+	//  Overridden methods
 	//
 	//--------------------------------------------------------------------------
 	

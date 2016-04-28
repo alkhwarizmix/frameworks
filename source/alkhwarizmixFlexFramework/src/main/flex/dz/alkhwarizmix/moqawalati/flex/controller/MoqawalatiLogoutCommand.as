@@ -57,7 +57,7 @@ public class MoqawalatiLogoutCommand extends MoqawalatiBlazeDSGetDataCommand
 	
 	//--------------------------------------------------------------------------
 	//
-	//  Overriden properties
+	//  Overridden properties
 	//
 	//--------------------------------------------------------------------------
 	

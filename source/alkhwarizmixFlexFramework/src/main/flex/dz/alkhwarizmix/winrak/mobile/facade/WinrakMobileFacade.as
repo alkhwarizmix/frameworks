@@ -61,7 +61,7 @@ public class WinrakMobileFacade extends WinrakFacade
 	
 	//--------------------------------------------------------------------------
 	//
-	//  Overriden methods
+	//  Overridden methods
 	//
 	//--------------------------------------------------------------------------
 	

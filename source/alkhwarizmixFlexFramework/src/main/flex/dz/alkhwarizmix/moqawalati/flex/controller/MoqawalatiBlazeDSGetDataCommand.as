@@ -51,7 +51,7 @@ public class MoqawalatiBlazeDSGetDataCommand extends AlKhwarizmixBlazeDSGetDataC
 	
 	//--------------------------------------------------------------------------
 	//
-	//  Overriden properties
+	//  Overridden properties
 	//
 	//--------------------------------------------------------------------------
 	

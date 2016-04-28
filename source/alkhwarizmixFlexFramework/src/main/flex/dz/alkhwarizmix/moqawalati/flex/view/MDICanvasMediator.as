@@ -119,7 +119,7 @@ public class MDICanvasMediator extends MoqawalatiMediator
 	
 	//--------------------------------------------------------------------------
 	//
-	//  Overriden methods
+	//  Overridden methods
 	//
 	//--------------------------------------------------------------------------
 	

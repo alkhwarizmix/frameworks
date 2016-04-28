@@ -57,7 +57,7 @@ public class MoqawalatiDataListCanvas extends AlKhwarizmixDataListCanvas
 	
 	//--------------------------------------------------------------------------
 	//
-	//  Overriden methods
+	//  Overridden methods
 	//
 	//--------------------------------------------------------------------------
 	

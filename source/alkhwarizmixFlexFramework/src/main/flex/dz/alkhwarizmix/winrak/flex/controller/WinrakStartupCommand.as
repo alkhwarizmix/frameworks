@@ -55,7 +55,7 @@ public class WinrakStartupCommand extends WinrakSimpleCommand
 	
 	//--------------------------------------------------------------------------
 	//
-	//  Overriden methods
+	//  Overridden methods
 	//
 	//--------------------------------------------------------------------------
 	

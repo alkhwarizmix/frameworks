@@ -108,7 +108,7 @@ public class AlKhwarizmixSimpleCommand extends SimpleCommand
 	
 	//--------------------------------------------------------------------------
 	//
-	//  Overriden methods
+	//  Overridden methods
 	//
 	//--------------------------------------------------------------------------
 	

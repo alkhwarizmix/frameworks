@@ -143,7 +143,7 @@ public class AlKhwarizmixTextInput extends TextInput
 	
 	//--------------------------------------------------------------------------
 	//
-	//  Overriden methods
+	//  Overridden methods
 	//
 	//--------------------------------------------------------------------------
 	

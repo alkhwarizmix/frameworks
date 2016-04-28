@@ -61,7 +61,7 @@ public class MoqawalatiFacade extends AlKhwarizmixFacade
 	
 	//--------------------------------------------------------------------------
 	//
-	//  Overriden methods
+	//  Overridden methods
 	//
 	//--------------------------------------------------------------------------
 	

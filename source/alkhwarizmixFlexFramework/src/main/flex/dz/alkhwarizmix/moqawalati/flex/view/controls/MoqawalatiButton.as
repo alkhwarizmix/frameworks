@@ -57,7 +57,7 @@ public class MoqawalatiButton extends AlKhwarizmixButton
 	
 	//--------------------------------------------------------------------------
 	//
-	//  Overriden properties
+	//  Overridden properties
 	//
 	//--------------------------------------------------------------------------
 	

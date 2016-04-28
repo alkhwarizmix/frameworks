@@ -100,7 +100,7 @@ public class MoqawalatiMediator extends AlKhwarizmixMediator
 	
 	//--------------------------------------------------------------------------
 	//
-	//  Overriden methods
+	//  Overridden methods
 	//
 	//--------------------------------------------------------------------------
 	

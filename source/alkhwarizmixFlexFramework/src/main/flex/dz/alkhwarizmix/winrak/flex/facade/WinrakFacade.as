@@ -62,7 +62,7 @@ public class WinrakFacade extends AlKhwarizmixFacade
 	
 	//--------------------------------------------------------------------------
 	//
-	//  Overriden methods
+	//  Overridden methods
 	//
 	//--------------------------------------------------------------------------
 	

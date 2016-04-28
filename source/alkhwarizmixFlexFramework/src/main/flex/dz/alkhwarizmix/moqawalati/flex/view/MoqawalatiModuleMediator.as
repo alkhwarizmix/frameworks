@@ -57,7 +57,7 @@ public class MoqawalatiModuleMediator extends MoqawalatiMediator
 	
 	//--------------------------------------------------------------------------
 	//
-	//  Overriden methods
+	//  Overridden methods
 	//
 	//--------------------------------------------------------------------------
 	

@@ -59,7 +59,7 @@ public class MoqawalatiCommitRecordListCommand extends MoqawalatiBlazeDSGetDataC
 	
 	//--------------------------------------------------------------------------
 	//
-	//  Overriden properties
+	//  Overridden properties
 	//
 	//--------------------------------------------------------------------------
 	

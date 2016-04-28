@@ -102,7 +102,7 @@ public class AlkhwarizmixDataListMediator extends AlKhwarizmixMediator
 	
 	//--------------------------------------------------------------------------
 	//
-	//  Overriden methods
+	//  Overridden methods
 	//
 	//--------------------------------------------------------------------------
 	

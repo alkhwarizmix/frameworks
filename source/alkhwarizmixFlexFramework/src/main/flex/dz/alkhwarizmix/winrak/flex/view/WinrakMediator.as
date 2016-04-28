@@ -100,7 +100,7 @@ public class WinrakMediator extends AlKhwarizmixMediator
 	
 	//--------------------------------------------------------------------------
 	//
-	//  Overriden methods
+	//  Overridden methods
 	//
 	//--------------------------------------------------------------------------
 	

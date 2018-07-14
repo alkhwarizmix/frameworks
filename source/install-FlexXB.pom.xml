@@ -66,7 +66,7 @@
 							<dz.alkhwarizmix.run-ant.filename>download.ant.build.xml</dz.alkhwarizmix.run-ant.filename>
 							<dz.alkhwarizmix.run-ant.version>1.9.3</dz.alkhwarizmix.run-ant.version>
 							<dz.alkhwarizmix.run-ant.target>download</dz.alkhwarizmix.run-ant.target>
-							<dz.alkhwarizmix.run-ant.param1>http://dz.alkhwarizmix.com/FlexXB-2_3_1-14042012-bin/bin/FlexXB.swc</dz.alkhwarizmix.run-ant.param1>
+							<dz.alkhwarizmix.run-ant.param1>https://s.ecu.re/swala7/FlexXB-2_3_1-14042012-bin/bin/FlexXB.swc</dz.alkhwarizmix.run-ant.param1>
 						</configuration>
 					</execution>
 				</executions>

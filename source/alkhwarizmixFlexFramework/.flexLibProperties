@@ -37,6 +37,15 @@
     <classEntry path="dz.alkhwarizmix.framework.flex.view.controls.AlKhwarizmixDataGrid"/>
     <classEntry path="dz.alkhwarizmix.framework.flex.view.controls.AlKhwarizmixLabel"/>
     <classEntry path="dz.alkhwarizmix.framework.flex.view.controls.AlKhwarizmixTextInput"/>
+    <classEntry path="dz.alkhwarizmix.framework.flex.dtos.security.model.vo.UserVO"/>
+    <classEntry path="dz.alkhwarizmix.framework.flex.dtos.security.model.vo.EncryptionVO"/>
+    <classEntry path="dz.alkhwarizmix.framework.flex.dtos.security.model.vo.GroupVO"/>
+    <classEntry path="dz.alkhwarizmix.framework.flex.dtos.security.model.vo.UserVOTestCase"/>
+    <classEntry path="dz.alkhwarizmix.moqawalati.flex.controller.MoqawalatiStartupCommand"/>
+    <classEntry path="dz.alkhwarizmix.moqawalati.flex.view.containers.MainControlBar"/>
+    <classEntry path="dz.alkhwarizmix.moqawalati.flex.controller.MoqawalatiStartupCommandTestCase"/>
+    <classEntry path="dz.alkhwarizmix.moqawalati.flex.view.MainControlBarTestCase"/>
+    <classEntry path="dz.alkhwarizmix.moqawalati.flex.view.MainControlBarMediatorTestCase"/>
   </includeClasses>
   <includeResources/>
   <namespaceManifests/>

@@ -25,7 +25,7 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<properties>
-		<dz.alkhwarizmix.common.version>1.4.11.FBEL</dz.alkhwarizmix.common.version>
+		<dz.alkhwarizmix.common.version>0.5.12.FBEL</dz.alkhwarizmix.common.version>
 		<dz.alkhwarizmix.moqawalati.version>1.7.15.FBEL</dz.alkhwarizmix.moqawalati.version>
 		
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -45,7 +45,7 @@
 
 	<groupId>dz.alkhwarizmix</groupId>
 	<artifactId>alkhwarizmix-common</artifactId>
-	<version>1.4.11.FBEL</version>
+	<version>0.5.12.FBEL</version>
 	<packaging>pom</packaging>
 
 	<name>Alkhwarizmix Maven</name>

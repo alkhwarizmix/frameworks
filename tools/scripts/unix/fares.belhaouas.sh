@@ -7,11 +7,9 @@
 #     if [ -f "$HOME/.bashrc" ]; then
 #         . "$HOME/.bashrc"
 #     fi
-#     # FBEL: DD MMM 2014
+#     # FBEL: DD MMM 2018
 #     source ./fares.belhaouas.sh
 # fi
-# ----- ----- ----- ----- ----- ----- ----- ----- ----- -----
-
 # ----- ----- ----- ----- ----- ----- ----- ----- ----- -----
 
 function fbel-help
@@ -20,7 +18,7 @@ echo
 echo "----- ----- ----- ----- ----- ----- ----- ----- ----- -----"
 echo
 echo "Fares Belhaouas functions"
-echo "Version 16 JAN 2016, 21:17"
+echo "Version 26 DEC 2018, 10:56"
 echo
 echo "Type fbel-help                             to print all functions"
 echo
@@ -34,14 +32,18 @@ echo "Type fbel-tail-apache2-sslaccess-log       to tail Apache2 sslaccess log"
 echo "Type fbel-tail-tomcat7-catalina-out        to tail Tomcat7 catalina out"
 echo 
 echo "Type fbel-install-101-basic                to install Ubuntu basic tools"
-echo "Type fbel-install-update                   to install Ubuntu updates"
+echo "Type fbel-install-update-security          to install Ubuntu security updates"
 echo "Type fbel-install-apache2                  to install Apache2"
-echo "Type fbel-install-jenkins                  to install Jenkins"
 echo "Type fbel-install-MySQL                    to install MySQL"
+echo "Type fbel-install-postgresql               to install PostgreSQL"
+echo "Type fbel-install-wordpress                to install Wordpress"
+
+echo "Type fbel-install-java8                    to install Java8"
+echo "Type fbel-install-jenkins                  to install Jenkins"
 echo "Type fbel-install-pgadmin3                 to install pgadmin3"
 echo "Type fbel-install-phpmyadmin               to install phpmyadmin"
 echo "Type fbel-install-phppgadmin               to install phppgadmin"
-echo "Type fbel-install-postgresql               to install PostgreSQL"
+echo "Type fbel-install-postfix                  to install Postfix"
 echo "Type fbel-install-subversion               to install Subversion"
 echo "Type fbel-install-tomcat7                  to install Tomcat7"
 echo
@@ -74,10 +76,12 @@ function fbel-backup-sudo
 
 function fbel-backup-server
 {
-  FILES="$FILES /home/ubuntu/.profile"
   FILES="$FILES /etc/apache2/workers.properties"
   FILES="$FILES /etc/apache2/sites-available/"
   FILES="$FILES /home/alkhwarizmix/"
+  FILES="$FILES /home/ubuntu/.profile"
+  FILES="$FILES /home/ubuntu/server-errors"
+  FILES="$FILES /var/log/"
   FILES="$FILES /var/www/"
   sudo zip -r ~/backups/`eval date +%Y-%m-%d_%H.%M.%S`.zip $FILES
 };
@@ -87,7 +91,6 @@ function fbel-backup-server
 function fbel-install-101-basic
 {
   sudo apt-get update
-  sudo apt-get upgrade
   sudo apt-get install console-data
   sudo apt-get install zip
   
@@ -95,6 +98,13 @@ function fbel-install-101-basic
   sudo apt-get install ntp
   sudo ntpdate ntp.ubuntu.com pool.ntp.org
   sudo apt-get install git
+  sudo apt-get install nfs-common
+  
+  sudo unattended-upgrades -d
+  
+  sudo mkdir /volumes/
+  sudo mkdir /elastic-fss/
+  fbel-backup-sudo /etc/fstab
   
   # sudo ufw enable
   # sudo ufw deny 22
@@ -105,10 +115,12 @@ function fbel-install-101-basic
 
 # ----- ----- ----- ----- ----- ----- ----- ----- ----- -----
 
-function fbel-install-update
+function fbel-install-update-security
 {
-  sudo apt-get update
-  sudo apt-get upgrade
+  # sudo apt-get update
+  # sudo apt-get upgrade
+  # sudo unattended-upgrades -d
+  sudo apt-get -s -f dist-upgrade | grep "^Inst" | grep -i securi | awk -F " " {'print $2'} | xargs sudo apt-get install
 };
 
 # ----- ----- ----- ----- ----- ----- ----- ----- ----- -----
@@ -124,15 +136,16 @@ function fbel-install-glances
 
 function fbel-install-apache2
 {
-  sudo apt-get upgrade
+  sudo apt-get update
   
-  sudo apt-get install apache2
-  sudo apt-get install php5
-  sudo apt-get install php5-curl
-  sudo apt-get install php5-cli
-  sudo apt-get install libapache2-mod-php5
-  sudo apt-get install apache2 libapache-mod-ssl
-  sudo apt-get install apache2 libapache-mod-security
+  sudo apt-get install apache2 apache2-utils
+  sudo apt-get install php
+  sudo apt-get install php-curl
+  sudo apt-get install php-cli
+  sudo apt-get install php-mysql
+  sudo apt-get install libapache2-mod-php
+  # sudo apt-get install apache2 libapache-mod-ssl
+  # sudo apt-get install apache2 libapache-mod-security
   sudo apt-get install libapache2-mod-authnz-external pwauth
   sudo apt-get install libapache2-mod-jk
   
@@ -145,6 +158,11 @@ function fbel-install-apache2
   sudo a2enmod rewrite
   
   sudo service apache2 restart
+  
+  # sudo systemctl enable apache2
+  # sudo systemctl start apache2
+  
+  sudo apt-get install mysql-client
 };
 
 # ----- ----- ----- ----- ----- ----- ----- ----- ----- -----
@@ -152,6 +170,23 @@ function fbel-install-apache2
 function fbel-tail-apache2-sslaccess-log
 {
   sudo tail -f -n 200 /var/log/apache2/ssl_access.log 
+}
+
+# ----- ----- ----- ----- ----- ----- ----- ----- ----- -----
+
+function fbel-install-wordpress
+{
+  sudo apt-get update
+  
+  TEMP=~/wordpress_`eval date +%Y-%m-%d_%H.%M.%S`;
+  mkdir $TEMP
+  cd $TEMP
+  wget -c http://wordpress.org/latest.tar.gz
+  tar -xzvf latest.tar.gz
+  
+  sudo rsync -av wordpress/* /var/www/html/wordpress
+  sudo chown -R www-data:www-data /var/www/html/wordpress
+  sudo chmod -R 755 /var/www/html/wordpress
 }
 
 # ----- ----- ----- ----- ----- ----- ----- ----- ----- -----
@@ -165,7 +200,7 @@ function fbel-tail-tomcat7-catalina-out
 
 function fbel-install-tomcat7
 {
-  sudo apt-get upgrade
+  sudo apt-get update
   
   sudo apt-get install tomcat7
   sudo apt-get install tomcat7-admin
@@ -267,15 +302,20 @@ function fbel-install-MySQL
 {
    echo "Installing MySQL"
    sudo apt-get update
-   sudo apt-get install mysql-server
-   sudo apt-get install php5-mysql
+   sudo apt-get install mysql-client mysql-server
+   sudo apt-get install php-mysql
    echo "----- ----- ----- ----- -----"
    echo "DO MANUALY!!!"
    echo
+   echo "USE: sudo mysql_secure_installation"
    echo "USE: mysql -u root -p"
    echo "USE: create database prototypes_db;"
-   echo "USE: grant usage on *.* to prototypes_user@localhost identified by 'password for prototypes_user' ;"
-   echo "USE: grant all privileges on prototypes_db.* to prototypes_user@localhost ;"
+   echo "USE: grant usage on *.* to prototypes_user@localhost identified by 'password for prototypes_user';"
+   echo "USE: grant all privileges on prototypes_db.* to prototypes_user@localhost;"
+   echo "USE: telnet localhost 3306"
+   echo "USE: sudo vi /etc/mysql/my.cnf"
+   echo "USE: # bind-address = 127.0.0.1"
+   echo "USE: mysql -h localhost -u prototypes_user -p"
    echo "----- ----- ----- ----- -----"   
 };
 
@@ -307,10 +347,28 @@ function fbel-install-postgresql
    echo "After installation is complete, change user to the PostgreSQL user:"
    echo "USE: sudo su - postgres"
    echo "USE: psql -d postgres -U postgres"
-   echo "USE: alter user postgres with password 'password for root'; ALTER ROLE"
+   echo "USE: alter user postgres with password 'password for root';"
    
    echo "USE: CREATE USER prototypes_user WITH PASSWORD 'password for prototypes_user';"
    echo "USE: CREATE DATABASE prototypes_db OWNER prototypes_user ENCODING='UTF8';"
+   echo "USE: psql -h localhost -U prototypes_user prototypes_db"
+   echo "----- ----- ----- ----- -----"   
+};
+
+# ----- ----- ----- ----- ----- ----- ----- ----- ----- -----
+
+function fbel-install-postfix
+{
+   echo "Installing Postfix"
+   sudo apt-get update
+
+   sudo apt-get install postfix
+   sudo apt-get install mailutils
+   sudo apt install dovecot-imapd dovecot-pop3d
+   
+   echo "----- ----- ----- ----- -----"   
+   echo "DO MANUALY!!!"
+   echo
    echo "----- ----- ----- ----- -----"   
 };
 
@@ -375,7 +433,7 @@ function fbel-ls-java-processes
 
 function fbel-backup-all-server-data
 {
-   local FILES_TO_BACKUP="/etc/apache2/sites-available
+   local FILES_TO_BACKUP="/etc/apache2
    /etc/default
    /home
    /var/log/apache2
@@ -402,5 +460,11 @@ function fbel-backup-all-server-data
       sudo mv $PROLOG*.zip $BACKUP_FOLDER
     done
 };
+
+# ----- ----- ----- ----- ----- ----- ----- ----- ----- -----
+
+# sudo apt-get -s -f dist-upgrade | grep "^Inst" | grep -i securi | awk -F " " {'print $2'}
+# sudo apt-get -s -f dist-upgrade | grep "^Inst" | grep -i securi | awk -F " " {'print $2'} | xargs sudo apt-get install
+# sudo du -hs /var/
 
 # ----- ----- ----- ----- ----- ----- ----- ----- ----- -----
